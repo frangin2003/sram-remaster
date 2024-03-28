@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdoq6xtniibw8"]
+
+[ext_resource type="Script" path="res://TextEdit.gd" id="1_raha7"]
+
+[node name="gui" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_top = 824.0
+offset_right = 1920.0
+offset_bottom = 952.0
+theme_override_font_sizes/font_size = 26
+placeholder_text = "Que faire ? "
+script = ExtResource("1_raha7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 128.0
+offset_right = 1024.0
+offset_bottom = 512.0
+color = Color(1, 0.45098, 1, 0)
+
+[node name="Output" type="Label" parent="."]
+offset_top = 952.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 3

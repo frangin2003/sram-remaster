@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid of Screenshots</title>
+<style>
+  body {
+    background-color: #121212;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif; /* Modern font addition */
+  }
+  table {
+    border-collapse: collapse;
+  }
+  td {
+    border: none;
+    padding: 0;
+  }
+  .image {
+    width: 150px;
+    height: 84px; /* 16:9 Aspect Ratio */
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  .image img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+  }
+  .green-border img {
+    border: 2px solid green;
+  }
+  .orange-border img {
+    border: 2px solid orange;
+  }
+  .line-vertical div {
+    width: 2px;
+    height: 50px; /* Adjust based on gap needed */
+    border-left: 2px solid white;
+    margin: 0 auto; /* Center the line */
+  }
+  .line-horizontal div {
+    height: 2px;
+    width: 50px; /* Adjust based on gap needed */
+    border-top: 2px solid white;
+    margin: auto; /* Center the line */
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+  }
+</style>
+</head>
+<body>
+<div class="overlay" id="overlay" onclick="hideOverlay()">
+  <img src="" alt="Full Size Image" id="fullSizeImage">
+</div>
+<table>
+  <tr>
+    <td class="image green-border" style="position: relative;" onmouseover="document.getElementById('overlay-div').style.display='flex'" onmouseout="document.getElementById('overlay-div').style.display='none'">
+      <img src="img/loup.png" alt="Loup" onclick="showOverlay(this.src)">
+      <div id="overlay-div" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center;">
+        <form>
+          <label style="display: block; background-color: rgba(0, 128, 0, 0.5);"><input type="checkbox" checked disabled> OG BG</label>
+          <label style="display: block; background-color: rgba(255, 165, 0, 0.5);"><input type="checkbox" disabled> NEW BG</label>
+        </form>
+      </div>
+    </td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image orange-border"><img src="img/panneaux.png" alt="Panneaux" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/ermit1.PNG" alt="Ermite" onclick="showOverlay(this.src)"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="image orange-border"><img src="img/vaisseau.PNG" alt="Riviere" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/cactus.PNG" alt="Montagne" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image orange-border"><img src="img/grotte.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/cascade.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image orange-border"><img src="img/arbre.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/lutin.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="image orange-border"><img src="img/oasis.PNG" alt="Riviere" onclick="showOverlay(this.src)"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="image green-border"><img src="img/riviere forte.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image orange-border"><img src="img/montagne.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/menhir.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image orange-border"><img src="img/pigeon.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/falaise.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="image green-border"><img src="img/soleil tape.PNG" alt="Riviere" onclick="showOverlay(this.src)"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="image orange-border"><img src="img/druides.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/sanglier.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image orange-border"><img src="img/pont.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/serpent mort.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+  </tr>
+  <tr>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td class="line-vertical"><div></div></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td class="image orange-border"><img src="img/centaure.PNG" alt="Riviere" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/river est.PNG" alt="Riviere" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image orange-border"><img src="img/tortue.PNG" alt="Riviere" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/river ouest.PNG" alt="Riviere" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image orange-border"><img src="img/marecages.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image green-border"><img src="img/nenuphar.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td class="line-horizontal"><div></div></td>
+    <td class="image orange-border"><img src="img/sables mouvants.PNG" alt="Vallee" onclick="showOverlay(this.src)"></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+</table>
+<script>
+  function showOverlay(src) {
+    document.getElementById('fullSizeImage').src = src;
+    document.getElementById('overlay').style.visibility = 'visible';
+  }
+  function hideOverlay() {
+    document.getElementById('overlay').style.visibility = 'hidden';
+  }
+</script>
+</body>
+</html>
+

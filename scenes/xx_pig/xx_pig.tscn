@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc0pmlgph3hw5"]
+
+[ext_resource type="Texture2D" uid="uid://dfctv8ovoomhg" path="res://scenes/xx_pig/pig.webp" id="1_cxd4h"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="2_ff7nl"]
+[ext_resource type="AudioStream" uid="uid://b6b2yalcpqeul" path="res://scenes/xx_pig/Android-Sock-Hop(chosic.com).mp3" id="3_f1jij"]
+
+[node name="xx_pig" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(959, 412)
+scale = Vector2(0.804687, 0.804688)
+texture = ExtResource("1_cxd4h")
+
+[node name="gui" parent="." instance=ExtResource("2_ff7nl")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f1jij")
+autoplay = true

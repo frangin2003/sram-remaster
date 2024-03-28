@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ckl02224nyhm8"
+path="res://.godot/imported/DALL·E 2024-03-21 23.01.23 - This scene zooms in further on the pigeon, making it appear closer to the camera to capture more detail and give a sense of immediacy. The pigeon, wit.webp-5902ffa37e47e8b3ba1e643ebd3b345b.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://wip/DALL·E 2024-03-21 23.01.23 - This scene zooms in further on the pigeon, making it appear closer to the camera to capture more detail and give a sense of immediacy. The pigeon, wit.webp"
+dest_files=["res://.godot/imported/DALL·E 2024-03-21 23.01.23 - This scene zooms in further on the pigeon, making it appear closer to the camera to capture more detail and give a sense of immediacy. The pigeon, wit.webp-5902ffa37e47e8b3ba1e643ebd3b345b.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

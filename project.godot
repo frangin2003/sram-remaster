@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="SRAM - REMAITRE"
-run/main_scene="res://title_screen.tscn"
+config/name="SRAM - REMASTER"
+run/main_scene="res://scenes/00_title_screen/00_title_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://global/Global.gd"
+LlmServer="*res://global/LlmServer.gd"
 
 [display]
 

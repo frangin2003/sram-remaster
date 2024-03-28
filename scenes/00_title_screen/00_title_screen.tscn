@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://bu3l0mvxtm7ho"]
+
+[ext_resource type="Script" path="res://scenes/00_title_screen/start_game_button.gd" id="1_cixfo"]
+[ext_resource type="VideoStream" path="res://scenes/00_title_screen/title_with_animated_river2.ogv" id="2_6jhlw"]
+[ext_resource type="AudioStream" uid="uid://ccm0gq0bi22or" path="res://scenes/00_title_screen/A-Time-Forgotten-MP3(chosic.com).mp3" id="3_k33cy"]
+[ext_resource type="Texture2D" uid="uid://bkgqmwdpnjjxb" path="res://scenes/00_title_screen/firefly.png" id="4_60pkf"]
+
+[sub_resource type="Gradient" id="Gradient_jo6a6"]
+offsets = PackedFloat32Array(0, 0.142105, 0.871053, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jy50q"]
+gradient = SubResource("Gradient_jo6a6")
+
+[sub_resource type="Curve" id="Curve_f1443"]
+_data = [Vector2(0.453431, 0.374299), 0.0, 0.0, 0, 0, Vector2(0.848039, 0.993925), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0deyf"]
+curve = SubResource("Curve_f1443")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qy8ni"]
+lifetime_randomness = 0.38
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(1100, 150, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1000, 150, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_0deyf")
+color_ramp = SubResource("GradientTexture1D_jy50q")
+turbulence_enabled = true
+turbulence_noise_strength = 5.05
+
+[node name="00_title_screen" type="Node2D"]
+
+[node name="start_game_button" type="Button" parent="."]
+offset_left = 656.0
+offset_top = 608.0
+offset_right = 1328.0
+offset_bottom = 720.0
+theme_override_colors/font_color = Color(0.988235, 0.941176, 0.54902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "PRESS ANY KEY"
+flat = true
+script = ExtResource("1_cixfo")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -24.0
+offset_right = 1944.0
+offset_bottom = 1088.0
+stream = ExtResource("2_6jhlw")
+autoplay = true
+expand = true
+loop = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k33cy")
+autoplay = true
+
+[node name="Fireflies" type="GPUParticles2D" parent="."]
+position = Vector2(0, 712)
+scale = Vector2(0.896326, 0.990925)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_qy8ni")
+texture = ExtResource("4_60pkf")
+lifetime = 10.0
+preprocess = 5.0
+randomness = 1.0
+visibility_rect = Rect2(0, 0, 2200, 400)
+
+[connection signal="pressed" from="start_game_button" to="start_game_button" method="_on_pressed"]
