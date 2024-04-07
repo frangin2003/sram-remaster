@@ -1,8 +1,8 @@
 extends Node
 
 var llm_inputs = []
-var llm_outputs = []
-signal llm_output_added(new_output)
+var llm_chunks = []
+signal llm_chunk(chunk)
 
 var socket = WebSocketPeer.new()
 
@@ -16,10 +16,10 @@ func _process(delta):
 	if state == WebSocketPeer.STATE_OPEN:
 		var new_output = ''
 		while socket.get_available_packet_count():
-			var output = socket.get_packet().get_string_from_utf8()
-			print("Packet: ", output)
-			new_output += output
-		add_llm_output(new_output)
+			var chunk = socket.get_packet().get_string_from_utf8()
+			print("Chunk: ", chunk)
+			llm_chunks.append(chunk)
+			emit_signal("llm_chunk", chunk)
 				
 	elif state == WebSocketPeer.STATE_CLOSING:
 		# Keep polling to achieve proper close.
@@ -29,11 +29,6 @@ func _process(delta):
 		var reason = socket.get_close_reason()
 		print("WebSocket closed with code: %d, reason %s. Clean: %s" % [code, reason, code != -1])
 		set_process(false) # Stop processing.
-
-func add_llm_output(new_output):
-	if new_output.strip_edges() != "":
-		llm_outputs.append(new_output)
-		emit_signal("llm_output_added", new_output)
 
 # Override _gui_input instead of _input for GUI elements like TextEdit.
 func send_text(system_message, user_message):

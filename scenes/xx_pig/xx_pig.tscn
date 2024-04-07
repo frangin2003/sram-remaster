@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc0pmlgph3hw5"]
+[gd_scene load_steps=5 format=3 uid="uid://cc0pmlgph3hw5"]
 
 [ext_resource type="Texture2D" uid="uid://dfctv8ovoomhg" path="res://scenes/xx_pig/pig.webp" id="1_cxd4h"]
+[ext_resource type="Script" path="res://scenes/xx_pig/xx_pig.gd" id="1_iujrr"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="2_ff7nl"]
 [ext_resource type="AudioStream" uid="uid://b6b2yalcpqeul" path="res://scenes/xx_pig/Android-Sock-Hop(chosic.com).mp3" id="3_f1jij"]
 
 [node name="xx_pig" type="Node2D"]
+script = ExtResource("1_iujrr")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(959, 412)
