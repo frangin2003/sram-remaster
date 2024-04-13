@@ -1,26 +1,128 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=12 format=3 uid="uid://cdoq6xtniibw8"]
 
-[ext_resource type="Script" path="res://scenes/gui/TextEdit.gd" id="1_raha7"]
+[ext_resource type="Script" path="res://scenes/gui/HeroTextEdit.gd" id="1_8xywo"]
+[ext_resource type="Texture2D" uid="uid://ex077uocw0ga" path="res://scenes/gui/record_button.png" id="2_wjl6o"]
+[ext_resource type="Script" path="res://scenes/gui/RecordVoiceButton.gd" id="3_ll062"]
+[ext_resource type="Shader" path="res://scenes/gui/loading.gdshader" id="4_b3d34"]
+[ext_resource type="VideoStream" path="res://scenes/gui/loading.ogv" id="4_umbj2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgh6u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+skew = Vector2(100, 100)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3alo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_embtt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qyap"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6xl3"]
+shader = ExtResource("4_b3d34")
+shader_parameter/key_color = Vector4(0, 0, 0, 1)
+shader_parameter/threshold = 0.1
 
 [node name="gui" type="Node2D"]
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="HeroTextEdit" type="TextEdit" parent="."]
+z_index = 1
 offset_top = 824.0
-offset_right = 1920.0
+offset_right = 1781.0
 offset_bottom = 952.0
 theme_override_font_sizes/font_size = 26
 placeholder_text = "Que faire ? "
-script = ExtResource("1_raha7")
+script = ExtResource("1_8xywo")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 128.0
-offset_right = 1024.0
-offset_bottom = 512.0
-color = Color(1, 0.45098, 1, 0)
-
-[node name="Output" type="Label" parent="."]
+[node name="GameMasterColorRect" type="ColorRect" parent="."]
+z_index = 1
 offset_top = 952.0
 offset_right = 1920.0
 offset_bottom = 1080.0
+color = Color(0, 0.145098, 0.164706, 1)
+
+[node name="GameMasterOutput" type="Label" parent="GameMasterColorRect"]
+z_index = 1
+layout_mode = 0
+offset_left = -128.0
+offset_top = 952.0
+offset_right = 1792.0
+offset_bottom = 1080.0
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 3
+
+[node name="InventoryLeftColorRect" type="ColorRect" parent="."]
+z_index = 1
+offset_top = 187.0
+offset_right = 187.0
+offset_bottom = 824.0
+color = Color(0, 0.145098, 0.164706, 1)
+
+[node name="CompassLeftColorRect" type="ColorRect" parent="."]
+z_index = 1
+offset_right = 187.0
+offset_bottom = 187.0
+color = Color(0, 0.298039, 0.329412, 1)
+
+[node name="InventoryRightColorRect" type="ColorRect" parent="."]
+z_index = 1
+offset_left = 1733.0
+offset_top = 187.0
+offset_right = 1920.0
+offset_bottom = 824.0
+color = Color(0, 0.145098, 0.164706, 1)
+
+[node name="ERELogoRightColorRect" type="ColorRect" parent="."]
+z_index = 1
+offset_left = 1733.0
+offset_right = 1920.0
+offset_bottom = 187.0
+color = Color(0, 0.298039, 0.329412, 1)
+
+[node name="RecordVoiceButton" type="Button" parent="."]
+z_index = 1
+offset_left = 1787.0
+offset_top = 824.0
+offset_right = 1916.0
+offset_bottom = 952.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_v0ddl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgh6u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i3alo")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_embtt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3qyap")
+icon = ExtResource("2_wjl6o")
+expand_icon = true
+script = ExtResource("3_ll062")
+
+[node name="LoadingSubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1715.0
+offset_top = 820.0
+offset_right = 3715.0
+offset_bottom = 2820.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.12, 0.12)
+stretch = true
+
+[node name="LoadingSubViewport" type="SubViewport" parent="LoadingSubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(2000, 2000)
+render_target_update_mode = 4
+
+[node name="LoadingVideoStreamPlayer" type="VideoStreamPlayer" parent="LoadingSubViewportContainer/LoadingSubViewport"]
+material = SubResource("ShaderMaterial_v6xl3")
+clip_contents = true
+offset_left = -255.0
+offset_top = -189.0
+offset_right = -71.0
+offset_bottom = -14.0
+stream = ExtResource("4_umbj2")
+autoplay = true
+loop = true

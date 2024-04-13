@@ -8,13 +8,21 @@
 [node name="xx_pig" type="Node2D"]
 script = ExtResource("1_iujrr")
 
-[node name="background" type="Sprite2D" parent="."]
-position = Vector2(959, 412)
-scale = Vector2(0.804687, 0.804688)
-texture = ExtResource("1_cxd4h")
-
 [node name="gui" parent="." instance=ExtResource("2_ff7nl")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_f1jij")
 autoplay = true
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 187.0
+offset_right = 1733.0
+offset_bottom = 824.0
+
+[node name="background" type="Sprite2D" parent="Control"]
+position = Vector2(773, 416.5)
+scale = Vector2(0.862723, 0.862305)
+texture = ExtResource("1_cxd4h")
