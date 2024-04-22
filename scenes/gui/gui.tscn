@@ -48,10 +48,8 @@ color = Color(0, 0.145098, 0.164706, 1)
 [node name="GameMasterOutput" type="Label" parent="GameMasterColorRect"]
 z_index = 1
 layout_mode = 0
-offset_left = -128.0
-offset_top = 952.0
-offset_right = 1792.0
-offset_bottom = 1080.0
+offset_right = 1920.0
+offset_bottom = 128.0
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 3
 

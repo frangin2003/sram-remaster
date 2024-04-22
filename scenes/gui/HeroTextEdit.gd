@@ -31,6 +31,6 @@ func _gui_input(event):
 			get_node("../RecordVoiceButton").visible = false
 			clear()
 			gameMasterOutput.text = ""
-			LlmServer.send_text(system_message, user_message)
+			LlmServer.send_system_and_user_prompt(system_message, user_message)
 			get_viewport().set_input_as_handled()
 			
