@@ -1,6 +1,10 @@
 extends TextEdit
 
 var gameMasterOutput
+var BEGIN_OF_TEXT_TAG = "<|begin_of_text|>"
+var END_OF_TEXT_TAG = "<|end_of_text|>"
+var COMMAND_TAG = "<|command|>"
+var command = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,11 +16,15 @@ func _process(delta):
 	pass
 
 func llm_chunk(chunk):
-	if (chunk == "<|im_end|>"):
+	if (chunk == END_OF_TEXT_TAG):
 		get_node("../RecordVoiceButton").visible = true
-	if (chunk != "<|im_start|>" and chunk != "<|im_end|>"):
+	if (chunk != BEGIN_OF_TEXT_TAG
+		and chunk != END_OF_TEXT_TAG
+		and !chunk.begins_with(COMMAND_TAG)):
 		gameMasterOutput.text += chunk
-	if "Not very polite" in gameMasterOutput.text :
+	if (chunk.begins_with(COMMAND_TAG)):
+		command = chunk.substr(COMMAND_TAG.length(), chunk.length() - COMMAND_TAG.length())
+	if command == "PIG_TIME":
 		get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
 	if "Ok, you are forgiven." in gameMasterOutput.text :
 		get_tree().change_scene_to_file("res://scenes/" + Global.SCENE + "/" + Global.SCENE + ".tscn")
@@ -31,6 +39,7 @@ func _gui_input(event):
 			get_node("../RecordVoiceButton").visible = false
 			clear()
 			gameMasterOutput.text = ""
+			command = ""
 			LlmServer.send_system_and_user_prompt(system_message, user_message)
 			get_viewport().set_input_as_handled()
 			
