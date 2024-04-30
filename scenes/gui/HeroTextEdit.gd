@@ -45,6 +45,6 @@ func _gui_input(event):
 			gameMasterOutput.text = ""
 			output = ""
 			command = ""
-			LlmServer.send_system_and_user_prompt(system_message, user_message)
+			LlmServer.send_to_llm_server(system_message, user_message)
 			get_viewport().set_input_as_handled()
 			

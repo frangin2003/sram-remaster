@@ -25,7 +25,7 @@ func _process(_delta):
 		print("WebSocket closed with code: %d, reason %s. Clean: %s" % [code, reason, code != -1])
 		set_process(false) # Stop processing.
 
-func create_message(role, prompt, image_url=null, with_speech: bool=false):
+func create_message(role, prompt, with_speech: bool=false, image_url=null):
 	var message_dict = {}
 	if (not with_speech or image_url == null):
 		message_dict = {"role": role, "content": prompt}
@@ -51,17 +51,15 @@ func create_message(role, prompt, image_url=null, with_speech: bool=false):
 			})
 		
 		message_dict = {"role": role, "content": content_array}
-	
-	Global.add_to_memory(message_dict)
 	return message_dict
 
 func create_assistant_message(output):
 	create_message("assistant", output)
 
-func send_to_llm_server(system_prompt: String, user_prompt: String, image_url: String, with_speech: bool) -> void:
+func send_to_llm_server(system_prompt: String, user_prompt: String, with_speech: bool=false, image_url=null) -> void:
 	if socket.get_ready_state() == WebSocketPeer.STATE_OPEN:
 		var messages_array = [create_message("system", system_prompt)]
-		Global.LLM_INPUT_ARRAY.append(create_message("user", user_prompt, image_url, with_speech))
+		Global.add_to_memory(create_message("user", user_prompt, with_speech, image_url))
 		messages_array.append_array(Global.LLM_INPUT_ARRAY)
 		socket.send_text(JSON.stringify({"messages": messages_array}))
 	else:
