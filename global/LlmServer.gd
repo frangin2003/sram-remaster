@@ -1,7 +1,5 @@
 extends Node
 
-var llm_inputs = []
-var llm_chunks = []
 signal llm_chunk(chunk)
 
 var socket = WebSocketPeer.new()
@@ -16,7 +14,6 @@ func _process(_delta):
 		while socket.get_available_packet_count():
 			var chunk = socket.get_packet().get_string_from_utf8()
 			print("Chunk: ", chunk)
-			llm_chunks.append(chunk)
 			emit_signal("llm_chunk", chunk)
 				
 	elif state == WebSocketPeer.STATE_CLOSING:
@@ -28,75 +25,44 @@ func _process(_delta):
 		print("WebSocket closed with code: %d, reason %s. Clean: %s" % [code, reason, code != -1])
 		set_process(false) # Stop processing.
 
-func get_json_text(system_message, user_message, audio_file_path = ""):
-	var message_dict = {"system": system_message, "user": user_message, "audio_file_path": audio_file_path}
-	llm_inputs.append(message_dict)
-	return JSON.stringify(message_dict)
+func create_message(role, prompt, image_url=null, with_speech: bool=false):
+	var message_dict = {}
+	if (not with_speech or image_url == null):
+		message_dict = {"role": role, "content": prompt}
+	else:
+		var content_array = []
+		
+		if (prompt != null):
+			content_array.append({
+				"type": "text",
+				"text": prompt
+			})
+		
+		if (with_speech):
+			content_array.append({
+				"type": "speech_url",
+				"speech_url": {"url": Global.RECORDED_AUDIO_URL}
+			})
+		
+		if (image_url != null):
+			content_array.append({
+				"type": "image_url",
+				"image_url": {"url": image_url}
+			})
+		
+		message_dict = {"role": role, "content": content_array}
+	
+	Global.add_to_memory(message_dict)
+	return message_dict
 
-# Override _gui_input instead of _input for GUI elements like TextEdit.
-#func send_text(system_message, user_message):
-	#socket.send_text(get_json_text(system_message, user_message))
+func create_assistant_message(output):
+	create_message("assistant", output)
 
-# Not working for the moment, using file on disk
-func send_audio(system_message, user_message, audio_file_path):
-	socket.send_text(get_json_text(system_message, user_message, audio_file_path))
-#func send_audio(system_message, user_message, audio_bytes):
-	#send_text(system_message, "")
-	#data_socket.send(audio_bytes)
-
-func send_text(content: Dictionary) -> void:
+func send_to_llm_server(system_prompt: String, user_prompt: String, image_url: String, with_speech: bool) -> void:
 	if socket.get_ready_state() == WebSocketPeer.STATE_OPEN:
-		socket.send_text(JSON.stringify(content))
+		var messages_array = [create_message("system", system_prompt)]
+		Global.LLM_INPUT_ARRAY.append(create_message("user", user_prompt, image_url, with_speech))
+		messages_array.append_array(Global.LLM_INPUT_ARRAY)
+		socket.send_text(JSON.stringify({"messages": messages_array}))
 	else:
 		print("WebSocket is not connected.")
-
-# Convert ArrayBytes to Base64
-func bytearray_to_base64(bytearray: PackedByteArray) -> String:
-	return Marshalls.utf8_to_base64(bytearray.get_string_from_utf8())
-
-# Different use cases for sending messages
-func send_system_and_user_prompt(system_prompt: String, user_prompt: String) -> void:
-	var message = {
-		"messages": [
-			{"role": "system", "content": system_prompt},
-			{"role": "user", "content": [{"type": "text", "text": user_prompt}]}
-		]
-	}
-	send_text(message)
-
-func send_system_and_voice_prompt(system_prompt: String, voice_data: PackedByteArray) -> void:
-	var base64_voice = bytearray_to_base64(voice_data)
-	var message = {
-		"messages": [
-			{"role": "system", "content": system_prompt},
-			{"role": "user", "content": [{"type": "voice", "voice": {"data": base64_voice}}]}
-		]
-	}
-	send_text(message)
-
-func send_system_and_images_and_user_prompt(system_prompt: String, user_prompt: String, image_data_array: Array) -> void:
-	var image_content = []
-	for data in image_data_array:
-		var base64_image = bytearray_to_base64(data)
-		image_content.append({"type": "image", "image": {"data": base64_image}})
-	var message = {
-		"messages": [
-			{"role": "system", "content": system_prompt},
-			{"role": "user", "content": [{"type": "text", "text": user_prompt}] + image_content}
-		]
-	}
-	send_text(message)
-
-func send_system_and_images_and_voice_prompt(system_prompt: String, voice_data: PackedByteArray, image_data_array: Array) -> void:
-	var base64_voice = bytearray_to_base64(voice_data)
-	var image_content = []
-	for data in image_data_array:
-		var base64_image = bytearray_to_base64(data)
-		image_content.append({"type": "image", "image": {"data": base64_image}})
-	var message = {
-		"messages": [
-			{"role": "system", "content": system_prompt},
-			{"role": "user", "content": [{"type": "voice", "voice": {"data": base64_voice}}] + image_content}
-		]
-	}
-	send_text(message)

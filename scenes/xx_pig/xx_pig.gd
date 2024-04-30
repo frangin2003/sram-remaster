@@ -5,7 +5,7 @@ extends Node2D
 func _ready():
 	pass
 	get_node("gui/GameMasterColorRect/GameMasterOutput").text = "You need to be more polite buddy. Here is a picture of you from last summer"
-	Global.INSTRUCTIONS = """You are acting as the game master (gm) of an epic adventure.
+	Global.SYSTEM = """You are acting as the game master (gm) of an epic adventure.
 # Scene
 The hero has been impolite and is lock in a room as a punishment, facing a picture of him as a dirty pig 
 # Actions

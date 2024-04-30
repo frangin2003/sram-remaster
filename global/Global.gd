@@ -22,6 +22,6 @@ var INVENTORY = {
 	"centaur_hoof": false,
 }
 
-var INSTRUCTIONS = ""
+var SYSTEM = ""
 
 var SCENE = ""

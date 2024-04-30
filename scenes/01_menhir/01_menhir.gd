@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.SCENE = "01_menhir"
-	Global.INSTRUCTIONS = """You are acting as the game master (gm) of an epic adventure.
+	Global.SYSTEM = """You are acting as the game master (gm) of an epic adventure.
 You always respond using JSON using that template:
 ```{"_text_":"Your response as the interaction with the user input",
 "_command_":"A COMMAND FOR THE GAME PROGRAM"}```
