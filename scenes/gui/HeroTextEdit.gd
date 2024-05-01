@@ -20,7 +20,7 @@ func llm_chunk(chunk):
 	output += chunk
 	if (chunk == END_OF_TEXT_TAG):
 		get_node("../RecordVoiceButton").visible = true
-		LlmServer.create_assistant_message(output)
+		Global.add_to_memory(LlmServer.create_assistant_message(output))
 	if (chunk != BEGIN_OF_TEXT_TAG
 		and chunk != END_OF_TEXT_TAG
 		and !chunk.begins_with(COMMAND_TAG)):

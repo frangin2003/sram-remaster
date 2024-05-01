@@ -54,7 +54,7 @@ func create_message(role, prompt, with_speech: bool=false, image_url=null):
 	return message_dict
 
 func create_assistant_message(output):
-	create_message("assistant", output)
+	return create_message("assistant", output)
 
 func send_to_llm_server(system_prompt: String, user_prompt: String, with_speech: bool=false, image_url=null) -> void:
 	if socket.get_ready_state() == WebSocketPeer.STATE_OPEN:
