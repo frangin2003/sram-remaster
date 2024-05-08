@@ -12,7 +12,7 @@ script = ExtResource("1_iujrr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_f1jij")
-autoplay = true
+volume_db = -16.0
 
 [node name="Control" type="Control" parent="."]
 clip_contents = true

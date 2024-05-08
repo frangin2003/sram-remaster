@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=15 format=3 uid="uid://cdoq6xtniibw8"]
 
 [ext_resource type="Script" path="res://scenes/gui/HeroTextEdit.gd" id="1_8xywo"]
 [ext_resource type="Texture2D" uid="uid://ex077uocw0ga" path="res://scenes/gui/record_button.png" id="2_wjl6o"]
 [ext_resource type="Script" path="res://scenes/gui/RecordVoiceButton.gd" id="3_ll062"]
 [ext_resource type="Shader" path="res://scenes/gui/loading.gdshader" id="4_b3d34"]
+[ext_resource type="Script" path="res://scenes/gui/LoadingSubViewportContainer.gd" id="4_jy41m"]
 [ext_resource type="VideoStream" path="res://scenes/gui/loading.ogv" id="4_umbj2"]
+[ext_resource type="Script" path="res://scenes/gui/AudioInput.gd" id="6_o6bsm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -26,6 +28,8 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 shader = ExtResource("4_b3d34")
 shader_parameter/key_color = Vector4(0, 0, 0, 1)
 shader_parameter/threshold = 0.1
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_o7xl2"]
 
 [node name="gui" type="Node2D"]
 
@@ -108,6 +112,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.12, 0.12)
 stretch = true
+script = ExtResource("4_jy41m")
 
 [node name="LoadingSubViewport" type="SubViewport" parent="LoadingSubViewportContainer"]
 handle_input_locally = false
@@ -124,3 +129,15 @@ offset_bottom = -14.0
 stream = ExtResource("4_umbj2")
 autoplay = true
 loop = true
+
+[node name="AudioInput" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_o7xl2")
+autoplay = true
+bus = &"Record"
+script = ExtResource("6_o6bsm")
+
+[connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
+[connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]
+[connection signal="mouse_entered" from="RecordVoiceButton" to="RecordVoiceButton" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="RecordVoiceButton" to="RecordVoiceButton" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="RecordVoiceButton" to="RecordVoiceButton" method="_on_Button_pressed"]

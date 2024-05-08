@@ -15,6 +15,10 @@ run/main_scene="res://scenes/00_title_screen/00_title_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+driver/enable_input=true
+
 [autoload]
 
 Global="*res://global/Global.gd"
