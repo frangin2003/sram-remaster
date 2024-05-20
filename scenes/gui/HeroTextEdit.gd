@@ -9,7 +9,7 @@ var COMMAND_TAG = "<|command|>"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	LlmServer.connect("llm_chunk", llm_chunk)
-	gameMasterOutput = get_node("../GameMasterColorRect/GameMasterOutput")
+	gameMasterOutput = get_node("../GameMasterBackground/GameMasterOutput")
 	grab_focus()
 
 func _process(delta):
@@ -19,7 +19,6 @@ func llm_chunk(chunk):
 	Global.OUTPUT += chunk
 	if (chunk == END_OF_TEXT_TAG):
 		get_node("../RecordVoiceButton").visible = true
-		get_node("../LoadingSubViewportContainer").visible = false
 		Global.add_to_memory(LlmServer.create_assistant_message(Global.OUTPUT))
 	if (chunk != BEGIN_OF_TEXT_TAG
 		and chunk != END_OF_TEXT_TAG
@@ -42,8 +41,6 @@ func _gui_input(event):
 		var key_event = event as InputEventKey
 		if key_event.pressed and key_event.keycode == KEY_ENTER:
 			var user_message = text # Get the text from the TextEdit
-			get_node("../LoadingSubViewportContainer").visible = true
-			get_node("../RecordVoiceButton").visible = false
 			clear()
 			gameMasterOutput.text = ""
 			LlmServer.send_to_llm_server(Global.SYSTEM, user_message)

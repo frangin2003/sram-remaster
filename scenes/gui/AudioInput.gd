@@ -11,7 +11,7 @@ var gameMasterOutput
 func _ready():
 	var idx = AudioServer.get_bus_index("Record")
 	effect = AudioServer.get_bus_effect(idx, 0)
-	gameMasterOutput = get_node("../GameMasterColorRect/GameMasterOutput")
+	gameMasterOutput = get_node("../GameMasterBackground/GameMasterOutput")
 
 func _on_record_voice_button_audio_recording_started():
 	if !effect.is_recording_active():
@@ -30,7 +30,6 @@ func _on_record_voice_button_audio_recording_stopped():
 		recording.save_to_wav(Global.RECORDED_AUDIO_URL)
 		print("Audio saved to: ", Global.RECORDED_AUDIO_URL)
 
-		get_node("../LoadingSubViewportContainer").visible = true
-		get_node("../RecordVoiceButton").visible = false
+		get_node("../RecordVoiceButton").visible = true
 		gameMasterOutput.text = ""
 		LlmServer.send_to_llm_server(Global.SYSTEM, "", true)
