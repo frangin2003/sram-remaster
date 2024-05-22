@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=20 format=3 uid="uid://cdoq6xtniibw8"]
 
 [ext_resource type="Script" path="res://scenes/gui/HeroTextEdit.gd" id="1_8xywo"]
 [ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://assets/left column.png" id="1_pvayr"]
@@ -8,6 +8,11 @@
 [ext_resource type="Script" path="res://scenes/gui/RecordVoiceButton.gd" id="3_ll062"]
 [ext_resource type="Texture2D" uid="uid://ij8bb65jyhcp" path="res://assets/text input.png" id="4_l36ue"]
 [ext_resource type="Script" path="res://scenes/gui/AudioInput.gd" id="6_o6bsm"]
+[ext_resource type="Script" path="res://scenes/gui/Compass.gd" id="9_8n67r"]
+[ext_resource type="Texture2D" uid="uid://b8haovwf0la4d" path="res://assets/North.png" id="9_d3gxr"]
+[ext_resource type="Texture2D" uid="uid://ccimu2xe3055t" path="res://assets/East.png" id="10_tqntw"]
+[ext_resource type="Texture2D" uid="uid://cnvy2smlx2fgb" path="res://assets/South.png" id="11_xq4e5"]
+[ext_resource type="Texture2D" uid="uid://dv8gb5rsx58wj" path="res://assets/West.png" id="12_c82p5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -54,10 +59,10 @@ texture = ExtResource("3_aja86")
 
 [node name="GameMasterOutput" type="Label" parent="GameMasterBackground"]
 z_index = 1
-offset_left = -864.0
-offset_top = 72.0
-offset_right = 1056.0
-offset_bottom = 200.0
+offset_left = -959.0
+offset_top = 6.0
+offset_right = 961.0
+offset_bottom = 134.0
 theme_override_font_sizes/font_size = 24
 autowrap_mode = 3
 
@@ -95,6 +100,26 @@ stream = SubResource("AudioStreamMicrophone_o7xl2")
 autoplay = true
 bus = &"Record"
 script = ExtResource("6_o6bsm")
+
+[node name="Compass" type="Node2D" parent="."]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("9_8n67r")
+
+[node name="North" type="Sprite2D" parent="Compass"]
+position = Vector2(380, 132)
+texture = ExtResource("9_d3gxr")
+
+[node name="East" type="Sprite2D" parent="Compass"]
+position = Vector2(584, 344)
+texture = ExtResource("10_tqntw")
+
+[node name="South" type="Sprite2D" parent="Compass"]
+position = Vector2(380, 560)
+texture = ExtResource("11_xq4e5")
+
+[node name="West" type="Sprite2D" parent="Compass"]
+position = Vector2(172, 352)
+texture = ExtResource("12_c82p5")
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]

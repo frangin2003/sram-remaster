@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://pf622a1xvbmx"]
+
+[node name="transition_screen" type="Node2D"]
