@@ -26,12 +26,12 @@ func llm_chunk(chunk):
 		gameMasterOutput.text += chunk
 	if (chunk.begins_with(COMMAND_TAG)):
 		Global.COMMAND = chunk.substr(COMMAND_TAG.length(), chunk.length() - COMMAND_TAG.length())
-	if Global.COMMAND.to_upper().find("PIG_TIME") != -1:
-		print("PIG_TIME")
+	if Global.COMMAND.to_lower().find("pig time") != -1:
+		print("Pig time!")
 		Global.COMMAND = ""
 		get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
-	if Global.COMMAND.to_upper().find("OUT_OF_PIG") != -1:
-		print("OUT_OF_PIG")
+	if Global.COMMAND.to_upper().find("out of pig") != -1:
+		print("Out of pig!")
 		Global.COMMAND = ""
 		get_tree().change_scene_to_file("res://scenes/" + Global.SCENE + "/" + Global.SCENE + ".tscn")
 
