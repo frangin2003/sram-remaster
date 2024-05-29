@@ -1,9 +1,9 @@
 extends Node
 var COMPASS = {
-	"north": true,
-	"east": true,
-	"south": true,
-	"west": true
+	"north": null,
+	"east": null,
+	"south": null,
+	"west": null
 }
 
 var INVENTORY = {

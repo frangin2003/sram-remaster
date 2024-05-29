@@ -8,7 +8,7 @@ func _ready():
 		"north": "02_tree",
 		"east": null,
 		"south": null,
-		"west": null`
+		"west": null
 	}
 	Global.SYSTEM = """You are acting as the game master (gm) of an epic adventure.
 Always respond using JSON in this template: {"speaker":"SPE_001", "start_text":"Your response as the interaction with the user input", "start_command":"A COMMAND FOR THE GAME PROGRAM"}
