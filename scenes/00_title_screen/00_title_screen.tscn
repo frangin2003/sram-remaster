@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bu3l0mvxtm7ho"]
 
-[ext_resource type="Script" path="res://scenes/00_title_screen/start_game_button.gd" id="1_cixfo"]
+[ext_resource type="Script" path="res://scenes/00_title_screen/00_title_screen.gd" id="1_5anjn"]
 [ext_resource type="VideoStream" path="res://scenes/00_title_screen/title_with_animated_river2.ogv" id="2_6jhlw"]
 [ext_resource type="AudioStream" uid="uid://ccm0gq0bi22or" path="res://scenes/00_title_screen/A-Time-Forgotten-MP3(chosic.com).mp3" id="3_k33cy"]
 [ext_resource type="Texture2D" uid="uid://bkgqmwdpnjjxb" path="res://scenes/00_title_screen/firefly.png" id="4_60pkf"]
@@ -39,6 +39,7 @@ turbulence_enabled = true
 turbulence_noise_strength = 5.05
 
 [node name="00_title_screen" type="Node2D"]
+script = ExtResource("1_5anjn")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 offset_left = -24.0
@@ -64,17 +65,6 @@ visibility_rect = Rect2(0, 0, 2200, 400)
 stream = ExtResource("3_k33cy")
 autoplay = true
 
-[node name="start_game_button" type="Button" parent="."]
-offset_left = 656.0
-offset_top = 608.0
-offset_right = 1328.0
-offset_bottom = 720.0
-theme_override_colors/font_color = Color(0.988235, 0.941176, 0.54902, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 38
-flat = true
-script = ExtResource("1_cixfo")
-
 [node name="PressAnyKeyRichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 825.0
 offset_top = 643.0
@@ -88,5 +78,3 @@ text = "PRESS ANY KEY"
 fit_content = true
 scroll_following = true
 script = ExtResource("7_rsje7")
-
-[connection signal="pressed" from="start_game_button" to="start_game_button" method="_on_pressed"]

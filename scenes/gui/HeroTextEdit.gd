@@ -29,11 +29,14 @@ func llm_chunk(chunk):
 	if Global.COMMAND.to_lower().find("cmd_001") != -1:
 		print("Pig time!")
 		Global.COMMAND = ""
-		get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
+		
+		NavigationManager.go_to_scene('xx_pig')
+		#get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
 	if Global.COMMAND.to_upper().find("cmd_002") != -1:
 		print("Out of pig!")
 		Global.COMMAND = ""
-		get_tree().change_scene_to_file("res://scenes/" + Global.SCENE + "/" + Global.SCENE + ".tscn")
+		NavigationManager.go_to_scene(Global.SCENE)
+		#get_tree().change_scene_to_file("res://scenes/" + Global.SCENE + "/" + Global.SCENE + ".tscn")
 
 # Override _gui_input instead of _input for GUI elements like TextEdit.
 func _gui_input(event):

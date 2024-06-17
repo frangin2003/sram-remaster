@@ -1,28 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0fwnk47fytp8"]
+[gd_scene load_steps=7 format=3 uid="uid://c0fwnk47fytp8"]
 
-[ext_resource type="Script" path="res://scenes/xx_pig/xx_pig.gd" id="1_xgoe1"]
-[ext_resource type="Texture2D" uid="uid://cu8yatx1qal3i" path="res://assets/backgrounds/death.webp" id="2_esyvt"]
-[ext_resource type="AudioStream" uid="uid://b6b2yalcpqeul" path="res://scenes/xx_pig/Android-Sock-Hop(chosic.com).mp3" id="3_x5o1i"]
-[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_xh14i"]
+[ext_resource type="Texture2D" uid="uid://cu8yatx1qal3i" path="res://scenes/xx_death/death.webp" id="2_esyvt"]
+[ext_resource type="Shader" path="res://scenes/xx_death/xx_death.gdshader" id="2_sdlme"]
+[ext_resource type="AudioStream" uid="uid://b8fdxo22kxhcd" path="res://scenes/xx_death/scott-buckley-i-walk-with-ghosts(chosic.com).mp3" id="3_xw00k"]
+[ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/00_title_screen/jancient.ttf" id="5_xk14i"]
+[ext_resource type="Script" path="res://scenes/00_title_screen/RichTextLabel.gd" id="6_5i0f6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mk0ik"]
+shader = ExtResource("2_sdlme")
+shader_parameter/pulse_speed = 1.0
+shader_parameter/pulse_strength = 0.1
 
 [node name="xx_death" type="Node2D"]
-script = ExtResource("1_xgoe1")
 
-[node name="Control" type="Control" parent="."]
-clip_contents = true
-layout_mode = 3
-anchors_preset = 0
-offset_left = 176.0
-offset_right = 1744.0
-offset_bottom = 824.0
-
-[node name="background" type="Sprite2D" parent="Control"]
-position = Vector2(773, 416.5)
-scale = Vector2(0.875, 0.862305)
+[node name="background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mk0ik")
+position = Vector2(960, 540)
+scale = Vector2(1.07143, 1.05469)
 texture = ExtResource("2_esyvt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_x5o1i")
+stream = ExtResource("3_xw00k")
 volume_db = -16.0
+autoplay = true
 
-[node name="gui" parent="." instance=ExtResource("4_xh14i")]
+[node name="PressAnyKeyRichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 771.0
+offset_top = 202.0
+offset_right = 1166.0
+offset_bottom = 304.0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/normal_font = ExtResource("5_xk14i")
+theme_override_font_sizes/normal_font_size = 50
+text = "PRESS ANY KEY
+   TO RESTART"
+fit_content = true
+scroll_following = true
+script = ExtResource("6_5i0f6")

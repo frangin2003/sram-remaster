@@ -6,6 +6,7 @@ func _ready():
 	call_deferred("_initialize_compass")
 
 func _initialize_compass():
+	print(Global.COMPASS)
 	get_node("North").visible = Global.COMPASS["north"] != null
 	get_node("East").visible = Global.COMPASS["east"] != null
 	get_node("South").visible = Global.COMPASS["south"] != null

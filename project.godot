@@ -24,6 +24,7 @@ driver/enable_input=true
 Global="*res://global/Global.gd"
 LlmServer="*res://global/LlmServer.gd"
 TransitionScreen="*res://scenes/transition_screen/transition_screen.tscn"
+NavigationManager="*res://scenes/transition_screen/navigation_manager.gd"
 
 [display]
 
