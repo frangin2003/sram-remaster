@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bukcyvau00ttw"]
+
+[ext_resource type="Script" path="res://scenes/02_nest/02_nest.gd" id="1_gfdoc"]
+[ext_resource type="Texture2D" uid="uid://boeh7hkadfqbb" path="res://scenes/02_nest/nest.webp" id="2_b7ehq"]
+[ext_resource type="AudioStream" uid="uid://18gwaw4p1xfn" path="res://scenes/02_tree/forest-bird-sounds-73690.mp3" id="3_a6hxk"]
+[ext_resource type="Texture2D" uid="uid://3gqygstl7qiu" path="res://scenes/02_nest/knife.png" id="3_cuvgf"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_bd1nr"]
+
+[node name="02_tree" type="Node2D"]
+script = ExtResource("1_gfdoc")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 1744.0
+offset_bottom = 824.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(778, 291)
+scale = Vector2(1.10156, 1.10156)
+texture = ExtResource("2_b7ehq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_a6hxk")
+autoplay = true
+
+[node name="gui" parent="." instance=ExtResource("4_bd1nr")]
+
+[node name="Knife" type="Sprite2D" parent="."]
+position = Vector2(1154, 381)
+rotation = 0.645772
+scale = Vector2(0.385025, 0.350129)
+texture = ExtResource("3_cuvgf")
