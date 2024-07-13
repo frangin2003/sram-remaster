@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqar6gtugnu7s"]
+
+[ext_resource type="Shader" path="res://scenes/xx_death/xx_death.gdshader" id="1_ac4je"]
+[ext_resource type="Script" path="res://scenes/xx_loading/xx_loading.gd" id="1_qyl0o"]
+[ext_resource type="Texture2D" uid="uid://c3ri4ck3ybaba" path="res://scenes/xx_loading/loading_screen.webp" id="2_0rahu"]
+[ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/00_title_screen/jancient.ttf" id="4_n5m0t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mk0ik"]
+shader = ExtResource("1_ac4je")
+shader_parameter/pulse_speed = 1.0
+shader_parameter/pulse_strength = 0.1
+
+[node name="xx_loading" type="Node2D"]
+script = ExtResource("1_qyl0o")
+
+[node name="background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mk0ik")
+position = Vector2(960, 540)
+scale = Vector2(1.07143, 1.05469)
+texture = ExtResource("2_0rahu")
+
+[node name="PressAnyKeyRichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 600.0
+offset_top = 824.0
+offset_right = 1317.0
+offset_bottom = 1025.0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/normal_font = ExtResource("4_n5m0t")
+theme_override_font_sizes/normal_font_size = 200
+text = "Loading..."
+fit_content = true
+scroll_following = true

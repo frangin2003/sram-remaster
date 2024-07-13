@@ -1,29 +1,118 @@
 extends Node
 
 signal llm_chunk(chunk)
+signal websocket_connected
+signal websocket_disconnected
 
-var socket = WebSocketPeer.new()
+var WEBSOCKET: WebSocketPeer = null
+var LLM_SERVER_PORT = 7500  # Default port
+var connection_timer: Timer
+var attempts = 0
+const MAX_ATTEMPTS = 60  # 1 minute timeout (60 * 1 second)
 
 func _ready():
-	socket.connect_to_url("ws://localhost:8765")
+	load_config()
+	print("LlmServer: Config loaded, port: ", LLM_SERVER_PORT)
+	start_connection_attempt()
+
+func start_connection_attempt():
+	connection_timer = Timer.new()
+	connection_timer.connect("timeout", Callable(self, "_on_connection_timer_timeout"))
+	connection_timer.set_wait_time(1.0)  # 1 second between attempts
+	connection_timer.set_one_shot(false)  # Repeat the timer
+	add_child(connection_timer)
+	connection_timer.start()
+
+func _on_connection_timer_timeout():
+	attempts += 1
+	if attempts > MAX_ATTEMPTS:
+		print("LlmServer: Connection attempts timed out after 1 minute")
+		connection_timer.stop()
+		return
+
+	print("LlmServer: Checking if port ", LLM_SERVER_PORT, " is in use")
+	if not is_port_in_use(LLM_SERVER_PORT):
+		print("LlmServer: Port ", LLM_SERVER_PORT, " is not in use. Server might not be ready.")
+		return
+
+	print("LlmServer: Attempting to connect to WebSocket server (Attempt ", attempts, ")")
+	WEBSOCKET = WebSocketPeer.new()
+	var err = WEBSOCKET.connect_to_url("ws://localhost:" + str(LLM_SERVER_PORT))
+	if err != OK:
+		print("LlmServer: Failed to initiate WebSocket connection: ", err)
+	else:
+		print("LlmServer: WebSocket connection initiated, waiting for connection to open...")
 
 func _process(_delta):
-	socket.poll()
-	var state = socket.get_ready_state()
-	if state == WebSocketPeer.STATE_OPEN:
-		while socket.get_available_packet_count():
-			var chunk = socket.get_packet().get_string_from_utf8()
-			print("Chunk: ", chunk)
-			emit_signal("llm_chunk", chunk)
-				
-	elif state == WebSocketPeer.STATE_CLOSING:
-		# Keep polling to achieve proper close.
-		pass
-	elif state == WebSocketPeer.STATE_CLOSED:
-		var code = socket.get_close_code()
-		var reason = socket.get_close_reason()
-		print("WebSocket closed with code: %d, reason %s. Clean: %s" % [code, reason, code != -1])
-		set_process(false) # Stop processing.
+	if WEBSOCKET == null:
+		return
+	
+	WEBSOCKET.poll()
+	var state = WEBSOCKET.get_ready_state()
+	match state:
+		WebSocketPeer.STATE_CONNECTING:
+			print("LlmServer: Still connecting...")
+		WebSocketPeer.STATE_OPEN:
+			if connection_timer:
+				connection_timer.stop()
+				connection_timer.queue_free()
+				connection_timer = null
+			print("LlmServer: WebSocket connection established")
+			emit_signal("websocket_connected")
+			while WEBSOCKET.get_available_packet_count():
+				var chunk = WEBSOCKET.get_packet().get_string_from_utf8()
+				print("LlmServer: Chunk: ", chunk)
+				emit_signal("llm_chunk", chunk)
+		WebSocketPeer.STATE_CLOSING:
+			print("LlmServer: WebSocket is closing...")
+		WebSocketPeer.STATE_CLOSED:
+			var code = WEBSOCKET.get_close_code()
+			var reason = WEBSOCKET.get_close_reason()
+			print("LlmServer: WebSocket closed with code: %d, reason %s. Clean: %s" % [code, reason, code != -1])
+			WEBSOCKET = null
+			emit_signal("websocket_disconnected")
+			if attempts <= MAX_ATTEMPTS:
+				print("LlmServer: Retrying connection...")
+				start_connection_attempt()
+
+func is_port_in_use(port):
+	var output = []
+	var exit_code = OS.execute("cmd.exe", ["/c", "netstat -ano | findstr :%d" % port], output, true)
+	for line in output:
+		print("LlmServer: Port check output: ", line)
+	return exit_code == 0 and output.size() > 0 and ("LISTENING" in output[0] or "ESTABLISHED" in output[0])
+
+func load_config():
+	var config = ConfigFile.new()
+	var err = config.load("res://settings.cfg")
+	if err == OK:
+		LLM_SERVER_PORT = config.get_value("Network", "port", LLM_SERVER_PORT)
+	else:
+		print("LlmServer: Failed to load config file, using default port")
+		save_config()  # Create the config file with default values
+
+func save_config():
+	var config = ConfigFile.new()
+	config.set_value("Network", "port", LLM_SERVER_PORT)
+	config.save("res://settings.cfg")
+
+func send_to_llm_server(system_prompt: String, user_prompt: String, with_speech: bool=false, image_url=null, system_image_url=null) -> void:
+	Global.OUTPUT = ""
+	Global.COMMAND = ""
+
+	if WEBSOCKET == null:
+		print("LlmServer: WebSocket is not initialized.")
+		return
+
+	if WEBSOCKET.get_ready_state() == WebSocketPeer.STATE_OPEN:
+		var messages_array = [create_message("system", system_prompt, false, system_image_url)]
+		if (image_url != null):
+			remove_messages_with_images()
+		Global.LLM_INPUT_ARRAY = [create_message("user", user_prompt, with_speech, image_url)]
+		messages_array.append_array(Global.LLM_INPUT_ARRAY)
+		WEBSOCKET.send_text(JSON.stringify({"messages": messages_array}))
+	else:
+		print("LlmServer: WebSocket is not connected.")
 
 func create_message(role, prompt, with_speech: bool=false, image_url=null):
 	var content_array = []
@@ -63,18 +152,3 @@ func remove_messages_with_images():
 
 func create_assistant_message(output):
 	return create_message("assistant", output)
-
-func send_to_llm_server(system_prompt: String, user_prompt: String, with_speech: bool=false, image_url=null, system_image_url=null) -> void:
-	Global.OUTPUT = ""
-	Global.COMMAND = ""
-
-	if socket.get_ready_state() == WebSocketPeer.STATE_OPEN:
-		var messages_array = [create_message("system", system_prompt, false, system_image_url)]
-		if (image_url != null):
-			remove_messages_with_images()
-		#Global.add_to_memory(create_message("user", user_prompt, with_speech, image_url))
-		Global.LLM_INPUT_ARRAY = [create_message("user", user_prompt, with_speech, image_url)]
-		messages_array.append_array(Global.LLM_INPUT_ARRAY)
-		socket.send_text(JSON.stringify({"messages": messages_array}))
-	else:
-		print("WebSocket is not connected.")
