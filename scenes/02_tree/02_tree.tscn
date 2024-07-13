@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6w4k2k725rf2"]
 
-[ext_resource type="Script" path="res://scenes/01_menhir/01_menhir.gd" id="1_pl4wu"]
+[ext_resource type="Script" path="res://scenes/02_tree/02_tree.gd" id="1_v5j5t"]
 [ext_resource type="VideoStream" path="res://scenes/02_tree/tree-final.ogv" id="2_ycs01"]
 [ext_resource type="AudioStream" uid="uid://18gwaw4p1xfn" path="res://scenes/02_tree/forest-bird-sounds-73690.mp3" id="3_6ppa3"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_vi858"]
 
 [node name="02_tree" type="Node2D"]
-script = ExtResource("1_pl4wu")
+script = ExtResource("1_v5j5t")
 
 [node name="Control" type="Control" parent="."]
 clip_contents = true
