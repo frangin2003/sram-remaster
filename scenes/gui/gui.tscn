@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=23 format=3 uid="uid://cdoq6xtniibw8"]
 
 [ext_resource type="Script" path="res://scenes/gui/HeroTextEdit.gd" id="1_8xywo"]
 [ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://assets/left column.png" id="1_pvayr"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://ccimu2xe3055t" path="res://assets/East.png" id="10_tqntw"]
 [ext_resource type="Texture2D" uid="uid://cnvy2smlx2fgb" path="res://assets/South.png" id="11_xq4e5"]
 [ext_resource type="Texture2D" uid="uid://dv8gb5rsx58wj" path="res://assets/West.png" id="12_c82p5"]
+[ext_resource type="Texture2D" uid="uid://3gqygstl7qiu" path="res://scenes/nest/knife.png" id="14_misqv"]
+[ext_resource type="Script" path="res://scenes/gui/Inventory.gd" id="14_qcn2b"]
+[ext_resource type="Texture2D" uid="uid://de1bul7fvgoww" path="res://scenes/mountain/bow.png" id="16_q8amh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -120,6 +123,23 @@ texture = ExtResource("11_xq4e5")
 [node name="West" type="Sprite2D" parent="Compass"]
 position = Vector2(172, 352)
 texture = ExtResource("12_c82p5")
+
+[node name="Inventory" type="Node2D" parent="."]
+position = Vector2(-7.62939e-06, 0)
+script = ExtResource("14_qcn2b")
+
+[node name="Knife" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(95, 300)
+rotation = 0.645772
+scale = Vector2(0.385025, 0.350129)
+texture = ExtResource("14_misqv")
+
+[node name="Bow" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(112, 616)
+scale = Vector2(0.555172, 0.555172)
+texture = ExtResource("16_q8amh")
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]

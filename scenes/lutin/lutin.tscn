@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://44c5toykbrhp"]
+
+[ext_resource type="Script" path="res://scenes/mountain/mountain.gd" id="1_0w55l"]
+[ext_resource type="VideoStream" path="res://scenes/lutin/lutin.ogv" id="2_a2e43"]
+[ext_resource type="VideoStream" path="res://scenes/lutin/lutin_speak.ogv" id="3_3051b"]
+[ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_ownif"]
+[ext_resource type="Shader" path="res://scenes/lutin/lutin_speak_shader.gdshader" id="3_s0gs1"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_b1j2u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qky1y"]
+shader = ExtResource("3_s0gs1")
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[node name="lutin" type="Node2D"]
+script = ExtResource("1_0w55l")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 1744.0
+offset_bottom = 824.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 0
+offset_left = -64.0
+offset_right = 1576.0
+offset_bottom = 816.0
+stream = ExtResource("2_a2e43")
+autoplay = true
+expand = true
+loop = true
+
+[node name="ControlSpeak" type="Control" parent="."]
+visible = false
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 1744.0
+offset_bottom = 824.0
+
+[node name="ColorRect" type="ColorRect" parent="ControlSpeak"]
+clip_contents = true
+layout_mode = 0
+offset_left = 288.0
+offset_top = 280.0
+offset_right = 472.0
+offset_bottom = 376.0
+color = Color(1, 1, 1, 0.529412)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="ControlSpeak/ColorRect"]
+material = SubResource("ShaderMaterial_qky1y")
+layout_mode = 0
+offset_left = -228.0
+offset_top = -114.0
+offset_right = 413.0
+offset_bottom = 206.0
+stream = ExtResource("3_3051b")
+autoplay = true
+expand = true
+loop = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ownif")
+autoplay = true
+
+[node name="gui" parent="." instance=ExtResource("4_b1j2u")]
+
+[node name="Potion" type="Sprite2D" parent="."]
+position = Vector2(1040, 576)
+scale = Vector2(0.555172, 0.555172)

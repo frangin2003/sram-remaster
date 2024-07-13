@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ih6v6g868em2"]
+
+[ext_resource type="Script" path="res://scenes/menhir/menhir.gd" id="1_0ilvn"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="1_tsktu"]
+[ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="2_kboyf"]
+[ext_resource type="VideoStream" path="res://scenes/menhir/mehnir_final_v2.ogv" id="3_pie7w"]
+
+[node name="menhir" type="Node2D"]
+script = ExtResource("1_0ilvn")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 1744.0
+offset_bottom = 824.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 0
+offset_right = 1568.0
+offset_bottom = 815.0
+stream = ExtResource("3_pie7w")
+autoplay = true
+expand = true
+loop = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kboyf")
+autoplay = true
+
+[node name="gui" parent="." instance=ExtResource("1_tsktu")]

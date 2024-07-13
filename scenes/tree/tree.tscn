@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6w4k2k725rf2"]
+
+[ext_resource type="Script" path="res://scenes/tree/tree.gd" id="1_v5j5t"]
+[ext_resource type="VideoStream" path="res://scenes/tree/tree-final.ogv" id="2_ycs01"]
+[ext_resource type="AudioStream" uid="uid://18gwaw4p1xfn" path="res://scenes/tree/forest-bird-sounds-73690.mp3" id="3_6ppa3"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_vi858"]
+
+[node name="tree" type="Node2D"]
+script = ExtResource("1_v5j5t")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 1744.0
+offset_bottom = 824.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 0
+offset_left = -64.0
+offset_right = 1576.0
+offset_bottom = 816.0
+stream = ExtResource("2_ycs01")
+autoplay = true
+expand = true
+loop = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6ppa3")
+autoplay = true
+
+[node name="gui" parent="." instance=ExtResource("4_vi858")]

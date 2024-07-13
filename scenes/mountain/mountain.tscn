@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmu6skwo0flr4"]
+
+[ext_resource type="Script" path="res://scenes/mountain/mountain.gd" id="1_7673q"]
+[ext_resource type="VideoStream" path="res://scenes/mountain/mountain.ogv" id="2_unrr2"]
+[ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_xhtv6"]
+[ext_resource type="Texture2D" uid="uid://de1bul7fvgoww" path="res://scenes/mountain/bow.png" id="5_ba85e"]
+
+[node name="mountain" type="Node2D"]
+script = ExtResource("1_7673q")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 1744.0
+offset_bottom = 824.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 0
+offset_left = -64.0
+offset_right = 1576.0
+offset_bottom = 816.0
+stream = ExtResource("2_unrr2")
+autoplay = true
+expand = true
+loop = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tt656")
+autoplay = true
+
+[node name="gui" parent="." instance=ExtResource("4_xhtv6")]
+
+[node name="Bow" type="Sprite2D" parent="."]
+position = Vector2(1040, 576)
+scale = Vector2(0.555172, 0.555172)
+texture = ExtResource("5_ba85e")

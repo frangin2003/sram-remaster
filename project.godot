@@ -21,10 +21,14 @@ driver/enable_input=true
 
 [autoload]
 
-Global="*res://global/Global.gd"
-LlmServer="*res://global/LlmServer.gd"
-TransitionScreen="*res://scenes/transition_screen/transition_screen.tscn"
+Global="*res://scenes/Global.gd"
+CommandHandler="*res://llm_server/CommandHandler.gd"
+Memory="*res://llm_server/Memory.gd"
+Screenshot="*res://llm_server/Screenshot.gd"
+AudioRecording="*res://llm_server/AudioRecording.gd"
+LlmServer="*res://llm_server/LlmServer.gd"
 NavigationManager="*res://scenes/transition_screen/navigation_manager.gd"
+TransitionScreen="*res://scenes/transition_screen/transition_screen.tscn"
 
 [display]
 

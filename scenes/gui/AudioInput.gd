@@ -25,11 +25,11 @@ func _on_record_voice_button_audio_recording_stopped():
 		recording.set_format(format)
 		recording.set_stereo(stereo)
 				
-		Global.RECORDED_AUDIO = recording.data
-		print(Global.RECORDED_AUDIO_URL)
-		recording.save_to_wav(Global.RECORDED_AUDIO_URL)
-		print("Audio saved to: ", Global.RECORDED_AUDIO_URL)
+		AudioRecording.RECORDED_AUDIO = recording.data
+		print(AudioRecording.RECORDED_AUDIO_URL)
+		recording.save_to_wav(AudioRecording.RECORDED_AUDIO_URL)
+		print("Audio saved to: ", AudioRecording.RECORDED_AUDIO_URL)
 
 		get_node("../RecordVoiceButton").visible = true
 		gameMasterOutput.text = ""
-		LlmServer.send_to_llm_server(Global.SYSTEM, "", true)
+		LlmServer.send_to_llm_server(LlmServer.SYSTEM, "", true)

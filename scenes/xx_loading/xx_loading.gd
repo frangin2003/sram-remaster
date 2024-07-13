@@ -10,4 +10,4 @@ func _on_websocket_connected():
 
 func transition_to_title_screen():
 	print("Loading screen: Transitioning to title screen")
-	get_tree().change_scene_to_file("res://scenes/00_title_screen/00_title_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/title_screen/title_screen.tscn")
