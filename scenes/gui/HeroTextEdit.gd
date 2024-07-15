@@ -37,11 +37,14 @@ func llm_chunk(chunk):
 		gameMasterOutput.text += chunk
 	if (chunk.begins_with(COMMAND_TAG)):
 		LlmServer.COMMAND = chunk.substr(COMMAND_TAG.length(), chunk.length() - COMMAND_TAG.length())
-	if LlmServer.COMMAND.find("001") != -1:
+	if LlmServer.COMMAND.find("000") != -1 and gameMasterOutput.text.find("dead") != -1:
+		print("Death!")
+		LlmServer.COMMAND = ""
+		Global.set_scene("xx_death")
+	elif LlmServer.COMMAND.find("001") != -1:
 		print("Pig time!")
 		LlmServer.COMMAND = ""
-		#NavigationManager.go_to_scene('xx_pig')
-		get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
+		Global.set_scene("xx_pig")
 	elif (LlmServer.COMMAND == "NORTH"
 		or LlmServer.COMMAND == "WEST"
 		or LlmServer.COMMAND == "SOUTH"
@@ -50,8 +53,8 @@ func llm_chunk(chunk):
 		var direction = LlmServer.COMMAND.to_lower()
 		LlmServer.COMMAND = ""
 		if (Global.COMPASS[direction] != null):
-			# NavigationManager.go_to_scene(Global.COMPASS[direction])
-			get_tree().change_scene_to_file("res://scenes/" + Global.COMPASS[direction] + "/" + Global.COMPASS[direction] + ".tscn")
+			print("Navigate to " + Global.COMPASS[direction])
+			Global.set_scene(Global.COMPASS[direction])
 	elif CommandHandler.CURRENT_HANDLER != null:
 		CommandHandler.execute_command(LlmServer.COMMAND)
 

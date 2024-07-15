@@ -3,15 +3,15 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.COMPASS = {
+	Global.set_compass({
 		"north": null,
 		"east": null,
 		"south": null,
 		"west": null
-	}
+	})
 	get_node("gui/GameMasterBackground/GameMasterOutput").text = "You need to be more polite, buddy. Here is a picture of you from last summer."
 	Global.override_system_instructions("""You are acting as the game master (gm) of an epic adventure.
-Always respond using JSON in this template: {"_speaker":"SPE_001", "_text":"Your response as the interaction with the user input", "_command":"A COMMAND FOR THE GAME PROGRAM"}
+Always respond using JSON in this template: {"_speaker":"001", "_text":"Your response as the interaction with the user input", "_command":"A COMMAND FOR THE GAME PROGRAM"}
 "_speaker" and "_text" is mandatory, "_command" is optional.
 
 # Guidelines
@@ -25,7 +25,7 @@ Always respond using JSON in this template: {"_speaker":"SPE_001", "_text":"Your
 The hero has been impolite so he is punished, facing a picture of him as a dirty pig
 
 # Actions
-- To get out of the room the hero needs to say sorry: {"_speaker":"SPE_001", "_text":"Ok, you are forgiven.", "_command":"002"}
+- To get out of the room the hero needs to say sorry: {"_speaker":"001", "_text":"Ok, you are forgiven.", "_command":"002"}
 """
 	)
 	CommandHandler.CURRENT_HANDLER = self
@@ -35,8 +35,7 @@ func execute_command(command):
 	match command:
 		"002":
 			print("Out of pig!")
-			# NavigationManager.go_to_scene(Global.SCENE)
-			get_tree().change_scene_to_file("res://scenes/" + Global.SCENE + "/" + Global.SCENE + ".tscn")
+			Global.set_scene(Global.SCENE)
 		_:
 			print("Command not recognized in this scene")
 

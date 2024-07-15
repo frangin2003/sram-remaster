@@ -21,6 +21,7 @@ driver/enable_input=true
 
 [autoload]
 
+ConfigManager="*res://llm_server/ConfigManager.gd"
 Global="*res://scenes/Global.gd"
 CommandHandler="*res://llm_server/CommandHandler.gd"
 Memory="*res://llm_server/Memory.gd"

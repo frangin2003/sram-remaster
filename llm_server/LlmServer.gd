@@ -5,7 +5,7 @@ signal websocket_connected
 signal websocket_disconnected
 
 var WEBSOCKET: WebSocketPeer = null
-var LLM_SERVER_PORT = 7500  # Default port
+var LLM_SERVER_PORT = null
 var connection_timer: Timer
 var attempts = 0
 const MAX_ATTEMPTS = 60  # 1 minute timeout (60 * 1 second)
@@ -14,8 +14,10 @@ var first_connection_established = false
 var OUTPUT = ""
 var COMMAND = ""
 
+var ConfigManager = preload("res://llm_server/ConfigManager.gd").new()
+
 func _ready():
-	load_config()
+	LLM_SERVER_PORT = ConfigManager.load_config("Network", "port", LLM_SERVER_PORT)
 	print("LlmServer: Config loaded, port: ", LLM_SERVER_PORT)
 	start_connection_attempt()
 
@@ -87,20 +89,6 @@ func is_port_in_use(port):
 	for line in output:
 		print("LlmServer: Port check output: ", line)
 	return exit_code == 0 and output.size() > 0 and ("LISTENING" in output[0] or "ESTABLISHED" in output[0])
-
-func load_config():
-	var config = ConfigFile.new()
-	var err = config.load("res://settings.cfg")
-	if err == OK:
-		LLM_SERVER_PORT = config.get_value("Network", "port", LLM_SERVER_PORT)
-	else:
-		print("LlmServer: Failed to load config file, using default port")
-		save_config()  # Create the config file with default values
-
-func save_config():
-	var config = ConfigFile.new()
-	config.set_value("Network", "port", LLM_SERVER_PORT)
-	config.save("res://settings.cfg")
 
 func send_to_llm_server(system_prompt: String, user_prompt: String, with_speech: bool=false, image_url=null, system_image_url=null) -> void:
 	OUTPUT = ""
