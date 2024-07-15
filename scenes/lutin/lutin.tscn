@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scenes/lutin/lutin.gd" id="1_60kc2"]
 [ext_resource type="VideoStream" path="res://scenes/lutin/lutin.ogv" id="2_a2e43"]
 [ext_resource type="VideoStream" path="res://scenes/lutin/lutin_speak.ogv" id="3_3051b"]
-[ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_ownif"]
 [ext_resource type="Shader" path="res://scenes/lutin/lutin_speak_shader.gdshader" id="3_s0gs1"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_b1j2u"]
+[ext_resource type="AudioStream" uid="uid://kk1vt3k4aqui" path="res://scenes/lutin/river-in-the-forest-17271.mp3" id="5_oorm3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qky1y"]
 shader = ExtResource("3_s0gs1")
@@ -66,7 +66,8 @@ expand = true
 loop = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ownif")
+stream = ExtResource("5_oorm3")
+volume_db = 2.0
 autoplay = true
 
 [node name="gui" parent="." instance=ExtResource("4_b1j2u")]

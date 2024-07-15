@@ -96,7 +96,7 @@ func take_item_and_animate(item_name: String, target_position_x: int, target_pos
 	print("Animating %s!" % item_name)
 	var sprite = get_node("/root/%s/%s" % [Global.SCENE, item_name.capitalize()])
 	
-	if sprite:
+	if sprite and sprite.visible:
 		var tween = create_tween()
 		tween.tween_property(sprite, "position", Vector2(target_position_x, target_position_y), duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 		tween.play()
@@ -109,13 +109,19 @@ func take_item_and_animate(item_name: String, target_position_x: int, target_pos
 
 var system_template = """You are acting as the game master (gm) of an epic adventure and your name is Grand Master.
 Always respond using JSON in this template: {"_speaker":"001", "_text":"Your response as the interaction with the user input", "_command":"A COMMAND FOR THE GAME PROGRAM"}
-"_speaker" and "_text" is mandatory, "_command" is optional. {additional_npcs_instructions}
+"_speaker" and "_text" is mandatory, "_command" is optional. Use "How to play" section if the player asks. {additional_npcs_instructions}
+
+# How to play
+In this game, you will navigate through various scenes, interact with NPCs (Non-Player Characters), and collect items to progress in your journey.
+You can move in four cardinal directions: NORTH, EAST, SOUTH, and WEST. To navigate, simply type the direction you want to go (e.g., "NORTH" or "N").
+Throughout the game, you will have the opportunity to perform various actions. These actions can include interacting with objects, solving puzzles, and making choices that affect the storyline. Pay attention to the instructions provided in each scene to know what actions are available.
 
 # Navigation
-- When the hero wants to move to an authorized direction, use the following template to respond: {"_speaker":"001", "_text":"A SHORT FUNNY SENTENCE ABOUT THE MOVEMENT", "_command":"ONE OF EACH DIRECTION (NORTH,EAST,SOUTH,WEST)"}
+- When the hero wants to move to a cardinal direction, he can only their name (NORTH or N, EAST or E, SOUTH or S, WEST or W) , use the following template to respond: {"_speaker":"001", "_text":"A SHORT FUNNY SENTENCE ABOUT THE MOVEMENT", "_command":"ONE OF EACH DIRECTION (NORTH,EAST,SOUTH,WEST)"}
 eg. {"_speaker":"001", "_text":"Let's-a go!", "_command":"NORTH"}
 - Authorized navigation: {authorized_directions}
 - Can't go: {unauthorized_directions}
+- Only send the command if the hero uses cardinal direction
 
 # Guidelines
 - You speak very funnily.
@@ -144,7 +150,7 @@ func set_system_instructions(scene_description, actions = null, npcs = null):
 
 	var additional_npcs_instructions = ""
 	if npcs:
-		additional_npcs_instructions = """ If the hero is chatting not giving orders, always assume this is addressed to the npcs"""
+		additional_npcs_instructions = """ If the hero is chatting not giving orders, always assume this is addressed to the npcs and use the NPC _speaker"""
 
 	SYSTEM = system_template.format({
 		"authorized_directions": ", ".join(get_authorized_directions()),
@@ -165,3 +171,25 @@ func set_system_instructions(scene_description, actions = null, npcs = null):
 		## NPCs
 		%s
 		""" % npcs
+
+func speak_seconds(speaker, seconds):
+	print("Speak seconds:")
+	print(speaker)
+	print(seconds)
+
+	# no clip to speak if this is the Grand Master voice
+	if (speaker != "001"):
+		var clip_to_show = get_node("/root/%s/ControlSpeak" % Global.SCENE)
+
+		if clip_to_show:
+			clip_to_show.visible = true
+			# Create a timer to hide the node after the duration
+			var timer = Timer.new()
+			timer.set_wait_time(seconds)
+			timer.set_one_shot(true)
+			timer.connect("timeout", Callable(self, "_on_timer_timeout").bind(clip_to_show))
+			add_child(timer)
+			timer.start()
+
+func _on_timer_timeout(clip_to_hide):
+	clip_to_hide.visible = false

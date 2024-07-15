@@ -1,9 +1,12 @@
 extends TextEdit
 
+signal speak_seconds(speaker, seconds)
+
 var gameMasterOutput
 var BEGIN_OF_TEXT_TAG = "<|begin_of_text|>"
 var END_OF_TEXT_TAG = "<|end_of_text|>"
 var COMMAND_TAG = "<|command|>"
+var SPEAK_TAG = "<|speak|>"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,6 +30,13 @@ func _get_all_nodes_recursive(node, nodes):
 		_get_all_nodes_recursive(child, nodes)
 
 func llm_chunk(chunk):
+	if (chunk.begins_with(SPEAK_TAG)):
+		var speak = chunk.substr(SPEAK_TAG.length(), chunk.length() - SPEAK_TAG.length())
+		var parts = speak.split("|")
+		var speaker = parts[0]
+		var seconds = float(parts[1])
+		emit_signal("speak_seconds", speaker, seconds)
+		return
 	LlmServer.OUTPUT += chunk
 	if (chunk == END_OF_TEXT_TAG):
 		get_node("../RecordVoiceButton").visible = true
@@ -41,22 +51,24 @@ func llm_chunk(chunk):
 		print("Death!")
 		LlmServer.COMMAND = ""
 		Global.set_scene("xx_death")
-	elif LlmServer.COMMAND.find("001") != -1:
+	elif LlmServer.COMMAND.find("001") != -1 and gameMasterOutput.text.find("polite") != -1:
 		print("Pig time!")
 		LlmServer.COMMAND = ""
-		Global.set_scene("xx_pig")
-	elif (LlmServer.COMMAND == "NORTH"
-		or LlmServer.COMMAND == "WEST"
-		or LlmServer.COMMAND == "SOUTH"
-		or LlmServer.COMMAND == "EAST"):
-		print("Navigates")
-		var direction = LlmServer.COMMAND.to_lower()
-		LlmServer.COMMAND = ""
-		if (Global.COMPASS[direction] != null):
-			print("Navigate to " + Global.COMPASS[direction])
-			Global.set_scene(Global.COMPASS[direction])
-	elif CommandHandler.CURRENT_HANDLER != null:
-		CommandHandler.execute_command(LlmServer.COMMAND)
+		get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
+	else:
+		var command = LlmServer.COMMAND.strip_edges().to_upper().replace("[^A-Z]", "")
+		if (command == "NORTH"
+			or command == "WEST"
+			or command == "SOUTH"
+			or command == "EAST"):
+			print("Navigates")
+			var direction = Global.COMPASS[command.to_lower()]
+			LlmServer.COMMAND = ""
+			if (direction != null):
+				print("Navigate to " + direction)
+				Global.set_scene(direction)
+		elif CommandHandler.CURRENT_HANDLER != null:
+			CommandHandler.execute_command(LlmServer.COMMAND)
 
 # Override _gui_input instead of _input for GUI elements like TextEdit.
 func _gui_input(event):
