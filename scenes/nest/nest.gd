@@ -23,7 +23,6 @@ func _ready():
 	""" % knife_instructions)
 	CommandHandler.CURRENT_HANDLER = self
 	Global.show_hide_item("Knife")
-	# INVENTORY[item_name.to_lower()]
 
 func execute_command(command):
 	print("Command: " + command)

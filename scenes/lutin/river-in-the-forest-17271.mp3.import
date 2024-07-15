@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/river-in-the-forest-17271.mp3-149228d5673e7d5
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

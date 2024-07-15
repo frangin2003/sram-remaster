@@ -10,7 +10,8 @@ var COMPASS = {
 var INVENTORY = {
 	"knife": false,
 	"cane": false,
-	"water_bottle": false,
+	"flask": false,
+	"burried_skeleton": false,
 	"water": false,
 	"snake_skin": false,
 	"potion": false,
@@ -78,32 +79,36 @@ func show_hide_item(item_name: String):
 	print("Toggling visibility for item: %s" % item_name)
 	print("Inventory value for %s: %s" % [item_name, INVENTORY[item_name.to_lower()]])
 	var item_node = get_node("/root/%s/%s" % [SCENE, item_name.capitalize()])
-	item_node.visible = not INVENTORY[item_name.to_lower()]
+	if item_node:
+		item_node.visible = not INVENTORY[item_name.to_lower()]
 
 func update_inventory(item_name, value):
 	INVENTORY[item_name.to_lower()] = value
 	ConfigManager.save_config("INVENTORY", INVENTORY)
 
 func reset_inventory():
-	for item in Global.INVENTORY:
-		if typeof(Global.INVENTORY[item]) == TYPE_BOOL:
-			Global.INVENTORY[item] = false
-		elif typeof(Global.INVENTORY[item]) == TYPE_INT:
-			Global.INVENTORY[item] = 0
+	for item in INVENTORY:
+		if typeof(INVENTORY[item]) == TYPE_BOOL:
+			INVENTORY[item] = false
+		elif typeof(INVENTORY[item]) == TYPE_INT:
+			INVENTORY[item] = 0
 	ConfigManager.save_config("INVENTORY", INVENTORY)
 
-func take_item_and_animate(item_name: String, target_position_x: int, target_position_y: int, duration: float = 1.0):
+func take_item_and_animate(item_name: String, target_position_x: int, target_position_y: int, rotation: float = NAN, duration: float = 1.0):
 	print("Animating %s!" % item_name)
-	var sprite = get_node("/root/%s/%s" % [Global.SCENE, item_name.capitalize()])
+	var sprite = get_node("/root/%s/%s" % [SCENE, item_name.capitalize()])
 	
 	if sprite and sprite.visible:
-		var tween = create_tween()
-		tween.tween_property(sprite, "position", Vector2(target_position_x, target_position_y), duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-		tween.play()
-		await tween.finished
-		Global.INVENTORY[item_name.to_lower()] = true
+		INVENTORY[item_name.to_lower()] = true
 		print("%s added to inventory!" % item_name)
 		ConfigManager.save_config("INVENTORY", INVENTORY)
+
+		var tween = create_tween()
+		tween.tween_property(sprite, "position", Vector2(target_position_x, target_position_y), duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		if not is_nan(rotation):
+			tween.parallel().tween_property(sprite, "rotation", rotation, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		tween.play()
+		await tween.finished
 	else:
 		print("Error: %s sprite is null. Unable to animate." % item_name)
 
@@ -138,10 +143,10 @@ eg. {"_speaker":"001", "_text":"Let's-a go!", "_command":"NORTH"}
 var SYSTEM = null
 
 func get_authorized_directions():
-	return Global.COMPASS.keys().filter(func(dir): return Global.COMPASS[dir] != null)
+	return COMPASS.keys().filter(func(dir): return COMPASS[dir] != null)
 
 func get_unauthorized_directions():
-	return Global.COMPASS.keys().filter(func(dir): return Global.COMPASS[dir] == null)
+	return COMPASS.keys().filter(func(dir): return COMPASS[dir] == null)
 
 func override_system_instructions(system_instructions):
 	SYSTEM = system_instructions
@@ -179,7 +184,7 @@ func speak_seconds(speaker, seconds):
 
 	# no clip to speak if this is the Grand Master voice
 	if (speaker != "001"):
-		var clip_to_show = get_node("/root/%s/ControlSpeak" % Global.SCENE)
+		var clip_to_show = get_node("/root/%s/ControlSpeak" % SCENE)
 
 		if clip_to_show:
 			clip_to_show.visible = true

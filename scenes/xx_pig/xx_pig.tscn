@@ -24,5 +24,6 @@ texture = ExtResource("1_cxd4h")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_f1jij")
 volume_db = -16.0
+autoplay = true
 
 [node name="gui" parent="." instance=ExtResource("2_ff7nl")]
