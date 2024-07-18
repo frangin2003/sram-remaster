@@ -1,18 +1,18 @@
 [gd_scene load_steps=26 format=3 uid="uid://cdoq6xtniibw8"]
 
 [ext_resource type="Script" path="res://scenes/gui/HeroTextEdit.gd" id="1_8xywo"]
-[ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://assets/left column.png" id="1_pvayr"]
-[ext_resource type="Texture2D" uid="uid://drk7drh2kiggy" path="res://assets/right column.png" id="2_4wsxe"]
+[ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://scenes/gui/left column.png" id="1_fy52j"]
+[ext_resource type="Texture2D" uid="uid://drk7drh2kiggy" path="res://scenes/gui/right column.png" id="2_cuxij"]
 [ext_resource type="Texture2D" uid="uid://ex077uocw0ga" path="res://scenes/gui/record_button.png" id="2_wjl6o"]
-[ext_resource type="Texture2D" uid="uid://b78i6sttf11m" path="res://assets/marble bottom.png" id="3_aja86"]
+[ext_resource type="Texture2D" uid="uid://b78i6sttf11m" path="res://scenes/gui/marble bottom.png" id="3_5oing"]
 [ext_resource type="Script" path="res://scenes/gui/RecordVoiceButton.gd" id="3_ll062"]
-[ext_resource type="Texture2D" uid="uid://ij8bb65jyhcp" path="res://assets/text input.png" id="4_l36ue"]
+[ext_resource type="Texture2D" uid="uid://ij8bb65jyhcp" path="res://scenes/gui/text input.png" id="4_5d2hb"]
 [ext_resource type="Script" path="res://scenes/gui/AudioInput.gd" id="6_o6bsm"]
 [ext_resource type="Script" path="res://scenes/gui/Compass.gd" id="9_8n67r"]
-[ext_resource type="Texture2D" uid="uid://b8haovwf0la4d" path="res://assets/North.png" id="9_d3gxr"]
-[ext_resource type="Texture2D" uid="uid://ccimu2xe3055t" path="res://assets/East.png" id="10_tqntw"]
-[ext_resource type="Texture2D" uid="uid://cnvy2smlx2fgb" path="res://assets/South.png" id="11_xq4e5"]
-[ext_resource type="Texture2D" uid="uid://dv8gb5rsx58wj" path="res://assets/West.png" id="12_c82p5"]
+[ext_resource type="Texture2D" uid="uid://b8haovwf0la4d" path="res://scenes/gui/North.png" id="10_bn3bg"]
+[ext_resource type="Texture2D" uid="uid://ccimu2xe3055t" path="res://scenes/gui/East.png" id="11_kvxgf"]
+[ext_resource type="Texture2D" uid="uid://cnvy2smlx2fgb" path="res://scenes/gui/South.png" id="12_iwsi4"]
+[ext_resource type="Texture2D" uid="uid://dv8gb5rsx58wj" path="res://scenes/gui/West.png" id="13_xx5ac"]
 [ext_resource type="Texture2D" uid="uid://3gqygstl7qiu" path="res://scenes/nest/knife.png" id="14_misqv"]
 [ext_resource type="Script" path="res://scenes/gui/Inventory.gd" id="14_qcn2b"]
 [ext_resource type="Texture2D" uid="uid://de1bul7fvgoww" path="res://scenes/mountain/bow.png" id="16_q8amh"]
@@ -47,7 +47,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="ColumnLeft" type="Sprite2D" parent="BackgroundColorLeft"]
 position = Vector2(95, 408)
-texture = ExtResource("1_pvayr")
+texture = ExtResource("1_fy52j")
 
 [node name="BackgroundColorRight" type="ColorRect" parent="."]
 offset_left = 1752.0
@@ -57,11 +57,11 @@ color = Color(0, 0, 0, 1)
 
 [node name="ColumnRight" type="Sprite2D" parent="BackgroundColorRight"]
 position = Vector2(72, 408)
-texture = ExtResource("2_4wsxe")
+texture = ExtResource("2_cuxij")
 
 [node name="GameMasterBackground" type="Sprite2D" parent="."]
 position = Vector2(960, 947)
-texture = ExtResource("3_aja86")
+texture = ExtResource("3_5oing")
 
 [node name="GameMasterOutput" type="Label" parent="GameMasterBackground"]
 z_index = 1
@@ -74,7 +74,7 @@ autowrap_mode = 3
 
 [node name="HeroTextBorder" type="Sprite2D" parent="."]
 position = Vector2(864, 880)
-texture = ExtResource("4_l36ue")
+texture = ExtResource("4_5d2hb")
 
 [node name="HeroTextEdit" type="TextEdit" parent="."]
 z_index = 1
@@ -113,19 +113,19 @@ script = ExtResource("9_8n67r")
 
 [node name="North" type="Sprite2D" parent="Compass"]
 position = Vector2(380, 132)
-texture = ExtResource("9_d3gxr")
+texture = ExtResource("10_bn3bg")
 
 [node name="East" type="Sprite2D" parent="Compass"]
 position = Vector2(584, 344)
-texture = ExtResource("10_tqntw")
+texture = ExtResource("11_kvxgf")
 
 [node name="South" type="Sprite2D" parent="Compass"]
 position = Vector2(380, 560)
-texture = ExtResource("11_xq4e5")
+texture = ExtResource("12_iwsi4")
 
 [node name="West" type="Sprite2D" parent="Compass"]
 position = Vector2(172, 352)
-texture = ExtResource("12_c82p5")
+texture = ExtResource("13_xx5ac")
 
 [node name="Inventory" type="Node2D" parent="."]
 position = Vector2(-7.62939e-06, 0)
