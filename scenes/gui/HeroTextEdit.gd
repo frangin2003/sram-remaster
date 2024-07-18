@@ -78,5 +78,6 @@ func _gui_input(event):
 			var user_message = text # Get the text from the TextEdit
 			clear()
 			gameMasterOutput.text = ""
+			Global.prepare_system_instructions()
 			LlmServer.send_to_llm_server(Global.SYSTEM, user_message)
 			get_viewport().set_input_as_handled()

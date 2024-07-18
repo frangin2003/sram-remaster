@@ -10,7 +10,7 @@ func _ready():
 		"west": null
 	})
 	get_node("gui/GameMasterBackground/GameMasterOutput").text = "You need to be more polite, buddy. Here is a picture of you from last summer."
-	Global.override_system_instructions("""You are acting as the game master (gm) of an epic adventure.
+	Global.SYSTEM_OVERRIDE = """You are acting as the game master (gm) of an epic adventure.
 Always respond using JSON in this template: {"_speaker":"001", "_text":"Your response as the interaction with the user input", "_command":"A COMMAND FOR THE GAME PROGRAM"}
 "_speaker" and "_text" is mandatory, "_command" is optional.
 
@@ -25,9 +25,7 @@ Always respond using JSON in this template: {"_speaker":"001", "_text":"Your res
 The hero has been impolite so he is punished, facing a picture of him as a dirty pig
 
 # Actions
-- To get out of the room the hero needs to say sorry: {"_speaker":"001", "_text":"Ok, you are forgiven.", "_command":"002"}
-"""
-	)
+- To get out of the room the hero needs to say sorry: {"_speaker":"001", "_text":"Ok, you are forgiven.", "_command":"002"}"""
 	CommandHandler.CURRENT_HANDLER = self
 
 func execute_command(command):

@@ -9,7 +9,7 @@ func _ready():
 		"south": "druids",
 		"west": "mountain"
 	})
-	Global.set_system_instructions("The hero is in a windy valley, clear sky, at the center a large menhir with engraved text: 'Please save the King Cinomeh'")
+	Global.SCENE_DESCRIPTION = "The hero is in a windy valley, clear sky, at the center a large menhir with engraved text: 'Please save the King Cinomeh'"
 	CommandHandler.CURRENT_HANDLER = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

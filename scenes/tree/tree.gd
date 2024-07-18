@@ -9,10 +9,9 @@ func _ready():
 		"south": "menhir",
 		"west": "waterfall"
 	})
-	Global.set_system_instructions("The hero is in a dense forest, birds are chirping, in front of him stands a large tree that can be climbed",
-	"""
-	- If the hero wants to climb the tree: {"_speaker":"001", "_text":"You climb like a squirrel!", "_command":"003"}
-	""")
+	Global.SCENE_DESCRIPTION = "The hero is in a dense forest, birds are chirping, in front of him stands a large tree that can be climbed"
+	Global.ACTIONS = """
+- If the hero wants to climb the tree: {"_speaker":"001", "_text":"You climb like a squirrel!", "_command":"003"}"""
 	CommandHandler.CURRENT_HANDLER = self
 
 func execute_command(command):

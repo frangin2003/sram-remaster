@@ -9,18 +9,11 @@ func _ready():
 		"south": null,
 		"west": null
 	})
-	var knife_instructions = ""
-	if Global.INVENTORY["knife"]:
-		knife_instructions = """
-		- If the hero looks at the nest, say it's empty, no commands"""
-	else:
-		knife_instructions = """
-		- If the hero looks at the nest: {"_speaker":"001", "_text":"There is a knife inside.", "_command":"002"}
-		- If the hero wants to take the knife: {"_speaker":"001", "_text":"Beware not to cut yourself.", "_command":"003"}"""
-	Global.set_system_instructions("The hero is on branch with a large bird nest in front of him. There is a knife in the nest",
-	"""%s
-	- If the hero wants to get down the tree: {"_speaker":"001", "_text":"Hop!", "_command":"004"}
-	""" % knife_instructions)
+	Global.SCENE_DESCRIPTION = "The hero is on branch with a large bird nest in front of him. There is a knife in the nest"
+	Global.ACTIONS = """
+- If the knife is not taken and the hero looks at the nest: {"_speaker":"001", "_text":"There is a knife inside.", "_command":"002"}
+- If the knife is not taken and the hero wants to take the knife: {"_speaker":"001", "_text":"Beware not to cut yourself.", "_command":"003"}
+- If the hero wants to get down the tree: {"_speaker":"001", "_text":"Hop!", "_command":"004"}"""
 	CommandHandler.CURRENT_HANDLER = self
 	Global.show_hide_item("Knife")
 
@@ -33,6 +26,7 @@ func execute_command(command):
 				sprite.visible = true
 		"003":
 			Global.take_item_and_animate("Knife", 95, 300)
+			Global.set_scene_state("knife_taken")
 		"004":
 			print("Down the tree!")
 			Global.set_scene("tree")

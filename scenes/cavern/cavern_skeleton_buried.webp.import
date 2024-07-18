@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1rnpcdbdghdk"
-path="res://.godot/imported/burried_skeleton.webp-c076e3279cc3ad1dd961e62140c50a90.ctex"
+uid="uid://bw1leo3k5oseb"
+path="res://.godot/imported/cavern_skeleton_buried.webp-4e7e66d1e94bd0414d1e951c1a8f0f5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/cavern/burried_skeleton.webp"
-dest_files=["res://.godot/imported/burried_skeleton.webp-c076e3279cc3ad1dd961e62140c50a90.ctex"]
+source_file="res://scenes/cavern/cavern_skeleton_buried.webp"
+dest_files=["res://.godot/imported/cavern_skeleton_buried.webp-4e7e66d1e94bd0414d1e951c1a8f0f5b.ctex"]
 
 [params]
 
