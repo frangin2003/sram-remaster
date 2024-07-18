@@ -26,7 +26,6 @@ func execute_command(command):
 				sprite.visible = true
 		"003":
 			Global.take_item_and_animate("Knife", 95, 300)
-			Global.set_scene_state("knife_taken")
 		"004":
 			print("Down the tree!")
 			Global.set_scene("tree")

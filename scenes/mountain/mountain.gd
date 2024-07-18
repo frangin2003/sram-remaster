@@ -21,7 +21,6 @@ func execute_command(command):
 	match command:
 		"003":
 			Global.take_item_and_animate("Bow", 112, 616)
-			Global.set_scene_state("bow_taken")
 		_:
 			print("Command not recognized in this scene")
 

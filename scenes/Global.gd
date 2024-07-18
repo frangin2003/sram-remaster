@@ -121,6 +121,7 @@ func take_item_and_animate(item_name: String, target_position_x: int, target_pos
 		INVENTORY[item_name.to_lower()] = true
 		print("%s added to inventory!" % item_name)
 		ConfigManager.save_config("INVENTORY", INVENTORY)
+		update_scene_state("%s taken" % item_name.to_lower())
 
 		var tween = create_tween()
 		tween.tween_property(sprite, "position", Vector2(target_position_x, target_position_y), duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)

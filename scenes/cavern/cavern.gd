@@ -25,14 +25,11 @@ func execute_command(command):
 	match command:
 		"002":
 			Global.take_item_and_animate("Shovel", 59, 575, 0)
-			Global.update_scene_state("shovel taken")
 		"003":
 			get_node("/root/%s/Flask" % Global.SCENE).visible = true
 			Global.take_item_and_animate("Flask", 97, 688)
-			Global.update_scene_state("flask taken")
 		"004":
 			Global.take_item_and_animate("Shovel", 59, 575, 0)
-			Global.update_scene_state("shovel taken")
 			get_node("/root/%s/Control/Sprite2D" % Global.SCENE).texture = load("res://scenes/cavern/cavern_skeleton_buried.webp")
 			Global.update_scene_state("skeleton buried")
 		_:
