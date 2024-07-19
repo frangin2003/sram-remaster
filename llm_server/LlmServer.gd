@@ -17,9 +17,15 @@ var COMMAND = ""
 var ConfigManager = preload("res://llm_server/ConfigManager.gd").new()
 
 func _ready():
-	LLM_SERVER_PORT = ConfigManager.load_config("Network", "port", LLM_SERVER_PORT)
+	LLM_SERVER_PORT = load_settings("Network", "port", LLM_SERVER_PORT)
 	print("LlmServer: Config loaded, port: ", LLM_SERVER_PORT)
 	start_connection_attempt()
+
+func load_settings(section: String, key: String, default_value):
+	var config = ConfigFile.new()
+	config.load("res://settings.cfg")
+	return config.get_value(section, key, default_value)
+
 
 func start_connection_attempt():
 	connection_timer = Timer.new()

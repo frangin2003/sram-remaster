@@ -1,6 +1,15 @@
 extends Node
 
-const CONFIG_FILE_PATH = "res://settings.cfg"
+var CONFIG_DIR = OS.get_user_data_dir() + "/sram-remaster"
+var CONFIG_FILE_PATH = CONFIG_DIR + "/game.cfg"
+
+func _ready():
+	ensure_config_dir_exists()
+
+func ensure_config_dir_exists():
+	if not DirAccess.dir_exists_absolute(CONFIG_DIR):
+		DirAccess.make_dir_recursive_absolute(CONFIG_DIR)
+	print("Config file path: " + CONFIG_FILE_PATH)
 
 func load_config(section: String, key: String, default_value):
 	var config = ConfigFile.new()

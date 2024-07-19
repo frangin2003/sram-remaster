@@ -12,15 +12,14 @@ func _ready():
 	})
 	Global.SCENE_DESCRIPTION = "The hero is in a valley on top of a hill, a large moutain is visible in the background and a large rock stands atop of the hill with a bow near it."
 	Global.ACTIONS = """
-	- If the hero wants to take the bow: {"_speaker":"001", "_text":"Bow bow bow.", "_command":"003"}
-	"""
+- If the hero wants to take the bow: {... "_text":"Now you need an arrow.", "_command":"002"}"""
 	CommandHandler.CURRENT_HANDLER = self
 	Global.show_hide_item("Bow")
 
 func execute_command(command):
 	print("Command: " + command)
 	match command:
-		"003":
+		"002":
 			Global.take_item_and_animate("Bow", 112, 616)
 		_:
 			print("Command not recognized in this scene")

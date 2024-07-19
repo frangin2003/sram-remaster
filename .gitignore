@@ -2,3 +2,5 @@
 .godot/
 trash/
 *.tmp
+# Godot export presets
+export_presets.cfg
