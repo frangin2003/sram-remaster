@@ -11,9 +11,9 @@ func _ready():
 	})
 	Global.SCENE_DESCRIPTION = "The hero is on branch with a large bird nest in front of him. There is a knife in the nest"
 	Global.ACTIONS = """
-- If the knife is not taken and the hero looks at the nest: {"_speaker":"001", "_text":"There is a knife inside.", "_command":"002"}
-- If the knife is not taken and the hero wants to take the knife: {"_speaker":"001", "_text":"Beware not to cut yourself.", "_command":"003"}
-- If the hero wants to get down the tree: {"_speaker":"001", "_text":"Hop!", "_command":"004"}"""
+- If the hero looks at the nest: {... "_text":"There is a knife inside.", "_command":"002"}
+- If the hero wants to take the knife: {... "_text":"Beware not to cut yourself.", "_command":"003"}
+- If the hero wants to get down the tree: {... "_text":"Hop!", "_command":"004"}"""
 	CommandHandler.CURRENT_HANDLER = self
 
 func execute_command(command):
