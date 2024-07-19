@@ -4,10 +4,11 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.set_compass({
-		"north": null,
-		"east": "desertdoor",
-		"south": null,
-		"west": "waterfall"
+		"NORTH": null,
+		# "EAST": "desertdoor",
+		"EAST": null,
+		"SOUTH": null,
+		"WEST": "waterfall"
 	})
 
 	Global.SCENE_DESCRIPTION = "The hero is in the cavern, in front of him the resting skeleton of a poor past adventurer, and a large barrel."

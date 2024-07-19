@@ -4,10 +4,10 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.set_compass({
-		"north": null,
-		"east": "lutin",
-		"south": "menhir",
-		"west": "waterfall"
+		"NORTH": null,
+		"EAST": "lutin",
+		"SOUTH": "menhir",
+		"WEST": "waterfall"
 	})
 	Global.SCENE_DESCRIPTION = "The hero is in a dense forest, birds are chirping, in front of him stands a large tree that can be climbed"
 	Global.ACTIONS = """

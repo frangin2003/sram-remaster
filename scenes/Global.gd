@@ -1,10 +1,10 @@
 extends Node
 
 var COMPASS = {
-	"north": null,
-	"east": null,
-	"south": null,
-	"west": null
+	"NORTH": null,
+	"EAST": null,
+	"SOUTH": null,
+	"WEST": null
 }
 
 var INVENTORY = {
@@ -102,8 +102,8 @@ func get_scene_state(scene_name: String = SCENE) -> String:
 		return ""
 
 func reset_scene_state():
-	INVENTORY["SCENE_STATE"] = {}
-	ConfigManager.save_config("SCENE_STATE", INVENTORY["SCENE_STATE"])
+	SCENE_STATE = {}
+	ConfigManager.save_config("SCENE_STATE", SCENE_STATE)
 
 func reset_inventory():
 	for item in INVENTORY:
@@ -152,6 +152,9 @@ Always respond using JSON in this template: {"_speaker":"001", "_text":"Your res
 # Guidelines
 - You speak very funnily.
 - Only answer with ONE or TWO SHORT sentences.
+- When given a text associated with a specific command, stick to it (eg. {..."_text":"Let's a go!", "_command":"NORTH"} )
+- The speaker by default is you, the Grand Master with the speaker ID "001" (eg. {"_speaker":"001"...} )
+- When a NPC is talking, you must use the NPC's speaker ID (eg. {"_speaker":"002"...} )
 - No emojis.
 - No line breaks in your answer.
 - If the hero is using swear words or insults: {"_speaker":"001", "_text":"You need to be more polite, buddy. Here is a picture of you from last summer.", "_command":"001"}
@@ -166,13 +169,14 @@ You can move in four cardinal directions: NORTH, EAST, SOUTH, and WEST. To navig
 Throughout the game, you will have the opportunity to perform various actions. These actions can include interacting with objects, solving puzzles, and making choices that affect the storyline. Pay attention to the instructions provided in each scene to know what actions are available.
 
 # Navigation
-- When the hero wants to move to a cardinal direction, they can only use the full name (NORTH, EAST, SOUTH, WEST) or the first letter (N, E, S, W).
-- Use the following template to respond to movement: {"_speaker":"001", "_text":"A SHORT FUNNY SENTENCE ABOUT THE MOVEMENT", "_command":"ONE OF EACH DIRECTION (NORTH,EAST,SOUTH,WEST)"}
-eg. {"_speaker":"001", "_text":"Let's-a go!", "_command":"NORTH"}
+- When the hero wants to move to a cardinal direction, they can only use the full name with whatever case (NORTH or north, EAST or east, SOUTH or south, WEST or west) or the first letter (N or n, E or e, S or s, W or w).
 - Authorized navigation: {authorized_directions}
 - Can't go: {unauthorized_directions}
-- Only send the command if the hero uses a valid cardinal direction.
-- If an invalid direction is given, respond with: {"_speaker":"001", "_text":"Whoa there, adventurer! That's not a valid direction. Stick to NORTH, EAST, SOUTH, or WEST."}
+- If the direction is authorized, respond as follow:
+	- NORTH: {"_speaker":"001", "_text":"Let's a go!", "_command":"NORTH"}
+	- EAST: {"_speaker":"001", "_text":"Eastward bound!", "_command":"EAST"}
+	- SOUTH: {"_speaker":"001", "_text":"South? Spicy!", "_command":"SOUTH"}
+	- WEST: {"_speaker":"001", "_text":"Wild Wild West", "_command":"WEST"}
 
 # Scene
 {scene_description}
@@ -181,7 +185,7 @@ eg. {"_speaker":"001", "_text":"Let's-a go!", "_command":"NORTH"}
 {scene_state}
 """
 
-func prepare_system_instructions():
+func get_system_instructions():
 
 	if SYSTEM_OVERRIDE != null:
 		return SYSTEM_OVERRIDE
@@ -210,6 +214,8 @@ func prepare_system_instructions():
 
 ## NPCs
 %s""" % NPCS
+	
+	return SYSTEM
 
 func speak_seconds(speaker, seconds):
 	print("Speak seconds:")

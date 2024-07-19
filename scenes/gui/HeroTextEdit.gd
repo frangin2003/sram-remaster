@@ -56,18 +56,24 @@ func llm_chunk(chunk):
 		LlmServer.COMMAND = ""
 		get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
 	else:
-		var command = LlmServer.COMMAND.strip_edges().to_upper().replace("[^A-Z]", "")
-		if (command == "NORTH"
-			or command == "WEST"
-			or command == "SOUTH"
-			or command == "EAST"):
+		var navigation = LlmServer.COMMAND.strip_edges().to_upper()
+		if navigation == "N" or navigation.begins_with("NORTH"):
+			navigation = "NORTH"
+		elif navigation == "S" or navigation.begins_with("SOUTH"):
+			navigation = "SOUTH"
+		elif navigation == "E" or navigation.begins_with("EAST"):
+			navigation = "EAST"
+		elif navigation == "W" or navigation.begins_with("WEST"):
+			navigation = "WEST"
+		if navigation in ["NORTH", "SOUTH", "EAST", "WEST"]:
 			print("Navigates")
-			var direction = Global.COMPASS[command.to_lower()]
+			var next_scene = Global.COMPASS[navigation]
 			LlmServer.COMMAND = ""
-			if (direction != null):
-				print("Navigate to " + direction)
-				Global.set_scene(direction)
+			if (next_scene != null):
+				print("Navigate to " + next_scene)
+				Global.set_scene(next_scene)
 		elif CommandHandler.CURRENT_HANDLER != null:
+			LlmServer.COMMAND = LlmServer.COMMAND.strip_edges().replace("[^0-9]", "")
 			CommandHandler.execute_command(LlmServer.COMMAND)
 
 # Override _gui_input instead of _input for GUI elements like TextEdit.
@@ -78,6 +84,6 @@ func _gui_input(event):
 			var user_message = text # Get the text from the TextEdit
 			clear()
 			gameMasterOutput.text = ""
-			Global.prepare_system_instructions()
-			LlmServer.send_to_llm_server(Global.SYSTEM, user_message)
+			var system_message = Global.get_system_instructions()
+			LlmServer.send_to_llm_server(system_message, user_message)
 			get_viewport().set_input_as_handled()

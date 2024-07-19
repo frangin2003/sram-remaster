@@ -7,10 +7,10 @@ func _ready():
 	var hero_text_edit = get_node("gui/HeroTextEdit")
 	hero_text_edit.connect("speak_seconds", speak_seconds)
 	Global.set_compass({
-		"north": null,
-		"east": null,
-		"south": null,
-		"west": "tree"
+		"NORTH": null,
+		"EAST": null,
+		"SOUTH": null,
+		"WEST": "tree"
 	})
 	Global.SCENE_DESCRIPTION = "The hero is facing a smiling Leprechaun blocking a large river"
 	Global.NPCS = """

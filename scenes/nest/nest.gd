@@ -4,10 +4,10 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.set_compass({
-		"north": null,
-		"east": null,
-		"south": null,
-		"west": null
+		"NORTH": null,
+		"EAST": null,
+		"SOUTH": null,
+		"WEST": null
 	})
 	Global.SCENE_DESCRIPTION = "The hero is on branch with a large bird nest in front of him. There is a knife in the nest"
 	Global.ACTIONS = """
@@ -15,7 +15,6 @@ func _ready():
 - If the knife is not taken and the hero wants to take the knife: {"_speaker":"001", "_text":"Beware not to cut yourself.", "_command":"003"}
 - If the hero wants to get down the tree: {"_speaker":"001", "_text":"Hop!", "_command":"004"}"""
 	CommandHandler.CURRENT_HANDLER = self
-	Global.show_hide_item("Knife")
 
 func execute_command(command):
 	print("Command: " + command)

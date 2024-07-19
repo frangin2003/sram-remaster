@@ -83,7 +83,7 @@ offset_top = 824.0
 offset_right = 1704.0
 offset_bottom = 936.0
 theme_override_font_sizes/font_size = 26
-placeholder_text = "Que faire ? "
+placeholder_text = "What's up?"
 script = ExtResource("1_8xywo")
 
 [node name="RecordVoiceButton" type="Button" parent="."]

@@ -7,10 +7,10 @@ func _ready():
 
 func _initialize_compass():
 	print(Global.COMPASS)
-	get_node("North").visible = Global.COMPASS["north"] != null
-	get_node("East").visible = Global.COMPASS["east"] != null
-	get_node("South").visible = Global.COMPASS["south"] != null
-	get_node("West").visible = Global.COMPASS["west"] != null
+	get_node("North").visible = Global.COMPASS["NORTH"] != null
+	get_node("East").visible = Global.COMPASS["EAST"] != null
+	get_node("South").visible = Global.COMPASS["SOUTH"] != null
+	get_node("West").visible = Global.COMPASS["WEST"] != null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

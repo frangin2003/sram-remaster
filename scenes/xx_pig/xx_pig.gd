@@ -4,10 +4,10 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.set_compass({
-		"north": null,
-		"east": null,
-		"south": null,
-		"west": null
+		"NORTH": null,
+		"EAST": null,
+		"SOUTH": null,
+		"WEST": null
 	})
 	get_node("gui/GameMasterBackground/GameMasterOutput").text = "You need to be more polite, buddy. Here is a picture of you from last summer."
 	Global.SYSTEM_OVERRIDE = """You are acting as the game master (gm) of an epic adventure.
@@ -33,6 +33,7 @@ func execute_command(command):
 	match command:
 		"002":
 			print("Out of pig!")
+			Global.SYSTEM_OVERRIDE = null
 			Global.set_scene(Global.SCENE)
 		_:
 			print("Command not recognized in this scene")
