@@ -23,6 +23,7 @@ driver/enable_input=true
 
 ConfigManager="*res://llm_server/ConfigManager.gd"
 Global="*res://scenes/Global.gd"
+SwitchMode="*res://scenes/SwitchMode.gd"
 CommandHandler="*res://llm_server/CommandHandler.gd"
 Memory="*res://llm_server/Memory.gd"
 Screenshot="*res://llm_server/Screenshot.gd"
