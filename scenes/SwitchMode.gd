@@ -14,5 +14,9 @@ func handle_tab_press():
 	MODE = "REMASTER" if MODE == "ORIGINAL" else "ORIGINAL"
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), MODE == "ORIGINAL")
 	var current_scene_name = get_tree().current_scene.name
-	get_node("/root/%s/Remaster" % current_scene_name).visible = SwitchMode.MODE == "REMASTER"
-	get_node("/root/%s/Original" % current_scene_name).visible = SwitchMode.MODE == "ORIGINAL"
+	var remaster_node = get_node("/root/%s/Remaster" % current_scene_name)
+	if remaster_node:
+		remaster_node.visible = SwitchMode.MODE == "REMASTER"
+	var original_node = get_node("/root/%s/Original" % current_scene_name)
+	if original_node:
+		original_node.visible = SwitchMode.MODE == "ORIGINAL"
