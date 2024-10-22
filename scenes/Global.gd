@@ -56,7 +56,7 @@ func load_user_state():
 	print("Loaded Compass: %s" % COMPASS)
 	print("Loaded Scene State: %s" % SCENE_STATE)
 
-func set_scene(new_scene):
+func set_scene(new_scene, navigation = null):
 	SYSTEM_OVERRIDE = null
 	SCENE = new_scene
 	ACTIONS = ""
@@ -64,7 +64,10 @@ func set_scene(new_scene):
 	#NavigationManager.go_to_scene(SCENE)
 	print("Changing scene to %s" % new_scene)
 	# print("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
-	get_tree().change_scene_to_file("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
+	if navigation != null:
+		SceneTransition.transition_to_scene("res://scenes/" + SCENE + "/" + SCENE + ".tscn", navigation)
+	else:
+		get_tree().change_scene_to_file("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
 	ConfigManager.save_config("SCENE", SCENE)
 
 func set_compass(new_compass):
