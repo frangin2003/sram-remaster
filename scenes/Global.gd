@@ -56,18 +56,36 @@ func load_user_state():
 	print("Loaded Compass: %s" % COMPASS)
 	print("Loaded Scene State: %s" % SCENE_STATE)
 
-func set_scene(new_scene, navigation = null):
+func set_scene(new_scene):
 	SYSTEM_OVERRIDE = null
 	SCENE = new_scene
 	ACTIONS = ""
 	NPCS = ""
-	#NavigationManager.go_to_scene(SCENE)
+	
+	# Create a ColorRect for fading
+	var fade_rect = ColorRect.new()
+	fade_rect.color = Color(0, 0, 0, 0)  # Start transparent
+	fade_rect.size = Vector2(1920, 1080)  # Set to your screen size
+	fade_rect.z_index = 100  # Make sure it's on top
+	get_tree().root.add_child(fade_rect)
+	
+	# Fade out
+	var tween = create_tween()
+	tween.tween_property(fade_rect, "color:a", 1.0, 0.5)  # Fade to black
+	await tween.finished
+	
 	print("Changing scene to %s" % new_scene)
-	# print("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
-	if navigation != null:
-		SceneTransition.transition_to_scene("res://scenes/" + SCENE + "/" + SCENE + ".tscn", navigation)
-	else:
-		get_tree().change_scene_to_file("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
+	print("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
+	get_tree().change_scene_to_file("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
+	
+	# Fade in
+	tween = create_tween()
+	tween.tween_property(fade_rect, "color:a", 0.0, 0.5)  # Fade to transparent
+	await tween.finished
+	
+	# Clean up
+	fade_rect.queue_free()
+	
 	ConfigManager.save_config("SCENE", SCENE)
 
 func set_compass(new_compass):

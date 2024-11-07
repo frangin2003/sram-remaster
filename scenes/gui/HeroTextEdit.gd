@@ -71,7 +71,7 @@ func llm_chunk(chunk):
 			LlmServer.COMMAND = ""
 			if (next_scene != null):
 				print("Navigate to " + next_scene)
-				Global.set_scene(next_scene, navigation)
+				Global.set_scene(next_scene)
 		elif CommandHandler.CURRENT_HANDLER != null:
 			LlmServer.COMMAND = LlmServer.COMMAND.strip_edges().replace("[^0-9]", "")
 			CommandHandler.execute_command(LlmServer.COMMAND)

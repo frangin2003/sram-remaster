@@ -110,7 +110,9 @@ func send_to_llm_server(system_prompt: String, user_prompt: String, with_speech:
 			remove_messages_with_images()
 		Memory.LLM_INPUT_ARRAY = [create_message("user", user_prompt, with_speech, image_url)]
 		messages_array.append_array(Memory.LLM_INPUT_ARRAY)
-		WEBSOCKET.send_text(JSON.stringify({"messages": messages_array}))
+		var json_string = JSON.stringify({"messages": messages_array}, "\t")
+		print("LlmServer: Sending message: ", json_string)
+		WEBSOCKET.send_text(json_string)
 	else:
 		print("LlmServer: WebSocket is not connected.")
 
