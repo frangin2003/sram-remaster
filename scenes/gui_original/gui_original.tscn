@@ -1,9 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=27 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Texture2D" uid="uid://bvpgd1sg2l126" path="res://scenes/gui_original/montagne.PNG" id="2_xmm0h"]
 [ext_resource type="Texture2D" uid="uid://0mp8rn0jmobf" path="res://scenes/gui_original/left column.PNG" id="3_10w4f"]
-[ext_resource type="Texture2D" uid="uid://b78i6sttf11m" path="res://scenes/gui_remaster/marble bottom.png" id="3_w07l7"]
 [ext_resource type="Texture2D" uid="uid://vir3ao5sthg1" path="res://scenes/gui_original/right column.png" id="4_p4cid"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/HeroTextEdit.gd" id="5_ct6yh"]
 [ext_resource type="FontFile" uid="uid://4q87slg2yxdu" path="res://scenes/gui_original/PressStart2P.ttf" id="6_3fjbt"]
@@ -40,41 +39,31 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_o7xl2"]
 
-[node name="gui_remaster" type="Node2D"]
+[node name="gui_original" type="Node2D"]
 
 [node name="Mountain" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(553, 211)
+position = Vector2(951, 476)
+scale = Vector2(2.444, 2.74)
 texture = ExtResource("1_j27bs")
 
 [node name="Montagne" type="Sprite2D" parent="."]
-position = Vector2(959, 506)
+visible = false
+position = Vector2(943, 506)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("2_xmm0h")
 
-[node name="BackgroundColorLeft" type="ColorRect" parent="."]
-offset_right = 168.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColumnLeft" type="Sprite2D" parent="BackgroundColorLeft"]
-position = Vector2(256, 412)
+[node name="ColumnLeft" type="Sprite2D" parent="."]
+position = Vector2(256, 411)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("3_10w4f")
 
-[node name="BackgroundColorRight" type="ColorRect" parent="."]
-offset_left = 1752.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColumnRight" type="Sprite2D" parent="BackgroundColorRight"]
-position = Vector2(72, 408)
+[node name="ColumnRight" type="Sprite2D" parent="."]
+position = Vector2(1646, 411)
+scale = Vector2(2.7, 2.7)
 texture = ExtResource("4_p4cid")
 
 [node name="GameMasterBackground" type="Sprite2D" parent="."]
 position = Vector2(960, 947)
-texture = ExtResource("3_w07l7")
 
 [node name="GameMasterOutput" type="Label" parent="GameMasterBackground"]
 z_index = 1
@@ -90,11 +79,12 @@ position = Vector2(864, 880)
 
 [node name="HeroTextEdit" type="TextEdit" parent="."]
 z_index = 1
-offset_left = 24.0
-offset_top = 824.0
-offset_right = 1704.0
-offset_bottom = 936.0
+offset_left = 150.0
+offset_top = 822.0
+offset_right = 1752.0
+offset_bottom = 934.0
 scale = Vector2(1, 1.01208)
+theme_override_colors/background_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_3fjbt")
 theme_override_font_sizes/font_size = 26
 placeholder_text = "What's up?"
