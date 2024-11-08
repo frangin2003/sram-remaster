@@ -9,8 +9,6 @@
 [node name="menhir" type="Node2D"]
 script = ExtResource("1_0ilvn")
 
-[node name="gui" parent="." instance=ExtResource("1_tsktu")]
-
 [node name="Remaster" type="Node2D" parent="."]
 
 [node name="Control" type="Control" parent="Remaster"]
@@ -33,6 +31,8 @@ loop = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
 stream = ExtResource("2_kboyf")
 autoplay = true
+
+[node name="gui" parent="Remaster" instance=ExtResource("1_tsktu")]
 
 [node name="Original" type="Node2D" parent="."]
 visible = false

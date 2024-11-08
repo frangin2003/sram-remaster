@@ -6,10 +6,10 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	if event is InputEventKey and event.pressed and event.keycode == KEY_TAB:
-		handle_tab_press()
+	if event is InputEventKey and event.pressed and event.keycode == KEY_F1:
+		handle_f1_press()
 
-func handle_tab_press():
+func handle_f1_press():
 	print("Tab key pressed")
 	MODE = "REMASTER" if MODE == "ORIGINAL" else "ORIGINAL"
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), MODE == "ORIGINAL")
