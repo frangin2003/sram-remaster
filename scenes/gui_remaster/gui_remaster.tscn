@@ -1,0 +1,173 @@
+[gd_scene load_steps=26 format=3 uid="uid://cdoq6xtniibw8"]
+
+[ext_resource type="Script" path="res://scenes/gui_remaster/HeroTextEdit.gd" id="1_8xywo"]
+[ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://scenes/gui_remaster/left column.png" id="1_fy52j"]
+[ext_resource type="Texture2D" uid="uid://drk7drh2kiggy" path="res://scenes/gui_remaster/right column.png" id="2_cuxij"]
+[ext_resource type="Texture2D" uid="uid://ex077uocw0ga" path="res://scenes/gui_remaster/record_button.png" id="2_wjl6o"]
+[ext_resource type="Texture2D" uid="uid://b78i6sttf11m" path="res://scenes/gui_remaster/marble bottom.png" id="3_5oing"]
+[ext_resource type="Script" path="res://scenes/gui_remaster/RecordVoiceButton.gd" id="3_ll062"]
+[ext_resource type="Texture2D" uid="uid://ij8bb65jyhcp" path="res://scenes/gui_remaster/text input.png" id="4_5d2hb"]
+[ext_resource type="Script" path="res://scenes/gui_remaster/AudioInput.gd" id="6_o6bsm"]
+[ext_resource type="Script" path="res://scenes/gui_remaster/Compass.gd" id="9_8n67r"]
+[ext_resource type="Texture2D" uid="uid://b8haovwf0la4d" path="res://scenes/gui_remaster/North.png" id="10_bn3bg"]
+[ext_resource type="Texture2D" uid="uid://ccimu2xe3055t" path="res://scenes/gui_remaster/East.png" id="11_kvxgf"]
+[ext_resource type="Texture2D" uid="uid://cnvy2smlx2fgb" path="res://scenes/gui_remaster/South.png" id="12_iwsi4"]
+[ext_resource type="Texture2D" uid="uid://dv8gb5rsx58wj" path="res://scenes/gui_remaster/West.png" id="13_xx5ac"]
+[ext_resource type="Texture2D" uid="uid://3gqygstl7qiu" path="res://scenes/nest/knife.png" id="14_misqv"]
+[ext_resource type="Script" path="res://scenes/gui_remaster/Inventory.gd" id="14_qcn2b"]
+[ext_resource type="Texture2D" uid="uid://de1bul7fvgoww" path="res://scenes/mountain/bow.png" id="16_q8amh"]
+[ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="17_k1jdh"]
+[ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="18_rdpg2"]
+[ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="19_3s6fh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgh6u"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+skew = Vector2(100, 100)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3alo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_embtt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qyap"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_o7xl2"]
+
+[node name="gui_remaster" type="Node2D"]
+
+[node name="BackgroundColorLeft" type="ColorRect" parent="."]
+offset_right = 168.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColumnLeft" type="Sprite2D" parent="BackgroundColorLeft"]
+position = Vector2(95, 408)
+texture = ExtResource("1_fy52j")
+
+[node name="BackgroundColorRight" type="ColorRect" parent="."]
+offset_left = 1752.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColumnRight" type="Sprite2D" parent="BackgroundColorRight"]
+position = Vector2(72, 408)
+texture = ExtResource("2_cuxij")
+
+[node name="GameMasterBackground" type="Sprite2D" parent="."]
+position = Vector2(960, 947)
+texture = ExtResource("3_5oing")
+
+[node name="GameMasterOutput" type="Label" parent="GameMasterBackground"]
+z_index = 1
+offset_left = -959.0
+offset_top = 6.0
+offset_right = 961.0
+offset_bottom = 134.0
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 3
+
+[node name="HeroTextBorder" type="Sprite2D" parent="."]
+position = Vector2(864, 880)
+texture = ExtResource("4_5d2hb")
+
+[node name="HeroTextEdit" type="TextEdit" parent="."]
+z_index = 1
+offset_left = 24.0
+offset_top = 824.0
+offset_right = 1704.0
+offset_bottom = 936.0
+theme_override_font_sizes/font_size = 26
+placeholder_text = "What's up?"
+script = ExtResource("1_8xywo")
+
+[node name="RecordVoiceButton" type="Button" parent="."]
+z_index = 1
+offset_left = 1760.0
+offset_top = 824.0
+offset_right = 1889.0
+offset_bottom = 952.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_v0ddl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgh6u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i3alo")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_embtt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3qyap")
+icon = ExtResource("2_wjl6o")
+expand_icon = true
+script = ExtResource("3_ll062")
+
+[node name="AudioInput" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_o7xl2")
+autoplay = true
+bus = &"Record"
+script = ExtResource("6_o6bsm")
+
+[node name="Compass" type="Node2D" parent="."]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("9_8n67r")
+
+[node name="North" type="Sprite2D" parent="Compass"]
+position = Vector2(380, 132)
+texture = ExtResource("10_bn3bg")
+
+[node name="East" type="Sprite2D" parent="Compass"]
+position = Vector2(584, 344)
+texture = ExtResource("11_kvxgf")
+
+[node name="South" type="Sprite2D" parent="Compass"]
+position = Vector2(380, 560)
+texture = ExtResource("12_iwsi4")
+
+[node name="West" type="Sprite2D" parent="Compass"]
+position = Vector2(172, 352)
+texture = ExtResource("13_xx5ac")
+
+[node name="Inventory" type="Node2D" parent="."]
+position = Vector2(-7.62939e-06, 0)
+script = ExtResource("14_qcn2b")
+
+[node name="Knife" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(95, 300)
+rotation = 0.645772
+scale = Vector2(0.385025, 0.350129)
+texture = ExtResource("14_misqv")
+
+[node name="Bow" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(112, 616)
+scale = Vector2(0.555172, 0.555172)
+texture = ExtResource("16_q8amh")
+
+[node name="Shovel" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(59, 575)
+scale = Vector2(0.277676, 0.25251)
+texture = ExtResource("17_k1jdh")
+
+[node name="Flask" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(97, 688)
+scale = Vector2(0.477676, 0.492507)
+texture = ExtResource("18_rdpg2")
+
+[node name="WaterLabel" type="RichTextLabel" parent="Inventory/Flask"]
+offset_left = -75.3649
+offset_right = 77.6351
+offset_bottom = 58.0
+scale = Vector2(1, 0.837566)
+theme_override_fonts/normal_font = ExtResource("19_3s6fh")
+theme_override_font_sizes/normal_font_size = 45
+text = "EMPTY"
+fit_content = true
+
+[connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
+[connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]
+[connection signal="mouse_entered" from="RecordVoiceButton" to="RecordVoiceButton" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="RecordVoiceButton" to="RecordVoiceButton" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="RecordVoiceButton" to="RecordVoiceButton" method="_on_Button_pressed"]

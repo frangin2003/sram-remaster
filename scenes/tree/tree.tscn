@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/tree/tree.gd" id="1_v5j5t"]
 [ext_resource type="VideoStream" path="res://scenes/tree/tree-final.ogv" id="2_ycs01"]
 [ext_resource type="AudioStream" uid="uid://18gwaw4p1xfn" path="res://scenes/tree/forest-bird-sounds-73690.mp3" id="3_6ppa3"]
-[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_vi858"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_vi858"]
 
 [node name="tree" type="Node2D"]
 script = ExtResource("1_v5j5t")

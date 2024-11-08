@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/mountain/mountain.gd" id="1_7673q"]
 [ext_resource type="VideoStream" path="res://scenes/mountain/mountain.ogv" id="2_unrr2"]
 [ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
-[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_xhtv6"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="Texture2D" uid="uid://de1bul7fvgoww" path="res://scenes/mountain/bow.png" id="5_ba85e"]
 
 [node name="mountain" type="Node2D"]

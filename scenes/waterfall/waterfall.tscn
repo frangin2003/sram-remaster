@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/waterfall/waterfall.gd" id="1_ecbd5"]
 [ext_resource type="VideoStream" path="res://scenes/waterfall/waterfall.ogv" id="2_f14x4"]
 [ext_resource type="AudioStream" uid="uid://draamev84b3w7" path="res://scenes/waterfall/waterfall-24060.mp3" id="3_a4tlp"]
-[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_serxj"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_serxj"]
 
 [node name="waterfall" type="Node2D"]
 script = ExtResource("1_ecbd5")

@@ -4,7 +4,7 @@
 [ext_resource type="VideoStream" path="res://scenes/lutin/lutin.ogv" id="2_a2e43"]
 [ext_resource type="VideoStream" path="res://scenes/lutin/lutin_speak.ogv" id="3_3051b"]
 [ext_resource type="Shader" path="res://scenes/lutin/lutin_speak_shader.gdshader" id="3_s0gs1"]
-[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_b1j2u"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_b1j2u"]
 [ext_resource type="AudioStream" uid="uid://kk1vt3k4aqui" path="res://scenes/lutin/river-in-the-forest-17271.mp3" id="5_oorm3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qky1y"]

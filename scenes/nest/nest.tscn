@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://boeh7hkadfqbb" path="res://scenes/nest/nest.webp" id="2_b7ehq"]
 [ext_resource type="AudioStream" uid="uid://18gwaw4p1xfn" path="res://scenes/tree/forest-bird-sounds-73690.mp3" id="3_a6hxk"]
 [ext_resource type="Texture2D" uid="uid://3gqygstl7qiu" path="res://scenes/nest/knife.png" id="3_cuvgf"]
-[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui/gui.tscn" id="4_bd1nr"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_bd1nr"]
 
 [node name="nest" type="Node2D"]
 script = ExtResource("1_tv3xq")
