@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=28 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Texture2D" uid="uid://bvpgd1sg2l126" path="res://scenes/gui_original/montagne.PNG" id="2_xmm0h"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="17_fvtr6"]
 [ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="18_sphfu"]
 [ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="19_8dtdq"]
+[ext_resource type="Texture2D" uid="uid://dvff2fro1deyl" path="res://scenes/gui_original/top_gui.PNG" id="20_jumor"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -42,24 +43,18 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [node name="gui_original" type="Node2D"]
 
 [node name="Mountain" type="Sprite2D" parent="."]
-position = Vector2(951, 476)
-scale = Vector2(2.444, 2.74)
+position = Vector2(942.5, 475)
+scale = Vector2(2.47292, 2.69841)
 texture = ExtResource("1_j27bs")
 
-[node name="Montagne" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(943, 506)
-scale = Vector2(2.475, 2.698)
-texture = ExtResource("2_xmm0h")
-
 [node name="ColumnLeft" type="Sprite2D" parent="."]
-position = Vector2(256, 411)
-scale = Vector2(2.7, 2.7)
+position = Vector2(247.913, 411)
+scale = Vector2(2.49599, 2.7)
 texture = ExtResource("3_10w4f")
 
 [node name="ColumnRight" type="Sprite2D" parent="."]
-position = Vector2(1646, 411)
-scale = Vector2(2.7, 2.7)
+position = Vector2(1635.82, 409.8)
+scale = Vector2(2.44877, 2.69211)
 texture = ExtResource("4_p4cid")
 
 [node name="GameMasterBackground" type="Sprite2D" parent="."]
@@ -170,6 +165,16 @@ theme_override_fonts/normal_font = ExtResource("19_8dtdq")
 theme_override_font_sizes/normal_font_size = 45
 text = "EMPTY"
 fit_content = true
+
+[node name="TopGui" type="Sprite2D" parent="."]
+position = Vector2(943, 64.5)
+scale = Vector2(2.475, 2.6875)
+texture = ExtResource("20_jumor")
+
+[node name="Montagne" type="Sprite2D" parent="."]
+position = Vector2(942, 506)
+scale = Vector2(2.475, 2.698)
+texture = ExtResource("2_xmm0h")
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]
