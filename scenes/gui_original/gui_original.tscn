@@ -124,7 +124,6 @@ position = Vector2(943, 475)
 scale = Vector2(2.475, 2.69841)
 
 [node name="Image" type="Sprite2D" parent="BackgroundImage"]
-scale = Vector2(1, 1)
 texture = ExtResource("1_j27bs")
 
 [node name="HeroTextEdit" type="TextEdit" parent="."]
@@ -139,6 +138,18 @@ theme_override_fonts/font = ExtResource("6_3fjbt")
 theme_override_font_sizes/font_size = 34
 placeholder_text = "Que faire ?"
 script = ExtResource("5_ct6yh")
+
+[node name="GameMasterBackground" type="Sprite2D" parent="."]
+position = Vector2(960, 947)
+
+[node name="GameMasterOutput" type="Label" parent="GameMasterBackground"]
+z_index = 1
+offset_left = -959.0
+offset_top = 6.0
+offset_right = 961.0
+offset_bottom = 134.0
+theme_override_font_sizes/font_size = 24
+autowrap_mode = 3
 
 [node name="GameMasterOutput" type="Label" parent="."]
 z_index = 1

@@ -91,7 +91,7 @@ func set_scene(new_scene):
 	ConfigManager.save_config("SCENE", SCENE)
 
 func set_original_background_image():
-	var image_node = get_node("/root/%s/Original/gui_original/BackgroundImage/Image" % SCENE)
+	var image_node = get_node_or_null("/root/%s/Original/gui_original/BackgroundImage/Image" % SCENE)
 	if image_node:
 		image_node.texture = load("res://scenes/" + SCENE + "/" + SCENE + "_original_background.png")
 
