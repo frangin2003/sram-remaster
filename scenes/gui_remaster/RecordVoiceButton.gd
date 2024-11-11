@@ -3,8 +3,8 @@ extends Button
 signal audio_recording_started
 signal audio_recording_stopped
 
-var icon_texture_record = load("res://scenes/gui/record_button.png")
-var icon_texture_stop = load("res://scenes/gui/stop_button.png")
+var icon_texture_record = load("res://scenes/gui_remaster/record_button.png")
+var icon_texture_stop = load("res://scenes/gui_remaster/stop_button.png")
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():

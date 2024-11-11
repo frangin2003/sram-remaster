@@ -3,6 +3,7 @@ extends Node
 var MODE = "REMASTER"
 
 func _ready():
+	print("Original/Remater switch on")
 	set_process_input(true)
 
 func _input(event):
@@ -10,8 +11,9 @@ func _input(event):
 		handle_f1_press()
 
 func handle_f1_press():
-	print("Tab key pressed")
+	print("F1 key pressed")
 	MODE = "REMASTER" if MODE == "ORIGINAL" else "ORIGINAL"
+	print("Mode switched to: %s" % MODE)
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), MODE == "ORIGINAL")
 	var current_scene_name = get_tree().current_scene.name
 	var remaster_node = get_node("/root/%s/Remaster" % current_scene_name)

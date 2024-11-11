@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
-[ext_resource type="Texture2D" uid="uid://bvpgd1sg2l126" path="res://scenes/gui_original/montagne.PNG" id="2_xmm0h"]
+[ext_resource type="Texture2D" uid="uid://dvff2fro1deyl" path="res://scenes/gui_original/top_gui.PNG" id="1_oqvqp"]
 [ext_resource type="Texture2D" uid="uid://0mp8rn0jmobf" path="res://scenes/gui_original/left column.PNG" id="3_10w4f"]
 [ext_resource type="Texture2D" uid="uid://vir3ao5sthg1" path="res://scenes/gui_original/right column.png" id="4_p4cid"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/HeroTextEdit.gd" id="5_ct6yh"]
@@ -41,95 +41,43 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="gui_original" type="Node2D"]
 
-[node name="Mountain" type="Sprite2D" parent="."]
-position = Vector2(951, 476)
-scale = Vector2(2.444, 2.74)
-texture = ExtResource("1_j27bs")
-
-[node name="Montagne" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(943, 506)
-scale = Vector2(2.475, 2.698)
-texture = ExtResource("2_xmm0h")
+[node name="TopGui" type="Sprite2D" parent="."]
+position = Vector2(943, 65)
+scale = Vector2(2.475, 2.70833)
+texture = ExtResource("1_oqvqp")
 
 [node name="ColumnLeft" type="Sprite2D" parent="."]
-position = Vector2(256, 411)
-scale = Vector2(2.7, 2.7)
+position = Vector2(248.413, 411)
+scale = Vector2(2.48364, 2.7)
 texture = ExtResource("3_10w4f")
 
 [node name="ColumnRight" type="Sprite2D" parent="."]
-position = Vector2(1646, 411)
-scale = Vector2(2.7, 2.7)
+position = Vector2(1637, 410.7)
+scale = Vector2(2.47346, 2.70197)
 texture = ExtResource("4_p4cid")
-
-[node name="GameMasterBackground" type="Sprite2D" parent="."]
-position = Vector2(960, 947)
-
-[node name="GameMasterOutput" type="Label" parent="GameMasterBackground"]
-z_index = 1
-offset_left = -959.0
-offset_top = 6.0
-offset_right = 961.0
-offset_bottom = 134.0
-theme_override_font_sizes/font_size = 24
-autowrap_mode = 3
-
-[node name="HeroTextBorder" type="Sprite2D" parent="."]
-position = Vector2(864, 880)
-
-[node name="HeroTextEdit" type="TextEdit" parent="."]
-z_index = 1
-offset_left = 150.0
-offset_top = 822.0
-offset_right = 1752.0
-offset_bottom = 934.0
-scale = Vector2(1, 1.01208)
-theme_override_colors/background_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_3fjbt")
-theme_override_font_sizes/font_size = 26
-placeholder_text = "What's up?"
-script = ExtResource("5_ct6yh")
-
-[node name="RecordVoiceButton" type="Button" parent="."]
-visible = false
-z_index = 1
-offset_left = 1760.0
-offset_top = 824.0
-offset_right = 1889.0
-offset_bottom = 952.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_v0ddl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lgh6u")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i3alo")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_embtt")
-theme_override_styles/focus = SubResource("StyleBoxFlat_3qyap")
-icon = ExtResource("6_cg66r")
-expand_icon = true
-script = ExtResource("7_5oa3o")
-
-[node name="AudioInput" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamMicrophone_o7xl2")
-autoplay = true
-bus = &"Record"
-script = ExtResource("8_8hnun")
 
 [node name="Compass" type="Node2D" parent="."]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("9_m581f")
 
 [node name="North" type="Sprite2D" parent="Compass"]
-position = Vector2(380, 132)
+position = Vector2(990, 76.5)
+scale = Vector2(9.936, 10.9286)
 texture = ExtResource("12_wqlbm")
 
 [node name="East" type="Sprite2D" parent="Compass"]
-position = Vector2(584, 344)
+position = Vector2(1148.25, 250.25)
+scale = Vector2(9.67857, 10.5357)
 texture = ExtResource("13_m2u7q")
 
 [node name="South" type="Sprite2D" parent="Compass"]
-position = Vector2(380, 560)
+position = Vector2(998.5, 436.25)
+scale = Vector2(11.5833, 10.8214)
 texture = ExtResource("14_vvmpi")
 
 [node name="West" type="Sprite2D" parent="Compass"]
-position = Vector2(172, 352)
+position = Vector2(830.25, 248.25)
+scale = Vector2(9.96429, 10.8214)
 texture = ExtResource("15_k1gw6")
 
 [node name="Inventory" type="Node2D" parent="."]
@@ -170,6 +118,60 @@ theme_override_fonts/normal_font = ExtResource("19_8dtdq")
 theme_override_font_sizes/normal_font_size = 45
 text = "EMPTY"
 fit_content = true
+
+[node name="BackgroundImage" type="Node2D" parent="."]
+position = Vector2(943, 475)
+scale = Vector2(2.475, 2.69841)
+
+[node name="Image" type="Sprite2D" parent="BackgroundImage"]
+scale = Vector2(1, 1)
+texture = ExtResource("1_j27bs")
+
+[node name="HeroTextEdit" type="TextEdit" parent="."]
+z_index = 1
+offset_left = 148.0
+offset_top = 822.0
+offset_right = 1737.0
+offset_bottom = 946.0
+scale = Vector2(1, 1.01208)
+theme_override_colors/background_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_3fjbt")
+theme_override_font_sizes/font_size = 34
+placeholder_text = "Que faire ?"
+script = ExtResource("5_ct6yh")
+
+[node name="GameMasterOutput" type="Label" parent="."]
+z_index = 1
+offset_left = 148.0
+offset_top = 951.0
+offset_right = 1737.0
+offset_bottom = 1075.0
+theme_override_fonts/font = ExtResource("6_3fjbt")
+theme_override_font_sizes/font_size = 42
+text = "LE VOYAGE CONTINUE!"
+autowrap_mode = 3
+
+[node name="RecordVoiceButton" type="Button" parent="."]
+visible = false
+z_index = 1
+offset_left = 1760.0
+offset_top = 824.0
+offset_right = 1889.0
+offset_bottom = 952.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_v0ddl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lgh6u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i3alo")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_embtt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3qyap")
+icon = ExtResource("6_cg66r")
+expand_icon = true
+script = ExtResource("7_5oa3o")
+
+[node name="AudioInput" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_o7xl2")
+autoplay = true
+bus = &"Record"
+script = ExtResource("8_8hnun")
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]
