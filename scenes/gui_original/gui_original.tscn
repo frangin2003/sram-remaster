@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=27 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Texture2D" uid="uid://dvff2fro1deyl" path="res://scenes/gui_original/top_gui.PNG" id="1_oqvqp"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="17_fvtr6"]
 [ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="18_sphfu"]
 [ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="19_8dtdq"]
-[ext_resource type="Texture2D" uid="uid://dvff2fro1deyl" path="res://scenes/gui_original/top_gui.PNG" id="20_jumor"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
