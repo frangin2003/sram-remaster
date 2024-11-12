@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqjasnltu4pni"]
+[gd_scene load_steps=9 format=3 uid="uid://dqjasnltu4pni"]
 
 [ext_resource type="Script" path="res://scenes/cavern/cavern.gd" id="1_vgb7p"]
 [ext_resource type="Texture2D" uid="uid://cdhcyywpthckc" path="res://scenes/cavern/cavern.webp" id="2_21jhl"]
@@ -7,11 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="5_2ee62"]
 [ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="6_vx34v"]
 [ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="7_xeakm"]
+[ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="8_6gc1x"]
 
 [node name="cavern" type="Node2D"]
 script = ExtResource("1_vgb7p")
 
-[node name="Control" type="Control" parent="."]
+[node name="Remaster" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -19,30 +22,28 @@ offset_left = 176.0
 offset_right = 1744.0
 offset_bottom = 824.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
+[node name="Sprite2D" type="Sprite2D" parent="Remaster/Control"]
 position = Vector2(778, 291)
 scale = Vector2(1.10156, 1.10156)
 texture = ExtResource("2_21jhl")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
 stream = ExtResource("3_wr3q8")
 autoplay = true
 
-[node name="gui" parent="." instance=ExtResource("4_eldt8")]
-
-[node name="Shovel" type="Sprite2D" parent="."]
+[node name="Shovel" type="Sprite2D" parent="Remaster"]
 position = Vector2(1272, 592)
 rotation = -0.261799
 scale = Vector2(0.277676, 0.25251)
 texture = ExtResource("5_2ee62")
 
-[node name="Flask" type="Sprite2D" parent="."]
+[node name="Flask" type="Sprite2D" parent="Remaster"]
 visible = false
 position = Vector2(1416, 112)
 scale = Vector2(0.477676, 0.492507)
 texture = ExtResource("6_vx34v")
 
-[node name="WaterLabel" type="RichTextLabel" parent="Flask"]
+[node name="WaterLabel" type="RichTextLabel" parent="Remaster/Flask"]
 offset_left = -75.3649
 offset_right = 77.6351
 offset_bottom = 58.0
@@ -51,3 +52,9 @@ theme_override_fonts/normal_font = ExtResource("7_xeakm")
 theme_override_font_sizes/normal_font_size = 45
 text = "EMPTY"
 fit_content = true
+
+[node name="gui_remaster" parent="Remaster" instance=ExtResource("4_eldt8")]
+
+[node name="Original" type="Node2D" parent="."]
+
+[node name="gui_original" parent="Original" instance=ExtResource("8_6gc1x")]

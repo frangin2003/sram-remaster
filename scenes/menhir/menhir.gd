@@ -1,19 +1,15 @@
-extends Node2D
+extends "res://scenes/BaseScene.gd"
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	Global.set_compass({
-		"NORTH": "tree",
-		# "EAST": "bird",
-		# "SOUTH": "druids",
-		"EAST": null,
-		"SOUTH": null,
-		"WEST": "mountain"
-	})
-	Global.SCENE_DESCRIPTION = "The hero is in a windy valley, clear sky, at the center a large menhir with engraved text: 'Please save the King Cinomeh'"
+func _get_scene_config() -> Dictionary:
 	CommandHandler.CURRENT_HANDLER = null
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+	return {
+		"compass": {  # Compass configuration (optional)
+			"NORTH": "tree",
+			# "EAST": "bird",
+			# "SOUTH": "druids",
+			"EAST": null,
+			"SOUTH": null,
+			"WEST": "mountain"
+		},
+		"description": "The hero is in a windy valley, clear sky, at the center a large menhir with engraved text: 'Please save the King Cinomeh'",
+	}

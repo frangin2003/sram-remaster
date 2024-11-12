@@ -39,10 +39,10 @@ var ConfigManager = preload("res://llm_server/ConfigManager.gd").new()
 
 func _ready():
 	call_deferred("load_user_state")
-	call_deferred("set_original_background_image")
 
 func load_user_state():
-	SCENE = ConfigManager.load_config("Game", "SCENE", "menhir")
+	if SCENE == null:
+		SCENE = ConfigManager.load_config("Game", "SCENE", "menhir")
 	var saved_inventory = ConfigManager.load_config("Game", "INVENTORY", {})
 	for item in INVENTORY.keys():
 		if item in saved_inventory:
@@ -78,7 +78,6 @@ func set_scene(new_scene):
 	print("Changing scene to %s" % new_scene)
 	print("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
 	get_tree().change_scene_to_file("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
-	set_original_background_image()
 	
 	# Fade in
 	tween = create_tween()
@@ -90,10 +89,19 @@ func set_scene(new_scene):
 	
 	ConfigManager.save_config("SCENE", SCENE)
 
+func get_current_scene_name():
+	var root = get_tree().root
+	if root:
+		var current_scene = root.get_child(root.get_child_count() - 1)
+		if current_scene:
+			return current_scene.name
+	return null
+
 func set_original_background_image():
-	var image_node = get_node_or_null("/root/%s/Original/gui_original/BackgroundImage/Image" % SCENE)
+	var current_scene_name = get_current_scene_name()
+	var image_node = get_node_or_null("/root/%s/Original/gui_original/BackgroundImage/Image" % current_scene_name)
 	if image_node:
-		image_node.texture = load("res://scenes/" + SCENE + "/" + SCENE + "_original_background.png")
+		image_node.texture = load("res://scenes/" + current_scene_name + "/" + current_scene_name + "_original_background.png")
 
 
 func set_compass(new_compass):
