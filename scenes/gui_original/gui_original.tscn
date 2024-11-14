@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=27 format=3 uid="uid://cwr2ewdghvrdv"]
 
+[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="1_huc5g"]
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Texture2D" uid="uid://dvff2fro1deyl" path="res://scenes/gui_original/top_gui.PNG" id="1_oqvqp"]
 [ext_resource type="Texture2D" uid="uid://0mp8rn0jmobf" path="res://scenes/gui_original/left column.PNG" id="3_10w4f"]
@@ -162,6 +163,8 @@ stream = SubResource("AudioStreamMicrophone_o7xl2")
 autoplay = true
 bus = &"Record"
 script = ExtResource("8_8hnun")
+
+[node name="xx_settings" parent="." instance=ExtResource("1_huc5g")]
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]

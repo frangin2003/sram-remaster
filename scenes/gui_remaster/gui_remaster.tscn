@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=27 format=3 uid="uid://cdoq6xtniibw8"]
 
+[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="1_4pypv"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/HeroTextEdit.gd" id="1_8xywo"]
 [ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://scenes/gui_remaster/left column.png" id="1_fy52j"]
 [ext_resource type="Texture2D" uid="uid://drk7drh2kiggy" path="res://scenes/gui_remaster/right column.png" id="2_cuxij"]
@@ -154,6 +155,8 @@ stream = SubResource("AudioStreamMicrophone_o7xl2")
 autoplay = true
 bus = &"Record"
 script = ExtResource("6_o6bsm")
+
+[node name="xx_settings" parent="." instance=ExtResource("1_4pypv")]
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]
