@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=26 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Texture2D" uid="uid://dvff2fro1deyl" path="res://scenes/gui_original/top_gui.PNG" id="1_oqvqp"]
@@ -10,16 +10,15 @@
 [ext_resource type="Script" path="res://scenes/gui_remaster/RecordVoiceButton.gd" id="7_5oa3o"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/AudioInput.gd" id="8_8hnun"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/Compass.gd" id="9_m581f"]
+[ext_resource type="Texture2D" uid="uid://day513fxjcgko" path="res://scenes/nest/knife_original.png" id="10_6i8ym"]
+[ext_resource type="Texture2D" uid="uid://ctfselehuswth" path="res://scenes/mountain/bow_original.png" id="11_3v40q"]
 [ext_resource type="Texture2D" uid="uid://coh0fg8i2lynk" path="res://scenes/gui_original/north.png" id="12_wqlbm"]
+[ext_resource type="Texture2D" uid="uid://da7cs405d4xe7" path="res://scenes/cavern/shovel.png" id="12_xioq7"]
+[ext_resource type="Texture2D" uid="uid://cuvnv0f4w8msq" path="res://scenes/cavern/flask_asec.png" id="13_c47wj"]
 [ext_resource type="Texture2D" uid="uid://om4fympems2w" path="res://scenes/gui_original/east.PNG" id="13_m2u7q"]
 [ext_resource type="Texture2D" uid="uid://dt68rlkhtft8v" path="res://scenes/gui_original/south.PNG" id="14_vvmpi"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/Inventory.gd" id="14_w4bg7"]
 [ext_resource type="Texture2D" uid="uid://m0nd0q0tb3xc" path="res://scenes/gui_original/ouest.PNG" id="15_k1gw6"]
-[ext_resource type="Texture2D" uid="uid://3gqygstl7qiu" path="res://scenes/nest/knife.png" id="15_qp850"]
-[ext_resource type="Texture2D" uid="uid://de1bul7fvgoww" path="res://scenes/mountain/bow.png" id="16_g0dro"]
-[ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="17_fvtr6"]
-[ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="18_sphfu"]
-[ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="19_8dtdq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -86,38 +85,27 @@ script = ExtResource("14_w4bg7")
 
 [node name="Knife" type="Sprite2D" parent="Inventory"]
 visible = false
-position = Vector2(95, 300)
-rotation = 0.645772
-scale = Vector2(0.385025, 0.350129)
-texture = ExtResource("15_qp850")
+position = Vector2(235.257, 283.888)
+scale = Vector2(2.49013, 2.52984)
+texture = ExtResource("10_6i8ym")
 
 [node name="Bow" type="Sprite2D" parent="Inventory"]
 visible = false
-position = Vector2(112, 616)
-scale = Vector2(0.555172, 0.555172)
-texture = ExtResource("16_g0dro")
+position = Vector2(281.669, 658.63)
+scale = Vector2(2.36092, 2.65259)
+texture = ExtResource("11_3v40q")
 
 [node name="Shovel" type="Sprite2D" parent="Inventory"]
 visible = false
-position = Vector2(59, 575)
-scale = Vector2(0.277676, 0.25251)
-texture = ExtResource("17_fvtr6")
+position = Vector2(224, 664)
+scale = Vector2(2.475, 2.698)
+texture = ExtResource("12_xioq7")
 
 [node name="Flask" type="Sprite2D" parent="Inventory"]
 visible = false
-position = Vector2(97, 688)
-scale = Vector2(0.477676, 0.492507)
-texture = ExtResource("18_sphfu")
-
-[node name="WaterLabel" type="RichTextLabel" parent="Inventory/Flask"]
-offset_left = -75.3649
-offset_right = 77.6351
-offset_bottom = 58.0
-scale = Vector2(1, 0.837566)
-theme_override_fonts/normal_font = ExtResource("19_8dtdq")
-theme_override_font_sizes/normal_font_size = 45
-text = "EMPTY"
-fit_content = true
+position = Vector2(250, 758.5)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("13_c47wj")
 
 [node name="BackgroundImage" type="Node2D" parent="."]
 position = Vector2(943, 475)
@@ -144,19 +132,10 @@ position = Vector2(960, 947)
 
 [node name="GameMasterOutput" type="Label" parent="GameMasterBackground"]
 z_index = 1
-offset_left = -959.0
-offset_top = 6.0
-offset_right = 961.0
-offset_bottom = 134.0
-theme_override_font_sizes/font_size = 24
-autowrap_mode = 3
-
-[node name="GameMasterOutput" type="Label" parent="."]
-z_index = 1
-offset_left = 148.0
-offset_top = 951.0
-offset_right = 1737.0
-offset_bottom = 1075.0
+offset_left = -812.0
+offset_top = 4.0
+offset_right = 777.0
+offset_bottom = 128.0
 theme_override_fonts/font = ExtResource("6_3fjbt")
 theme_override_font_sizes/font_size = 42
 text = "LE VOYAGE CONTINUE!"

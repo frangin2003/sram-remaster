@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqjasnltu4pni"]
+[gd_scene load_steps=12 format=3 uid="uid://dqjasnltu4pni"]
 
 [ext_resource type="Script" path="res://scenes/cavern/cavern.gd" id="1_vgb7p"]
 [ext_resource type="Texture2D" uid="uid://cdhcyywpthckc" path="res://scenes/cavern/cavern.webp" id="2_21jhl"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="6_vx34v"]
 [ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="7_xeakm"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="8_6gc1x"]
+[ext_resource type="Texture2D" uid="uid://cuvnv0f4w8msq" path="res://scenes/cavern/flask_asec.png" id="9_455xk"]
+[ext_resource type="Texture2D" uid="uid://da7cs405d4xe7" path="res://scenes/cavern/shovel.png" id="9_m8ryh"]
+[ext_resource type="Texture2D" uid="uid://c8rwa0jyq025j" path="res://scenes/cavern/cavern_original_background.png" id="11_jsp5c"]
 
 [node name="cavern" type="Node2D"]
 script = ExtResource("1_vgb7p")
@@ -26,6 +29,8 @@ offset_bottom = 824.0
 position = Vector2(778, 291)
 scale = Vector2(1.10156, 1.10156)
 texture = ExtResource("2_21jhl")
+
+[node name="gui_remaster" parent="Remaster" instance=ExtResource("4_eldt8")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
 stream = ExtResource("3_wr3q8")
@@ -53,8 +58,28 @@ theme_override_font_sizes/normal_font_size = 45
 text = "EMPTY"
 fit_content = true
 
-[node name="gui_remaster" parent="Remaster" instance=ExtResource("4_eldt8")]
-
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("8_6gc1x")]
+
+[node name="Control" type="Control" parent="Original"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Original/Control"]
+position = Vector2(943, 472)
+scale = Vector2(2.475, 2.69841)
+texture = ExtResource("11_jsp5c")
+
+[node name="Shovel" type="Sprite2D" parent="Original"]
+position = Vector2(937, 613)
+scale = Vector2(2.50893, 2.50893)
+texture = ExtResource("9_m8ryh")
+
+[node name="Flask" type="Sprite2D" parent="Original"]
+position = Vector2(250, 758.5)
+scale = Vector2(2.50001, 2.50001)
+texture = ExtResource("9_455xk")

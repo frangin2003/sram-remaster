@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvcmuu3hiu2is"]
+[gd_scene load_steps=7 format=3 uid="uid://cvcmuu3hiu2is"]
 
 [ext_resource type="Script" path="res://scenes/waterfall/waterfall.gd" id="1_ecbd5"]
 [ext_resource type="VideoStream" path="res://scenes/waterfall/waterfall.ogv" id="2_f14x4"]
 [ext_resource type="AudioStream" uid="uid://draamev84b3w7" path="res://scenes/waterfall/waterfall-24060.mp3" id="3_a4tlp"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_serxj"]
+[ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="5_nddc2"]
+[ext_resource type="Texture2D" uid="uid://c2354syokbrg1" path="res://scenes/waterfall/waterfall.png" id="6_yujqp"]
 
 [node name="waterfall" type="Node2D"]
 script = ExtResource("1_ecbd5")
 
-[node name="Control" type="Control" parent="."]
+[node name="Remaster" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
@@ -16,7 +20,7 @@ offset_left = 176.0
 offset_right = 1744.0
 offset_bottom = 824.0
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Remaster/Control"]
 layout_mode = 0
 offset_right = 1568.0
 offset_bottom = 815.0
@@ -25,8 +29,18 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="gui_remaster" parent="Remaster" instance=ExtResource("4_serxj")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
 stream = ExtResource("3_a4tlp")
 autoplay = true
 
-[node name="gui" parent="." instance=ExtResource("4_serxj")]
+[node name="Original" type="Node2D" parent="."]
+visible = false
+
+[node name="gui_original" parent="Original" instance=ExtResource("5_nddc2")]
+
+[node name="Waterfall" type="Sprite2D" parent="Original"]
+position = Vector2(943, 475)
+scale = Vector2(2.475, 2.698)
+texture = ExtResource("6_yujqp")

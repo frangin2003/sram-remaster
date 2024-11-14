@@ -2,7 +2,7 @@ extends Node
 
 var pixelate_layer: CanvasLayer
 
-var MODE = "REMASTER"
+var MODE = "Remaster"
 
 func _ready():
 	print("Original/Remater switch on")
@@ -31,17 +31,17 @@ func handle_f1_press():
 	await pixelate()
 	
 	# Make changes under the pixelation
-	MODE = "REMASTER" if MODE == "ORIGINAL" else "ORIGINAL"
+	MODE = "Remaster" if MODE == "Original" else "Original"
 	print("Mode switched to: %s" % MODE)
 	
-	var current_scene_name = get_tree().current_scene.name
+	var current_scene_name = get_tree().get_current_scene().name
 	var remaster_node = get_node("/root/%s/Remaster" % current_scene_name)
 	var original_node = get_node("/root/%s/Original" % current_scene_name)
 	
 	if remaster_node:
-		remaster_node.visible = MODE == "REMASTER"
+		remaster_node.visible = MODE == "Remaster"
 	if original_node:
-		original_node.visible = MODE == "ORIGINAL"
+		original_node.visible = MODE == "Original"
 	
 	await get_tree().process_frame  # Let visibility changes take effect
 

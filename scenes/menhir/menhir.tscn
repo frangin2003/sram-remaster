@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ih6v6g868em2"]
+[gd_scene load_steps=7 format=3 uid="uid://ih6v6g868em2"]
 
 [ext_resource type="Script" path="res://scenes/menhir/menhir.gd" id="1_0ilvn"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="1_tsktu"]
 [ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="2_kboyf"]
 [ext_resource type="VideoStream" path="res://scenes/menhir/mehnir_final_v2.ogv" id="3_pie7w"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="5_50fr4"]
+[ext_resource type="Texture2D" uid="uid://b5clcky03l7ef" path="res://scenes/menhir/menhir.png" id="6_itahl"]
 
 [node name="menhir" type="Node2D"]
 script = ExtResource("1_0ilvn")
@@ -28,13 +29,18 @@ autoplay = true
 expand = true
 loop = true
 
+[node name="gui_remaster" parent="Remaster" instance=ExtResource("1_tsktu")]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
 stream = ExtResource("2_kboyf")
 autoplay = true
-
-[node name="gui_remaster" parent="Remaster" instance=ExtResource("1_tsktu")]
 
 [node name="Original" type="Node2D" parent="."]
 visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("5_50fr4")]
+
+[node name="Menhir" type="Sprite2D" parent="Original"]
+position = Vector2(943, 475)
+scale = Vector2(2.475, 2.698)
+texture = ExtResource("6_itahl")

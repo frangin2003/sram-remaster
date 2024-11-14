@@ -23,6 +23,10 @@ func _ready():
 	# Set compass (optional)
 	if config.has("compass"):
 		Global.set_compass(config.compass)
+
+	# Set system (optional)
+	if config.has("system_override"):
+		Global.SYSTEM_OVERRIDE = config.system_override
 	
 	# Set description (optional)
 	if config.has("description"):
@@ -37,4 +41,4 @@ func _ready():
 		Global.NPCS = config.npcs
 		
 	# Set background image
-	Global.set_original_background_image()
+	# Global.set_original_background_image()

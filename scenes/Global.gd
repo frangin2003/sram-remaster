@@ -117,9 +117,12 @@ func update_compass(direction, value):
 func show_hide_item(item_name: String):
 	print("Toggling visibility for item: %s" % item_name)
 	print("Inventory value for %s: %s" % [item_name, INVENTORY[item_name.to_lower()]])
-	var item_node = get_node("/root/%s/%s" % [SCENE, item_name.capitalize()])
-	if item_node:
-		item_node.visible = not INVENTORY[item_name.to_lower()]
+	var item_node_remaster = get_node("/root/%s/Remaster/%s" % [SCENE, item_name])
+	if item_node_remaster:
+		item_node_remaster.visible = not INVENTORY[item_name.to_lower()]
+	var item_node_original = get_node("/root/%s/Original/%s" % [SCENE, item_name])
+	if item_node_original:
+		item_node_original.visible = not INVENTORY[item_name.to_lower()]
 
 func update_inventory(item_name, value):
 	INVENTORY[item_name.to_lower()] = value
@@ -150,9 +153,9 @@ func reset_inventory():
 			INVENTORY[item] = 0
 	ConfigManager.save_config("INVENTORY", INVENTORY)
 
-func take_item_and_animate(item_name: String, target_position_x: int, target_position_y: int, rotation: float = NAN, duration: float = 1.0):
+func take_item_and_animate(mode: String, item_name: String, target_position_x: int, target_position_y: int, rotation: float = NAN, duration: float = 1.0):
 	print("Animating %s!" % item_name)
-	var sprite = get_node("/root/%s/%s" % [SCENE, item_name.capitalize()])
+	var sprite = get_node("/root/%s/%s/%s" % [SCENE, mode, item_name])
 	
 	if sprite and sprite.visible:
 		INVENTORY[item_name.to_lower()] = true

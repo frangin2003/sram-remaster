@@ -1,16 +1,18 @@
-extends Node2D
+extends "res://scenes/BaseScene.gd"
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	Global.set_compass({
-		"NORTH": null,
-		"EAST": null,
-		"SOUTH": null,
-		"WEST": null
-	})
-	get_node("gui/GameMasterBackground/GameMasterOutput").text = "You need to be more polite, buddy. Here is a picture of you from last summer."
-	Global.SYSTEM_OVERRIDE = """You are acting as the game master (gm) of an epic adventure.
+func _get_scene_config() -> Dictionary:
+	CommandHandler.CURRENT_HANDLER = self
+	var global_message = "You need to be more polite, buddy. Here is a picture of you from last summer."
+	get_node("/root/xx_pig/Remaster/gui_remaster/GameMasterBackground/GameMasterOutput").text = global_message
+	get_node("/root/xx_pig/Original/gui_original/GameMasterBackground/GameMasterOutput").text = global_message
+	return {
+		"compass": {
+			"NORTH": null,
+			"EAST": null,
+			"SOUTH": null,
+			"WEST": null
+		},
+		"system_override": """You are acting as the game master (gm) of an epic adventure.
 Always respond using JSON in this template: {"_speaker":"001", "_text":"Your response as the interaction with the user input", "_command":"A COMMAND FOR THE GAME PROGRAM"}
 "_speaker" and "_text" is mandatory, "_command" is optional.
 
@@ -26,7 +28,7 @@ The hero has been impolite so he is punished, facing a picture of him as a dirty
 
 # Actions
 - To get out of the room the hero needs to say sorry: {"_speaker":"001", "_text":"Ok, you are forgiven.", "_command":"002"}"""
-	CommandHandler.CURRENT_HANDLER = self
+	}
 
 func execute_command(command):
 	print("Command: " + command)
@@ -37,7 +39,3 @@ func execute_command(command):
 			Global.set_scene(Global.SCENE)
 		_:
 			print("Command not recognized in this scene")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
