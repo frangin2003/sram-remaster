@@ -16,6 +16,7 @@ func _get_scene_config() -> Dictionary:
 	}
 
 func _ready():
+	SwitchMode.update_mode_visibility()
 	Global.SCENE = Global.get_current_scene_name()
 
 	var config = _get_scene_config()
@@ -39,6 +40,3 @@ func _ready():
 	# Set NPCs (optional)
 	if config.has("npcs"):
 		Global.NPCS = config.npcs
-		
-	# Set background image
-	# Global.set_original_background_image()

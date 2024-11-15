@@ -2,10 +2,8 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	var scene_suffix = "_skeleton_buried" if "skeleton buried" in Global.get_scene_state().split(", ") else ""
-	get_node("/root/cavern/Remaster/Control/Sprite2D").texture =
-		load("res://scenes/cavern/cavern%s.webp" % scene_suffix)
-	get_node("/root/cavern/Original/Control/Sprite2D").texture =
-		load("res://scenes/cavern/cavern%s_original_background.png" % scene_suffix)
+	get_node("/root/cavern/Remaster/Control/Sprite2D").texture = load("res://scenes/cavern/cavern%s.webp" % scene_suffix)
+	get_node("/root/cavern/Original/Control/Sprite2D").texture = load("res://scenes/cavern/cavern%s_original_background.png" % scene_suffix)
 	CommandHandler.CURRENT_HANDLER = self
 	Global.show_hide_item("Shovel")
 	return {

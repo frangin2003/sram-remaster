@@ -28,7 +28,7 @@ func execute_command(command):
 				sprite.visible = true
 		"003":
 			Global.take_item_and_animate("Remaster", "Knife", 95, 300)
-			Global.take_item_and_animate("Original", "Knife", 235.257, 283.888)
+			Global.take_item_and_animate("Original", "Knife", 235, 284)
 		"004":
 			print("Down the tree!")
 			Global.set_scene("tree")

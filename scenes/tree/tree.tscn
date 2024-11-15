@@ -37,6 +37,7 @@ stream = ExtResource("3_6ppa3")
 autoplay = true
 
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("5_6h4r8")]
 

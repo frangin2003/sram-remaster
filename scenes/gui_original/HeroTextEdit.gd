@@ -74,7 +74,8 @@ func llm_chunk(chunk):
 				Global.set_scene(next_scene)
 		elif CommandHandler.CURRENT_HANDLER != null:
 			LlmServer.COMMAND = LlmServer.COMMAND.strip_edges().replace("[^0-9]", "")
-			CommandHandler.execute_command(LlmServer.COMMAND)
+			if LlmServer.COMMAND != null and !LlmServer.COMMAND.is_empty():
+				CommandHandler.execute_command(LlmServer.COMMAND)
 
 # Override _gui_input instead of _input for GUI elements like TextEdit.
 func _gui_input(event):

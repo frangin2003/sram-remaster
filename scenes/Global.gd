@@ -29,6 +29,7 @@ var INVENTORY = {
 	"centaur_hoof": false,
 }
 
+var MODE = null
 var SCENE = null
 var SCENE_STATE = {}
 var SCENE_DESCRIPTION = ""
@@ -43,6 +44,8 @@ func _ready():
 func load_user_state():
 	if SCENE == null:
 		SCENE = ConfigManager.load_config("Game", "SCENE", "menhir")
+	if MODE == null:
+		MODE = ConfigManager.load_config("Game", "MODE", "Remaster")
 	var saved_inventory = ConfigManager.load_config("Game", "INVENTORY", {})
 	for item in INVENTORY.keys():
 		if item in saved_inventory:
@@ -78,6 +81,8 @@ func set_scene(new_scene):
 	print("Changing scene to %s" % new_scene)
 	print("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
 	get_tree().change_scene_to_file("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
+	# await get_tree().process_frame  # Let visibility changes take effect
+	# SwitchMode.update_mode_visibility()
 	
 	# Fade in
 	tween = create_tween()
@@ -97,12 +102,9 @@ func get_current_scene_name():
 			return current_scene.name
 	return null
 
-func set_original_background_image():
-	var current_scene_name = get_current_scene_name()
-	var image_node = get_node_or_null("/root/%s/Original/gui_original/BackgroundImage/Image" % current_scene_name)
-	if image_node:
-		image_node.texture = load("res://scenes/" + current_scene_name + "/" + current_scene_name + "_original_background.png")
-
+func update_mode(new_mode):
+	MODE = new_mode
+	ConfigManager.save_config("MODE", MODE)
 
 func set_compass(new_compass):
 	for direction in COMPASS.keys():
