@@ -1,6 +1,5 @@
 [gd_scene load_steps=27 format=3 uid="uid://cwr2ewdghvrdv"]
 
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="1_huc5g"]
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Texture2D" uid="uid://dvff2fro1deyl" path="res://scenes/gui_original/top_gui.PNG" id="1_oqvqp"]
 [ext_resource type="Texture2D" uid="uid://0mp8rn0jmobf" path="res://scenes/gui_original/left column.PNG" id="3_10w4f"]
@@ -17,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://da7cs405d4xe7" path="res://scenes/cavern/shovel.png" id="12_xioq7"]
 [ext_resource type="Texture2D" uid="uid://cuvnv0f4w8msq" path="res://scenes/cavern/flask_asec.png" id="13_c47wj"]
 [ext_resource type="Texture2D" uid="uid://om4fympems2w" path="res://scenes/gui_original/east.PNG" id="13_m2u7q"]
+[ext_resource type="Texture2D" uid="uid://d2bdnl38as6mq" path="res://scenes/lutin/potion_original.png" id="14_t8k6s"]
 [ext_resource type="Texture2D" uid="uid://dt68rlkhtft8v" path="res://scenes/gui_original/south.PNG" id="14_vvmpi"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/Inventory.gd" id="14_w4bg7"]
 [ext_resource type="Texture2D" uid="uid://m0nd0q0tb3xc" path="res://scenes/gui_original/ouest.PNG" id="15_k1gw6"]
@@ -108,6 +108,12 @@ position = Vector2(250, 758.5)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("13_c47wj")
 
+[node name="Potion" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1636, 461)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("14_t8k6s")
+
 [node name="BackgroundImage" type="Node2D" parent="."]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.69841)
@@ -124,8 +130,8 @@ offset_bottom = 946.0
 scale = Vector2(1, 1.01208)
 theme_override_colors/background_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_3fjbt")
-theme_override_font_sizes/font_size = 34
-placeholder_text = "Que faire ?"
+theme_override_font_sizes/font_size = 28
+placeholder_text = "What to do?"
 script = ExtResource("5_ct6yh")
 
 [node name="GameMasterBackground" type="Sprite2D" parent="."]
@@ -138,8 +144,7 @@ offset_top = 4.0
 offset_right = 777.0
 offset_bottom = 128.0
 theme_override_fonts/font = ExtResource("6_3fjbt")
-theme_override_font_sizes/font_size = 42
-text = "LE VOYAGE CONTINUE!"
+theme_override_font_sizes/font_size = 30
 autowrap_mode = 3
 
 [node name="RecordVoiceButton" type="Button" parent="."]
@@ -163,8 +168,6 @@ stream = SubResource("AudioStreamMicrophone_o7xl2")
 autoplay = true
 bus = &"Record"
 script = ExtResource("8_8hnun")
-
-[node name="xx_settings" parent="." instance=ExtResource("1_huc5g")]
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]

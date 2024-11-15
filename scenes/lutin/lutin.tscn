@@ -1,20 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://44c5toykbrhp"]
+[gd_scene load_steps=11 format=3 uid="uid://44c5toykbrhp"]
 
 [ext_resource type="Script" path="res://scenes/lutin/lutin.gd" id="1_60kc2"]
 [ext_resource type="VideoStream" path="res://scenes/lutin/lutin.ogv" id="2_a2e43"]
 [ext_resource type="VideoStream" path="res://scenes/lutin/lutin_speak.ogv" id="3_3051b"]
-[ext_resource type="Shader" path="res://scenes/lutin/lutin_speak_shader.gdshader" id="3_s0gs1"]
+[ext_resource type="Shader" path="res://scenes/lutin/speak_shader.gdshader" id="3_s0gs1"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_b1j2u"]
 [ext_resource type="AudioStream" uid="uid://kk1vt3k4aqui" path="res://scenes/lutin/river-in-the-forest-17271.mp3" id="5_oorm3"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="7_ecypk"]
 [ext_resource type="Texture2D" uid="uid://ctipu21di36mb" path="res://scenes/lutin/lutin.png" id="8_dmmdr"]
+[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_qylf4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qky1y"]
 shader = ExtResource("3_s0gs1")
-shader_parameter/brightness = 0.0
-shader_parameter/contrast = 1.0
-shader_parameter/saturation = 1.0
-shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/rect_area = Vector4(0.3, 0.3, 0.7, 0.7)
+shader_parameter/edge_softness = 0.15
 
 [node name="lutin" type="Node2D"]
 script = ExtResource("1_60kc2")
@@ -48,22 +47,13 @@ offset_left = 176.0
 offset_right = 1744.0
 offset_bottom = 824.0
 
-[node name="ColorRect" type="ColorRect" parent="Remaster/ControlSpeak"]
-clip_contents = true
-layout_mode = 0
-offset_left = 288.0
-offset_top = 280.0
-offset_right = 472.0
-offset_bottom = 376.0
-color = Color(1, 1, 1, 0.529412)
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Remaster/ControlSpeak/ColorRect"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Remaster/ControlSpeak"]
 material = SubResource("ShaderMaterial_qky1y")
 layout_mode = 0
-offset_left = -228.0
-offset_top = -114.0
-offset_right = 413.0
-offset_bottom = 206.0
+offset_left = 60.0
+offset_top = 166.0
+offset_right = 701.0
+offset_bottom = 486.0
 stream = ExtResource("3_3051b")
 autoplay = true
 expand = true
@@ -89,3 +79,8 @@ visible = false
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("8_dmmdr")
+
+[node name="xx_settings" parent="." instance=ExtResource("9_qylf4")]
+
+[node name="xx_settings" parent="xx_settings" instance=ExtResource("9_qylf4")]
+layout_mode = 1

@@ -1,6 +1,5 @@
 [gd_scene load_steps=27 format=3 uid="uid://cdoq6xtniibw8"]
 
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="1_4pypv"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/HeroTextEdit.gd" id="1_8xywo"]
 [ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://scenes/gui_remaster/left column.png" id="1_fy52j"]
 [ext_resource type="Texture2D" uid="uid://drk7drh2kiggy" path="res://scenes/gui_remaster/right column.png" id="2_cuxij"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="17_k1jdh"]
 [ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="18_rdpg2"]
 [ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="19_3s6fh"]
+[ext_resource type="Texture2D" uid="uid://d0dmmo50nssn6" path="res://scenes/lutin/potion.png" id="20_p5oo5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -108,6 +108,12 @@ theme_override_font_sizes/normal_font_size = 45
 text = "EMPTY"
 fit_content = true
 
+[node name="Potion" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1824, 456)
+scale = Vector2(0.681818, 0.681818)
+texture = ExtResource("20_p5oo5")
+
 [node name="GameMasterBackground" type="Sprite2D" parent="."]
 position = Vector2(960, 947)
 texture = ExtResource("3_5oing")
@@ -155,8 +161,6 @@ stream = SubResource("AudioStreamMicrophone_o7xl2")
 autoplay = true
 bus = &"Record"
 script = ExtResource("6_o6bsm")
-
-[node name="xx_settings" parent="." instance=ExtResource("1_4pypv")]
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]

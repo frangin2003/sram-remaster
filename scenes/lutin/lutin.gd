@@ -5,7 +5,6 @@ func _get_scene_config() -> Dictionary:
 	var hero_text_edit = get_node("/root/lutin/Remaster/gui_remaster/HeroTextEdit")
 	hero_text_edit.connect("speak_seconds", speak_seconds)
 	CommandHandler.CURRENT_HANDLER = self
-	Global.show_hide_item("Shovel")
 	return {
 		"compass": {
 			"NORTH": null,
