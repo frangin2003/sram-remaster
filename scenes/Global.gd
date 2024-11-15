@@ -266,7 +266,7 @@ func speak_seconds(speaker, seconds):
 
 	# no clip to speak if this is the Grand Master voice
 	if (speaker != "001"):
-		var clip_to_show = get_node("/root/%s/ControlSpeak" % SCENE)
+		var clip_to_show = get_node("/root/%s/Remaster/ControlSpeak" % SCENE)
 
 		if clip_to_show:
 			clip_to_show.visible = true
