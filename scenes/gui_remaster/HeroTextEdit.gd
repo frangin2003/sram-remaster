@@ -54,7 +54,7 @@ func llm_chunk(chunk):
 	elif LlmServer.COMMAND.find("001") != -1 and gameMasterOutput.text.find("polite") != -1:
 		print("Pig time!")
 		LlmServer.COMMAND = ""
-		get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
+		Global.set_scene("xx_pig")
 	else:
 		var navigation = LlmServer.COMMAND.strip_edges().to_upper()
 		if navigation == "N" or navigation.begins_with("NORTH"):

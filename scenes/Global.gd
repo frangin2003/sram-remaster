@@ -30,6 +30,7 @@ var INVENTORY = {
 }
 
 var MODE = null
+var PREVIOUS_SCENE = null
 var SCENE = null
 var SCENE_STATE = {}
 var SCENE_DESCRIPTION = ""
@@ -42,6 +43,8 @@ func _ready():
 	call_deferred("load_user_state")
 
 func load_user_state():
+	if PREVIOUS_SCENE == null:
+		PREVIOUS_SCENE = ConfigManager.load_config("Game", "PREVIOUS_SCENE", null)
 	if SCENE == null:
 		SCENE = ConfigManager.load_config("Game", "SCENE", "menhir")
 	if MODE == null:
@@ -62,6 +65,7 @@ func load_user_state():
 
 func set_scene(new_scene):
 	SYSTEM_OVERRIDE = null
+	PREVIOUS_SCENE = SCENE
 	SCENE = new_scene
 	ACTIONS = ""
 	NPCS = ""
@@ -223,7 +227,7 @@ Throughout the game, you will have the opportunity to perform various actions. T
 # Scene
 {scene_description}
 
-## Scene state
+## Scene {scene_name} state
 {scene_state}
 """
 
@@ -241,6 +245,7 @@ func get_system_instructions():
 		"unauthorized_directions": ", ".join(get_unauthorized_directions()),
 		"scene_description": SCENE_DESCRIPTION,
 		"additional_npcs_instructions": additional_npcs_instructions,
+		"scene_name": SCENE,
 		"scene_state": get_scene_state()
 	})
 

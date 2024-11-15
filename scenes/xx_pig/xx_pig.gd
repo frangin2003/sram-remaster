@@ -36,6 +36,6 @@ func execute_command(command):
 		"002":
 			print("Out of pig!")
 			Global.SYSTEM_OVERRIDE = null
-			Global.set_scene(Global.SCENE)
+			Global.set_scene(Global.PREVIOUS_SCENE)
 		_:
 			print("Command not recognized in this scene")
