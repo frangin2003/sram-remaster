@@ -66,10 +66,6 @@ stream = ExtResource("5_oorm3")
 volume_db = 2.0
 autoplay = true
 
-[node name="Potion" type="Sprite2D" parent="Remaster"]
-position = Vector2(1040, 576)
-scale = Vector2(0.555172, 0.555172)
-
 [node name="Original" type="Node2D" parent="."]
 visible = false
 
@@ -81,6 +77,3 @@ scale = Vector2(2.475, 2.698)
 texture = ExtResource("8_dmmdr")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_qylf4")]
-
-[node name="xx_settings" parent="xx_settings" instance=ExtResource("9_qylf4")]
-layout_mode = 1
