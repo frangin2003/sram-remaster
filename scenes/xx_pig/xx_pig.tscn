@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc0pmlgph3hw5"]
+[gd_scene load_steps=8 format=3 uid="uid://cc0pmlgph3hw5"]
 
 [ext_resource type="Texture2D" uid="uid://dfctv8ovoomhg" path="res://scenes/xx_pig/pig.webp" id="1_cxd4h"]
 [ext_resource type="Script" path="res://scenes/xx_pig/xx_pig.gd" id="1_iujrr"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://b6b2yalcpqeul" path="res://scenes/xx_pig/Android-Sock-Hop(chosic.com).mp3" id="3_f1jij"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="5_ojwk1"]
 [ext_resource type="Texture2D" uid="uid://dwdsf2hocw8et" path="res://scenes/xx_pig/pig.png" id="6_qgdsb"]
+[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="7_q3c3m"]
 
 [node name="xx_pig" type="Node2D"]
 script = ExtResource("1_iujrr")
@@ -41,3 +42,5 @@ visible = false
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.69841)
 texture = ExtResource("6_qgdsb")
+
+[node name="xx_settings" parent="." instance=ExtResource("7_q3c3m")]

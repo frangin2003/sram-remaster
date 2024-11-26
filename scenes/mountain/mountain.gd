@@ -21,6 +21,6 @@ func execute_command(command):
 	match command:
 		"002":
 			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
-			Global.take_item_and_animate("Original", "Bow", 281.669, 658.63)
+			Global.take_item_and_animate("Original", "Bow", 282, 659)
 		_:
 			print("Command not recognized in this scene")

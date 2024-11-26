@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=28 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Texture2D" uid="uid://dvff2fro1deyl" path="res://scenes/gui_original/top_gui.PNG" id="1_oqvqp"]
@@ -16,9 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://da7cs405d4xe7" path="res://scenes/cavern/shovel.png" id="12_xioq7"]
 [ext_resource type="Texture2D" uid="uid://cuvnv0f4w8msq" path="res://scenes/cavern/flask_asec.png" id="13_c47wj"]
 [ext_resource type="Texture2D" uid="uid://om4fympems2w" path="res://scenes/gui_original/east.PNG" id="13_m2u7q"]
-[ext_resource type="Texture2D" uid="uid://d2bdnl38as6mq" path="res://scenes/lutin/potion_original.png" id="14_t8k6s"]
+[ext_resource type="Texture2D" uid="uid://d2bdnl38as6mq" path="res://scenes/hermit/potion_original.png" id="14_t8k6s"]
 [ext_resource type="Texture2D" uid="uid://dt68rlkhtft8v" path="res://scenes/gui_original/south.PNG" id="14_vvmpi"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/Inventory.gd" id="14_w4bg7"]
+[ext_resource type="Texture2D" uid="uid://qb21lhipw2l8" path="res://scenes/druids/cane.png" id="15_2qxm8"]
 [ext_resource type="Texture2D" uid="uid://m0nd0q0tb3xc" path="res://scenes/gui_original/ouest.PNG" id="15_k1gw6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
@@ -85,40 +86,41 @@ position = Vector2(-7.62939e-06, 0)
 script = ExtResource("14_w4bg7")
 
 [node name="Knife" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(235.257, 283.888)
 scale = Vector2(2.49013, 2.52984)
 texture = ExtResource("10_6i8ym")
 
 [node name="Bow" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(281.669, 658.63)
 scale = Vector2(2.36092, 2.65259)
 texture = ExtResource("11_3v40q")
 
 [node name="Shovel" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(224, 664)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("12_xioq7")
 
 [node name="Flask" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(250, 758.5)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("13_c47wj")
 
 [node name="Potion" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(1636, 461)
 scale = Vector2(2.25, 2.25)
 texture = ExtResource("14_t8k6s")
+
+[node name="Cane" type="Sprite2D" parent="Inventory"]
+position = Vector2(217, 378)
+scale = Vector2(2.54545, 2.54545)
+texture = ExtResource("15_2qxm8")
 
 [node name="BackgroundImage" type="Node2D" parent="."]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.69841)
 
 [node name="Image" type="Sprite2D" parent="BackgroundImage"]
+visible = false
 texture = ExtResource("1_j27bs")
 
 [node name="HeroTextEdit" type="TextEdit" parent="."]

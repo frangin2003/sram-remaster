@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2bdnl38as6mq"
-path="res://.godot/imported/potion_original.png-4fde91c62a27a32b48e41319bd354a0f.ctex"
+uid="uid://m8eg773rjfwj"
+path="res://.godot/imported/snake.png-1804d697201fe71004dabeab404193de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/lutin/potion_original.png"
-dest_files=["res://.godot/imported/potion_original.png-4fde91c62a27a32b48e41319bd354a0f.ctex"]
+source_file="res://scenes/snake/snake.png"
+dest_files=["res://.godot/imported/snake.png-1804d697201fe71004dabeab404193de.ctex"]
 
 [params]
 

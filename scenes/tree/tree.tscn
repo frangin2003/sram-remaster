@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6w4k2k725rf2"]
+[gd_scene load_steps=8 format=3 uid="uid://b6w4k2k725rf2"]
 
 [ext_resource type="Script" path="res://scenes/tree/tree.gd" id="1_v5j5t"]
 [ext_resource type="VideoStream" path="res://scenes/tree/tree-final.ogv" id="2_ycs01"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_vi858"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="5_6h4r8"]
 [ext_resource type="Texture2D" uid="uid://c5xamk6tm48mo" path="res://scenes/tree/tree.png" id="6_dtox2"]
+[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="7_u7ypj"]
 
 [node name="tree" type="Node2D"]
 script = ExtResource("1_v5j5t")
@@ -45,3 +46,5 @@ visible = false
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_dtox2")
+
+[node name="xx_settings" parent="." instance=ExtResource("7_u7ypj")]

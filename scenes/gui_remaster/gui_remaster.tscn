@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="17_k1jdh"]
 [ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="18_rdpg2"]
 [ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="19_3s6fh"]
-[ext_resource type="Texture2D" uid="uid://d0dmmo50nssn6" path="res://scenes/lutin/potion.png" id="20_p5oo5"]
+[ext_resource type="Texture2D" uid="uid://b46th1c0glqy4" path="res://scenes/hermit/potion.png" id="20_p5oo5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

@@ -9,8 +9,7 @@ func _get_scene_config() -> Dictionary:
 	return {
 		"compass": {
 			"NORTH": null,
-			# "EAST": "desertdoor",
-			"EAST": null,
+			"EAST": "cactus",
 			"SOUTH": null,
 			"WEST": "waterfall"
 		},

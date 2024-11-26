@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0dmmo50nssn6"
-path="res://.godot/imported/potion.png-136f8ddd22ad0bdada586c63ab960560.ctex"
+uid="uid://cj3txy2tshg2k"
+path="res://.godot/imported/flute_original.png-89f5ca3a2b1a71be9fd1e5c5f989f746.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/lutin/potion.png"
-dest_files=["res://.godot/imported/potion.png-136f8ddd22ad0bdada586c63ab960560.ctex"]
+source_file="res://scenes/hermit/flute_original.png"
+dest_files=["res://.godot/imported/flute_original.png-89f5ca3a2b1a71be9fd1e5c5f989f746.ctex"]
 
 [params]
 
