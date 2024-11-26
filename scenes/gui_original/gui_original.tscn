@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=30 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
+[ext_resource type="Script" path="res://scenes/gui_original/gui_original.gd" id="1_msara"]
 [ext_resource type="Texture2D" uid="uid://dvff2fro1deyl" path="res://scenes/gui_original/top_gui.PNG" id="1_oqvqp"]
 [ext_resource type="Texture2D" uid="uid://0mp8rn0jmobf" path="res://scenes/gui_original/left column.PNG" id="3_10w4f"]
 [ext_resource type="Texture2D" uid="uid://vir3ao5sthg1" path="res://scenes/gui_original/right column.png" id="4_p4cid"]
@@ -19,8 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://d2bdnl38as6mq" path="res://scenes/hermit/potion_original.png" id="14_t8k6s"]
 [ext_resource type="Texture2D" uid="uid://dt68rlkhtft8v" path="res://scenes/gui_original/south.PNG" id="14_vvmpi"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/Inventory.gd" id="14_w4bg7"]
-[ext_resource type="Texture2D" uid="uid://qb21lhipw2l8" path="res://scenes/druids/cane.png" id="15_2qxm8"]
+[ext_resource type="Texture2D" uid="uid://bnqd4yghwwnfk" path="res://scenes/druids/cane_original.png" id="15_aufxa"]
 [ext_resource type="Texture2D" uid="uid://m0nd0q0tb3xc" path="res://scenes/gui_original/ouest.PNG" id="15_k1gw6"]
+[ext_resource type="Texture2D" uid="uid://bvskkuskcb0lj" path="res://scenes/gui_original/llm_on.png" id="23_ckxxy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -41,6 +43,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_o7xl2"]
 
 [node name="gui_original" type="Node2D"]
+script = ExtResource("1_msara")
 
 [node name="TopGui" type="Sprite2D" parent="."]
 position = Vector2(943, 65)
@@ -86,34 +89,40 @@ position = Vector2(-7.62939e-06, 0)
 script = ExtResource("14_w4bg7")
 
 [node name="Knife" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(235.257, 283.888)
 scale = Vector2(2.49013, 2.52984)
 texture = ExtResource("10_6i8ym")
 
 [node name="Bow" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(281.669, 658.63)
 scale = Vector2(2.36092, 2.65259)
 texture = ExtResource("11_3v40q")
 
 [node name="Shovel" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(224, 664)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("12_xioq7")
 
 [node name="Flask" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(250, 758.5)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("13_c47wj")
 
 [node name="Potion" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1636, 461)
 scale = Vector2(2.25, 2.25)
 texture = ExtResource("14_t8k6s")
 
 [node name="Cane" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(217, 378)
 scale = Vector2(2.54545, 2.54545)
-texture = ExtResource("15_2qxm8")
+texture = ExtResource("15_aufxa")
 
 [node name="BackgroundImage" type="Node2D" parent="."]
 position = Vector2(943, 475)
@@ -170,6 +179,11 @@ stream = SubResource("AudioStreamMicrophone_o7xl2")
 autoplay = true
 bus = &"Record"
 script = ExtResource("8_8hnun")
+
+[node name="LlmOn" type="Sprite2D" parent="."]
+position = Vector2(1636, 106)
+scale = Vector2(4, 4)
+texture = ExtResource("23_ckxxy")
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]

@@ -10,6 +10,7 @@ var connection_timer: Timer
 var attempts = 0
 const MAX_ATTEMPTS = 60  # 1 minute timeout (60 * 1 second)
 var first_connection_established = false
+var IS_LLM_ON = false
 
 var OUTPUT = ""
 var COMMAND = ""
@@ -72,6 +73,7 @@ func _process(_delta):
 			if not first_connection_established:
 				print("LlmServer: WebSocket connection established")
 				first_connection_established = true
+			IS_LLM_ON = true
 			emit_signal("websocket_connected")
 			while WEBSOCKET.get_available_packet_count():
 				var chunk = WEBSOCKET.get_packet().get_string_from_utf8()
@@ -84,10 +86,11 @@ func _process(_delta):
 			var reason = WEBSOCKET.get_close_reason()
 			print("LlmServer: WebSocket closed with code: %d, reason %s. Clean: %s" % [code, reason, code != -1])
 			WEBSOCKET = null
+			IS_LLM_ON = false
 			emit_signal("websocket_disconnected")
-			if attempts <= MAX_ATTEMPTS:
-				print("LlmServer: Retrying connection...")
-				start_connection_attempt()
+			attempts = 0
+			print("LlmServer: Starting reconnection attempts...")
+			start_connection_attempt()
 
 func is_port_in_use(port):
 	var output = []

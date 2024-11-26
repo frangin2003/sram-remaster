@@ -11,14 +11,15 @@ func ensure_config_dir_exists():
 		DirAccess.make_dir_recursive_absolute(CONFIG_DIR)
 	print("Config file path: " + CONFIG_FILE_PATH)
 
-func load_config(section: String, key: String, default_value):
+func load_config(section: String, key: String, default_value = null):
 	var config = ConfigFile.new()
 	var err = config.load(CONFIG_FILE_PATH)
-	if err == OK:
-		return config.get_value(section, key, default_value)
+	if err == OK and config.has_section_key(section, key):
+		return config.get_value(section, key)
 	else:
-		print("ConfigManager: Failed to load config file, using default value")
-		save_config(key, default_value)
+		print("ConfigManager: Using default value for %s/%s" % [section, key])
+		if default_value != null:
+			save_config(key, default_value)
 		return default_value
 
 func save_config(key: String, value):

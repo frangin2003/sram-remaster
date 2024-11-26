@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=29 format=3 uid="uid://cdoq6xtniibw8"]
 
+[ext_resource type="Script" path="res://scenes/gui_remaster/gui_remaster.gd" id="1_4rsng"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/HeroTextEdit.gd" id="1_8xywo"]
 [ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://scenes/gui_remaster/left column.png" id="1_fy52j"]
 [ext_resource type="Texture2D" uid="uid://drk7drh2kiggy" path="res://scenes/gui_remaster/right column.png" id="2_cuxij"]
@@ -7,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b78i6sttf11m" path="res://scenes/gui_remaster/marble bottom.png" id="3_5oing"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/RecordVoiceButton.gd" id="3_ll062"]
 [ext_resource type="Texture2D" uid="uid://ij8bb65jyhcp" path="res://scenes/gui_remaster/text input.png" id="4_5d2hb"]
+[ext_resource type="Texture2D" uid="uid://ktmfh2oef18o" path="res://scenes/gui_remaster/llm_on.png" id="4_va6p7"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/AudioInput.gd" id="6_o6bsm"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/Compass.gd" id="9_8n67r"]
 [ext_resource type="Texture2D" uid="uid://b8haovwf0la4d" path="res://scenes/gui_remaster/North.png" id="10_bn3bg"]
@@ -19,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="17_k1jdh"]
 [ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="18_rdpg2"]
 [ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="19_3s6fh"]
-[ext_resource type="Texture2D" uid="uid://b46th1c0glqy4" path="res://scenes/hermit/potion.png" id="20_p5oo5"]
+[ext_resource type="Texture2D" uid="uid://d0dmmo50nssn6" path="res://scenes/hermit/potion.png" id="20_p5oo5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -40,6 +42,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_o7xl2"]
 
 [node name="gui_remaster" type="Node2D"]
+script = ExtResource("1_4rsng")
 
 [node name="ColumnLeft" type="Sprite2D" parent="."]
 position = Vector2(95, 408)
@@ -48,6 +51,12 @@ texture = ExtResource("1_fy52j")
 [node name="ColumnRight" type="Sprite2D" parent="."]
 position = Vector2(1824, 408)
 texture = ExtResource("2_cuxij")
+
+[node name="LlmOn" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1825.5, 84.25)
+scale = Vector2(1.0122, 1.01852)
+texture = ExtResource("4_va6p7")
 
 [node name="Compass" type="Node2D" parent="."]
 scale = Vector2(0.25, 0.25)
