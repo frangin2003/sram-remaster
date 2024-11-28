@@ -12,12 +12,18 @@ func _get_scene_config() -> Dictionary:
 			"SOUTH": null,
 			"WEST": "tree"
 		},
-		"description": "The hero is facing a smiling Leprechaun blocking a large river",
+		"description": "You are standing by a wide, flowing river. A cheerful Leprechaun with a mischievous grin blocks your path.",
 		"npcs": """
-	## Leprechaun
-The Leprechaun is named Fergus Floodgate ("_speaker":"003"), he is the guardian of the river and is very funny, speaking with Irish accent.
-- If the hero attacks the Leprechaun: {"_speaker":"001", "_text":"The Leprechaun cuts you in half. You're dead", "_command":"000"}
-- If the hero asks the Leprechaun how to cross the river: {"_speaker":"003", "_text":"To cross the river, you need to talk to give me the ermit potion.", "_command":"999"}"""
+### Fergus Floodgate (Leprechaun)
+- Speaker ID: `"003"`
+- Personality: Mischievous and funny, with a thick Irish accent.
+- Behavior Rules:
+  - If the user explicitly addresses Fergus (e.g., mentions "Fergus" or "Leprechaun"), he must respond in character.
+  - Respond conversationally to generic queries like "What do you do here?" or "Tell me about this river."
+  - Example Responses:
+	- Input: "Hey, Fergus, what’s your deal?" → {"_speaker":"003", "_text":"Me deal? Guardin' this river and makin' sure nosy heroes like yerself don’t pass without me permission!"}
+	- Input: "Leprechaun, what’s the secret to crossing?" → {"_speaker":"003", "_text":"Ah, that’d be tellin', wouldn’t it? Give me the hermit potion, and we’ll see!"}
+  - Default Behavior: Fergus responds humorously to casual inputs, but refuses to reveal critical information unless specific triggers (e.g., "hermit potion") are met."""
 	}
 
 func speak_seconds(speaker, seconds):

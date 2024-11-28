@@ -51,7 +51,7 @@ func llm_chunk(chunk):
 		print("Death!")
 		LlmServer.COMMAND = ""
 		Global.set_scene("xx_death")
-	elif LlmServer.COMMAND.find("001") != -1 and gameMasterOutput.text.find("polite") != -1:
+	elif LlmServer.COMMAND == "PIG":
 		print("Pig time!")
 		LlmServer.COMMAND = ""
 		Global.set_scene("xx_pig")
