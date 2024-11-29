@@ -81,6 +81,7 @@ scale = Vector2(2.50893, 2.50893)
 texture = ExtResource("9_m8ryh")
 
 [node name="Flask" type="Sprite2D" parent="Original"]
+visible = false
 position = Vector2(250, 758.5)
 scale = Vector2(2.50001, 2.50001)
 texture = ExtResource("9_455xk")

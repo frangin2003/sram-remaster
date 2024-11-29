@@ -52,6 +52,7 @@ scale = Vector2(2.475, 2.69841)
 texture = ExtResource("7_f1f7l")
 
 [node name="Knife" type="Sprite2D" parent="Original"]
+visible = false
 position = Vector2(1284, 480)
 scale = Vector2(2.49, 2.53)
 texture = ExtResource("8_8if2w")
