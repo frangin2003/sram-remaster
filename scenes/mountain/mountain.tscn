@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
 
-[ext_resource type="Script" path="res://scenes/druids/druids.gd" id="1_aetvx"]
+[ext_resource type="Script" path="res://scenes/bird/bird.gd" id="1_aetvx"]
 [ext_resource type="VideoStream" path="res://scenes/mountain/mountain.ogv" id="2_unrr2"]
 [ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]

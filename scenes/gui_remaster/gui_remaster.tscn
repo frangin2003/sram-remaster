@@ -127,7 +127,7 @@ texture = ExtResource("20_p5oo5")
 
 [node name="Cane" type="Sprite2D" parent="Inventory"]
 visible = false
-position = Vector2(62.75, 395.797)
+position = Vector2(63, 396)
 scale = Vector2(0.383333, 0.383333)
 texture = ExtResource("23_c77n8")
 
