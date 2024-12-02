@@ -11,15 +11,16 @@ func _get_scene_config() -> Dictionary:
 			# "WEST": "rapids"
 			"WEST": null
 		},
-		"description": "The hero is in a valley on top of a hill, a large moutain is visible in the background and a large rock stands atop of the hill with a bow near it.",
+		"description": "The hero stands in a wide valley, perched atop a grassy hill. In the distance, a towering mountain looms under a clear sky. Nearby, a large rock sits firmly atop the hill, with a bow lying next to it.",
 		"actions": """
-- If the hero wants to take the bow: {... "_text":"Now you need an arrow.", "_command":"002"}"""
+- If the hero attempts to take the bow:
+  {"_speaker":"001", "_text":"Now you need an arrow.", "_command":"BOW"}"""
 	}
 
 func execute_command(command):
 	print("Command: " + command)
 	match command:
-		"002":
+		"BOW":
 			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
 			Global.take_item_and_animate("Original", "Bow", 282, 659)
 		_:

@@ -65,7 +65,9 @@ func load_user_state():
 
 func set_scene(new_scene):
 	SYSTEM_OVERRIDE = null
-	PREVIOUS_SCENE = SCENE
+	if SCENE != "xx_pig" and new_scene != "xx_pig":
+		PREVIOUS_SCENE = SCENE
+		ConfigManager.save_config("PREVIOUS_SCENE", PREVIOUS_SCENE)
 	SCENE = new_scene
 	ACTIONS = ""
 	NPCS = ""
@@ -190,9 +192,15 @@ func get_unauthorized_directions():
 
 func override_system_instructions(system_instructions):
 	SYSTEM = system_instructions
-#{additional_npcs_instructions}
-#
-#{authorized_directions}
+
+func get_inventory_list() -> String:
+	var items = []
+	for item in INVENTORY.keys():
+		if typeof(INVENTORY[item]) == TYPE_BOOL and INVENTORY[item] == true:
+			items.append(item)
+	return ", ".join(items)
+
+
 var system_template = """You are the Game Master (GM) of an epic text-based adventure game. Your name is Grand Master, and your job is to narrate the story, guide the hero, and respond to inputs with the correct JSON output.
 
 Always respond using this JSON template:
@@ -253,6 +261,10 @@ This is an interactive adventure game where you explore scenes, interact with NP
 
 ## Scene State
 {scene_state}
+
+## Inventory
+- Use the inventory below to validate item-related actions:
+{inventory_list}
 """
 
 func get_system_instructions():
@@ -268,13 +280,18 @@ func get_system_instructions():
 	if !scene_state:
 		scene_state = "The current state has no recorded changes yet."
 
+	var inventory_list = get_inventory_list()
+	if !inventory_list:
+		inventory_list = "The hero has no items in their inventory yet."
+
 	SYSTEM = system_template.format({
 		"authorized_directions": ", ".join(get_authorized_directions()),
 		"unauthorized_directions": ", ".join(get_unauthorized_directions()),
 		"scene_description": SCENE_DESCRIPTION,
 		"additional_npcs_instructions": additional_npcs_instructions,
 		"scene_name": SCENE,
-		"scene_state": scene_state
+		"scene_state": scene_state,
+		"inventory_list": inventory_list
 	})
 
 	if ACTIONS:

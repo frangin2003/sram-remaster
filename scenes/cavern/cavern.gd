@@ -13,24 +13,27 @@ func _get_scene_config() -> Dictionary:
 			"SOUTH": null,
 			"WEST": "waterfall"
 		},
-		"description": "The hero is in the cavern, in front of him the resting skeleton of a poor past adventurer, and a large barrel.",
+		"description": "The hero stands in the cavern. In front of him lies the resting skeleton of an unfortunate past adventurer and a large wooden barrel resting against the damp wall.",
 		"actions": """
-- If the hero wants to take the shovel: {"_speaker":"001", "_text":"That can be handy.", "_command":"002"}
-- If the hero wants to burry the skeleton: {"_speaker":"001", "_text":"As a reward for your act of kindness, here is an advice. Use the stick when facing the slitherer.", "_command":"004"}
-- If the hero looks into the barrel: {"_speaker":"001", "_text":"There is an empty leather flask, you take it.", "_command":"003"}"""
+- If the hero attempts to take the shovel:
+  {"_speaker":"001", "_text":"That can be handy.", "_command":"SHOVEL"}
+- If the hero attempts to bury the skeleton:
+  {"_speaker":"001", "_text":"As a reward for your act of kindness, here’s a piece of advice: use the stick when facing the slitherer.", "_command":"BURY"}
+- If the hero looks into the barrel:
+  {"_speaker":"001", "_text":"Inside the barrel, you find an empty leather flask. You take it.", "_command":"FLASK"}"""
 	}
 
 func execute_command(command):
 	print("Command: " + command)
 	match command:
-		"002":
+		"SHOVEL":
 			Global.take_item_and_animate("Remaster", "Shovel", 59, 575, 0)
 			Global.take_item_and_animate("Original", "Shovel", 224, 664, 0)
-		"003":
+		"FLASK":
 			get_node("/root/cavern/Remaster/Flask").visible = true
 			Global.take_item_and_animate("Remaster", "Flask", 97, 688)
 			get_node("/root/cavern/Original/Flask").visible = true
-		"004":
+		"BURY":
 			Global.take_item_and_animate("Remaster", "Shovel", 59, 575, 0)
 			Global.take_item_and_animate("Original", "Shovel", 224, 664, 0)
 			get_node("/root/cavern/Remaster/Control/Sprite2D").texture = load("res://scenes/cavern/cavern_skeleton_buried.webp")

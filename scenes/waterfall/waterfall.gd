@@ -9,15 +9,16 @@ func _get_scene_config() -> Dictionary:
 			"SOUTH": "mountain",
 			"WEST": null
 		},
-		"description": "The hero is in front of the waterfall of the lost cavern",
+		"description": "The hero stands before a majestic waterfall. Mist hangs in the air, and the sound of crashing water fills the surroundings. Behind the shimmering curtain of water, a faint shadow hints at a hidden passage.",
 		"actions": """
-- If the hero wants to go through the waterfall: {"_speaker":"001", "_text":"You found the lost cavern. It probably needs a new name.", "_command":"003"}"""
+- If the hero attempts to go through the waterfall:
+  {"_speaker":"001", "_text":"You found the lost cavern. It probably needs a new name.", "_command":"CAVERN"}"""
 	}
 
 func execute_command(command):
 	print("Command: " + command)
 	match command:
-		"003":
+		"CAVERN":
 			print("Splash!")
 			Global.set_scene("cavern")
 		_:

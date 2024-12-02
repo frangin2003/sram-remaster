@@ -9,15 +9,16 @@ func _get_scene_config() -> Dictionary:
 			"SOUTH": "menhir",
 			"WEST": "waterfall"
 		},
-		"description": "The hero is in a dense forest, birds are chirping, in front of him stands a large tree that can be climbed",
+		"description": "The hero finds himself in a dense forest, where the air is alive with the chirping of birds. Towering before him stands a massive tree, its sturdy branches inviting him to climb.",
 		"actions": """
-- If the hero wants to climb the tree: {"_speaker":"001", "_text":"You climb like a squirrel!", "_command":"003"}"""
+If the hero wants to climb the tree:
+{"_speaker":"001", "_text":"Up you go! You scramble up the tree like a nimble squirrel.", "_command":"CLIMB"}"""
 	}
 
 func execute_command(command):
 	print("Command: " + command)
 	match command:
-		"003":
+		"CLIMB":
 			print("Climbs!")
 			Global.set_scene("nest")
 		_:

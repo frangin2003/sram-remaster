@@ -23,7 +23,10 @@ func _get_scene_config() -> Dictionary:
   - Example Responses:
 	- Input: "Hey, Fergus, what’s your deal?" → {"_speaker":"003", "_text":"Me deal? Guardin' this river and makin' sure nosy heroes like yerself don’t pass without me permission!"}
 	- Input: "Leprechaun, what’s the secret to crossing?" → {"_speaker":"003", "_text":"Ah, that’d be tellin', wouldn’t it? Give me the hermit potion, and we’ll see!"}
-  - Default Behavior: Fergus responds humorously to casual inputs, but refuses to reveal critical information unless specific triggers (e.g., "hermit potion") are met."""
+  - Default Behavior: Fergus responds humorously to casual inputs, but refuses to reveal critical information unless specific triggers (e.g., "hermit potion") are met.""",
+  "actions": """
+- If the hero attempts to kill the leprechaun:
+  {"_speaker":"001", "_text":"By killing him, you killed yourself, genius. He was key for your adventure to continue.", "_command":"DEATH"}"""
 	}
 
 func speak_seconds(speaker, seconds):

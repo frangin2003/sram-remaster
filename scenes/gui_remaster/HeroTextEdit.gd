@@ -47,7 +47,7 @@ func llm_chunk(chunk):
 		gameMasterOutput.text += chunk
 	if (chunk.begins_with(COMMAND_TAG)):
 		LlmServer.COMMAND = chunk.substr(COMMAND_TAG.length(), chunk.length() - COMMAND_TAG.length())
-	if LlmServer.COMMAND.find("000") != -1 and gameMasterOutput.text.find("dead") != -1:
+	if LlmServer.COMMAND == "DEATH":
 		print("Death!")
 		LlmServer.COMMAND = ""
 		Global.set_scene("xx_death")
