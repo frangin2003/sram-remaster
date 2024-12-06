@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=31 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Script" path="res://scenes/gui_original/gui_original.gd" id="1_msara"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://scenes/gui_remaster/Inventory.gd" id="14_w4bg7"]
 [ext_resource type="Texture2D" uid="uid://bnqd4yghwwnfk" path="res://scenes/druids/cane_original.png" id="15_aufxa"]
 [ext_resource type="Texture2D" uid="uid://m0nd0q0tb3xc" path="res://scenes/gui_original/ouest.PNG" id="15_k1gw6"]
+[ext_resource type="Texture2D" uid="uid://tyikd5kkbxak" path="res://scenes/arrow/arrow_original.png" id="17_q0jff"]
 [ext_resource type="Texture2D" uid="uid://bvskkuskcb0lj" path="res://scenes/gui_original/llm_on.png" id="23_ckxxy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
@@ -89,40 +90,39 @@ position = Vector2(-7.62939e-06, 0)
 script = ExtResource("14_w4bg7")
 
 [node name="Knife" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(235.257, 283.888)
 scale = Vector2(2.49013, 2.52984)
 texture = ExtResource("10_6i8ym")
 
 [node name="Bow" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(281.669, 658.63)
 scale = Vector2(2.36092, 2.65259)
 texture = ExtResource("11_3v40q")
 
 [node name="Shovel" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(224, 664)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("12_xioq7")
 
 [node name="Flask" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(250, 758.5)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("13_c47wj")
 
 [node name="Potion" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(1636, 461)
 scale = Vector2(2.25, 2.25)
 texture = ExtResource("14_t8k6s")
 
 [node name="Cane" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(217, 378)
 scale = Vector2(2.54545, 2.54545)
 texture = ExtResource("15_aufxa")
+
+[node name="Arrow" type="Sprite2D" parent="Inventory"]
+position = Vector2(240, 564)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("17_q0jff")
 
 [node name="BackgroundImage" type="Node2D" parent="."]
 position = Vector2(943, 475)

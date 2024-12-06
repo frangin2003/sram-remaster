@@ -11,7 +11,8 @@ func _get_scene_config() -> Dictionary:
 		},
 		"description": "The hero gazes up at a flock of pigeons gliding effortlessly across a vibrant blue sky, their wings slicing through the air like graceful dancers. Among them, one pigeon stands out, carrying a small, tightly bound message attached to its foot. The sun catches the golden hue of the envelope, making it glimmer as the bird soars higher. The vast landscape below stretches endlessly, dotted with fields and distant clouds. It’s clear this pigeon is on a mission, its path purposeful and unwavering.",
 		"actions": """
-- If the hero whistles: {... "_text":""A pigeon lands on your hand."", "_command":"PIGEON"}"""
+- If the hero whistles:
+{... "_text":""A pigeon lands on your hand."", "_command":"PIGEON"}"""
 	}
 
 func execute_command(command):
