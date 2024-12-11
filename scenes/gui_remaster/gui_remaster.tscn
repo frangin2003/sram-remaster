@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=32 format=3 uid="uid://cdoq6xtniibw8"]
 
 [ext_resource type="Script" path="res://scenes/gui_remaster/gui_remaster.gd" id="1_4rsng"]
 [ext_resource type="Script" path="res://scenes/gui_remaster/HeroTextEdit.gd" id="1_8xywo"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://bhdrlhehuuwgd" path="res://scenes/arrow/arrow.png" id="18_nn4ks"]
 [ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="18_rdpg2"]
 [ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="19_3s6fh"]
+[ext_resource type="Texture2D" uid="uid://diq0dwxs1btu8" path="res://scenes/werewolf/ear.png" id="19_i7kdq"]
 [ext_resource type="Texture2D" uid="uid://d0dmmo50nssn6" path="res://scenes/hermit/potion.png" id="20_p5oo5"]
 [ext_resource type="Texture2D" uid="uid://ngwdeps11ne1" path="res://scenes/gui_remaster/cane.png" id="23_c77n8"]
 
@@ -130,6 +131,10 @@ position = Vector2(120, 512)
 rotation = -1.98968
 scale = Vector2(0.555172, 0.555172)
 texture = ExtResource("18_nn4ks")
+
+[node name="Ear" type="Sprite2D" parent="Inventory"]
+position = Vector2(1810, 608)
+texture = ExtResource("19_i7kdq")
 
 [node name="GameMasterBackground" type="Sprite2D" parent="."]
 position = Vector2(960, 947)

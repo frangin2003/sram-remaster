@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=32 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Script" path="res://scenes/gui_original/gui_original.gd" id="1_msara"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bnqd4yghwwnfk" path="res://scenes/druids/cane_original.png" id="15_aufxa"]
 [ext_resource type="Texture2D" uid="uid://m0nd0q0tb3xc" path="res://scenes/gui_original/ouest.PNG" id="15_k1gw6"]
 [ext_resource type="Texture2D" uid="uid://tyikd5kkbxak" path="res://scenes/arrow/arrow_original.png" id="17_q0jff"]
+[ext_resource type="Texture2D" uid="uid://b6sd7ev5kabsu" path="res://scenes/werewolf/ear_original.png" id="18_6nxdy"]
 [ext_resource type="Texture2D" uid="uid://bvskkuskcb0lj" path="res://scenes/gui_original/llm_on.png" id="23_ckxxy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
@@ -123,6 +124,11 @@ texture = ExtResource("15_aufxa")
 position = Vector2(240, 564)
 scale = Vector2(2.4, 2.4)
 texture = ExtResource("17_q0jff")
+
+[node name="Ear" type="Sprite2D" parent="Inventory"]
+position = Vector2(1613, 662)
+scale = Vector2(2.50001, 2.7)
+texture = ExtResource("18_6nxdy")
 
 [node name="BackgroundImage" type="Node2D" parent="."]
 position = Vector2(943, 475)

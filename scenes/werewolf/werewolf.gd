@@ -20,8 +20,8 @@ func _get_scene_config() -> Dictionary:
 func execute_command(command):
 	print("Command: " + command)
 	match command:
-		"BOW":
-			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
-			Global.take_item_and_animate("Original", "Bow", 282, 659)
+		"EAR":
+			Global.take_item_and_animate("Remaster", "Ear", 1810, 608)
+			Global.take_item_and_animate("Original", "Ear", 1613, 662)
 		_:
 			print("Command not recognized in this scene")
