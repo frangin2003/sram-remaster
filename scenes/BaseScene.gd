@@ -18,6 +18,8 @@ func _get_scene_config() -> Dictionary:
 func _ready():
 	SwitchMode.update_mode_visibility()
 	Global.SCENE = Global.get_current_scene_name()
+	if not Global.LOADED_USER_STATE:
+		Global.load_user_state()
 
 	var config = _get_scene_config()
 	
@@ -40,3 +42,19 @@ func _ready():
 	# Set NPCs (optional)
 	if config.has("npcs"):
 		Global.NPCS = config.npcs
+
+func stop_and_hide_video(video_player: VideoStreamPlayer):
+	video_player.stop()
+	video_player.hide()
+
+func start_show_then_hide_video(video_player: VideoStreamPlayer):
+	video_player.set_loop(false)
+	video_player.play()
+	video_player.show()
+	await video_player.finished
+	video_player.hide()
+
+func start_loop_and_show_video(video_player: VideoStreamPlayer):
+	video_player.play()
+	video_player.set_loop(true)
+	video_player.show()

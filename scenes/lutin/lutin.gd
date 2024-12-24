@@ -4,7 +4,7 @@ func _get_scene_config() -> Dictionary:
 	# Connect the signal from HeroTextEdit
 	var hero_text_edit = get_node("/root/lutin/Remaster/gui_remaster/HeroTextEdit")
 	hero_text_edit.connect("speak_seconds", speak_seconds)
-	CommandHandler.CURRENT_HANDLER = self
+	ActionHandler.CURRENT_HANDLER = self
 	return {
 		"compass": {
 			"NORTH": null,
@@ -26,16 +26,16 @@ func _get_scene_config() -> Dictionary:
   - Default Behavior: Fergus responds humorously to casual inputs, but refuses to reveal critical information unless specific triggers (e.g., "hermit potion") are met.""",
   "actions": """
 - If the hero attempts to kill the leprechaun:
-  {"_speaker":"001", "_text":"By killing him, you killed yourself, genius. He was key for your adventure to continue.", "_command":"DEATH"}"""
+  {"_speaker":"001", "_text":"By killing him, you killed yourself, genius. He was key for your adventure to continue.", "_action":"DEATH"}"""
 	}
 
 func speak_seconds(speaker, seconds):
 	Global.speak_seconds(speaker, seconds)
 
-func execute_command(command):
-	print("Command: " + command)
-	match command:
+func execute_action(action):
+	print("Action: " + action)
+	match action:
 		"003":
 			Global.take_item_and_animate("Remaster", "Potion", 112, 616)
 		_:
-			print("Command not recognized in this scene")
+			print("Action not recognized in this scene")

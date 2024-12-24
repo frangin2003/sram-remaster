@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=12 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/werewolf/werewolf.gd" id="1_tpu1s"]
 [ext_resource type="VideoStream" path="res://scenes/werewolf/werewolf.ogv" id="2_nfm3f"]
 [ext_resource type="VideoStream" path="res://scenes/werewolf/werewolf_dying.ogv" id="3_cf67n"]
-[ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
+[ext_resource type="VideoStream" path="res://scenes/werewolf/werewolf_dead.ogv" id="4_bph8b"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="Texture2D" uid="uid://diq0dwxs1btu8" path="res://scenes/werewolf/ear.png" id="5_5n4pn"]
+[ext_resource type="AudioStream" uid="uid://nd164gv2jaq" path="res://scenes/werewolf/wind-blowing-sfx-12809.mp3" id="5_7cbio"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://cm0wsufqp8aju" path="res://scenes/werewolf/werewolf.png" id="7_mh0wq"]
 [ext_resource type="Texture2D" uid="uid://b6sd7ev5kabsu" path="res://scenes/werewolf/ear_original.png" id="8_injll"]
@@ -24,17 +25,16 @@ offset_left = 176.0
 offset_right = 1744.0
 offset_bottom = 824.0
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Remaster/Control"]
+[node name="VideoStreamPlayerWerewolf" type="VideoStreamPlayer" parent="Remaster/Control"]
 layout_mode = 0
 offset_left = -64.0
 offset_right = 1576.0
 offset_bottom = 816.0
 stream = ExtResource("2_nfm3f")
-autoplay = true
 expand = true
-loop = true
 
-[node name="VideoStreamPlayerAnimation" type="VideoStreamPlayer" parent="Remaster/Control"]
+[node name="VideoStreamPlayerWerewolfDying" type="VideoStreamPlayer" parent="Remaster/Control"]
+visible = false
 layout_mode = 0
 offset_left = -128.0
 offset_right = 1512.0
@@ -42,14 +42,25 @@ offset_bottom = 816.0
 stream = ExtResource("3_cf67n")
 expand = true
 
+[node name="VideoStreamPlayerWerewolf_dead" type="VideoStreamPlayer" parent="Remaster/Control"]
+visible = false
+layout_mode = 0
+offset_left = -128.0
+offset_right = 1512.0
+offset_bottom = 816.0
+stream = ExtResource("4_bph8b")
+expand = true
+
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
-stream = ExtResource("3_tt656")
+stream = ExtResource("5_7cbio")
+volume_db = -20.0
 autoplay = true
 
 [node name="Ear" type="Sprite2D" parent="Remaster"]
-position = Vector2(1529, 424)
+visible = false
+position = Vector2(1461, 424)
 texture = ExtResource("5_5n4pn")
 
 [node name="Original" type="Node2D" parent="."]
@@ -63,6 +74,7 @@ scale = Vector2(2.475, 2.698)
 texture = ExtResource("7_mh0wq")
 
 [node name="Ear" type="Sprite2D" parent="Original"]
+visible = false
 position = Vector2(1138.5, 664)
 scale = Vector2(2.50001, 2.7)
 texture = ExtResource("8_injll")

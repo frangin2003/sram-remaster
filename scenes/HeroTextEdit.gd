@@ -5,7 +5,7 @@ signal speak_seconds(speaker, seconds)
 var gameMasterOutput
 var BEGIN_OF_TEXT_TAG = "<|begin_of_text|>"
 var END_OF_TEXT_TAG = "<|end_of_text|>"
-var COMMAND_TAG = "<|command|>"
+var ACTION_TAG = "<|action|>"
 var SPEAK_TAG = "<|speak|>"
 
 
@@ -43,20 +43,22 @@ func llm_chunk(chunk):
 		Memory.add_to_memory(LlmServer.create_assistant_message(LlmServer.OUTPUT))
 	if (chunk != BEGIN_OF_TEXT_TAG
 		and chunk != END_OF_TEXT_TAG
-		and !chunk.begins_with(COMMAND_TAG)):
+		and !chunk.begins_with(ACTION_TAG)):
 		gameMasterOutput.text += chunk
-	if (chunk.begins_with(COMMAND_TAG)):
-		LlmServer.COMMAND = chunk.substr(COMMAND_TAG.length(), chunk.length() - COMMAND_TAG.length())
-	if LlmServer.COMMAND == "DEATH":
+	if (chunk.begins_with(ACTION_TAG)):
+		LlmServer.ACTION = chunk.substr(ACTION_TAG.length(), chunk.length() - ACTION_TAG.length())
+	if LlmServer.ACTION == "DEATH":
 		print("Death!")
-		LlmServer.COMMAND = ""
+		LlmServer.ACTION = ""
 		Global.set_scene("xx_death")
-	elif LlmServer.COMMAND == "PIG":
+	elif LlmServer.ACTION == "PIG":
 		print("Pig time!")
-		LlmServer.COMMAND = ""
-		get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
+		LlmServer.ACTION = ""
+		Global.set_scene("xx_pig")
+		# get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
+
 	else:
-		var navigation = LlmServer.COMMAND.strip_edges().to_upper()
+		var navigation = LlmServer.ACTION.strip_edges().to_upper()
 		if navigation == "N" or navigation.begins_with("NORTH"):
 			navigation = "NORTH"
 		elif navigation == "S" or navigation.begins_with("SOUTH"):
@@ -68,14 +70,14 @@ func llm_chunk(chunk):
 		if navigation in ["NORTH", "SOUTH", "EAST", "WEST"]:
 			print("Navigates")
 			var next_scene = Global.COMPASS[navigation]
-			LlmServer.COMMAND = ""
+			LlmServer.ACTION = ""
 			if (next_scene != null):
 				print("Navigate to " + next_scene)
 				Global.set_scene(next_scene)
-		elif CommandHandler.CURRENT_HANDLER != null:
-			LlmServer.COMMAND = LlmServer.COMMAND.strip_edges().replace("[^0-9]", "")
-			if LlmServer.COMMAND != null and !LlmServer.COMMAND.is_empty():
-				CommandHandler.execute_command(LlmServer.COMMAND)
+		elif ActionHandler.CURRENT_HANDLER != null:
+			LlmServer.ACTION = LlmServer.ACTION.strip_edges().replace("[^0-9]", "")
+			if LlmServer.ACTION != null and !LlmServer.ACTION.is_empty():
+				ActionHandler.execute_action(LlmServer.ACTION)
 
 # Override _gui_input instead of _input for GUI elements like TextEdit.
 func _gui_input(event):
