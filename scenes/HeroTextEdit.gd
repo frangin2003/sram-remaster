@@ -55,7 +55,6 @@ func llm_chunk(chunk):
 		print("Pig time!")
 		LlmServer.ACTION = ""
 		Global.set_scene("xx_pig")
-		# get_tree().change_scene_to_file("res://scenes/xx_pig/xx_pig.tscn")
 
 	else:
 		var navigation = LlmServer.ACTION.strip_edges().to_upper()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqjasnltu4pni"]
+[gd_scene load_steps=14 format=3 uid="uid://dqjasnltu4pni"]
 
 [ext_resource type="Script" path="res://scenes/cavern/cavern.gd" id="1_vgb7p"]
 [ext_resource type="Texture2D" uid="uid://cdhcyywpthckc" path="res://scenes/cavern/cavern.webp" id="2_21jhl"]
 [ext_resource type="AudioStream" uid="uid://dd26150a48a17" path="res://scenes/cavern/cave-wind-10-76283.mp3" id="3_wr3q8"]
+[ext_resource type="VideoStream" uid="uid://b5x4oi1pq7o4g" path="res://scenes/cavern/burry.ogv" id="3_xe6jw"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_eldt8"]
 [ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="5_2ee62"]
 [ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="6_vx34v"]
@@ -18,6 +19,11 @@ script = ExtResource("1_vgb7p")
 
 [node name="Remaster" type="Node2D" parent="."]
 
+[node name="Background" type="Sprite2D" parent="Remaster"]
+position = Vector2(954, 291)
+scale = Vector2(1.10156, 1.10156)
+texture = ExtResource("2_21jhl")
+
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
 layout_mode = 3
@@ -26,10 +32,13 @@ offset_left = 176.0
 offset_right = 1744.0
 offset_bottom = 824.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Remaster/Control"]
-position = Vector2(778, 291)
-scale = Vector2(1.10156, 1.10156)
-texture = ExtResource("2_21jhl")
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Remaster/Control"]
+layout_mode = 0
+offset_left = -64.0
+offset_right = 1576.0
+offset_bottom = 816.0
+stream = ExtResource("3_xe6jw")
+expand = true
 
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_eldt8")]
 
@@ -64,13 +73,7 @@ visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("8_6gc1x")]
 
-[node name="Control" type="Control" parent="Original"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Original/Control"]
+[node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 472)
 scale = Vector2(2.475, 2.69841)
 texture = ExtResource("11_jsp5c")

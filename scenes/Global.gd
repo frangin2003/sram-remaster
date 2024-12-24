@@ -73,6 +73,17 @@ func set_scene(new_scene):
 	ACTIONS = ""
 	NPCS = ""
 	
+	var fade_rect = await fade_out_and_get_rect()
+	
+	print("Changing scene to %s" % new_scene)
+	print("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
+	get_tree().change_scene_to_file("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
+	
+	await fade_in(fade_rect)
+	
+	ConfigManager.save_config("SCENE", SCENE)
+
+func fade_out_and_get_rect():
 	# Create a ColorRect for fading
 	var fade_rect = ColorRect.new()
 	fade_rect.color = Color(0, 0, 0, 0)  # Start transparent
@@ -81,25 +92,23 @@ func set_scene(new_scene):
 	get_tree().root.add_child(fade_rect)
 	
 	# Fade out
+	await fade_out(fade_rect)
+
+	return fade_rect
+
+func fade_out(fade_rect):
 	var tween = create_tween()
 	tween.tween_property(fade_rect, "color:a", 1.0, 0.5)  # Fade to black
 	await tween.finished
-	
-	print("Changing scene to %s" % new_scene)
-	print("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
-	get_tree().change_scene_to_file("res://scenes/" + SCENE + "/" + SCENE + ".tscn")
-	# await get_tree().process_frame  # Let visibility changes take effect
-	# SwitchMode.update_mode_visibility()
-	
+
+func fade_in(fade_rect):
 	# Fade in
-	tween = create_tween()
+	var tween = create_tween()
 	tween.tween_property(fade_rect, "color:a", 0.0, 0.5)  # Fade to transparent
 	await tween.finished
-	
+
 	# Clean up
 	fade_rect.queue_free()
-	
-	ConfigManager.save_config("SCENE", SCENE)
 
 func get_current_scene_name():
 	var root = get_tree().root
@@ -115,6 +124,7 @@ func update_mode(new_mode):
 
 func set_compass(new_compass):
 	for direction in COMPASS.keys():
+		COMPASS[direction] = null
 		if direction in new_compass:
 			COMPASS[direction] = new_compass[direction]
 	ConfigManager.save_config("COMPASS", COMPASS)

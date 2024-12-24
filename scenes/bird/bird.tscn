@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmu6skwo0flr4"]
+[gd_scene load_steps=9 format=3 uid="uid://dmu6skwo0flr4"]
 
 [ext_resource type="Script" path="res://scenes/bird/bird.gd" id="1_edi5t"]
 [ext_resource type="VideoStream" uid="uid://ctxu1h61p4k7m" path="res://scenes/bird/bird.ogv" id="2_ietjx"]
+[ext_resource type="VideoStream" uid="uid://cooegit6rfgdp" path="res://scenes/bird/bird_landed.ogv" id="3_00n11"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="3_utwss"]
 [ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="4_ipnuw"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="5_bdp0j"]
@@ -32,6 +33,13 @@ autoplay = true
 expand = true
 loop = true
 
+[node name="VideoStreamPlayerBirdLanded" type="VideoStreamPlayer" parent="Remaster/Control"]
+offset_left = -64.0
+offset_right = 1576.0
+offset_bottom = 816.0
+stream = ExtResource("3_00n11")
+expand = true
+
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("3_utwss")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
@@ -42,7 +50,7 @@ autoplay = true
 
 [node name="gui_original" parent="Original" instance=ExtResource("5_bdp0j")]
 
-[node name="Bird" type="Sprite2D" parent="Original"]
+[node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_sr1xu")

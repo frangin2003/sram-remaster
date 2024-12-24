@@ -2,9 +2,7 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
-	var global_message = "You need to be more polite, buddy. Here is a picture of you from last summer."
-	get_node("/root/xx_pig/Remaster/gui_remaster/GameMasterBackground/GameMasterOutput").text = global_message
-	get_node("/root/xx_pig/Original/gui_original/GameMasterBackground/GameMasterOutput").text = global_message
+	setText("You need to be more polite, buddy. Here is a picture of you from last summer.")
 	return {
 		"compass": {
 			"NORTH": null,
@@ -34,7 +32,6 @@ The hero has been rude and is being punished by staring at a humiliating picture
 	}
 
 func execute_action(action):
-	print("Action: " + action)
 	match action:
 		"EXIT":
 			print("Out of pig! Going back to %s" % Global.PREVIOUS_SCENE)

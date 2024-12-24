@@ -4,46 +4,34 @@ func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 	Global.show_hide_item("Arrow")
 
-	var description = """The hero stands in a wide valley, perched atop a grassy hill.
-In the distance, a towering mountain looms under a clear sky. Nearby, a large rock sits firmly atop the hill"""
-	var actions = ""
-	if not Global.has_item("bow"):
-		description += " with a bow lying next to it."
+	var description = """The hero finds themselves on a small, serene island in the middle of a glistening lake.
+The soft glow of the golden sunlight filters through the lush canopy of vines and trees,
+casting dancing reflections on the water. The air is still, save for the occasional ripple across the lake, 
+and the scene feels like a test of skill, waiting to be revisited or admired.
+At the center of the island, a wooden target stands proudly"""
+	var actions = """
+- If the hero wants to get out of the island: 
+  {"_speaker":"001", "_text":"You balance back on the shore with a liana like Tarzan.", "_action":"BACK"}"""
+	if not Global.has_item("arrow"):
+		description += " with an arrow lodged perfectly in its bullseye."
 		actions += """
-- If the hero attempts to take the bow:
-  {"_speaker":"001", "_text":"Now you need an arrow.", "_action":"BOW"}"""
+- If the hero attempts to take the arrow:
+  {"_speaker":"001", "_text":"Beware not to prick yourself.", "_action":"ARROW"}"""
 	else:
 		description += "."
 
 	return {
-		"compass": {
-			"NORTH": null,
-			"EAST": null,
-			"SOUTH": null,
-			"WEST": null
-		},
 		"description": description,
 		"actions": actions
 	}
 
-	return {
-		"compass": {
-			"NORTH": null,
-			"EAST": null,
-			"SOUTH": null,
-			"WEST": null
-		},
-		"description": "The hero finds themselves in a serene riverside clearing bathed in the golden glow of a setting sun. Towering trees with cascading vines frame the tranquil water, their leaves whispering softly in the breeze. In the foreground, a wooden archery target stands near the edge of the clearing, its vibrant red, blue, and yellow rings catching the sunlight. The gentle ripples of the river reflect the warm hues of the sky, and the scene exudes a sense of peace, yet hints at a challenge waiting to be undertaken.",
-		"actions": """
-- If the hero attempts to take the arrow:
-  {"_speaker":"001", "_text":"Be careful not to prick yourself!", "_action":"ARROW"}"""
-	}
-
 func execute_action(action):
-	print("Action: " + action)
 	match action:
 		"ARROW":
 			Global.take_item_and_animate("Remaster", "Arrow", 120, 512, -114)
 			Global.take_item_and_animate("Original", "Arrow", 240, 564)
+		"BACK":
+			print("Back to the shore!")
+			Global.set_scene("swamps")
 		_:
 			print("Action not recognized in this scene")

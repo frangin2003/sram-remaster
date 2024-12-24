@@ -4,6 +4,7 @@ var CURRENT_HANDLER = null
 
 func execute_action(action):
     if CURRENT_HANDLER:
+        print("Action: " + action)
         CURRENT_HANDLER.execute_action(action)
         LlmServer.ACTION = ""
     else:

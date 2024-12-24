@@ -24,8 +24,10 @@ func _ready():
 	var config = _get_scene_config()
 	
 	# Set compass (optional)
+	var compass = {}
 	if config.has("compass"):
-		Global.set_compass(config.compass)
+		compass = config.compass
+	Global.set_compass(compass)
 
 	# Set system (optional)
 	if config.has("system_override"):
@@ -42,6 +44,12 @@ func _ready():
 	# Set NPCs (optional)
 	if config.has("npcs"):
 		Global.NPCS = config.npcs
+
+func setText(text: String):
+	var remaster_output = get_node("/root/%s/Remaster/gui_remaster/GameMasterBackground/GameMasterOutput" % Global.SCENE)
+	var original_output = get_node("/root/%s/Original/gui_original/GameMasterBackground/GameMasterOutput" % Global.SCENE)
+	remaster_output.text = text
+	original_output.text = text
 
 func stop_and_hide_video(video_player: VideoStreamPlayer):
 	video_player.stop()

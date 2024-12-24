@@ -3,10 +3,9 @@ extends "res://scenes/BaseScene.gd"
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 	var scene_suffix = "_skeleton_buried" if Global.has_state("skeleton buried") else ""
-	get_node("/root/cavern/Remaster/Control/Sprite2D").texture = load("res://scenes/cavern/cavern%s.webp" % scene_suffix)
-	get_node("/root/cavern/Original/Control/Sprite2D").texture = load("res://scenes/cavern/cavern%s_original_background.png" % scene_suffix)
+	get_node("/root/cavern/Remaster/Background").texture = load("res://scenes/cavern/cavern%s.webp" % scene_suffix)
+	get_node("/root/cavern/Original/Background").texture = load("res://scenes/cavern/cavern%s_original_background.png" % scene_suffix)
 	Global.show_hide_item("Shovel")
-
 
 	var description = "The hero stands in the cavern."
 	var actions = ""
@@ -31,9 +30,7 @@ func _get_scene_config() -> Dictionary:
 
 	return {
 		"compass": {
-			"NORTH": null,
 			"EAST": "cactus",
-			"SOUTH": null,
 			"WEST": "waterfall"
 		},
 		"description": description,
@@ -41,7 +38,6 @@ func _get_scene_config() -> Dictionary:
 	}
 
 func execute_action(action):
-	print("Action: " + action)
 	match action:
 		"SHOVEL":
 			Global.take_item_and_animate("Remaster", "Shovel", 59, 575, 0)
@@ -51,10 +47,15 @@ func execute_action(action):
 			Global.take_item_and_animate("Remaster", "Flask", 97, 688)
 			get_node("/root/cavern/Original/Flask").visible = true
 		"BURY":
-			Global.take_item_and_animate("Remaster", "Shovel", 59, 575, 0)
-			Global.take_item_and_animate("Original", "Shovel", 224, 664, 0)
-			get_node("/root/cavern/Remaster/Control/Sprite2D").texture = load("res://scenes/cavern/cavern_skeleton_buried.webp")
-			get_node("/root/cavern/Original/Control/Sprite2D").texture = load("res://scenes/cavern/cavern_skeleton_buried_original_background.png")
+			if not Global.has_item("shovel"):
+				Global.take_item_and_animate("Remaster", "Shovel", 59, 575, 0)
+				Global.take_item_and_animate("Original", "Shovel", 224, 664, 0)
+
+			if Global.MODE == "Remaster":
+				await self.start_show_then_hide_video(get_node("/root/cavern/Remaster/Control/VideoStreamPlayer"))
+
+			get_node("/root/cavern/Remaster/Background").texture = load("res://scenes/cavern/cavern_skeleton_buried.webp")
+			get_node("/root/cavern/Original/Background").texture = load("res://scenes/cavern/cavern_skeleton_buried_original_background.png")
 			Global.update_scene_state("skeleton buried")
 		_:
 			print("Action not recognized in this scene")
