@@ -20,7 +20,9 @@ func _ready():
 	Global.SCENE = Global.get_current_scene_name()
 	if not Global.LOADED_USER_STATE:
 		Global.load_user_state()
+	load_scene_config()
 
+func load_scene_config():
 	var config = _get_scene_config()
 	
 	# Set compass (optional)

@@ -1,16 +1,15 @@
-[gd_scene load_steps=32 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=34 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Script" path="res://scenes/gui_original/gui_original.gd" id="1_msara"]
 [ext_resource type="Texture2D" uid="uid://dvff2fro1deyl" path="res://scenes/gui_original/top_gui.PNG" id="1_oqvqp"]
 [ext_resource type="Texture2D" uid="uid://0mp8rn0jmobf" path="res://scenes/gui_original/left column.PNG" id="3_10w4f"]
 [ext_resource type="Texture2D" uid="uid://vir3ao5sthg1" path="res://scenes/gui_original/right column.png" id="4_p4cid"]
+[ext_resource type="Script" path="res://scenes/xx_gui/Compass.gd" id="5_mirvu"]
 [ext_resource type="FontFile" uid="uid://4q87slg2yxdu" path="res://scenes/gui_original/PressStart2P.ttf" id="6_3fjbt"]
 [ext_resource type="Texture2D" uid="uid://ex077uocw0ga" path="res://scenes/gui_remaster/record_button.png" id="6_cg66r"]
-[ext_resource type="Script" path="res://scenes/gui_remaster/RecordVoiceButton.gd" id="7_5oa3o"]
-[ext_resource type="Script" path="res://scenes/gui_remaster/AudioInput.gd" id="8_8hnun"]
-[ext_resource type="Script" path="res://scenes/gui_remaster/Compass.gd" id="9_m581f"]
 [ext_resource type="Texture2D" uid="uid://day513fxjcgko" path="res://scenes/nest/knife_original.png" id="10_6i8ym"]
+[ext_resource type="Script" path="res://scenes/xx_gui/Inventory.gd" id="10_brndy"]
 [ext_resource type="Texture2D" uid="uid://ctfselehuswth" path="res://scenes/mountain/bow_original.png" id="11_3v40q"]
 [ext_resource type="Texture2D" uid="uid://coh0fg8i2lynk" path="res://scenes/gui_original/north.png" id="12_wqlbm"]
 [ext_resource type="Texture2D" uid="uid://da7cs405d4xe7" path="res://scenes/cavern/shovel.png" id="12_xioq7"]
@@ -18,13 +17,16 @@
 [ext_resource type="Texture2D" uid="uid://om4fympems2w" path="res://scenes/gui_original/east.PNG" id="13_m2u7q"]
 [ext_resource type="Texture2D" uid="uid://d2bdnl38as6mq" path="res://scenes/hermit/potion_original.png" id="14_t8k6s"]
 [ext_resource type="Texture2D" uid="uid://dt68rlkhtft8v" path="res://scenes/gui_original/south.PNG" id="14_vvmpi"]
-[ext_resource type="Script" path="res://scenes/gui_remaster/Inventory.gd" id="14_w4bg7"]
 [ext_resource type="Texture2D" uid="uid://bnqd4yghwwnfk" path="res://scenes/druids/cane_original.png" id="15_aufxa"]
 [ext_resource type="Texture2D" uid="uid://m0nd0q0tb3xc" path="res://scenes/gui_original/ouest.PNG" id="15_k1gw6"]
 [ext_resource type="Texture2D" uid="uid://tyikd5kkbxak" path="res://scenes/arrow/arrow_original.png" id="17_q0jff"]
 [ext_resource type="Texture2D" uid="uid://b6sd7ev5kabsu" path="res://scenes/werewolf/ear_original.png" id="18_6nxdy"]
-[ext_resource type="Script" path="res://scenes/HeroTextEdit.gd" id="21_f3swg"]
+[ext_resource type="Texture2D" uid="uid://cj3txy2tshg2k" path="res://scenes/hermit/flute_original.png" id="20_2slcj"]
+[ext_resource type="Script" path="res://scenes/xx_gui/HeroTextEdit.gd" id="21_f3swg"]
 [ext_resource type="Texture2D" uid="uid://bvskkuskcb0lj" path="res://scenes/gui_original/llm_on.png" id="23_ckxxy"]
+[ext_resource type="Script" path="res://scenes/xx_gui/RecordVoiceButton.gd" id="24_yk1bw"]
+[ext_resource type="Script" path="res://scenes/xx_gui/AudioInput.gd" id="25_ikodp"]
+[ext_resource type="Texture2D" uid="uid://bmst0u0a71g4f" path="res://scenes/centaur/horse_shoe.png" id="26_62saj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -64,7 +66,7 @@ texture = ExtResource("4_p4cid")
 
 [node name="Compass" type="Node2D" parent="."]
 scale = Vector2(0.25, 0.25)
-script = ExtResource("9_m581f")
+script = ExtResource("5_mirvu")
 
 [node name="North" type="Sprite2D" parent="Compass"]
 position = Vector2(990, 76.5)
@@ -88,7 +90,7 @@ texture = ExtResource("15_k1gw6")
 
 [node name="Inventory" type="Node2D" parent="."]
 position = Vector2(-7.62939e-06, 0)
-script = ExtResource("14_w4bg7")
+script = ExtResource("10_brndy")
 
 [node name="Knife" type="Sprite2D" parent="Inventory"]
 visible = false
@@ -138,6 +140,18 @@ position = Vector2(1613, 662)
 scale = Vector2(2.50001, 2.7)
 texture = ExtResource("18_6nxdy")
 
+[node name="Hoof" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1666, 741)
+scale = Vector2(2.5, 2.7)
+texture = ExtResource("26_62saj")
+
+[node name="Flute" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(287, 395)
+scale = Vector2(2.5, 2.6)
+texture = ExtResource("20_2slcj")
+
 [node name="BackgroundImage" type="Node2D" parent="."]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.69841)
@@ -186,13 +200,13 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_embtt")
 theme_override_styles/focus = SubResource("StyleBoxFlat_3qyap")
 icon = ExtResource("6_cg66r")
 expand_icon = true
-script = ExtResource("7_5oa3o")
+script = ExtResource("24_yk1bw")
 
 [node name="AudioInput" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMicrophone_o7xl2")
 autoplay = true
 bus = &"Record"
-script = ExtResource("8_8hnun")
+script = ExtResource("25_ikodp")
 
 [node name="LlmOn" type="Sprite2D" parent="."]
 position = Vector2(1636, 106)

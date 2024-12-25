@@ -15,7 +15,7 @@ func _get_scene_config() -> Dictionary:
 		description += " In front of him lies the skeleton of an unfortunate past adventurer and a large wooden barrel resting against the damp wall."
 		actions = """
 - If the hero attempts to bury the skeleton:
-  {"_speaker":"001", "_text":"As a reward for your act of kindness, here’s a piece of advice: use the stick when facing the slitherer.", "_action":"BURY"}"""
+  {"_speaker":"001", "_text":"", "_action":"BURY"}"""
 
 	if not Global.has_item("shovel"):
 		description += " Next to it lies a shovel."
@@ -42,10 +42,12 @@ func execute_action(action):
 		"SHOVEL":
 			Global.take_item_and_animate("Remaster", "Shovel", 59, 575, 0)
 			Global.take_item_and_animate("Original", "Shovel", 224, 664, 0)
+			load_scene_config()
 		"FLASK":
 			get_node("/root/cavern/Remaster/Flask").visible = true
 			Global.take_item_and_animate("Remaster", "Flask", 97, 688)
 			get_node("/root/cavern/Original/Flask").visible = true
+			load_scene_config()
 		"BURY":
 			if not Global.has_item("shovel"):
 				Global.take_item_and_animate("Remaster", "Shovel", 59, 575, 0)
@@ -54,8 +56,8 @@ func execute_action(action):
 			if Global.MODE == "Remaster":
 				await self.start_show_then_hide_video(get_node("/root/cavern/Remaster/Control/VideoStreamPlayer"))
 
-			get_node("/root/cavern/Remaster/Background").texture = load("res://scenes/cavern/cavern_skeleton_buried.webp")
-			get_node("/root/cavern/Original/Background").texture = load("res://scenes/cavern/cavern_skeleton_buried_original_background.png")
 			Global.update_scene_state("skeleton buried")
+			setText("As a reward for your act of kindness, here’s a piece of advice: use the stick when facing the slitherer.")
+			load_scene_config()
 		_:
 			print("Action not recognized in this scene")

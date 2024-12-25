@@ -143,6 +143,15 @@ func show_hide_item(item_name: String):
 	if item_node_original:
 		item_node_original.visible = not INVENTORY[item_name.to_lower()]
 
+func hide_item(item_name: String):
+	print("Hidding item: %s" % item_name)
+	var item_node_remaster = get_node("/root/%s/Remaster/%s" % [SCENE, item_name])
+	if item_node_remaster:
+		item_node_remaster.visible = false
+	var item_node_original = get_node("/root/%s/Original/%s" % [SCENE, item_name])
+	if item_node_original:
+		item_node_original.visible = false
+
 func update_inventory(item_name, value):
 	INVENTORY[item_name.to_lower()] = value
 	ConfigManager.save_config("INVENTORY", INVENTORY)
