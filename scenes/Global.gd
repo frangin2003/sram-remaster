@@ -181,7 +181,7 @@ func reset_inventory():
 			INVENTORY[item] = 0
 	ConfigManager.save_config("INVENTORY", INVENTORY)
 
-func take_item_and_animate(mode: String, item_name: String, target_position_x: int, target_position_y: int, rotation: float = NAN, duration: float = 1.0):
+func take_item_and_animate(mode: String, item_name: String, target_position_x: int, target_position_y: int, rotation: float = NAN, scale_x: float = NAN, scale_y: float = NAN, duration: float = 1.0):
 	print("Animating %s!" % item_name)
 	var sprite = get_node("/root/%s/%s/%s" % [SCENE, mode, item_name])
 	
@@ -195,6 +195,8 @@ func take_item_and_animate(mode: String, item_name: String, target_position_x: i
 		tween.tween_property(sprite, "position", Vector2(target_position_x, target_position_y), duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 		if not is_nan(rotation):
 			tween.parallel().tween_property(sprite, "rotation", rotation, duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+		if not is_nan(scale_x):
+			tween.parallel().tween_property(sprite, "scale", Vector2(scale_x, scale_y), duration).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 		tween.play()
 		await tween.finished
 	else:
