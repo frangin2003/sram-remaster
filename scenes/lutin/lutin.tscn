@@ -71,7 +71,7 @@ visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("7_ecypk")]
 
-[node name="Lutin" type="Sprite2D" parent="Original"]
+[node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("8_dmmdr")

@@ -34,6 +34,7 @@ expand = true
 loop = true
 
 [node name="VideoStreamPlayerBirdLanded" type="VideoStreamPlayer" parent="Remaster/Control"]
+layout_mode = 0
 offset_left = -64.0
 offset_right = 1576.0
 offset_bottom = 816.0

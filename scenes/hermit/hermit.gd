@@ -23,5 +23,12 @@ func execute_action(action):
 		"BOW":
 			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
 			Global.take_item_and_animate("Original", "Bow", 282, 659)
+# O FLITE
+# 287
+# 395
+
+# R
+# 128
+# 387
 		_:
 			print("Action not recognized in this scene")

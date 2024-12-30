@@ -27,7 +27,6 @@ offset_right = 1744.0
 offset_bottom = 824.0
 
 [node name="VideoStreamPlayerChestClosed" type="VideoStreamPlayer" parent="Remaster/Control"]
-visible = false
 layout_mode = 0
 offset_left = -64.0
 offset_right = 1576.0
@@ -47,14 +46,13 @@ stream = ExtResource("2_38n2n")
 expand = true
 
 [node name="VideoStreamPlayerChestOpened" type="VideoStreamPlayer" parent="Remaster/Control"]
+visible = false
 layout_mode = 0
 offset_left = -128.0
 offset_right = 1512.0
 offset_bottom = 816.0
 stream = ExtResource("3_2m4pp")
-autoplay = true
 expand = true
-loop = true
 
 [node name="VideoStreamPlayerChestEmpty" type="VideoStreamPlayer" parent="Remaster/Control"]
 visible = false
@@ -63,9 +61,7 @@ offset_left = -64.0
 offset_right = 1576.0
 offset_bottom = 816.0
 stream = ExtResource("4_hyc2l")
-autoplay = true
 expand = true
-loop = true
 
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 

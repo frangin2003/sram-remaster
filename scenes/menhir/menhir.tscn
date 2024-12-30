@@ -41,9 +41,10 @@ visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("5_50fr4")]
 
-[node name="Menhir" type="Sprite2D" parent="Original"]
+[node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_itahl")
 
 [node name="xx_settings" parent="." instance=ExtResource("7_agfnx")]
+visible = false

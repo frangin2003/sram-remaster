@@ -49,7 +49,7 @@ texture = ExtResource("5_ba85e")
 
 [node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 
-[node name="Mountain" type="Sprite2D" parent="Original"]
+[node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("7_wqef3")
@@ -60,3 +60,4 @@ scale = Vector2(2.36092, 2.65259)
 texture = ExtResource("7_xn47p")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
+visible = false

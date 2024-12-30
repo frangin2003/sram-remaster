@@ -48,3 +48,4 @@ scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_vxcf5")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
+visible = false

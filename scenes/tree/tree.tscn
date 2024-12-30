@@ -42,9 +42,10 @@ visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("5_6h4r8")]
 
-[node name="Tree" type="Sprite2D" parent="Original"]
+[node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_dtox2")
 
 [node name="xx_settings" parent="." instance=ExtResource("7_u7ypj")]
+visible = false
