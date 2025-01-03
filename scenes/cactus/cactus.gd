@@ -1,27 +1,15 @@
 extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
-	CommandHandler.CURRENT_HANDLER = self
-	Global.show_hide_item("Bow")
 	return {
 		"compass": {
-			"NORTH": "waterfall",
-			"EAST": "menhir",
-			"SOUTH": null,
-			# "WEST": "rapids"
-			"WEST": null
+			"NORTH": "signpost",
+			"EAST": "cavern",
+			"WEST": "vessel"
 		},
-		"description": "The hero stands in a wide valley, perched atop a grassy hill. In the distance, a towering mountain looms under a clear sky. Nearby, a large rock sits firmly atop the hill, with a bow lying next to it.",
-		"actions": """
-- If the hero attempts to take the bow:
-  {"_speaker":"001", "_text":"Now you need an arrow.", "_command":"BOW"}"""
+		"description": """The hero finds themselves in a vast, sun-drenched desert,
+ where towering saguaro cacti rise from the golden dunes like silent sentinels.
+ A vulture perches ominously atop one of the tallest cacti, scanning the barren landscape as smaller birds circle high in the sky.
+Shadows stretch long across the rippled sand, broken by scattered rocks, tufts of dry brush, and clusters of smaller cacti.
+The air shimmers with heat, and the endless dunes and distant hills hint at both isolation and a challenge ahead."""
 	}
-
-func execute_command(command):
-	print("Command: " + command)
-	match command:
-		"BOW":
-			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
-			Global.take_item_and_animate("Original", "Bow", 282, 659)
-		_:
-			print("Command not recognized in this scene")

@@ -23,7 +23,7 @@ driver/enable_input=true
 
 ConfigManager="*res://llm_server/ConfigManager.gd"
 Global="*res://scenes/Global.gd"
-CommandHandler="*res://llm_server/CommandHandler.gd"
+ActionHandler="*res://llm_server/ActionHandler.gd"
 Memory="*res://llm_server/Memory.gd"
 AudioRecording="*res://llm_server/AudioRecording.gd"
 LlmServer="*res://llm_server/LlmServer.gd"

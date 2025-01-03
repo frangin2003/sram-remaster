@@ -1,27 +1,25 @@
 extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
-	CommandHandler.CURRENT_HANDLER = self
-	Global.show_hide_item("Bow")
+	ActionHandler.CURRENT_HANDLER = self
 	return {
 		"compass": {
-			"NORTH": "waterfall",
-			"EAST": "menhir",
-			"SOUTH": null,
-			# "WEST": "rapids"
-			"WEST": null
+			"NORTH": "cliff",
+			"WEST": "hogg"
 		},
-		"description": "The hero stands in a wide valley, perched atop a grassy hill. In the distance, a towering mountain looms under a clear sky. Nearby, a large rock sits firmly atop the hill, with a bow lying next to it.",
+		"description": """The hero approaches a tranquil shoreline bathed in the vibrant hues of a setting sun, painting the sky with shades of pink,
+ orange, and purple. A weathered wooden bridge extends gracefully across the calm waters, leading to a small, lush island crowned with trees.
+ The reflection of the sun and vivid sky dances on the water’s surface, creating a mesmerizing tapestry of colors.
+ The gentle ripples and scattered rocks in the shallow water add a touch of serenity, while the path across the bridge beckons with quiet mystery,
+ promising discovery beyond the horizon.""",
 		"actions": """
-- If the hero attempts to take the bow:
-  {"_speaker":"001", "_text":"Now you need an arrow.", "_command":"BOW"}"""
+- If the hero attempts to cross the bridge:
+  {"_speaker":"001", "_text":"You are now on snake island.", "_action":"BRIDGE"}"""
 	}
 
-func execute_command(command):
-	print("Command: " + command)
-	match command:
-		"BOW":
-			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
-			Global.take_item_and_animate("Original", "Bow", 282, 659)
+func execute_action(action):
+	match action:
+		"BRIDGE":
+			Global.set_scene("snake")
 		_:
-			print("Command not recognized in this scene")
+			print("Action not recognized in this scene")

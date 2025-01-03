@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/lutin/lutin.gd" id="1_60kc2"]
 [ext_resource type="VideoStream" path="res://scenes/lutin/lutin.ogv" id="2_a2e43"]
 [ext_resource type="VideoStream" path="res://scenes/lutin/lutin_speak.ogv" id="3_3051b"]
-[ext_resource type="Shader" path="res://scenes/lutin/speak_shader.gdshader" id="3_s0gs1"]
+[ext_resource type="Shader" path="res://scenes/xx_gui/speak_shader.gdshader" id="3_fipik"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_b1j2u"]
 [ext_resource type="AudioStream" uid="uid://kk1vt3k4aqui" path="res://scenes/lutin/river-in-the-forest-17271.mp3" id="5_oorm3"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="7_ecypk"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_qylf4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qky1y"]
-shader = ExtResource("3_s0gs1")
+shader = ExtResource("3_fipik")
 shader_parameter/rect_area = Vector4(0.3, 0.3, 0.7, 0.7)
 shader_parameter/edge_softness = 0.15
 
@@ -71,9 +71,10 @@ visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("7_ecypk")]
 
-[node name="Lutin" type="Sprite2D" parent="Original"]
+[node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("8_dmmdr")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_qylf4")]
+visible = false

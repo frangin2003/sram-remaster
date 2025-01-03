@@ -1,20 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=13 format=3 uid="uid://bflxqrjtbsynx"]
 
-[ext_resource type="Script" path="res://scenes/bird/bird.gd" id="1_aetvx"]
-[ext_resource type="VideoStream" path="res://scenes/mountain/mountain.ogv" id="2_unrr2"]
+[ext_resource type="Script" path="res://scenes/chest/chest.gd" id="1_2sg4h"]
+[ext_resource type="VideoStream" path="res://scenes/chest/chest.ogv" id="2_38n2n"]
+[ext_resource type="VideoStream" path="res://scenes/chest/closed_chest.ogv" id="2_h5ndq"]
+[ext_resource type="VideoStream" path="res://scenes/chest/chest_closeup.ogv" id="3_2m4pp"]
 [ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
+[ext_resource type="VideoStream" path="res://scenes/chest/opened_chest.ogv" id="4_hyc2l"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
-[ext_resource type="Texture2D" uid="uid://de1bul7fvgoww" path="res://scenes/mountain/bow.png" id="5_ba85e"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
-[ext_resource type="Texture2D" uid="uid://cexs2ivlt3042" path="res://scenes/mountain/mountain.png" id="7_wqef3"]
-[ext_resource type="Texture2D" uid="uid://ctfselehuswth" path="res://scenes/mountain/bow_original.png" id="7_xn47p"]
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
+[ext_resource type="Texture2D" uid="uid://nsakpbqh4m5h" path="res://scenes/chest/coffre2.png" id="10_43rxi"]
+[ext_resource type="Texture2D" uid="uid://bafitb3aiunfs" path="res://scenes/chest/money_original.png" id="11_3i5cc"]
+[ext_resource type="Texture2D" uid="uid://b0emtdxuq4wht" path="res://scenes/chest/money.png" id="11_bbn6v"]
 
-[node name="mountain" type="Node2D"]
-script = ExtResource("1_aetvx")
+[node name="chest" type="Node2D"]
+script = ExtResource("1_2sg4h")
 
 [node name="Remaster" type="Node2D" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
@@ -24,39 +26,68 @@ offset_left = 176.0
 offset_right = 1744.0
 offset_bottom = 824.0
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Remaster/Control"]
+[node name="VideoStreamPlayerChestClosed" type="VideoStreamPlayer" parent="Remaster/Control"]
 layout_mode = 0
 offset_left = -64.0
 offset_right = 1576.0
 offset_bottom = 816.0
-stream = ExtResource("2_unrr2")
+stream = ExtResource("2_h5ndq")
 autoplay = true
 expand = true
 loop = true
 
+[node name="VideoStreamPlayerChestOpening" type="VideoStreamPlayer" parent="Remaster/Control"]
+visible = false
+layout_mode = 0
+offset_left = -192.0
+offset_right = 1448.0
+offset_bottom = 816.0
+stream = ExtResource("2_38n2n")
+expand = true
+
+[node name="VideoStreamPlayerChestOpened" type="VideoStreamPlayer" parent="Remaster/Control"]
+visible = false
+layout_mode = 0
+offset_left = -128.0
+offset_right = 1512.0
+offset_bottom = 816.0
+stream = ExtResource("3_2m4pp")
+expand = true
+
+[node name="VideoStreamPlayerChestEmpty" type="VideoStreamPlayer" parent="Remaster/Control"]
+visible = false
+layout_mode = 0
+offset_left = -64.0
+offset_right = 1576.0
+offset_bottom = 816.0
+stream = ExtResource("4_hyc2l")
+expand = true
+
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
+
+[node name="Money" type="Sprite2D" parent="Remaster"]
+position = Vector2(595, 551)
+scale = Vector2(4.12333, 4.12333)
+texture = ExtResource("11_bbn6v")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
 stream = ExtResource("3_tt656")
 autoplay = true
 
-[node name="Bow" type="Sprite2D" parent="Remaster"]
-position = Vector2(1040, 576)
-scale = Vector2(0.555172, 0.555172)
-texture = ExtResource("5_ba85e")
-
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 
-[node name="Mountain" type="Sprite2D" parent="Original"]
+[node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
-scale = Vector2(2.475, 2.698)
-texture = ExtResource("7_wqef3")
+scale = Vector2(2.5, 2.6)
+texture = ExtResource("10_43rxi")
 
-[node name="Bow" type="Sprite2D" parent="Original"]
-position = Vector2(1010, 748)
-scale = Vector2(2.36092, 2.65259)
-texture = ExtResource("7_xn47p")
+[node name="Money" type="Sprite2D" parent="Original"]
+position = Vector2(1158, 695.6)
+scale = Vector2(2.5, 2.6)
+texture = ExtResource("11_3i5cc")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
+visible = false

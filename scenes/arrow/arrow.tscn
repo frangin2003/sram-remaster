@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
 
-[ext_resource type="Script" path="res://scenes/bird/bird.gd" id="1_aetvx"]
+[ext_resource type="Script" path="res://scenes/arrow/arrow.gd" id="1_dfuoe"]
 [ext_resource type="VideoStream" path="res://scenes/arrow/arrow_island.ogv" id="2_s7fuq"]
-[ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
+[ext_resource type="AudioStream" uid="uid://bfn1kppiciypk" path="res://scenes/arrow/nature-soundstropicaljunglebirds-108380.mp3" id="4_0g3sm"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="Texture2D" uid="uid://bhdrlhehuuwgd" path="res://scenes/arrow/arrow.png" id="5_3eacf"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="arrow" type="Node2D"]
-script = ExtResource("1_aetvx")
+script = ExtResource("1_dfuoe")
 
 [node name="Remaster" type="Node2D" parent="."]
 
@@ -36,7 +36,7 @@ loop = true
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
-stream = ExtResource("3_tt656")
+stream = ExtResource("4_0g3sm")
 autoplay = true
 
 [node name="Arrow" type="Sprite2D" parent="Remaster"]
@@ -50,7 +50,7 @@ visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 
-[node name="Island" type="Sprite2D" parent="Original"]
+[node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("7_xaq0q")

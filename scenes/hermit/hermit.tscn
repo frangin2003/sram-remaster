@@ -1,20 +1,27 @@
-[gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=14 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/bird/bird.gd" id="1_aetvx"]
-[ext_resource type="VideoStream" path="res://scenes/mountain/mountain.ogv" id="2_unrr2"]
+[ext_resource type="VideoStream" path="res://scenes/hermit/hermit.ogv" id="2_0mb44"]
+[ext_resource type="Texture2D" uid="uid://ck1livc1ifx2l" path="res://scenes/hermit/flute.png" id="3_k2c81"]
+[ext_resource type="Shader" path="res://scenes/xx_gui/speak_shader.gdshader" id="3_nu1d6"]
 [ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
+[ext_resource type="VideoStream" path="res://scenes/hermit/hermit_speaks.ogv" id="4_dlncj"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
-[ext_resource type="Texture2D" uid="uid://de1bul7fvgoww" path="res://scenes/mountain/bow.png" id="5_ba85e"]
+[ext_resource type="Texture2D" uid="uid://dqa20gaud0cdl" path="res://scenes/hermit/ermit_flute.png" id="5_m52d0"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
-[ext_resource type="Texture2D" uid="uid://cexs2ivlt3042" path="res://scenes/mountain/mountain.png" id="7_wqef3"]
-[ext_resource type="Texture2D" uid="uid://ctfselehuswth" path="res://scenes/mountain/bow_original.png" id="7_xn47p"]
+[ext_resource type="Texture2D" uid="uid://ov5aoiwy3wem" path="res://scenes/hermit/ermit.png" id="6_iuw22"]
+[ext_resource type="Texture2D" uid="uid://cj3txy2tshg2k" path="res://scenes/hermit/flute_original.png" id="7_bexar"]
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
-[node name="mountain" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxech"]
+shader = ExtResource("3_nu1d6")
+shader_parameter/rect_area = Vector4(0.32, 0.3, 0.7, 0.9)
+shader_parameter/edge_softness = 0.15
+
+[node name="hermit" type="Node2D"]
 script = ExtResource("1_aetvx")
 
 [node name="Remaster" type="Node2D" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
@@ -29,7 +36,28 @@ layout_mode = 0
 offset_left = -64.0
 offset_right = 1576.0
 offset_bottom = 816.0
-stream = ExtResource("2_unrr2")
+stream = ExtResource("2_0mb44")
+autoplay = true
+expand = true
+loop = true
+
+[node name="ControlSpeak" type="Control" parent="Remaster"]
+visible = false
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 1744.0
+offset_bottom = 824.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Remaster/ControlSpeak"]
+material = SubResource("ShaderMaterial_oxech")
+layout_mode = 0
+offset_left = 464.0
+offset_top = 53.0
+offset_right = 907.0
+offset_bottom = 274.0
+stream = ExtResource("4_dlncj")
 autoplay = true
 expand = true
 loop = true
@@ -40,23 +68,31 @@ loop = true
 stream = ExtResource("3_tt656")
 autoplay = true
 
-[node name="Bow" type="Sprite2D" parent="Remaster"]
-position = Vector2(1040, 576)
-scale = Vector2(0.555172, 0.555172)
-texture = ExtResource("5_ba85e")
+[node name="ErmitFlute" type="Sprite2D" parent="Remaster"]
+position = Vector2(987.5, 402)
+scale = Vector2(0.979166, 0.840149)
+texture = ExtResource("5_m52d0")
+
+[node name="Flute" type="Sprite2D" parent="Remaster"]
+visible = false
+position = Vector2(1034, 360)
+scale = Vector2(0.452778, 0.452778)
+texture = ExtResource("3_k2c81")
 
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 
-[node name="Mountain" type="Sprite2D" parent="Original"]
+[node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
-texture = ExtResource("7_wqef3")
+texture = ExtResource("6_iuw22")
 
-[node name="Bow" type="Sprite2D" parent="Original"]
-position = Vector2(1010, 748)
-scale = Vector2(2.36092, 2.65259)
-texture = ExtResource("7_xn47p")
+[node name="Flute" type="Sprite2D" parent="Original"]
+position = Vector2(1357, 667)
+scale = Vector2(2.5, 2.6)
+texture = ExtResource("7_bexar")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
+visible = false

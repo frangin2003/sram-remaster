@@ -1,7 +1,7 @@
 extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
-	CommandHandler.CURRENT_HANDLER = null
+	ActionHandler.CURRENT_HANDLER = null
 	Global.reset_inventory()
 	return {
 		"compass": {

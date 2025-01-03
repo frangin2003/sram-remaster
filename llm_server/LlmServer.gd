@@ -13,7 +13,7 @@ var first_connection_established = false
 var IS_LLM_ON = false
 
 var OUTPUT = ""
-var COMMAND = ""
+var ACTION = ""
 
 var ConfigManager = preload("res://llm_server/ConfigManager.gd").new()
 
@@ -101,7 +101,7 @@ func is_port_in_use(port):
 
 func send_to_llm_server(system_prompt: String, user_prompt: String, with_speech: bool=false, image_url=null, system_image_url=null) -> void:
 	OUTPUT = ""
-	COMMAND = ""
+	ACTION = ""
 
 	if WEBSOCKET == null:
 		print("LlmServer: WebSocket is not initialized.")
