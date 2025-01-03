@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/king/king.gd" id="1_8ogeh"]
 [ext_resource type="VideoStream" path="res://scenes/king/king.ogv" id="2_qighi"]
-[ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
+[ext_resource type="AudioStream" uid="uid://dkp1x68kkgrvc" path="res://scenes/king/beautiful-church-chorus-175359.mp3" id="4_tomp4"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://bl5oxswtlmjtv" path="res://scenes/king/knight.png" id="7_sryn8"]
@@ -35,7 +35,7 @@ loop = true
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
-stream = ExtResource("3_tt656")
+stream = ExtResource("4_tomp4")
 autoplay = true
 
 [node name="Original" type="Node2D" parent="."]

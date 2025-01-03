@@ -94,56 +94,67 @@ position = Vector2(-7.62939e-06, 0)
 script = ExtResource("10_brndy")
 
 [node name="Knife" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(235.257, 283.888)
 scale = Vector2(2.49013, 2.52984)
 texture = ExtResource("10_6i8ym")
 
 [node name="Bow" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(281.669, 658.63)
 scale = Vector2(2.36092, 2.65259)
 texture = ExtResource("11_3v40q")
 
 [node name="Shovel" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(224, 664)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("12_xioq7")
 
 [node name="Flask" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(250, 758.5)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("13_c47wj")
 
 [node name="Potion" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1636, 461)
 scale = Vector2(2.25, 2.25)
 texture = ExtResource("14_t8k6s")
 
 [node name="Cane" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(217, 378)
 scale = Vector2(2.54545, 2.54545)
 texture = ExtResource("15_aufxa")
 
 [node name="Arrow" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(240, 564)
 scale = Vector2(2.4, 2.4)
 texture = ExtResource("17_q0jff")
 
 [node name="Ear" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1613, 662)
 scale = Vector2(2.50001, 2.7)
 texture = ExtResource("18_6nxdy")
 
 [node name="Hoof" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1666, 741)
 scale = Vector2(2.5, 2.7)
 texture = ExtResource("26_62saj")
 
 [node name="Flute" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(287, 395)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("20_2slcj")
 
 [node name="Money" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(245, 229)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("21_h8jya")

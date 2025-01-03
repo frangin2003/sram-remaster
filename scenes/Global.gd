@@ -133,6 +133,16 @@ func update_compass(direction, value):
 	COMPASS[direction] = value
 	ConfigManager.save_config("COMPASS", COMPASS)
 
+func show_item(item_name: String):
+	print("Showing item: %s" % item_name)
+	print("Inventory value for %s: %s" % [item_name, INVENTORY[item_name.to_lower()]])
+	var item_node_remaster = get_node("/root/%s/Remaster/%s" % [SCENE, item_name])
+	if item_node_remaster:
+		item_node_remaster.visible = true
+	var item_node_original = get_node("/root/%s/Original/%s" % [SCENE, item_name])
+	if item_node_original:
+		item_node_original.visible = true
+
 func show_hide_item(item_name: String):
 	print("Toggling visibility for item: %s" % item_name)
 	print("Inventory value for %s: %s" % [item_name, INVENTORY[item_name.to_lower()]])

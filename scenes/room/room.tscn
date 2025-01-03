@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="3_0qkyb"]
 [ext_resource type="VideoStream" path="res://scenes/room/room_cleanup.ogv" id="3_pccp1"]
 [ext_resource type="VideoStream" path="res://scenes/room/room_tidy.ogv" id="4_6hplc"]
-[ext_resource type="AudioStream" uid="uid://18gwaw4p1xfn" path="res://scenes/tree/forest-bird-sounds-73690.mp3" id="4_w60oe"]
 [ext_resource type="Texture2D" uid="uid://kyu6mal8sv31" path="res://scenes/room/room_messy.png" id="6_cm0bw"]
+[ext_resource type="AudioStream" uid="uid://b5dqnv6257jk5" path="res://scenes/room/flies-6330.mp3" id="6_d4ti6"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_n7lt1"]
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_rncox"]
 
@@ -56,7 +56,7 @@ loop = true
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("3_0qkyb")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
-stream = ExtResource("4_w60oe")
+stream = ExtResource("6_d4ti6")
 autoplay = true
 
 [node name="Original" type="Node2D" parent="."]
