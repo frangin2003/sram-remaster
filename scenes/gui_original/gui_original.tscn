@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=36 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Script" path="res://scenes/gui_original/gui_original.gd" id="1_msara"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d2bdnl38as6mq" path="res://scenes/hermit/potion_original.png" id="14_t8k6s"]
 [ext_resource type="Texture2D" uid="uid://dt68rlkhtft8v" path="res://scenes/gui_original/south.PNG" id="14_vvmpi"]
 [ext_resource type="Texture2D" uid="uid://bnqd4yghwwnfk" path="res://scenes/druids/cane_original.png" id="15_aufxa"]
+[ext_resource type="Texture2D" uid="uid://p0m5wdp10sg2" path="res://scenes/gui_original/flask_eau.png" id="15_d771f"]
 [ext_resource type="Texture2D" uid="uid://m0nd0q0tb3xc" path="res://scenes/gui_original/ouest.PNG" id="15_k1gw6"]
 [ext_resource type="Texture2D" uid="uid://tyikd5kkbxak" path="res://scenes/arrow/arrow_original.png" id="17_q0jff"]
 [ext_resource type="Texture2D" uid="uid://b6sd7ev5kabsu" path="res://scenes/werewolf/ear_original.png" id="18_6nxdy"]
@@ -106,16 +107,21 @@ scale = Vector2(2.36092, 2.65259)
 texture = ExtResource("11_3v40q")
 
 [node name="Shovel" type="Sprite2D" parent="Inventory"]
-visible = false
 position = Vector2(224, 664)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("12_xioq7")
 
-[node name="Flask" type="Sprite2D" parent="Inventory"]
+[node name="Flasksec" type="Sprite2D" parent="Inventory"]
 visible = false
 position = Vector2(250, 758.5)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("13_c47wj")
+
+[node name="Flaskeau" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(247, 760)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("15_d771f")
 
 [node name="Potion" type="Sprite2D" parent="Inventory"]
 visible = false

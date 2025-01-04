@@ -29,10 +29,14 @@ func update_mode_visibility():
 		remaster_node.visible = Global.MODE == "Remaster"
 	if original_node:
 		original_node.visible = Global.MODE == "Original"
+	var heroTextEdit = null
 	if Global.MODE == "Remaster":
-		remaster_node.get_node("gui_remaster/HeroTextEdit").grab_focus()
+		heroTextEdit = remaster_node.get_node("gui_remaster/HeroTextEdit")
 	else:
-		original_node.get_node("gui_original/HeroTextEdit").grab_focus()
+		heroTextEdit = original_node.get_node("gui_original/HeroTextEdit")
+	if heroTextEdit != null:
+		heroTextEdit.grab_focus()
+
 func handle_f1_press():
 	print("F1 key pressed")
 	

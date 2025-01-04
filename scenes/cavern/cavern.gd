@@ -23,7 +23,7 @@ func _get_scene_config() -> Dictionary:
 - If the hero attempts to take the shovel:
   {"_speaker":"001", "_text":"That can be handy.", "_action":"SHOVEL"}"""
 
-	if not Global.has_item("flask"):
+	if not Global.has_item("flasksec") and not Global.has_item("flaskeau"):
 		actions += """
 - If the hero looks into the barrel:
   {"_speaker":"001", "_text":"Inside the barrel, you find an empty leather flask. You take it.", "_action":"FLASK"}"""
@@ -44,9 +44,9 @@ func execute_action(action):
 			Global.take_item_and_animate("Original", "Shovel", 224, 664, 0)
 			load_scene_config()
 		"FLASK":
-			get_node("/root/cavern/Remaster/Flask").visible = true
-			Global.take_item_and_animate("Remaster", "Flask", 97, 688)
-			get_node("/root/cavern/Original/Flask").visible = true
+			get_node("/root/cavern/Remaster/Flasksec").visible = true
+			Global.take_item_and_animate("Remaster", "Flasksec", 97, 688)
+			get_node("/root/cavern/Original/Flasksec").visible = true
 			load_scene_config()
 		"BURY":
 			if not Global.has_item("shovel"):

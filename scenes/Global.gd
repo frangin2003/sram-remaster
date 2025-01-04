@@ -10,8 +10,8 @@ var COMPASS = {
 var INVENTORY = {
 	"knife": false,
 	"cane": false,
-	"flask": false,
-	"water": false,
+	"flasksec": false,
+	"flaskeau": false,
 	"skin": false,
 	"potion": false,
 	"key": false,
@@ -66,6 +66,7 @@ func load_user_state():
 
 func set_scene(new_scene):
 	SYSTEM_OVERRIDE = null
+	BLOCK_MOVEMENTS = false
 	if SCENE != "xx_pig" and new_scene != "xx_pig":
 		PREVIOUS_SCENE = SCENE
 		ConfigManager.save_config("PREVIOUS_SCENE", PREVIOUS_SCENE)
@@ -191,6 +192,14 @@ func reset_inventory():
 			INVENTORY[item] = 0
 	ConfigManager.save_config("INVENTORY", INVENTORY)
 
+func remove_from_inventory(item_name: String):
+	INVENTORY[item_name.to_lower()] = false
+	ConfigManager.save_config("INVENTORY", INVENTORY)
+
+func add_to_inventory(item_name: String):
+	INVENTORY[item_name.to_lower()] = true
+	ConfigManager.save_config("INVENTORY", INVENTORY)
+
 func take_item_and_animate(mode: String, item_name: String, target_position_x: int, target_position_y: int, rotation: float = NAN, scale_x: float = NAN, scale_y: float = NAN, duration: float = 1.0):
 	print("Animating %s!" % item_name)
 	var sprite = get_node("/root/%s/%s/%s" % [SCENE, mode, item_name])
@@ -215,6 +224,10 @@ func take_item_and_animate(mode: String, item_name: String, target_position_x: i
 # ----------------------- SYSTEM INSTRUCTIONS ----------------------- #
 var SYSTEM = null
 var SYSTEM_OVERRIDE = null
+var BLOCK_MOVEMENTS = false
+
+func get_all_directions():
+	return ["NORTH", "EAST", "SOUTH", "WEST"]
 
 func get_authorized_directions():
 	return COMPASS.keys().filter(func(dir): return COMPASS[dir] != null)
@@ -323,9 +336,16 @@ func get_system_instructions():
 	if !inventory_list:
 		inventory_list = "The hero has no items in their inventory yet."
 
+	var authorized_directions = ", ".join(get_authorized_directions())
+	var unauthorized_directions = ", ".join(get_unauthorized_directions())
+
+	if BLOCK_MOVEMENTS:
+		authorized_directions = ""
+		unauthorized_directions = ", ".join(get_all_directions())
+
 	SYSTEM = system_template.format({
-		"authorized_directions": ", ".join(get_authorized_directions()),
-		"unauthorized_directions": ", ".join(get_unauthorized_directions()),
+		"authorized_directions": authorized_directions,
+		"unauthorized_directions": unauthorized_directions,
 		"scene_description": SCENE_DESCRIPTION,
 		"additional_npcs_instructions": additional_npcs_instructions,
 		"scene_name": SCENE,

@@ -52,13 +52,13 @@ rotation = -0.261799
 scale = Vector2(0.277676, 0.25251)
 texture = ExtResource("5_2ee62")
 
-[node name="Flask" type="Sprite2D" parent="Remaster"]
+[node name="Flasksec" type="Sprite2D" parent="Remaster"]
 visible = false
 position = Vector2(1416, 112)
 scale = Vector2(0.477676, 0.492507)
 texture = ExtResource("6_vx34v")
 
-[node name="WaterLabel" type="RichTextLabel" parent="Remaster/Flask"]
+[node name="WaterLabel" type="RichTextLabel" parent="Remaster/Flasksec"]
 offset_left = -75.3649
 offset_right = 77.6351
 offset_bottom = 58.0
@@ -83,7 +83,7 @@ position = Vector2(937, 613)
 scale = Vector2(2.50893, 2.50893)
 texture = ExtResource("9_m8ryh")
 
-[node name="Flask" type="Sprite2D" parent="Original"]
+[node name="Flasksec" type="Sprite2D" parent="Original"]
 visible = false
 position = Vector2(250, 758.5)
 scale = Vector2(2.50001, 2.50001)

@@ -1,27 +1,16 @@
 extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
-	ActionHandler.CURRENT_HANDLER = self
-	Global.show_hide_item("Bow")
 	return {
 		"compass": {
-			"NORTH": "waterfall",
-			"EAST": "menhir",
-			"SOUTH": null,
-			# "WEST": "rapids"
-			"WEST": null
+			"NORTH": "desert_2",
+			"SOUTH": "centaur",
 		},
-		"description": "The hero stands in a wide valley, perched atop a grassy hill. In the distance, a towering mountain looms under a clear sky. Nearby, a large rock sits firmly atop the hill, with a bow lying next to it.",
-		"actions": """
-- If the hero attempts to take the bow:
-  {"_speaker":"001", "_text":"Now you need an arrow.", "_action":"BOW"}"""
+		"description": """The hero finds themselves amidst a vast desert of rolling golden dunes, 
+ each crest shimmering under the intense light of the blazing sun. The undulating sands stretch endlessly in every direction, 
+ creating a hypnotic pattern of light and shadow. The sky above is a rich, deep blue, 
+ with a few wisps of clouds scattered like strokes of a painter's brush. 
+ The heat is palpable, and the air shimmers with waves of mirage, making the distant dunes appear to dance. 
+ This is a place of both beauty and challenge, a test of endurance in an endless sea of sand.""",
 	}
 
-func execute_action(action):
-	print("Action: " + action)
-	match action:
-		"BOW":
-			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
-			Global.take_item_and_animate("Original", "Bow", 282, 659)
-		_:
-			print("Action not recognized in this scene")

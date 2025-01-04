@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://18gwaw4p1xfn" path="res://scenes/tree/forest-bird-sounds-73690.mp3" id="4_u60od"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
-[ext_resource type="Texture2D" uid="uid://cpjjkbrm3umu8" path="res://scenes/centaur/centaure_pasla.png" id="6_oqupl"]
+[ext_resource type="Texture2D" uid="uid://cpjjkbrm3umu8" path="res://scenes/centaur/centaure_pasla.PNG" id="6_oqupl"]
 [ext_resource type="Texture2D" uid="uid://duirc4r6xiu4f" path="res://scenes/centaur/hoof.png" id="7_sgv4s"]
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 [ext_resource type="Texture2D" uid="uid://bmst0u0a71g4f" path="res://scenes/centaur/horse_shoe.png" id="10_qm8hd"]

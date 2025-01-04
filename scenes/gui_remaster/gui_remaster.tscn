@@ -107,13 +107,13 @@ position = Vector2(59, 575)
 scale = Vector2(0.277676, 0.25251)
 texture = ExtResource("17_k1jdh")
 
-[node name="Flask" type="Sprite2D" parent="Inventory"]
+[node name="Flasksec" type="Sprite2D" parent="Inventory"]
 visible = false
 position = Vector2(97, 688)
 scale = Vector2(0.477676, 0.492507)
 texture = ExtResource("18_rdpg2")
 
-[node name="WaterLabel" type="RichTextLabel" parent="Inventory/Flask"]
+[node name="WaterLabel" type="RichTextLabel" parent="Inventory/Flasksec"]
 offset_left = -75.3649
 offset_right = 77.6351
 offset_bottom = 58.0
@@ -121,6 +121,22 @@ scale = Vector2(1, 0.837566)
 theme_override_fonts/normal_font = ExtResource("19_3s6fh")
 theme_override_font_sizes/normal_font_size = 45
 text = "EMPTY"
+fit_content = true
+
+[node name="Flaskeau" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(97, 688)
+scale = Vector2(0.477676, 0.492507)
+texture = ExtResource("18_rdpg2")
+
+[node name="WaterLabel" type="RichTextLabel" parent="Inventory/Flaskeau"]
+offset_left = -52.0
+offset_right = 78.0
+offset_bottom = 58.0
+scale = Vector2(1, 0.837566)
+theme_override_fonts/normal_font = ExtResource("19_3s6fh")
+theme_override_font_sizes/normal_font_size = 45
+text = "FULL"
 fit_content = true
 
 [node name="Potion" type="Sprite2D" parent="Inventory"]

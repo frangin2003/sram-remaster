@@ -70,7 +70,7 @@ func llm_chunk(chunk):
 			print("Navigates")
 			var next_scene = Global.COMPASS[navigation]
 			LlmServer.ACTION = ""
-			if (next_scene != null):
+			if (next_scene != null and not Global.BLOCK_MOVEMENTS):
 				print("Navigate to " + next_scene)
 				Global.set_scene(next_scene)
 		elif ActionHandler.CURRENT_HANDLER != null:
