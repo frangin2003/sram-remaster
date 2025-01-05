@@ -188,31 +188,31 @@ position = Vector2(1822, 264)
 scale = Vector2(0.440476, 0.440476)
 texture = ExtResource("23_k2mrl")
 
-[node name="Heart0" type="Sprite2D" parent="Inventory"]
+[node name="Heart 0" type="Sprite2D" parent="Inventory"]
 visible = false
 position = Vector2(1824, 368)
 scale = Vector2(0.143045, 0.143045)
 texture = ExtResource("24_2qbur")
 
-[node name="Heart1" type="Sprite2D" parent="Inventory"]
+[node name="Heart 1" type="Sprite2D" parent="Inventory"]
 visible = false
 position = Vector2(1824, 428)
 scale = Vector2(0.143045, 0.143045)
 texture = ExtResource("24_2qbur")
 
-[node name="Heart2" type="Sprite2D" parent="Inventory"]
+[node name="Heart 2" type="Sprite2D" parent="Inventory"]
 visible = false
 position = Vector2(1824, 489)
 scale = Vector2(0.143045, 0.143045)
 texture = ExtResource("24_2qbur")
 
-[node name="Heart3" type="Sprite2D" parent="Inventory"]
+[node name="Heart 3" type="Sprite2D" parent="Inventory"]
 visible = false
 position = Vector2(1824, 551)
 scale = Vector2(0.143045, 0.143045)
 texture = ExtResource("24_2qbur")
 
-[node name="Heart4" type="Sprite2D" parent="Inventory"]
+[node name="Heart 4" type="Sprite2D" parent="Inventory"]
 visible = false
 position = Vector2(1824, 613)
 scale = Vector2(0.143045, 0.143045)

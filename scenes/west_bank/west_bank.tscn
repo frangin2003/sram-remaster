@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bflxqrjtbsynx"]
 
-[ext_resource type="Script" path="res://scenes/bird/bird.gd" id="1_aetvx"]
+[ext_resource type="Script" path="res://scenes/west_bank/west_bank.gd" id="1_3k48q"]
 [ext_resource type="VideoStream" path="res://scenes/west_bank/west_bank.ogv" id="2_w1tbj"]
 [ext_resource type="AudioStream" uid="uid://dyw25h8bcvfm8" path="res://scenes/east_bank/sea-waves-7131.mp3" id="4_q4l1q"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="west_bank" type="Node2D"]
-script = ExtResource("1_aetvx")
+script = ExtResource("1_3k48q")
 
 [node name="Remaster" type="Node2D" parent="."]
 visible = false

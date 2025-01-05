@@ -13,7 +13,7 @@ func _initialize_inventory():
 			if node:
 				node.visible = true
 			else:
-				print("Node for item " + item + " not found.")
+				print("Node for item " + item.capitalize() + " not found.")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

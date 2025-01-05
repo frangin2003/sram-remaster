@@ -25,7 +25,7 @@ func _get_scene_config() -> Dictionary:
 			Global.show_item("Money")
 			description += """At the center sits a large, opened and full of golden coins treasure chest."""
 			actions += """
-- If the hero attempts to take the coins:
+- If the hero is taking the coins:
 	{"_speaker":"001", "_text":"You take the all the coins. Somehow they fit in your pocket.", "_action":"TAKECOINS"}"""
 	else:	
 		description += """At the center sits a large, closed, reinforced treasure chest, 

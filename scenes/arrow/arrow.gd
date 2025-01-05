@@ -18,7 +18,7 @@ At the center of the island, a wooden target stands proudly"""
 	if not Global.has_item("arrow") or not Global.has_state("arrow given"):
 		description += " with an arrow lodged perfectly in its bullseye."
 		actions += """
-- If the hero attempts to take the arrow:
+- If the hero is taking the arrow:
   {"_speaker":"001", "_text":"Beware not to prick yourself.", "_action":"ARROW"}"""
 	else:
 		description += "."

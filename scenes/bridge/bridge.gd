@@ -13,7 +13,7 @@ func _get_scene_config() -> Dictionary:
  The gentle ripples and scattered rocks in the shallow water add a touch of serenity, while the path across the bridge beckons with quiet mystery,
  promising discovery beyond the horizon.""",
 		"actions": """
-- If the hero attempts to cross the bridge:
+- If the hero crosses the bridge:
   {"_speaker":"001", "_text":"You are now on snake island.", "_action":"BRIDGE"}"""
 	}
 

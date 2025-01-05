@@ -2,26 +2,24 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
-	Global.show_hide_item("Bow")
 	return {
 		"compass": {
-			"NORTH": "waterfall",
-			"EAST": "menhir",
-			"SOUTH": null,
-			# "WEST": "rapids"
-			"WEST": null
+			"WEST": "centaur",
 		},
-		"description": "The hero stands in a wide valley, perched atop a grassy hill. In the distance, a towering mountain looms under a clear sky. Nearby, a large rock sits firmly atop the hill, with a bow lying next to it.",
+		"description": """The hero stands on a pristine tropical beach, where golden sand stretches out beneath swaying palm trees. 
+ Gentle waves lap at the shore, their turquoise waters shimmering under the bright sunlight. 
+ In the distance, a lush green island rises majestically from the sea, its slopes covered in dense foliage and rocky outcrops. 
+ The sky is a brilliant blue, dotted with fluffy white clouds that drift lazily, framing the island like a serene painting. 
+ The faint cry of seagulls echoes in the air, and a soft breeze carries the salty scent of the ocean, 
+ beckoning the hero toward the mysterious island.""",
 		"actions": """
-- If the hero attempts to take the bow:
-  {"_speaker":"001", "_text":"Now you need an arrow.", "_action":"BOW"}"""
+- If the hero is swimming to the island:
+  {"_speaker":"001", "_text":"You looked like a fish.", "_action":"SWIM"}"""
 	}
 
 func execute_action(action):
-	print("Action: " + action)
 	match action:
-		"BOW":
-			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
-			Global.take_item_and_animate("Original", "Bow", 282, 659)
+		"SWIM":
+			Global.set_scene("turtle")
 		_:
 			print("Action not recognized in this scene")

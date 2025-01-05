@@ -172,7 +172,7 @@ position = Vector2(1636, 265)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("23_ioi0h")
 
-[node name="Heart0" type="RichTextLabel" parent="Inventory"]
+[node name="Heart 0" type="RichTextLabel" parent="Inventory"]
 visible = false
 offset_left = 1619.0
 offset_top = 377.0
@@ -185,7 +185,7 @@ theme_override_font_sizes/normal_font_size = 39
 text = "♥"
 fit_content = true
 
-[node name="Heart1" type="RichTextLabel" parent="Inventory"]
+[node name="Heart 1" type="RichTextLabel" parent="Inventory"]
 visible = false
 offset_left = 1619.0
 offset_top = 409.0
@@ -198,7 +198,7 @@ theme_override_font_sizes/normal_font_size = 39
 text = "♥"
 fit_content = true
 
-[node name="Heart2" type="RichTextLabel" parent="Inventory"]
+[node name="Heart 2" type="RichTextLabel" parent="Inventory"]
 visible = false
 offset_left = 1619.0
 offset_top = 441.0
@@ -211,7 +211,7 @@ theme_override_font_sizes/normal_font_size = 39
 text = "♥"
 fit_content = true
 
-[node name="Heart3" type="RichTextLabel" parent="Inventory"]
+[node name="Heart 3" type="RichTextLabel" parent="Inventory"]
 visible = false
 offset_left = 1619.0
 offset_top = 473.0
@@ -224,7 +224,7 @@ theme_override_font_sizes/normal_font_size = 39
 text = "♥"
 fit_content = true
 
-[node name="Heart4" type="RichTextLabel" parent="Inventory"]
+[node name="Heart 4" type="RichTextLabel" parent="Inventory"]
 visible = false
 offset_left = 1580.0
 offset_top = 505.0

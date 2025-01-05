@@ -39,11 +39,11 @@ func _get_scene_config() -> Dictionary:
 		if not Global.has_item("hoof"):
 			if Global.has_item("bow"):
 				actions += """
-- If the hero attempts to give the bow:
+- If the hero is giving the bow:
   {"_speaker":"007", "_text":"Thank you! I’ll never give it up!", "_action":"GIVEBOW"}"""
 			if Global.has_item("arrow"):
 				actions += """
-- If the hero attempts to give the arrow:
+- If the hero is giving the arrow:
   {"_speaker":"007", "_text":"Thank you! I won't have to run around and look for it anymore!", "_action":"GIVEARROW"}"""
 	return {
 		"compass": {

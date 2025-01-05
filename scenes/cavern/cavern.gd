@@ -14,13 +14,13 @@ func _get_scene_config() -> Dictionary:
 	else:
 		description += " In front of him lies the skeleton of an unfortunate past adventurer and a large wooden barrel resting against the damp wall."
 		actions = """
-- If the hero attempts to bury the skeleton:
+- If the hero wants to bury the skeleton:
   {"_speaker":"001", "_text":"", "_action":"BURY"}"""
 
 	if not Global.has_item("shovel"):
 		description += " Next to it lies a shovel."
 		actions += """
-- If the hero attempts to take the shovel:
+- If the hero is taking the shovel:
   {"_speaker":"001", "_text":"That can be handy.", "_action":"SHOVEL"}"""
 
 	if not Global.has_item("flasksec") and not Global.has_item("flaskeau"):
