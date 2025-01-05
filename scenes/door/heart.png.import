@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxbkin8hkha27"
-path="res://.godot/imported/gate.PNG-a58742630813128f97e17bb3ad8a698e.ctex"
+uid="uid://ckydg7d3enasx"
+path="res://.godot/imported/heart.png-c79b6bfa1e1729dac0380fac5a9d98df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/door/gate.PNG"
-dest_files=["res://.godot/imported/gate.PNG-a58742630813128f97e17bb3ad8a698e.ctex"]
+source_file="res://scenes/door/heart.png"
+dest_files=["res://.godot/imported/heart.png-c79b6bfa1e1729dac0380fac5a9d98df.ctex"]
 
 [params]
 

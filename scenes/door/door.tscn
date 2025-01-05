@@ -1,23 +1,47 @@
-[gd_scene load_steps=8 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=13 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/door/door.gd" id="1_43ovt"]
 [ext_resource type="Texture2D" uid="uid://df3dumgsel4k6" path="res://scenes/door/door_closed.webp" id="2_wwl25"]
+[ext_resource type="VideoStream" path="res://scenes/door/door_opens.ogv" id="3_uvpet"]
 [ext_resource type="AudioStream" uid="uid://c0wo52e3txo1e" path="res://scenes/door/creepy-beeping-sound-271562.mp3" id="4_0c50f"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
+[ext_resource type="Texture2D" uid="uid://kw1x2niopmol" path="res://scenes/door/key.png" id="5_8yk5k"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
-[ext_resource type="Texture2D" uid="uid://cxbkin8hkha27" path="res://scenes/door/gate.PNG" id="7_3injl"]
+[ext_resource type="Texture2D" uid="uid://rohjxavlknp8" path="res://scenes/door/carpet.png" id="6_6em48"]
+[ext_resource type="Texture2D" uid="uid://cxbkin8hkha27" path="res://scenes/door/door_closed.png" id="7_3injl"]
+[ext_resource type="Texture2D" uid="uid://bl0v277qatxq7" path="res://scenes/door/carpet_folded.png" id="7_pq3td"]
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
+[ext_resource type="Texture2D" uid="uid://cwtpkrcgfuwbv" path="res://scenes/door/key_original.png" id="10_64qtu"]
 
 [node name="door" type="Node2D"]
 script = ExtResource("1_43ovt")
 
 [node name="Remaster" type="Node2D" parent="."]
-visible = false
 
 [node name="Background" type="Sprite2D" parent="Remaster"]
-position = Vector2(954, 291)
-scale = Vector2(1.10156, 1.10156)
+position = Vector2(960, 408)
+scale = Vector2(0.875, 0.796875)
 texture = ExtResource("2_wwl25")
+
+[node name="Control" type="Control" parent="Remaster"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 1744.0
+offset_bottom = 824.0
+
+[node name="VideoStreamPlayerOpenDoor" type="VideoStreamPlayer" parent="Remaster/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.041
+anchor_right = 1.005
+anchor_bottom = 0.99
+offset_left = 0.288002
+offset_right = 0.160034
+offset_bottom = 0.239929
+stream = ExtResource("3_uvpet")
+expand = true
 
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 
@@ -25,7 +49,25 @@ texture = ExtResource("2_wwl25")
 stream = ExtResource("4_0c50f")
 autoplay = true
 
+[node name="Carpet" type="Sprite2D" parent="Remaster"]
+position = Vector2(956, 756.25)
+scale = Vector2(0.781836, 0.580097)
+texture = ExtResource("6_6em48")
+
+[node name="CarpetFolded" type="Sprite2D" parent="Remaster"]
+visible = false
+position = Vector2(956, 756.25)
+scale = Vector2(0.782, 0.58)
+texture = ExtResource("7_pq3td")
+
+[node name="Key" type="Sprite2D" parent="Remaster"]
+visible = false
+position = Vector2(690, 792)
+scale = Vector2(0.440476, 0.440476)
+texture = ExtResource("5_8yk5k")
+
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 
@@ -33,6 +75,12 @@ autoplay = true
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("7_3injl")
+
+[node name="Key" type="Sprite2D" parent="Original"]
+visible = false
+position = Vector2(888, 765)
+scale = Vector2(2.5, 2.6)
+texture = ExtResource("10_64qtu")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
 visible = false

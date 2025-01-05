@@ -2,7 +2,7 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
-	Global.show_hide_item("Bow")
+	Global.show_hide_item("Cane")
 	return {
 		"compass": {
 			"NORTH": "waterfall",
@@ -20,7 +20,7 @@ func _get_scene_config() -> Dictionary:
 func execute_action(action):
 	print("Action: " + action)
 	match action:
-		"BOW":
+		"CANE":
 			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
 			Global.take_item_and_animate("Original", "Bow", 282, 659)
 		_:

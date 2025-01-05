@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=37 format=3 uid="uid://cdoq6xtniibw8"]
 
 [ext_resource type="Script" path="res://scenes/gui_remaster/gui_remaster.gd" id="1_4rsng"]
 [ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://scenes/gui_remaster/left column.png" id="1_fy52j"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://d0dmmo50nssn6" path="res://scenes/hermit/potion.png" id="20_p5oo5"]
 [ext_resource type="Script" path="res://scenes/xx_gui/HeroTextEdit.gd" id="22_eem6q"]
 [ext_resource type="Texture2D" uid="uid://ngwdeps11ne1" path="res://scenes/gui_remaster/cane.png" id="23_c77n8"]
+[ext_resource type="Texture2D" uid="uid://kw1x2niopmol" path="res://scenes/door/key.png" id="23_k2mrl"]
+[ext_resource type="Texture2D" uid="uid://ckydg7d3enasx" path="res://scenes/door/heart.png" id="24_2qbur"]
 [ext_resource type="Script" path="res://scenes/xx_gui/RecordVoiceButton.gd" id="24_h18mj"]
 [ext_resource type="Script" path="res://scenes/xx_gui/AudioInput.gd" id="25_jt3sf"]
 [ext_resource type="Texture2D" uid="uid://duirc4r6xiu4f" path="res://scenes/centaur/hoof.png" id="26_yu6ij"]
@@ -179,6 +181,42 @@ texture = ExtResource("27_hetx2")
 visible = false
 position = Vector2(92, 238)
 texture = ExtResource("28_q0bps")
+
+[node name="Key" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1822, 264)
+scale = Vector2(0.440476, 0.440476)
+texture = ExtResource("23_k2mrl")
+
+[node name="Heart0" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1824, 368)
+scale = Vector2(0.143045, 0.143045)
+texture = ExtResource("24_2qbur")
+
+[node name="Heart1" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1824, 428)
+scale = Vector2(0.143045, 0.143045)
+texture = ExtResource("24_2qbur")
+
+[node name="Heart2" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1824, 489)
+scale = Vector2(0.143045, 0.143045)
+texture = ExtResource("24_2qbur")
+
+[node name="Heart3" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1824, 551)
+scale = Vector2(0.143045, 0.143045)
+texture = ExtResource("24_2qbur")
+
+[node name="Heart4" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1824, 613)
+scale = Vector2(0.143045, 0.143045)
+texture = ExtResource("24_2qbur")
 
 [node name="GameMasterBackground" type="Sprite2D" parent="."]
 position = Vector2(960, 947)

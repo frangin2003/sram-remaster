@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=37 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Script" path="res://scenes/gui_original/gui_original.gd" id="1_msara"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://scenes/xx_gui/HeroTextEdit.gd" id="21_f3swg"]
 [ext_resource type="Texture2D" uid="uid://bafitb3aiunfs" path="res://scenes/chest/money_original.png" id="21_h8jya"]
 [ext_resource type="Texture2D" uid="uid://bvskkuskcb0lj" path="res://scenes/gui_original/llm_on.png" id="23_ckxxy"]
+[ext_resource type="Texture2D" uid="uid://cwtpkrcgfuwbv" path="res://scenes/door/key_original.png" id="23_ioi0h"]
 [ext_resource type="Script" path="res://scenes/xx_gui/RecordVoiceButton.gd" id="24_yk1bw"]
 [ext_resource type="Script" path="res://scenes/xx_gui/AudioInput.gd" id="25_ikodp"]
 [ext_resource type="Texture2D" uid="uid://bmst0u0a71g4f" path="res://scenes/centaur/horse_shoe.png" id="26_62saj"]
@@ -164,6 +165,78 @@ visible = false
 position = Vector2(245, 229)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("21_h8jya")
+
+[node name="Key" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1636, 265)
+scale = Vector2(2.5, 2.6)
+texture = ExtResource("23_ioi0h")
+
+[node name="Heart0" type="RichTextLabel" parent="Inventory"]
+visible = false
+offset_left = 1619.0
+offset_top = 377.0
+offset_right = 1660.0
+offset_bottom = 422.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_3fjbt")
+theme_override_font_sizes/normal_font_size = 39
+text = "♥"
+fit_content = true
+
+[node name="Heart1" type="RichTextLabel" parent="Inventory"]
+visible = false
+offset_left = 1619.0
+offset_top = 409.0
+offset_right = 1660.0
+offset_bottom = 454.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_3fjbt")
+theme_override_font_sizes/normal_font_size = 39
+text = "♥"
+fit_content = true
+
+[node name="Heart2" type="RichTextLabel" parent="Inventory"]
+visible = false
+offset_left = 1619.0
+offset_top = 441.0
+offset_right = 1660.0
+offset_bottom = 486.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_3fjbt")
+theme_override_font_sizes/normal_font_size = 39
+text = "♥"
+fit_content = true
+
+[node name="Heart3" type="RichTextLabel" parent="Inventory"]
+visible = false
+offset_left = 1619.0
+offset_top = 473.0
+offset_right = 1660.0
+offset_bottom = 518.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_3fjbt")
+theme_override_font_sizes/normal_font_size = 39
+text = "♥"
+fit_content = true
+
+[node name="Heart4" type="RichTextLabel" parent="Inventory"]
+visible = false
+offset_left = 1580.0
+offset_top = 505.0
+offset_right = 1722.0
+offset_bottom = 595.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_3fjbt")
+theme_override_font_sizes/normal_font_size = 39
+text = " ♥
+VIE"
+fit_content = true
 
 [node name="BackgroundImage" type="Node2D" parent="."]
 position = Vector2(943, 475)

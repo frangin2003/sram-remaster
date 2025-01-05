@@ -12,7 +12,6 @@
 script = ExtResource("1_by4ha")
 
 [node name="Remaster" type="Node2D" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
@@ -39,6 +38,7 @@ stream = ExtResource("4_temgq")
 autoplay = true
 
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 
