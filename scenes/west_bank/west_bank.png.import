@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c28iypln47gx7"
-path="res://.godot/imported/river_east.png-c7db81583e49b1eb60121d0a6fa6fda0.ctex"
+uid="uid://bvbuc1a62f2lr"
+path="res://.godot/imported/west_bank.png-c1594407ee8872a690869c3111a26aa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/east_bank/river_east.png"
-dest_files=["res://.godot/imported/river_east.png-c7db81583e49b1eb60121d0a6fa6fda0.ctex"]
+source_file="res://scenes/west_bank/west_bank.png"
+dest_files=["res://.godot/imported/west_bank.png-c1594407ee8872a690869c3111a26aa3.ctex"]
 
 [params]
 
