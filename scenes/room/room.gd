@@ -2,39 +2,39 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
-
-	var actions = """
-- If the hero wants to get down the tree: 
-  {"_speaker":"001", "_text":"You leap down with surprising grace. Well done!", "_action":"DOWN"}"""
-	if not Global.has_item("knife"):
-		actions += """
-- If the hero looks at the nest: 
-  {"_speaker":"001", "_text":"You see a large bird nest with a knife tucked inside.", "_action":"LOOK"} 
-- If the hero wants to take the knife: 
-  {"_speaker":"001", "_text":"Careful now—don't cut yourself as you take it.", "_action":"KNIFE"}"""
+	var description = ""
+	var actions = ""
+	if not Global.has_state("tidy"):
+		description = """The hermit's room is a chaotic mess of scattered papers, overturned objects, and tattered furnishings. 
+ The dim light filtering through the wooden panels highlights the disorganized state of the room, with a cluttered table and makeshift bedding in the corner. 
+ The air is thick with a putrid stench, making it hard to breathe, and swarms of flies buzz incessantly around, drawn to the overwhelming filth. 
+ Despite the mess, the room exudes a strange charm, with remnants of a rustic life evident in the old radio on the table and the simple, weathered decor."""
+		actions = """- If the hero tidies up: 
+  {"_speaker":"002", "_text":"Thanks a lot for the cleaning, I've been meaning to do this for ages. Here's something for you, when facing the lycanthrope say: `You have beautiful eyes you know`", "_action":"TIDY"}"""
+	else:
+		self.stop_and_hide_video(get_node("/root/room/Remaster/Control/VideoStreamPlayer"))
+		self.start_loop_and_show_video(get_node("/root/room/Remaster/Control/VideoStreamPlayerTidy"))
+		get_node("/root/room/Original/Background").texture = load("res://scenes/room/room_tidy.png")
+		var music_node = get_node("/root/room/Remaster/AudioStreamPlayer")
+		music_node.stream = load("res://scenes/room/outlaw-country-2-132052.mp3")#
+		music_node.play()
+		get_node("/root/room/Remaster/MusicNotes").visible = true
+		description = """The hermit's room now radiates warmth and comfort, transformed after a thorough cleaning. 
+ The wooden floors gleam, free of clutter, and the air is fresh and fragrant with the subtle scent of flowers. 
+ The bed is neatly made, and the scattered papers and debris have been tidied away, leaving the space organized and serene. 
+ Gentle sunlight streams through the window, adding a cozy glow. In the corner, the old portable radio softly plays smooth country music, setting a relaxed and homely atmosphere. 
+ The once chaotic space now feels inviting, a testament to the hero's hard work."""
+		setText("Thanks a lot, I've been meaning to do this for ages. Here is something for you, when facing the lycanthrope say: `You have beautiful eyes you know`")
 
 	return {
-		"compass": {
-			"NORTH": null,
-			"EAST": null,
-			"SOUTH": null,
-			"WEST": null
-		},
-		"description": "The hero stands on a sturdy branch, a large bird nest resting precariously in front of him.",
+		"description": description,
 		"actions": actions
 	}
 
 func execute_action(action):
-	print("Action: " + action)
 	match action:
-		"LOOK":
-			get_node("/root/nest/Remaster/Knife").visible = true
-			get_node("/root/nest/Original/Knife").visible = true
-		"KNIFE":
-			Global.take_item_and_animate("Remaster", "Knife", 95, 300)
-			Global.take_item_and_animate("Original", "Knife", 235, 284)
-		"DOWN":
-			print("Down the tree!")
-			Global.set_scene("tree")
+		"TIDY":
+			Global.update_scene_state("tidy")
+			Global.set_scene("room")
 		_:
 			print("Action not recognized in this scene")

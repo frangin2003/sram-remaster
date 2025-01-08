@@ -1,14 +1,52 @@
-[gd_scene load_steps=10 format=3 uid="uid://8ep1t1a3ukwe"]
+[gd_scene load_steps=19 format=3 uid="uid://cq67osiqdqwlg"]
 
 [ext_resource type="Script" path="res://scenes/room/room.gd" id="1_kr60d"]
 [ext_resource type="VideoStream" path="res://scenes/room/room_messy.ogv" id="2_nc7nl"]
-[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="3_0qkyb"]
-[ext_resource type="VideoStream" path="res://scenes/room/room_cleanup.ogv" id="3_pccp1"]
+[ext_resource type="Texture2D" uid="uid://dvk8j2doc2hn7" path="res://scenes/room/radio.png" id="3_88wem"]
+[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="3_w0kbn"]
 [ext_resource type="VideoStream" path="res://scenes/room/room_tidy.ogv" id="4_6hplc"]
-[ext_resource type="Texture2D" uid="uid://kyu6mal8sv31" path="res://scenes/room/room_messy.png" id="6_cm0bw"]
-[ext_resource type="AudioStream" uid="uid://b5dqnv6257jk5" path="res://scenes/room/flies-6330.mp3" id="6_d4ti6"]
-[ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_n7lt1"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_rncox"]
+[ext_resource type="Script" path="res://scenes/room/Radio.gd" id="4_j2j4r"]
+[ext_resource type="AudioStream" uid="uid://b5dqnv6257jk5" path="res://scenes/room/flies-6330.mp3" id="4_po2dq"]
+[ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="5_1188n"]
+[ext_resource type="Texture2D" uid="uid://kyu6mal8sv31" path="res://scenes/room/room_messy.png" id="6_oiekv"]
+[ext_resource type="Texture2D" uid="uid://b33fj5srwst3k" path="res://scenes/room/music-note-icon-34253.png" id="7_8e7qu"]
+[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="7_hp7yw"]
+
+[sub_resource type="GDScript" id="GDScript_uginn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wpyyn"]
+script = SubResource("GDScript_uginn")
+
+[sub_resource type="Gradient" id="Gradient_uckue"]
+offsets = PackedFloat32Array(0, 0.142105, 0.871053, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bmwe0"]
+gradient = SubResource("Gradient_uckue")
+
+[sub_resource type="Curve" id="Curve_ir2f8"]
+_data = [Vector2(0.453431, 0.374299), 0.0, 0.0, 0, 0, Vector2(0.848039, 0.993925), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_kshyl"]
+curve = SubResource("Curve_ir2f8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_665kv"]
+lifetime_randomness = 0.38
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(1100, 150, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1000, 150, 0)
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_kshyl")
+color_ramp = SubResource("GradientTexture1D_bmwe0")
+turbulence_enabled = true
+turbulence_noise_strength = 5.05
 
 [node name="room" type="Node2D"]
 script = ExtResource("1_kr60d")
@@ -23,7 +61,19 @@ offset_left = 176.0
 offset_right = 1744.0
 offset_bottom = 824.0
 
-[node name="VideoStreamPlayerRoomMessy" type="VideoStreamPlayer" parent="Remaster/Control"]
+[node name="VideoStreamPlayerTidy" type="VideoStreamPlayer" parent="Remaster/Control"]
+visible = false
+material = SubResource("CanvasItemMaterial_wpyyn")
+offset_left = -128.0
+offset_right = 1512.0
+offset_bottom = 816.0
+stream = ExtResource("4_6hplc")
+autoplay = true
+expand = true
+loop = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Remaster/Control"]
+material = SubResource("CanvasItemMaterial_wpyyn")
 layout_mode = 0
 offset_left = -64.0
 offset_right = 1576.0
@@ -33,41 +83,41 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="VideoStreamPlayerRoomCleanup" type="VideoStreamPlayer" parent="Remaster/Control"]
-visible = false
-layout_mode = 0
-offset_left = -128.0
-offset_right = 1512.0
-offset_bottom = 816.0
-stream = ExtResource("3_pccp1")
-expand = true
+[node name="Radio" type="Sprite2D" parent="Remaster"]
+position = Vector2(1674, 500)
+scale = Vector2(0.234955, 0.234955)
+texture = ExtResource("3_88wem")
+script = ExtResource("4_j2j4r")
 
-[node name="VideoStreamPlayerRoomTidy" type="VideoStreamPlayer" parent="Remaster/Control"]
-visible = false
-layout_mode = 0
-offset_left = -64.0
-offset_right = 1576.0
-offset_bottom = 816.0
-stream = ExtResource("4_6hplc")
-autoplay = true
-expand = true
-loop = true
-
-[node name="gui_remaster" parent="Remaster" instance=ExtResource("3_0qkyb")]
+[node name="gui_remaster" parent="Remaster" instance=ExtResource("3_w0kbn")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
-stream = ExtResource("6_d4ti6")
+stream = ExtResource("4_po2dq")
+volume_db = -5.0
 autoplay = true
+
+[node name="MusicNotes" type="GPUParticles2D" parent="Remaster"]
+visible = false
+position = Vector2(1561, 425)
+scale = Vector2(0.1, 0.5)
+amount = 20
+amount_ratio = 0.3
+process_material = SubResource("ParticleProcessMaterial_665kv")
+texture = ExtResource("7_8e7qu")
+lifetime = 5.0
+preprocess = 1.0
+randomness = 1.0
+visibility_rect = Rect2(0, 0, 2200, 400)
 
 [node name="Original" type="Node2D" parent="."]
 visible = false
 
-[node name="gui_original" parent="Original" instance=ExtResource("6_n7lt1")]
+[node name="gui_original" parent="Original" instance=ExtResource("5_1188n")]
 
 [node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
-scale = Vector2(2.475, 2.69841)
-texture = ExtResource("6_cm0bw")
+scale = Vector2(2.475, 2.698)
+texture = ExtResource("6_oiekv")
 
-[node name="xx_settings" parent="." instance=ExtResource("9_rncox")]
+[node name="xx_settings" parent="." instance=ExtResource("7_hp7yw")]
 visible = false
