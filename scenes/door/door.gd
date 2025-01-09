@@ -3,7 +3,7 @@ extends "res://scenes/BaseScene.gd"
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 
-	var description = """The hero stands before the imposing door of the secret prison where King Cinomeh is held captive.
+	var description = """The hero stands before the imposing door of the secret prison where King Egres IV is held captive.
  The massive wooden door, reinforced with iron bands, looms beneath a grand stone archway, 
  its surface weathered and marked with holes that resemble eerie faces. Two skeletal sentinels stand guard on either side, 
  their bony fingers clutching ancient staffs, their hollow eyes fixed in a perpetual gaze. 
@@ -21,27 +21,23 @@ func _get_scene_config() -> Dictionary:
 			description += "The hero can't open the door."
 			description += "The hero can't enter the prison."
 			Global.show_item("Key")
-			actions += """
-- If the hero is taking the key:
+			actions += """- If the hero is taking the key:
 	{"_speaker":"001", "_text":"You take the key.", "_action":"KEY"}"""
 		else:
 			if Global.has_state("door opened"):
 				get_node("/root/door/Remaster/Background").texture = load("res://scenes/door/door_open.webp")
 				get_node("/root/door/Original/Background").texture = load("res://scenes/door/door_open.png")
 				description += "The door is now opened."
-				actions += """
-- If the hero is getting through the door:
+				actions += """- If the hero is getting through the door:
 	{"_speaker":"001", "_text":"", "_action":"ENTER"}"""
 			else:
 				description += "The hero can't enter the prison."
-				actions += """
-- If the hero is opening the door with the key:
+				actions += """- If the hero is opening the door with the key:
 	{"_speaker":"001", "_text":"You open the door with the key.", "_action":"OPEN"}"""
 	else:
 		description += "The hero can't open the door."
 		description += "The hero can't enter the prison."
-		actions += """
-- If the hero is lifting the doormat:
+		actions += """- If the hero is lifting the doormat:
 	{"_speaker":"001", "_text":"You lift the doormat and find a key.", "_action":"DOORMAT"}"""
 
 	return {

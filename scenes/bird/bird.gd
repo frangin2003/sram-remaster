@@ -23,7 +23,7 @@ func execute_action(action):
 	match action:
 		"PIGEON":
 			setText("""A pigeon lands on your hand. Attached to its foot is a small, tightly bound message that says:
-I AM STRANDED WITH MY FAMILY IN THE OLD PRISON, COME HELP US! KING CINOMEH""")
+I AM STRANDED WITH MY FAMILY IN THE OLD PRISON, COME HELP US! KING EGRES IV""")
 			if Global.MODE == "Remaster":
 				self.stop_and_hide_video(get_node("/root/bird/Remaster/Control/VideoStreamPlayer"))
 				await self.start_show_then_hide_video(get_node("/root/bird/Remaster/Control/VideoStreamPlayerBirdLanded"))
