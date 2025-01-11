@@ -2,6 +2,7 @@ extends "res://scenes/BaseScene.gd"
 
 var time_to_wait = 0.0
 var timer_started = 0.0
+var leaf_tween: Tween = null
 
 func _process(_delta):
 	var audio_player = get_node("/root/hogg/Remaster/AudioStreamPlayerGrunt")
@@ -17,7 +18,41 @@ func _process(_delta):
 		# Set up next wait interval
 		time_to_wait = randf_range(4.0, 8.0)
 		timer_started = current_time
+	
+	var leaf = get_node("/root/hogg/Remaster/Leaf")
+	if leaf and (leaf_tween == null or not leaf_tween.is_valid()):
+		animate_leaf(leaf)
 
+func animate_leaf(leaf: Node2D):
+	leaf_tween = create_tween()
+	var random_rotation = randf_range(3.0, 6.0)
+	var base_rotation = 108.7
+	var base_position = leaf.position
+	var offset = 10.0  # Horizontal movement in pixels
+	
+	# First tween: Rotate and move to +rotation and +offset
+	leaf_tween.tween_property(leaf, "rotation_degrees", base_rotation + random_rotation, 1.2)
+	leaf_tween.tween_property(leaf, "position:x", base_position.x + offset, 1.2)
+	leaf_tween.set_parallel(true)
+	leaf_tween.set_trans(Tween.TRANS_SINE)
+	leaf_tween.set_ease(Tween.EASE_IN_OUT)
+	
+	# Chain the next tween: Rotate and move to -rotation and -offset
+	leaf_tween.tween_property(leaf, "rotation_degrees", base_rotation - random_rotation, 1.2)
+	leaf_tween.tween_property(leaf, "position:x", base_position.x - offset, 1.2)
+	leaf_tween.set_parallel(true)
+	leaf_tween.set_trans(Tween.TRANS_SINE)
+	leaf_tween.set_ease(Tween.EASE_IN_OUT)
+	
+	# Chain the final tween: Rotate and move back to base
+	leaf_tween.tween_property(leaf, "rotation_degrees", base_rotation, 1.2)
+	leaf_tween.tween_property(leaf, "position:x", base_position.x, 1.2)
+	leaf_tween.set_parallel(true)
+	leaf_tween.set_trans(Tween.TRANS_SINE)
+	leaf_tween.set_ease(Tween.EASE_IN_OUT)
+	
+	# Connect the tween to loop the animation
+	leaf_tween.finished.connect(func(): animate_leaf(leaf))
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self

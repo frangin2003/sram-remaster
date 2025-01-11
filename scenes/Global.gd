@@ -28,7 +28,7 @@ var INVENTORY = {
 	"eggs": false,
 	"ear": false,
 	"fur": false,
-	"leave": false,
+	"leaf": false,
 	"shovel": false,
 	"hoof": false,
 }

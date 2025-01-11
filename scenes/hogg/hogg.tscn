@@ -1,20 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=13 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/hogg/hogg.gd" id="1_myrp0"]
 [ext_resource type="VideoStream" path="res://scenes/hogg/hogg.ogv" id="2_kc3aq"]
+[ext_resource type="VideoStream" path="res://scenes/hogg/feed_boar.ogv" id="3_8xjuu"]
 [ext_resource type="AudioStream" uid="uid://18gwaw4p1xfn" path="res://scenes/tree/forest-bird-sounds-73690.mp3" id="4_abggg"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="AudioStream" uid="uid://dqow8pspy5bui" path="res://scenes/hogg/pig-grunt-100272.mp3" id="5_i6wk4"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
+[ext_resource type="Texture2D" uid="uid://c21ta74gob2q7" path="res://scenes/hogg/leaf.png" id="6_18lcy"]
 [ext_resource type="Texture2D" uid="uid://dhi0rnl1740sq" path="res://scenes/hogg/hogg.png" id="7_pp8ii"]
 [ext_resource type="Texture2D" uid="uid://cj0ex42ov0l48" path="res://scenes/hogg/leaf_original.png" id="8_bplmi"]
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
+[ext_resource type="Texture2D" uid="uid://b1rcakqecorlf" path="res://scenes/hogg/acorn.png" id="12_tif0x"]
 
 [node name="hogg" type="Node2D"]
 script = ExtResource("1_myrp0")
 
 [node name="Remaster" type="Node2D" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
@@ -34,6 +36,15 @@ autoplay = true
 expand = true
 loop = true
 
+[node name="VideoStreamPlayerFeedBoar" type="VideoStreamPlayer" parent="Remaster/Control/VideoStreamPlayer"]
+offset_left = -64.0
+offset_right = 1576.0
+offset_bottom = 816.0
+stream = ExtResource("3_8xjuu")
+autoplay = true
+expand = true
+loop = true
+
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
@@ -44,7 +55,14 @@ autoplay = true
 stream = ExtResource("5_i6wk4")
 volume_db = -5.0
 
+[node name="Leaf" type="Sprite2D" parent="Remaster"]
+position = Vector2(550, 40)
+rotation = 1.89732
+scale = Vector2(0.282708, 0.282708)
+texture = ExtResource("6_18lcy")
+
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 
@@ -60,3 +78,9 @@ texture = ExtResource("8_bplmi")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
 visible = false
+
+[node name="Acorn" type="Sprite2D" parent="."]
+position = Vector2(386, 22)
+rotation = -0.810865
+scale = Vector2(0.0664336, 0.0664336)
+texture = ExtResource("12_tif0x")
