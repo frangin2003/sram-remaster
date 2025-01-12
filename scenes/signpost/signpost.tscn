@@ -1,19 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=11 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/signpost/signpost.gd" id="1_bdtg1"]
 [ext_resource type="VideoStream" path="res://scenes/signpost/signpost.ogv" id="2_pd3xe"]
 [ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
+[ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="6_c45xd"]
 [ext_resource type="Texture2D" uid="uid://si5dc636xwa1" path="res://scenes/signpost/signs.png" id="7_1a310"]
 [ext_resource type="Texture2D" uid="uid://fyhy84masnll" path="res://scenes/signpost/signpost.png" id="8_7dmio"]
+[ext_resource type="FontFile" uid="uid://4q87slg2yxdu" path="res://scenes/gui_original/PressStart2P.ttf" id="9_fa2r1"]
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="signpost" type="Node2D"]
 script = ExtResource("1_bdtg1")
 
 [node name="Remaster" type="Node2D" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
@@ -44,7 +45,36 @@ position = Vector2(1085.31, 459.324)
 scale = Vector2(0.352102, 0.352102)
 texture = ExtResource("8_7dmio")
 
+[node name="Knine" type="RichTextLabel" parent="Remaster"]
+visible = false
+offset_left = 1047.0
+offset_top = 324.0
+offset_right = 1202.0
+offset_bottom = 370.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("6_c45xd")
+theme_override_font_sizes/normal_font_size = 31
+theme_override_font_sizes/bold_font_size = 2
+text = "R.   WOLF"
+fit_content = true
+
+[node name="Herrmit" type="RichTextLabel" parent="Remaster"]
+visible = false
+offset_left = 998.0
+offset_top = 407.0
+offset_right = 1354.0
+offset_bottom = 453.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("6_c45xd")
+theme_override_font_sizes/normal_font_size = 44
+theme_override_font_sizes/bold_font_size = 2
+text = "Herr   MIT"
+fit_content = true
+
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 
@@ -52,6 +82,34 @@ texture = ExtResource("8_7dmio")
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("7_1a310")
+
+[node name="Knine" type="RichTextLabel" parent="Original"]
+visible = false
+offset_left = 811.0
+offset_top = 302.0
+offset_right = 1120.0
+offset_bottom = 348.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("9_fa2r1")
+theme_override_font_sizes/normal_font_size = 44
+theme_override_font_sizes/bold_font_size = 2
+text = "R. WOLF"
+fit_content = true
+
+[node name="Herrmit" type="RichTextLabel" parent="Original"]
+visible = false
+offset_left = 825.0
+offset_top = 448.0
+offset_right = 1181.0
+offset_bottom = 494.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("9_fa2r1")
+theme_override_font_sizes/normal_font_size = 44
+theme_override_font_sizes/bold_font_size = 2
+text = "Herr MIT"
+fit_content = true
 
 [node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
 visible = false

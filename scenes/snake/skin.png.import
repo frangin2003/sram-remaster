@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1wk6nconbkjd"
-path="res://.godot/imported/king.png-9455cbbbed7743322aac6bda757bb124.ctex"
+uid="uid://bxle67ltackk5"
+path="res://.godot/imported/skin.png-891e8f82a22c60b57dbdbea3a80fbaa0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/king.png"
-dest_files=["res://.godot/imported/king.png-9455cbbbed7743322aac6bda757bb124.ctex"]
+source_file="res://scenes/snake/skin.png"
+dest_files=["res://.godot/imported/skin.png-891e8f82a22c60b57dbdbea3a80fbaa0.ctex"]
 
 [params]
 

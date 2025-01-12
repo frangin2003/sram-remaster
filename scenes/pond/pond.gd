@@ -15,6 +15,10 @@ func _get_scene_config() -> Dictionary:
 		action = """- If the hero uses the trunk to swim to the lilipad:
   {"_speaker":"001", "_text":"Congratulations for your new trophy!", "_action":"LILIPAD"}"""
 
+	if Global.has_item("flasksec"):
+		action += """- If the hero refills the flask:
+	{"_speaker":"001", "_text":"You have now a flask full of fresh water.", "_action":"REFILL"}"""
+
 	return {
 		"compass": {
 			"NORTH": "hogg",
@@ -30,6 +34,9 @@ func execute_action(action):
 		"LILIPAD":
 			Global.take_item_and_animate("Remaster", "Lilipad", 1815, 325, NAN, 0.181, 0.181)
 			Global.take_item_and_animate("Original", "Lilipad", 1626, 357)
+			load_scene_config()
+		"REFILL":
+			refill_flask()
 			load_scene_config()
 		_:
 			print("Action not recognized in this scene")

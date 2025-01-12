@@ -1,19 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=13 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/snake/snake.gd" id="1_b6ll3"]
 [ext_resource type="VideoStream" path="res://scenes/snake/snake_island.ogv" id="2_jxe52"]
+[ext_resource type="VideoStream" path="res://scenes/snake/dead_snake.ogv" id="2_vbe7y"]
+[ext_resource type="VideoStream" path="res://scenes/snake/snake_attack.ogv" id="3_lhplw"]
 [ext_resource type="AudioStream" uid="uid://cjglqhu3ys11u" path="res://scenes/snake/jungle-nature-229896.mp3" id="4_drjgo"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="AudioStream" uid="uid://dnpt8elco5cpg" path="res://scenes/snake/snake_hissing-sound-natural-sfx-253792.mp3" id="5_bt3l5"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://b0dl8jmw05lq8" path="res://scenes/snake/snake0.png" id="6_mpsjx"]
+[ext_resource type="Texture2D" uid="uid://bxle67ltackk5" path="res://scenes/snake/skin.png" id="6_tc862"]
+[ext_resource type="Texture2D" uid="uid://cwxidawtnq6aq" path="res://scenes/snake/snake_skin.png" id="8_aovkx"]
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="snake" type="Node2D"]
 script = ExtResource("1_b6ll3")
 
 [node name="Remaster" type="Node2D" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
@@ -33,6 +36,23 @@ autoplay = true
 expand = true
 loop = true
 
+[node name="VideoStreamPlayerSnakeAttack" type="VideoStreamPlayer" parent="Remaster/Control"]
+visible = false
+offset_left = -64.0
+offset_right = 1576.0
+offset_bottom = 816.0
+stream = ExtResource("3_lhplw")
+expand = true
+
+[node name="VideoStreamPlayerDeadSnake" type="VideoStreamPlayer" parent="Remaster/Control"]
+visible = false
+offset_left = -64.0
+offset_right = 1576.0
+offset_bottom = 816.0
+stream = ExtResource("2_vbe7y")
+expand = true
+loop = true
+
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
@@ -42,7 +62,14 @@ autoplay = true
 [node name="AudioStreamPlayerHissing" type="AudioStreamPlayer" parent="Remaster"]
 stream = ExtResource("5_bt3l5")
 
+[node name="Skin" type="Sprite2D" parent="Remaster"]
+visible = false
+position = Vector2(1012, 440)
+scale = Vector2(0.0963476, 0.0963476)
+texture = ExtResource("6_tc862")
+
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 
@@ -50,6 +77,12 @@ stream = ExtResource("5_bt3l5")
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_mpsjx")
+
+[node name="Skin" type="Sprite2D" parent="Original"]
+visible = false
+position = Vector2(1007, 567)
+scale = Vector2(2.5, 2.6)
+texture = ExtResource("8_aovkx")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
 visible = false

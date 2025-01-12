@@ -57,6 +57,15 @@ func set_text(text: String):
 	remaster_output.text = text
 	original_output.text = text
 
+func refill_flask():
+	Global.remove_from_inventory("flasksec")
+	get_node("/root/%s/Remaster/gui_remaster/Inventory/Flasksec" % Global.SCENE).visible = false
+	get_node("/root/%s/Original/gui_original/Inventory/Flasksec" % Global.SCENE).visible = false
+	Global.add_to_inventory("flaskeau")
+	get_node("/root/%s/Remaster/gui_remaster/Inventory/Flaskeau" % Global.SCENE).visible = true
+	get_node("/root/%s/Original/gui_original/Inventory/Flaskeau" % Global.SCENE).visible = true
+	load_scene_config()
+
 func stop_and_hide_video(video_player: VideoStreamPlayer):
 	video_player.stop()
 	video_player.hide()

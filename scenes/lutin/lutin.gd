@@ -11,6 +11,10 @@ func _get_scene_config() -> Dictionary:
 		actions += """- If the hero is giving the potion to the leprechaun:
   {"_speaker":"001", "_text":"", "_action":"POTION"}"""
 
+	if Global.has_item("flasksec"):
+		actions += """- If the hero refills the flask:
+	{"_speaker":"001", "_text":"You have now a flask full of fresh water.", "_action":"REFILL"}"""
+
 	return {
 		"compass": {
 			"WEST": "tree"
@@ -39,5 +43,8 @@ func execute_action(action):
 		"POTION":
 			Global.remove_from_inventory("Potion")
 			Global.set_scene("edualc")
+		"REFILL":
+			refill_flask()
+			load_scene_config()
 		_:
 			print("Action not recognized in this scene")

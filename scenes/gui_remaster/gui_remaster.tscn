@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=41 format=3 uid="uid://cdoq6xtniibw8"]
 
 [ext_resource type="Script" path="res://scenes/gui_remaster/gui_remaster.gd" id="1_4rsng"]
 [ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://scenes/gui_remaster/left column.png" id="1_fy52j"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://scenes/xx_gui/RecordVoiceButton.gd" id="24_h18mj"]
 [ext_resource type="Texture2D" uid="uid://cy65w8f08kj34" path="res://scenes/pond/lilipad.png" id="24_jfajc"]
 [ext_resource type="Script" path="res://scenes/xx_gui/AudioInput.gd" id="25_jt3sf"]
+[ext_resource type="Texture2D" uid="uid://bxle67ltackk5" path="res://scenes/snake/skin.png" id="25_o7kre"]
 [ext_resource type="Texture2D" uid="uid://c21ta74gob2q7" path="res://scenes/hogg/leaf.png" id="25_p4hys"]
 [ext_resource type="Texture2D" uid="uid://b2xc75kqifp75" path="res://scenes/hogg/fur.png" id="26_jj46e"]
 [ext_resource type="Texture2D" uid="uid://duirc4r6xiu4f" path="res://scenes/centaur/hoof.png" id="26_yu6ij"]
@@ -196,6 +197,12 @@ visible = false
 position = Vector2(1815, 325)
 scale = Vector2(0.181287, 0.181287)
 texture = ExtResource("24_jfajc")
+
+[node name="Skin" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1807, 526)
+scale = Vector2(0.0963476, 0.0963476)
+texture = ExtResource("25_o7kre")
 
 [node name="Potion" type="Sprite2D" parent="Inventory"]
 visible = false

@@ -11,8 +11,7 @@ func _get_scene_config() -> Dictionary:
 		Global.BLOCK_MOVEMENTS = false
 
 	if Global.has_item("flaskeau"):
-		actions = """
-- If the hero wants to drink water to be able to move, do the following action 'DRINK' (also never mention 'flaskeau' in your text response:
+		actions = """- If the hero wants to drink water to be able to move, do the following action 'DRINK' (also never mention 'flaskeau' in your text response:
   {"_speaker":"001", "_text":"You drink the water, and now your thirst is quenched.", "_action":"DRINK"}"""
 
 	return {
