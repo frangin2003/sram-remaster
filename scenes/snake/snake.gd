@@ -22,11 +22,7 @@ func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 	return {
 		"compass": {
-			"NORTH": "waterfall",
-			"EAST": "menhir",
-			"SOUTH": null,
-			# "WEST": "rapids"
-			"WEST": null
+			"WEST": "bridge"
 		},
 		"description": "The hero stands in a wide valley, perched atop a grassy hill. In the distance, a towering mountain looms under a clear sky. Nearby, a large rock sits firmly atop the hill, with a bow lying next to it.",
 		"actions": """
@@ -38,7 +34,8 @@ func execute_action(action):
 	print("Action: " + action)
 	match action:
 		"BOW":
-			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
-			Global.take_item_and_animate("Original", "Bow", 282, 659)
+			Global.take_item_and_animate("Remaster", "Skin", 0, 0)
+			Global.take_item_and_animate("Original", "Skin", 1626, 598)
 		_:
 			print("Action not recognized in this scene")
+

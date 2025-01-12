@@ -43,7 +43,7 @@ func execute_action(action):
 				actions_before_dying -= 1
 
 			if actions_before_dying == 0:
-				setText("You die of thirst. You are dead. Like dead dead")
+				set_text("You die of thirst. You are dead. Like dead dead")
 				Global.set_scene("xx_death")
 
 			print("Action not recognized in this scene")

@@ -24,7 +24,7 @@ func _get_scene_config() -> Dictionary:
  The bed is neatly made, and the scattered papers and debris have been tidied away, leaving the space organized and serene. 
  Gentle sunlight streams through the window, adding a cozy glow. In the corner, the old portable radio softly plays smooth country music, setting a relaxed and homely atmosphere. 
  The once chaotic space now feels inviting, a testament to the hero's hard work."""
-		setText("Thanks a lot, I've been meaning to do this for ages. Here is something for you, when facing the lycanthrope say: `You have beautiful eyes you know`")
+		set_text("Thanks a lot, I've been meaning to do this for ages. Here is something for you, when facing the lycanthrope say: `You have beautiful eyes you know`")
 
 	return {
 		"description": description,

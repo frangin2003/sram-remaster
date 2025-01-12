@@ -62,7 +62,7 @@ func execute_action(action):
 			if Global.MODE == "Remaster":
 				self.stop_and_hide_video(get_node("/root/centaur/Remaster/Control/VideoStreamPlayer"))
 				await self.start_show_then_hide_video(get_node("/root/centaur/Remaster/Control/VideoStreamPlayerPlayFlute"))
-			setText("Rick the centaur appears before you. He looks at you with a confident smirk.")
+			set_text("Rick the centaur appears before you. He looks at you with a confident smirk.")
 			Global.update_scene_state("centaur")
 			load_scene_config()
 		"GIVEBOW":
@@ -71,7 +71,7 @@ func execute_action(action):
 			if Global.has_state("arrow given"):
 				get_node("/root/centaur/Remaster/Hoof").show()
 				get_node("/root/centaur/Original/Hoof").show()
-				setText("Thanks a lot, please take this, it's a spare hoof that might come in handy.")
+				set_text("Thanks a lot, please take this, it's a spare hoof that might come in handy.")
 				await Global.take_item_and_animate("Remaster", "Hoof", 1846, 675)
 				await Global.take_item_and_animate("Original", "Hoof", 1666, 741)
 			Global.set_scene("centaur")
@@ -81,7 +81,7 @@ func execute_action(action):
 			if Global.has_state("bow given"):
 				get_node("/root/centaur/Remaster/Hoof").show()
 				get_node("/root/centaur/Original/Hoof").show()
-				setText("Thanks a lot, please take this, it's a spare hoof that might come in handy.")
+				set_text("Thanks a lot, please take this, it's a spare hoof that might come in handy.")
 				await Global.take_item_and_animate("Remaster", "Hoof", 1846, 675)
 				await Global.take_item_and_animate("Original", "Hoof", 1666, 741)
 			Global.set_scene("centaur")

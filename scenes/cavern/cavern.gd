@@ -57,7 +57,7 @@ func execute_action(action):
 				await self.start_show_then_hide_video(get_node("/root/cavern/Remaster/Control/VideoStreamPlayer"))
 
 			Global.update_scene_state("skeleton buried")
-			setText("As a reward for your act of kindness, here’s a piece of advice: use the stick when facing the slitherer.")
+			set_text("As a reward for your act of kindness, here’s a piece of advice: use the stick when facing the slitherer.")
 			load_scene_config()
 		_:
 			print("Action not recognized in this scene")

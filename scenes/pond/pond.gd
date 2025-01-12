@@ -2,26 +2,34 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
-	Global.show_hide_item("Bow")
+	var description = """The hero finds himself at the Pond of Frogs,
+ a tranquil sanctuary surrounded by lush greenery and the calm reflections of nature on its still waters. 
+ A lone frog sits atop a weathered log in the foreground, seemingly watching over the pond. 
+ Scattered across the water, clusters of lily pads float gently. A large trunk of a tree lies on the ground."""
+
+	var action = ""
+
+	if not Global.has_item("lilipad"):
+		description += """ Among them, one particularly beautiful lily pad rests in the middle of the pond, shimmering under the sunlight. 
+ Its placement feels significant, yet it's tantalizingly out of direct reach."""
+		action = """- If the hero uses the trunk to swim to the lilipad:
+  {"_speaker":"001", "_text":"Congratulations for your new trophy!", "_action":"LILIPAD"}"""
+
 	return {
 		"compass": {
-			"NORTH": "waterfall",
-			"EAST": "menhir",
-			"SOUTH": null,
-			# "WEST": "rapids"
-			"WEST": null
+			"NORTH": "hogg",
+			"EAST": "quicksands",
+			"WEST": "swamps"
 		},
-		"description": "The hero stands in a wide valley, perched atop a grassy hill. In the distance, a towering mountain looms under a clear sky. Nearby, a large rock sits firmly atop the hill, with a bow lying next to it.",
-		"actions": """
-- If the hero attempts to take the bow:
-  {"_speaker":"001", "_text":"Now you need an arrow.", "_action":"BOW"}"""
+		"description": description,
+		"actions": action
 	}
 
 func execute_action(action):
-	print("Action: " + action)
 	match action:
-		"BOW":
-			Global.take_item_and_animate("Remaster", "Bow", 112, 616)
-			Global.take_item_and_animate("Original", "Bow", 282, 659)
+		"LILIPAD":
+			Global.take_item_and_animate("Remaster", "Lilipad", 1815, 325, NAN, 0.181, 0.181)
+			Global.take_item_and_animate("Original", "Lilipad", 1626, 357)
+			load_scene_config()
 		_:
 			print("Action not recognized in this scene")

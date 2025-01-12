@@ -51,7 +51,7 @@ func execute_action(action):
 			if Global.MODE == "Remaster":
 				self.stop_and_hide_video(get_node("/root/chest/Remaster/Control/VideoStreamPlayerChestClosed"))
 				await self.start_show_then_hide_video(get_node("/root/chest/Remaster/Control/VideoStreamPlayerChestOpening"))
-			setText("You open the treasure chest and guess what? Find a treasure!")
+			set_text("You open the treasure chest and guess what? Find a treasure!")
 			Global.update_scene_state("chest opened")
 			load_scene_config()
 		"TAKECOINS":

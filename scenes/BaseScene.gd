@@ -51,7 +51,7 @@ func load_scene_config():
 	if config.has("npcs"):
 		Global.NPCS = config.npcs
 
-func setText(text: String):
+func set_text(text: String):
 	var remaster_output = get_node("/root/%s/Remaster/gui_remaster/GameMasterBackground/GameMasterOutput" % Global.SCENE)
 	var original_output = get_node("/root/%s/Original/gui_original/GameMasterBackground/GameMasterOutput" % Global.SCENE)
 	remaster_output.text = text

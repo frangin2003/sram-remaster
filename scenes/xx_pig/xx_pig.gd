@@ -2,7 +2,7 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
-	setText("You need to be more polite, buddy. Here is a picture of you from last summer.")
+	set_text("You need to be more polite, buddy. Here is a picture of you from last summer.")
 	return {
 		"compass": {
 			"NORTH": null,
