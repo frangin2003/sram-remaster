@@ -5,14 +5,17 @@ func _get_scene_config() -> Dictionary:
 	var hero_text_edit = get_node("/root/lutin/Remaster/gui_remaster/HeroTextEdit")
 	hero_text_edit.connect("speak_seconds", speak_seconds)
 	ActionHandler.CURRENT_HANDLER = self
+	var actions = ""
+	if Global.has_item("Potion"):
+		actions += """- If the hero is giving the potion to the leprechaun:
+  {"_speaker":"001", "_text":"", "_action":"POTION"}"""
+
 	return {
 		"compass": {
-			"NORTH": null,
-			"EAST": null,
-			"SOUTH": null,
 			"WEST": "tree"
 		},
-		"description": "You are standing by a wide, flowing river. A cheerful Leprechaun with a mischievous grin blocks your path.",
+		"description": """You are standing by a wide, flowing river.
+ A cheerful Leprechaun with a mischievous grin blocks your path.""",
 		"npcs": """
 ### Fergus Floodgate (Leprechaun)
 - Speaker ID: `"003"`
@@ -33,9 +36,8 @@ func speak_seconds(speaker, seconds):
 	Global.speak_seconds(speaker, seconds)
 
 func execute_action(action):
-	print("Action: " + action)
 	match action:
-		"003":
-			Global.take_item_and_animate("Remaster", "Potion", 112, 616)
+		"POTION":
+			Global.set_scene("door")
 		_:
 			print("Action not recognized in this scene")

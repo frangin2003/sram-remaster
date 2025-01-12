@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2xc75kqifp75"
-path="res://.godot/imported/fur.png-699072baf5ba66063babd143de87ed99.ctex"
+uid="uid://5858aueoyrcv"
+path="res://.godot/imported/fur_original.png-8d5a550eee646145b3a64ea904c6433c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/hogg/fur.png"
-dest_files=["res://.godot/imported/fur.png-699072baf5ba66063babd143de87ed99.ctex"]
+source_file="res://scenes/hogg/fur_original.png"
+dest_files=["res://.godot/imported/fur_original.png-8d5a550eee646145b3a64ea904c6433c.ctex"]
 
 [params]
 

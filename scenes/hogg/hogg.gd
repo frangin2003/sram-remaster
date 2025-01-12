@@ -61,14 +61,21 @@ func _get_scene_config() -> Dictionary:
  casting golden patterns on the moss-covered ground. 
  The air is thick with serenity, broken only by the rustle of leaves and distant bird calls. 
  In the midst of this calm, a massive boar locks eyes with the hero, its posture steady and watchful. 
- Though the scene is peaceful, the boar's gaze feels like a silent challenge, testing the hero's resolve."""
-	var actions = """
-- If the hero attempts to take the bow:
-  {"_speaker":"001", "_text":"Now you need an arrow.", "_action":"BOW"}"""
+ Though the scene is peaceful, the boar's gaze feels like a silent challenge, testing the hero's resolve.
+ Like all boars, this one has a particular fondness for acorns, a delicacy of the forest."""
+	var actions = """- If the hero is attacking the boar:
+{"_speaker":"001", "_text":"", "_action":"ATTACK"}"""
 	if not Global.has_item("Leaf"):
 		description += " Nearby, a beautiful oak leaf, vibrant and perfect, hangs delicately from a low branch, swaying gently in the soft breeze."
 		actions += """- If the hero is taking the leaf:
-  {"_speaker":"001", "_text":"Well, a beautiful leaf, keep it.", "_action":"LEAF"}"""
+	{"_speaker":"001", "_text":"Well, a beautiful leaf, keep it.", "_action":"LEAF"}"""
+	if not Global.has_item("Fur"):
+		actions += """- If the hero is giving an acorn to the boar:
+	{"_speaker":"001", "_text":"To thank you, it gives you some fur.", "_action":"FUR"}"""
+	else:
+		get_node("/root/hogg/Remaster/Fur").visible = true
+		get_node("/root/hogg/Original/Fur").visible = true
+
 	return {
 		"compass": {
 			"NORTH": "bird",
@@ -83,7 +90,16 @@ func _get_scene_config() -> Dictionary:
 func execute_action(action):
 	match action:
 		"LEAF":
-			Global.take_item_and_animate("Remaster", "Leaf", 112, 616)
-			Global.take_item_and_animate("Original", "Leaf", 282, 659)
+			Global.take_item_and_animate("Remaster", "Leaf", 1856, 456)
+			Global.take_item_and_animate("Original", "Leaf", 1643, 505)
+			load_scene_config()
+		"FUR":
+			Global.add_to_inventory("Fur")
+			load_scene_config()
+		"ATTACK":
+			if Global.MODE == "Remaster":
+				await self.start_show_then_hide_video(get_node("/root/hogg/Remaster/Control/VideoStreamPlayer"))
+			Global.set_scene("xx_death")
 		_:
 			print("Action not recognized in this scene")
+

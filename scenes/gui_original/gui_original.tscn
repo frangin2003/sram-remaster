@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cwr2ewdghvrdv"]
+[gd_scene load_steps=39 format=3 uid="uid://cwr2ewdghvrdv"]
 
 [ext_resource type="Texture2D" uid="uid://voi8r7s35kex" path="res://scenes/gui_original/mountain.png" id="1_j27bs"]
 [ext_resource type="Script" path="res://scenes/gui_original/gui_original.gd" id="1_msara"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://scenes/xx_gui/RecordVoiceButton.gd" id="24_yk1bw"]
 [ext_resource type="Script" path="res://scenes/xx_gui/AudioInput.gd" id="25_ikodp"]
 [ext_resource type="Texture2D" uid="uid://bmst0u0a71g4f" path="res://scenes/centaur/horse_shoe.png" id="26_62saj"]
+[ext_resource type="Texture2D" uid="uid://5858aueoyrcv" path="res://scenes/hogg/fur_original.png" id="26_hne3q"]
 [ext_resource type="Texture2D" uid="uid://cj0ex42ov0l48" path="res://scenes/hogg/leaf_original.png" id="31_0hs7l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
@@ -109,6 +110,7 @@ scale = Vector2(2.36092, 2.65259)
 texture = ExtResource("11_3v40q")
 
 [node name="Shovel" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(224, 664)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("12_xioq7")
@@ -138,31 +140,37 @@ scale = Vector2(2.54545, 2.54545)
 texture = ExtResource("15_aufxa")
 
 [node name="Arrow" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(240, 564)
 scale = Vector2(2.4, 2.4)
 texture = ExtResource("17_q0jff")
 
 [node name="Ear" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1613, 662)
 scale = Vector2(2.50001, 2.7)
 texture = ExtResource("18_6nxdy")
 
 [node name="Hoof" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1666, 741)
 scale = Vector2(2.5, 2.7)
 texture = ExtResource("26_62saj")
 
 [node name="Flute" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(287, 395)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("20_2slcj")
 
 [node name="Money" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(245, 229)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("21_h8jya")
 
 [node name="Key" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1636, 265)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("23_ioi0h")
@@ -233,6 +241,17 @@ text = " ♥
 VIE"
 fit_content = true
 
+[node name="Leaf" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1643, 505)
+scale = Vector2(2.5, 2.6)
+texture = ExtResource("31_0hs7l")
+
+[node name="Fur" type="Sprite2D" parent="Inventory"]
+position = Vector2(1631, 397)
+scale = Vector2(2.5, 2.6)
+texture = ExtResource("26_hne3q")
+
 [node name="BackgroundImage" type="Node2D" parent="."]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.69841)
@@ -293,11 +312,6 @@ script = ExtResource("25_ikodp")
 position = Vector2(1636, 106)
 scale = Vector2(4, 4)
 texture = ExtResource("23_ckxxy")
-
-[node name="Leaf" type="Sprite2D" parent="."]
-position = Vector2(1643, 505)
-scale = Vector2(2.5, 2.6)
-texture = ExtResource("31_0hs7l")
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]

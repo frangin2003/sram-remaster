@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=39 format=3 uid="uid://cdoq6xtniibw8"]
 
 [ext_resource type="Script" path="res://scenes/gui_remaster/gui_remaster.gd" id="1_4rsng"]
 [ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://scenes/gui_remaster/left column.png" id="1_fy52j"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://scenes/xx_gui/RecordVoiceButton.gd" id="24_h18mj"]
 [ext_resource type="Script" path="res://scenes/xx_gui/AudioInput.gd" id="25_jt3sf"]
 [ext_resource type="Texture2D" uid="uid://c21ta74gob2q7" path="res://scenes/hogg/leaf.png" id="25_p4hys"]
+[ext_resource type="Texture2D" uid="uid://b2xc75kqifp75" path="res://scenes/hogg/fur.png" id="26_jj46e"]
 [ext_resource type="Texture2D" uid="uid://duirc4r6xiu4f" path="res://scenes/centaur/hoof.png" id="26_yu6ij"]
 [ext_resource type="Texture2D" uid="uid://ck1livc1ifx2l" path="res://scenes/hermit/flute.png" id="27_hetx2"]
 [ext_resource type="Texture2D" uid="uid://b0emtdxuq4wht" path="res://scenes/chest/money.png" id="28_q0bps"]
@@ -92,22 +93,26 @@ position = Vector2(-7.62939e-06, 0)
 script = ExtResource("10_k38e3")
 
 [node name="Knife" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(95, 300)
 rotation = 0.645772
 scale = Vector2(0.385025, 0.350129)
 texture = ExtResource("14_misqv")
 
 [node name="Bow" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(112, 616)
 scale = Vector2(0.555172, 0.555172)
 texture = ExtResource("16_q8amh")
 
 [node name="Shovel" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(59, 575)
 scale = Vector2(0.277676, 0.25251)
 texture = ExtResource("17_k1jdh")
 
 [node name="Flasksec" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(97, 688)
 scale = Vector2(0.477676, 0.492507)
 texture = ExtResource("18_rdpg2")
@@ -123,6 +128,7 @@ text = "EMPTY"
 fit_content = true
 
 [node name="Flaskeau" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(97, 688)
 scale = Vector2(0.477676, 0.492507)
 texture = ExtResource("18_rdpg2")
@@ -144,35 +150,42 @@ scale = Vector2(0.681818, 0.681818)
 texture = ExtResource("20_p5oo5")
 
 [node name="Cane" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(63, 396)
 scale = Vector2(0.383333, 0.383333)
 texture = ExtResource("23_c77n8")
 
 [node name="Arrow" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(120, 512)
 rotation = -1.98968
 scale = Vector2(0.555172, 0.555172)
 texture = ExtResource("18_nn4ks")
 
 [node name="Ear" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1810, 608)
 texture = ExtResource("19_i7kdq")
 
 [node name="Hoof" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1846, 675)
 scale = Vector2(0.465425, 0.465425)
 texture = ExtResource("26_yu6ij")
 
 [node name="Flute" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(128, 387)
 scale = Vector2(0.452778, 0.452778)
 texture = ExtResource("27_hetx2")
 
 [node name="Money" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(92, 238)
 texture = ExtResource("28_q0bps")
 
 [node name="Key" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1822, 264)
 scale = Vector2(0.440476, 0.440476)
 texture = ExtResource("23_k2mrl")
@@ -208,10 +221,16 @@ scale = Vector2(0.143045, 0.143045)
 texture = ExtResource("24_2qbur")
 
 [node name="Leaf" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1856, 456)
 rotation = 1.89732
 scale = Vector2(0.282708, 0.282708)
 texture = ExtResource("25_p4hys")
+
+[node name="Fur" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1824, 392)
+texture = ExtResource("26_jj46e")
 
 [node name="GameMasterBackground" type="Sprite2D" parent="."]
 position = Vector2(960, 947)

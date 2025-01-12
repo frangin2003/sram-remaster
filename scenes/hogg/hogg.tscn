@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=15 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/hogg/hogg.gd" id="1_myrp0"]
 [ext_resource type="VideoStream" path="res://scenes/hogg/hogg.ogv" id="2_kc3aq"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://c21ta74gob2q7" path="res://scenes/hogg/leaf.png" id="6_18lcy"]
 [ext_resource type="Texture2D" uid="uid://dhi0rnl1740sq" path="res://scenes/hogg/hogg.png" id="7_pp8ii"]
 [ext_resource type="Texture2D" uid="uid://cj0ex42ov0l48" path="res://scenes/hogg/leaf_original.png" id="8_bplmi"]
+[ext_resource type="Texture2D" uid="uid://b2xc75kqifp75" path="res://scenes/hogg/fur.png" id="8_ytmv2"]
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
+[ext_resource type="Texture2D" uid="uid://5858aueoyrcv" path="res://scenes/hogg/fur_original.png" id="11_3gvri"]
 [ext_resource type="Texture2D" uid="uid://b1rcakqecorlf" path="res://scenes/hogg/acorn.png" id="12_tif0x"]
 
 [node name="hogg" type="Node2D"]
@@ -36,14 +38,13 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="VideoStreamPlayerFeedBoar" type="VideoStreamPlayer" parent="Remaster/Control/VideoStreamPlayer"]
-offset_left = -64.0
-offset_right = 1576.0
+[node name="VideoStreamPlayerFeedBoar" type="VideoStreamPlayer" parent="Remaster/Control"]
+layout_mode = 0
+offset_left = -128.0
+offset_right = 1512.0
 offset_bottom = 816.0
 stream = ExtResource("3_8xjuu")
-autoplay = true
 expand = true
-loop = true
 
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 
@@ -61,6 +62,11 @@ rotation = 1.89732
 scale = Vector2(0.282708, 0.282708)
 texture = ExtResource("6_18lcy")
 
+[node name="Fur" type="Sprite2D" parent="Remaster"]
+visible = false
+position = Vector2(1824, 392)
+texture = ExtResource("8_ytmv2")
+
 [node name="Original" type="Node2D" parent="."]
 visible = false
 
@@ -75,6 +81,12 @@ texture = ExtResource("7_pp8ii")
 position = Vector2(495, 236)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("8_bplmi")
+
+[node name="Fur" type="Sprite2D" parent="Original"]
+visible = false
+position = Vector2(1631, 397)
+scale = Vector2(2.5, 2.6)
+texture = ExtResource("11_3gvri")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
 visible = false
