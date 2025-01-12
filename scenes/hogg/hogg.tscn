@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=16 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/hogg/hogg.gd" id="1_myrp0"]
 [ext_resource type="VideoStream" path="res://scenes/hogg/hogg.ogv" id="2_kc3aq"]
 [ext_resource type="VideoStream" path="res://scenes/hogg/feed_boar.ogv" id="3_8xjuu"]
+[ext_resource type="VideoStream" path="res://scenes/hogg/boar_attack.ogv" id="4_12r8e"]
 [ext_resource type="AudioStream" uid="uid://18gwaw4p1xfn" path="res://scenes/tree/forest-bird-sounds-73690.mp3" id="4_abggg"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="AudioStream" uid="uid://dqow8pspy5bui" path="res://scenes/hogg/pig-grunt-100272.mp3" id="5_i6wk4"]
@@ -46,6 +47,14 @@ offset_bottom = 816.0
 stream = ExtResource("3_8xjuu")
 expand = true
 
+[node name="VideoStreamPlayerBoarAttack" type="VideoStreamPlayer" parent="Remaster/Control"]
+layout_mode = 0
+offset_left = -256.0
+offset_right = 1384.0
+offset_bottom = 816.0
+stream = ExtResource("4_12r8e")
+expand = true
+
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
@@ -66,6 +75,12 @@ texture = ExtResource("6_18lcy")
 visible = false
 position = Vector2(1824, 392)
 texture = ExtResource("8_ytmv2")
+
+[node name="Acorn" type="Sprite2D" parent="Remaster"]
+position = Vector2(386, 22)
+rotation = -0.810865
+scale = Vector2(0.0664336, 0.0664336)
+texture = ExtResource("12_tif0x")
 
 [node name="Original" type="Node2D" parent="."]
 visible = false
@@ -90,9 +105,3 @@ texture = ExtResource("11_3gvri")
 
 [node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
 visible = false
-
-[node name="Acorn" type="Sprite2D" parent="."]
-position = Vector2(386, 22)
-rotation = -0.810865
-scale = Vector2(0.0664336, 0.0664336)
-texture = ExtResource("12_tif0x")

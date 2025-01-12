@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/rushing-river-loop-39699.mp3-4315d09be7d9dfef
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

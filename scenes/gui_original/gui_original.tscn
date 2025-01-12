@@ -248,6 +248,7 @@ scale = Vector2(2.5, 2.6)
 texture = ExtResource("31_0hs7l")
 
 [node name="Fur" type="Sprite2D" parent="Inventory"]
+visible = false
 position = Vector2(1631, 397)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("26_hne3q")

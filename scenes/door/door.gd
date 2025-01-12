@@ -60,5 +60,6 @@ func execute_action(action):
 		"KEY":
 			Global.take_item_and_animate("Remaster", "Key", 1822, 264)
 			Global.take_item_and_animate("Original", "Key", 1636, 265)
+			load_scene_config()
 		_:
 			print("Action not recognized in this scene")

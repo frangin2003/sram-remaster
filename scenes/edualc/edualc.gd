@@ -6,16 +6,10 @@ func _get_scene_config() -> Dictionary:
 	var actions = ""
 	var npcs = ""
 	if not Global.has_item("Heart0"):
-		actions += """
-- The first time the hero is addressing Edualc:
+		actions += """- When the hero is talking to Edualc the witch:
   {"_speaker":"002", "_text":"Here you are at last, noble hero. Here are the 5 lives and the strength that will allow you to complete your mission. When you are ready, go north. Good luck...", "_action":"HEART"}"""
 	else:
-		get_node("/root/edualc/Remaster/gui_remaster/Compass/North").visible = true
-		get_node("/root/edualc/Original/gui_original/Compass/North").visible = true
-		compass = {
-			"NORTH": "door"
-		}
-		npcs ="""
+		npcs = """
 ### Edualc the Witch
 - Speaker ID: `"002"`
 - Personality: Mysterious and wise, with a cryptic and mystical way of speaking. Despite being over 1000 years old, she appears youthful and exudes an aura of ancient power and kindness. She seems to know everything about the hero, as if she has watched their journey unfold from afar.
@@ -27,6 +21,11 @@ func _get_scene_config() -> Dictionary:
 	- Input: "Edualc, can you help me?" → {"_speaker":"002", "_text":"Help, you say? You’ve carried the weight of kindness before, yet doubt lingers. Reflect on your deeds, and you shall find what you seek."}
 	- Input: "How do you know me?" → {"_speaker":"002", "_text":"I’ve seen your steps in the sand and your shadow in the sun. Your story is etched in the stars, traveler."}
   - Default Behavior: Edualc provides cryptic yet helpful advice, often requiring the hero to think deeply or interpret her words. She frequently makes personal references to the hero’s journey, adding an air of omniscience."""
+		get_node("/root/edualc/Remaster/gui_remaster/Compass/North").visible = true
+		get_node("/root/edualc/Original/gui_original/Compass/North").visible = true
+		compass = {
+			"NORTH": "door"
+		}
 
 	return {
 		"compass": compass,

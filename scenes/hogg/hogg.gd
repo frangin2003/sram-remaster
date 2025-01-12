@@ -3,6 +3,7 @@ extends "res://scenes/BaseScene.gd"
 var time_to_wait = 0.0
 var timer_started = 0.0
 var leaf_tween: Tween = null
+var should_animate = true
 
 func _process(_delta):
 	var audio_player = get_node("/root/hogg/Remaster/AudioStreamPlayerGrunt")
@@ -24,11 +25,14 @@ func _process(_delta):
 		animate_leaf(leaf)
 
 func animate_leaf(leaf: Node2D):
+	if not should_animate:
+		return
+		
 	leaf_tween = create_tween()
 	var random_rotation = randf_range(3.0, 6.0)
 	var base_rotation = 108.7
 	var base_position = leaf.position
-	var offset = 10.0  # Horizontal movement in pixels
+	var offset = 10.0
 	
 	# First tween: Rotate and move to +rotation and +offset
 	leaf_tween.tween_property(leaf, "rotation_degrees", base_rotation + random_rotation, 1.2)
@@ -51,12 +55,16 @@ func animate_leaf(leaf: Node2D):
 	leaf_tween.set_trans(Tween.TRANS_SINE)
 	leaf_tween.set_ease(Tween.EASE_IN_OUT)
 	
-	# Connect the tween to loop the animation
-	leaf_tween.finished.connect(func(): animate_leaf(leaf))
+	leaf_tween.finished.connect(func(): 
+		if should_animate:  # Only continue if should_animate is true
+			animate_leaf(leaf)
+	)
 
-func _get_scene_config() -> Dictionary:
+func init_scene():
 	ActionHandler.CURRENT_HANDLER = self
 	Global.show_hide_item("Leaf")
+
+func _get_scene_config() -> Dictionary:
 	var description = """The hero stands amidst a tranquil forest, where sunlight streams through the tall, ancient trees, 
  casting golden patterns on the moss-covered ground. 
  The air is thick with serenity, broken only by the rustle of leaves and distant bird calls. 
@@ -90,16 +98,28 @@ func _get_scene_config() -> Dictionary:
 func execute_action(action):
 	match action:
 		"LEAF":
-			Global.take_item_and_animate("Remaster", "Leaf", 1856, 456)
-			Global.take_item_and_animate("Original", "Leaf", 1643, 505)
+			should_animate = false  # Stop the animation loop
+			if leaf_tween and leaf_tween.is_valid():
+				leaf_tween.kill()
+				leaf_tween = null
+			await Global.take_item_and_animate("Remaster", "Leaf", 1856, 456)
+			await Global.take_item_and_animate("Original", "Leaf", 1643, 505)
 			load_scene_config()
 		"FUR":
+			if Global.MODE == "Remaster":
+				get_node("/root/hogg/Remaster/Acorn").visible = false
+				await self.start_show_then_hide_video(get_node("/root/hogg/Remaster/Control/VideoStreamPlayerFeedBoar"))
+				get_node("/root/hogg/Remaster/Acorn").visible = true
 			Global.add_to_inventory("Fur")
 			load_scene_config()
 		"ATTACK":
 			if Global.MODE == "Remaster":
-				await self.start_show_then_hide_video(get_node("/root/hogg/Remaster/Control/VideoStreamPlayer"))
+				await self.start_show_then_hide_video(get_node("/root/hogg/Remaster/Control/VideoStreamPlayerBoarAttack"))
 			Global.set_scene("xx_death")
 		_:
 			print("Action not recognized in this scene")
+
+func _on_leaf_tween_finished():
+	# This function is called when the tween finishes
+	animate_leaf(get_node("/root/hogg/Remaster/Leaf"))
 
