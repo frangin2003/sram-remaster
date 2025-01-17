@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ih6v6g868em2"]
+[gd_scene load_steps=11 format=3 uid="uid://ih6v6g868em2"]
 
 [ext_resource type="Script" path="res://scenes/menhir/menhir.gd" id="1_0ilvn"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="1_tsktu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="5_50fr4"]
 [ext_resource type="Texture2D" uid="uid://b5clcky03l7ef" path="res://scenes/menhir/menhir.png" id="6_itahl"]
 [ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="7_agfnx"]
+[ext_resource type="FontFile" uid="uid://4q87slg2yxdu" path="res://scenes/gui_original/PressStart2P.ttf" id="9_8abhc"]
 
 [node name="menhir" type="Node2D"]
 script = ExtResource("1_0ilvn")
@@ -79,6 +80,25 @@ visible = false
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_itahl")
+
+[node name="MenhirRichTextLabel" type="RichTextLabel" parent="Original"]
+visible = false
+offset_left = 405.0
+offset_top = 236.0
+offset_right = 1533.0
+offset_bottom = 681.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("9_8abhc")
+theme_override_font_sizes/normal_font_size = 30
+text = "Cinomeh, the high priest, has taken power. He overthrew Egres 4 and imprisoned him along with his family in the temple's dungeons.
+
+You must go and save them.
+Go see Edualc the witch. She will grant you 5 lives if you have earned them...
+         The Hermit can help you.
+
+Go if you are brave.
+
+   a friend who wishes you well..."
 
 [node name="xx_settings" parent="." instance=ExtResource("7_agfnx")]
 visible = false

@@ -3,7 +3,8 @@ extends "res://scenes/BaseScene.gd"
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 	var description = ""
-	var actions = ""
+	var actions = """- If the hero exits the room: 
+  {"_speaker":"002", "_text":"Back to the hermit", "_action":"EXIT"}"""
 	if not Global.has_state("tidy"):
 		description = """The hermit's room is a chaotic mess of scattered papers, overturned objects, and tattered furnishings. 
  The dim light filtering through the wooden panels highlights the disorganized state of the room, with a cluttered table and makeshift bedding in the corner. 
@@ -36,5 +37,7 @@ func execute_action(action):
 		"TIDY":
 			Global.update_scene_state("tidy")
 			Global.set_scene("room")
+		"EXIT":
+			Global.set_scene("hermit")
 		_:
 			print("Action not recognized in this scene")

@@ -22,7 +22,7 @@ func execute_action(action):
 	match action:
 		"LOOK":
 			get_node("/root/menhir/Remaster/MenhirText").visible = true
-			await get_tree().create_timer(10.0).timeout
-			Global.set_scene("menhir")
+			get_node("/root/menhir/Original/Background").visible = false
+			get_node("/root/menhir/Original/MenhirRichTextLabel").visible = true
 		_:
 			print("Action not recognized in this scene")

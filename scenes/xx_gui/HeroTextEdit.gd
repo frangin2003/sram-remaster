@@ -89,3 +89,7 @@ func _gui_input(event):
 			var system_message = Global.get_system_instructions()
 			LlmServer.send_to_llm_server(system_message, user_message)
 			get_viewport().set_input_as_handled()
+
+func _exit_tree():
+	if LlmServer.is_connected("llm_chunk", llm_chunk):
+		LlmServer.disconnect("llm_chunk", llm_chunk)

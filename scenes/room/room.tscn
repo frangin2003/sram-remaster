@@ -62,10 +62,10 @@ offset_right = 1744.0
 offset_bottom = 824.0
 
 [node name="VideoStreamPlayerTidy" type="VideoStreamPlayer" parent="Remaster/Control"]
-visible = false
 material = SubResource("CanvasItemMaterial_wpyyn")
+layout_mode = 0
 offset_left = -128.0
-offset_right = 1512.0
+offset_right = 1571.0
 offset_bottom = 816.0
 stream = ExtResource("4_6hplc")
 autoplay = true

@@ -1,9 +1,6 @@
 extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
-	# Connect the signal from HeroTextEdit
-	var hero_text_edit = get_node("/root/lutin/Remaster/gui_remaster/HeroTextEdit")
-	hero_text_edit.connect("speak_seconds", speak_seconds)
 	ActionHandler.CURRENT_HANDLER = self
 	var actions = """- If the hero attempts to kill the leprechaun:
   {"_speaker":"001", "_text":"By killing him, you killed yourself, genius. He was key for your adventure to continue.", "_action":"DEATH"}"""
@@ -34,9 +31,6 @@ func _get_scene_config() -> Dictionary:
   - Default Behavior: Fergus responds humorously to casual inputs, but refuses to reveal critical information unless specific triggers (e.g., "hermit potion") are met.""",
   "actions": actions
 	}
-
-func speak_seconds(speaker, seconds):
-	Global.speak_seconds(speaker, seconds)
 
 func execute_action(action):
 	match action:

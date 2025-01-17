@@ -38,6 +38,7 @@ loop = true
 
 [node name="VideoStreamPlayerSnakeAttack" type="VideoStreamPlayer" parent="Remaster/Control"]
 visible = false
+layout_mode = 0
 offset_left = -64.0
 offset_right = 1576.0
 offset_bottom = 816.0
@@ -46,6 +47,7 @@ expand = true
 
 [node name="VideoStreamPlayerDeadSnake" type="VideoStreamPlayer" parent="Remaster/Control"]
 visible = false
+layout_mode = 0
 offset_left = -64.0
 offset_right = 1576.0
 offset_bottom = 816.0

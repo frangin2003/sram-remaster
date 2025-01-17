@@ -22,13 +22,20 @@ func _ready():
 		Global.load_user_state()
 	init_scene()
 	load_scene_config()
+	call_deferred("connect_hero_text_edit_signal_for_speak_seconds")
+
+func connect_hero_text_edit_signal_for_speak_seconds():
+	var hero_text_edit = get_node("/root/%s/Remaster/gui_remaster/HeroTextEdit" % Global.SCENE)
+	if hero_text_edit and hero_text_edit.is_connected("speak_seconds", speak_seconds):
+		hero_text_edit.disconnect("speak_seconds", speak_seconds)
+	hero_text_edit.connect("speak_seconds", speak_seconds)
 
 func init_scene():
 	pass
 
 func load_scene_config():
 	var config = _get_scene_config()
-	
+
 	# Set compass (optional)
 	var compass = {}
 	if config.has("compass"):
@@ -50,6 +57,14 @@ func load_scene_config():
 	# Set NPCs (optional)
 	if config.has("npcs"):
 		Global.NPCS = config.npcs
+
+func speak_seconds(speaker, seconds):
+	Global.speak_seconds(speaker, seconds)
+
+func _exit_tree():
+	var hero_text_edit = get_node("/root/%s/Remaster/gui_remaster/HeroTextEdit" % Global.SCENE)
+	if hero_text_edit and hero_text_edit.is_connected("speak_seconds", speak_seconds):
+		hero_text_edit.disconnect("speak_seconds", speak_seconds)
 
 func set_text(text: String):
 	var remaster_output = get_node("/root/%s/Remaster/gui_remaster/GameMasterBackground/GameMasterOutput" % Global.SCENE)
