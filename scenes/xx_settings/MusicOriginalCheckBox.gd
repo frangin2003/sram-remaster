@@ -1,6 +1,5 @@
 extends Button
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	toggled.connect(_on_button_toggled)

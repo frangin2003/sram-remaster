@@ -133,12 +133,24 @@ func update_mode(new_mode):
 	ConfigManager.save_config("MODE", MODE)
 
 func update_sound(new_sound):
+	turn_sound_on(new_sound)
 	SOUND = new_sound
 	ConfigManager.save_config("SOUND", SOUND)
 
 func update_sound_original(new_sound_original):
+	if MODE == "Original":
+		turn_sound_on(new_sound_original)
 	SOUND_ORIGINAL = new_sound_original
 	ConfigManager.save_config("SOUND_ORIGINAL", SOUND_ORIGINAL)
+
+func turn_sound_on(sound_on: bool):
+	var music_node = get_node("/root/%s/Remaster/AudioStreamPlayer" % SCENE)
+	if music_node:
+		if sound_on:
+			music_node.play()
+		else:
+			music_node.stop()
+
 
 func set_compass(new_compass):
 	for direction in COMPASS.keys():
