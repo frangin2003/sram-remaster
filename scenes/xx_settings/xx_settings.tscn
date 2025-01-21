@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://7hysib3wulxp"]
+[gd_scene load_steps=11 format=3 uid="uid://7hysib3wulxp"]
 
 [ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="1_cre3q"]
 [ext_resource type="Script" path="res://scenes/xx_settings/xx_settings.gd" id="1_fjw0s"]
@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bc1qw0yniqdji" path="res://scenes/xx_settings/checked_s.png" id="2_dmi8f"]
 [ext_resource type="Texture2D" uid="uid://cmdrkpmcwot3x" path="res://scenes/xx_settings/unchecked_s.png" id="3_orn34"]
 [ext_resource type="Texture2D" uid="uid://58v55br4xjps" path="res://scenes/xx_settings/close.png" id="5_i6t0g"]
+[ext_resource type="Script" path="res://scenes/xx_settings/MusicOverallCheckBox.gd" id="7_7f0hj"]
+[ext_resource type="Texture2D" uid="uid://d3lr0aqu6disu" path="res://scenes/xx_settings/unchecked.png" id="7_gylgn"]
 [ext_resource type="Texture2D" uid="uid://bvlq52ehovcel" path="res://scenes/xx_settings/exit.png" id="7_rfk8y"]
+[ext_resource type="Script" path="res://scenes/xx_settings/MusicOriginalCheckBox.gd" id="8_tgd16"]
 
 [node name="xx_settings" type="Control"]
 layout_mode = 3
@@ -20,9 +23,9 @@ script = ExtResource("1_fjw0s")
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 320.0
-offset_top = 192.0
+offset_top = 71.0
 offset_right = 1600.0
-offset_bottom = 896.0
+offset_bottom = 775.0
 
 [node name="Panel" type="Panel" parent="MarginContainer"]
 layout_mode = 2
@@ -32,7 +35,17 @@ position = Vector2(640, 351.875)
 scale = Vector2(0.666667, 2.65755)
 texture = ExtResource("1_jx0m8")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel"]
+[node name="CloseTextureButton" type="TextureButton" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 1188.0
+offset_top = 16.0
+offset_right = 1263.0
+offset_bottom = 89.0
+texture_normal = ExtResource("5_i6t0g")
+texture_pressed = ExtResource("5_i6t0g")
+texture_hover = ExtResource("5_i6t0g")
+
+[node name="SettingsRichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 0.989
@@ -55,8 +68,10 @@ theme_override_font_sizes/font_size = 60
 theme_override_icons/checked = ExtResource("2_dmi8f")
 theme_override_icons/unchecked = ExtResource("3_orn34")
 text = "Music and sound effects in Game"
+script = ExtResource("7_7f0hj")
 
 [node name="MusicOriginalCheckBox" type="CheckBox" parent="MarginContainer/Panel"]
+layout_mode = 0
 offset_left = 144.0
 offset_top = 260.0
 offset_right = 1122.0
@@ -66,23 +81,48 @@ theme_override_font_sizes/font_size = 60
 theme_override_icons/checked = ExtResource("2_dmi8f")
 theme_override_icons/unchecked = ExtResource("3_orn34")
 text = "Music and sound effects in Original Game"
+script = ExtResource("8_tgd16")
 
-[node name="CloseTextureButton" type="TextureButton" parent="MarginContainer/Panel"]
-layout_mode = 0
-offset_left = 1188.0
-offset_top = 16.0
-offset_right = 1263.0
-offset_bottom = 89.0
-texture_normal = ExtResource("5_i6t0g")
-texture_pressed = ExtResource("5_i6t0g")
-texture_hover = ExtResource("5_i6t0g")
+[node name="RememberRichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 240.0
+offset_top = 433.0
+offset_right = -120.0
+offset_bottom = -159.256
+theme_override_fonts/normal_font = ExtResource("1_cre3q")
+theme_override_font_sizes/normal_font_size = 33
+text = "At any time, press  F1  to switch between Remaster and Original game.
+Press the below button to quit the game, your progress is automatically saved..."
+
+[node name="F1" type="Sprite2D" parent="MarginContainer/Panel"]
+position = Vector2(484.292, 445.156)
+scale = Vector2(0.270554, 0.270554)
+texture = ExtResource("7_gylgn")
+
+[node name="F1RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 472.422
+offset_top = 433.0
+offset_right = -767.578
+offset_bottom = -223.256
+theme_override_colors/default_color = Color(0.255659, 0.255659, 0.255659, 1)
+theme_override_fonts/normal_font = ExtResource("1_cre3q")
+theme_override_font_sizes/normal_font_size = 33
+text = "F1"
 
 [node name="ExitTextureButton" type="TextureButton" parent="MarginContainer/Panel"]
 layout_mode = 0
 offset_left = 576.0
-offset_top = 480.0
+offset_top = 534.0
 offset_right = 696.0
-offset_bottom = 600.0
+offset_bottom = 654.0
 texture_normal = ExtResource("7_rfk8y")
 texture_pressed = ExtResource("7_rfk8y")
 texture_hover = ExtResource("7_rfk8y")

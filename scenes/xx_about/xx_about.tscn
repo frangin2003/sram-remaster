@@ -1,62 +1,140 @@
 [gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
 
-[ext_resource type="Script" path="res://scenes/bird/bird.gd" id="1_aetvx"]
-[ext_resource type="VideoStream" path="res://scenes/mountain/mountain.ogv" id="2_unrr2"]
-[ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
-[ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
-[ext_resource type="Texture2D" uid="uid://de1bul7fvgoww" path="res://scenes/mountain/bow.png" id="5_ba85e"]
-[ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
-[ext_resource type="Texture2D" uid="uid://cexs2ivlt3042" path="res://scenes/mountain/mountain.png" id="7_wqef3"]
-[ext_resource type="Texture2D" uid="uid://ctfselehuswth" path="res://scenes/mountain/bow_original.png" id="7_xn47p"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
+[ext_resource type="Script" path="res://scenes/xx_about/xx_about.gd" id="1_ke2k2"]
+[ext_resource type="VideoStream" path="res://scenes/xx_about/the_team.ogv" id="2_20ess"]
+[ext_resource type="Shader" path="res://scenes/xx_about/flip_shader.gdshader" id="2_o4qv6"]
+[ext_resource type="AudioStream" uid="uid://ce3jwefmytcmw" path="res://scenes/xx_about/serenity-waves-zen-meditation-247329.mp3" id="3_jlwnh"]
+[ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="4_tunr2"]
+[ext_resource type="Texture2D" uid="uid://csbor6cmbma2y" path="res://scenes/xx_about/about.png" id="4_wa7bf"]
+[ext_resource type="FontFile" uid="uid://4q87slg2yxdu" path="res://scenes/gui_original/PressStart2P.ttf" id="7_dit31"]
 
-[node name="mountain" type="Node2D"]
-script = ExtResource("1_aetvx")
+[sub_resource type="GDScript" id="GDScript_5hww1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmb0w"]
+shader = ExtResource("2_o4qv6")
+script = SubResource("GDScript_5hww1")
+
+[node name="xx_about" type="Node2D"]
+script = ExtResource("1_ke2k2")
 
 [node name="Remaster" type="Node2D" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 176.0
-offset_right = 1744.0
-offset_bottom = 824.0
+offset_left = -3.0
+offset_right = 1923.0
+offset_bottom = 1104.0
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Remaster/Control"]
+material = SubResource("ShaderMaterial_gmb0w")
 layout_mode = 0
-offset_left = -64.0
-offset_right = 1576.0
-offset_bottom = 816.0
-stream = ExtResource("2_unrr2")
+offset_right = 1926.0
+offset_bottom = 1104.0
+stream = ExtResource("2_20ess")
 autoplay = true
 expand = true
 loop = true
 
-[node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
-stream = ExtResource("3_tt656")
+stream = ExtResource("3_jlwnh")
 autoplay = true
 
-[node name="Bow" type="Sprite2D" parent="Remaster"]
-position = Vector2(1040, 576)
-scale = Vector2(0.555172, 0.555172)
-texture = ExtResource("5_ba85e")
+[node name="JHemonic" type="RichTextLabel" parent="Remaster"]
+offset_left = 1562.0
+offset_top = 879.0
+offset_right = 1837.0
+offset_bottom = 937.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.133196, 0.133196, 0.133196, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 45
+text = "J. HEMONIC"
+fit_content = true
+
+[node name="SHauduc" type="RichTextLabel" parent="Remaster"]
+offset_left = 751.0
+offset_top = 954.0
+offset_right = 1000.0
+offset_bottom = 1009.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 45
+text = "S. HAUDUC"
+fit_content = true
+
+[node name="LHauduc" type="RichTextLabel" parent="Remaster"]
+offset_left = 205.0
+offset_top = 939.0
+offset_right = 491.0
+offset_bottom = 997.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 45
+text = "L. HAUDUC"
+fit_content = true
 
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
-[node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
-
-[node name="Mountain" type="Sprite2D" parent="Original"]
-position = Vector2(943, 475)
+[node name="Background" type="Sprite2D" parent="Original"]
+position = Vector2(956, 539)
 scale = Vector2(2.475, 2.698)
-texture = ExtResource("7_wqef3")
+texture = ExtResource("4_wa7bf")
 
-[node name="Bow" type="Sprite2D" parent="Original"]
-position = Vector2(1010, 748)
-scale = Vector2(2.36092, 2.65259)
-texture = ExtResource("7_xn47p")
+[node name="1" type="RichTextLabel" parent="Original"]
+offset_left = 491.0
+offset_top = 1026.0
+offset_right = 553.0
+offset_bottom = 1082.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 39
+text = "1"
+fit_content = true
 
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
+[node name="play" type="RichTextLabel" parent="Original"]
+offset_left = 547.0
+offset_top = 1024.0
+offset_right = 806.0
+offset_bottom = 1114.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(0.666667, 0, 0.666667, 1)
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 39
+text = "- play"
+fit_content = true
+
+[node name="2" type="RichTextLabel" parent="Original"]
+offset_left = 843.0
+offset_top = 1026.0
+offset_right = 925.0
+offset_bottom = 1081.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 39
+text = "2"
+fit_content = true
+
+[node name="instructions" type="RichTextLabel" parent="Original"]
+offset_left = 904.0
+offset_top = 1024.0
+offset_right = 1463.0
+offset_bottom = 1094.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(0.666667, 0, 0.666667, 1)
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 39
+text = "- instructions"
+fit_content = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/signpost/signpost.gd" id="1_bdtg1"]
 [ext_resource type="VideoStream" path="res://scenes/signpost/signpost.ogv" id="2_pd3xe"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://si5dc636xwa1" path="res://scenes/signpost/signs.png" id="7_1a310"]
 [ext_resource type="Texture2D" uid="uid://fyhy84masnll" path="res://scenes/signpost/signpost.png" id="8_7dmio"]
 [ext_resource type="FontFile" uid="uid://4q87slg2yxdu" path="res://scenes/gui_original/PressStart2P.ttf" id="9_fa2r1"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="signpost" type="Node2D"]
 script = ExtResource("1_bdtg1")
@@ -110,6 +109,3 @@ theme_override_font_sizes/normal_font_size = 44
 theme_override_font_sizes/bold_font_size = 2
 text = "Herr MIT"
 fit_content = true
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

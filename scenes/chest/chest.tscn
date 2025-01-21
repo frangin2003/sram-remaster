@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=12 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/chest/chest.gd" id="1_2sg4h"]
 [ext_resource type="VideoStream" path="res://scenes/chest/chest.ogv" id="2_38n2n"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="AudioStream" uid="uid://58hkqctgpsg7" path="res://scenes/chest/old-wood-creaking-building-171122.mp3" id="8_2xxgp"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 [ext_resource type="Texture2D" uid="uid://tbrcak0sik4c" path="res://scenes/chest/coffre.png" id="10_5s2k0"]
 [ext_resource type="Texture2D" uid="uid://bafitb3aiunfs" path="res://scenes/chest/money_original.png" id="11_3i5cc"]
 [ext_resource type="Texture2D" uid="uid://b0emtdxuq4wht" path="res://scenes/chest/money.png" id="11_bbn6v"]
@@ -90,6 +89,3 @@ visible = false
 position = Vector2(1158, 695.6)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("11_3i5cc")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=14 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/centaur/centaur.gd" id="1_1qgcq"]
 [ext_resource type="VideoStream" uid="uid://dwxpipbcekdxv" path="res://scenes/centaur/no_centaur.ogv" id="2_7aax5"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://cpjjkbrm3umu8" path="res://scenes/centaur/centaure_pasla.png" id="6_oqupl"]
 [ext_resource type="Texture2D" uid="uid://duirc4r6xiu4f" path="res://scenes/centaur/hoof.png" id="7_sgv4s"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 [ext_resource type="Texture2D" uid="uid://bmst0u0a71g4f" path="res://scenes/centaur/horse_shoe.png" id="10_qm8hd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vc7c1"]
@@ -108,6 +107,3 @@ visible = false
 position = Vector2(948, 463)
 scale = Vector2(2.5, 2.7)
 texture = ExtResource("10_qm8hd")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

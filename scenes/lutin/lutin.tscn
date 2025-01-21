@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://44c5toykbrhp"]
+[gd_scene load_steps=10 format=3 uid="uid://44c5toykbrhp"]
 
 [ext_resource type="Script" path="res://scenes/lutin/lutin.gd" id="1_60kc2"]
 [ext_resource type="VideoStream" path="res://scenes/lutin/lutin.ogv" id="2_a2e43"]
@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://kk1vt3k4aqui" path="res://scenes/lutin/river-in-the-forest-17271.mp3" id="5_oorm3"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="7_ecypk"]
 [ext_resource type="Texture2D" uid="uid://ctipu21di36mb" path="res://scenes/lutin/lutin.png" id="8_dmmdr"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_qylf4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qky1y"]
 shader = ExtResource("3_fipik")
@@ -75,6 +74,3 @@ visible = false
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("8_dmmdr")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_qylf4")]
-visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=12 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/snake/snake.gd" id="1_b6ll3"]
 [ext_resource type="VideoStream" path="res://scenes/snake/snake_island.ogv" id="2_jxe52"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://b0dl8jmw05lq8" path="res://scenes/snake/snake0.png" id="6_mpsjx"]
 [ext_resource type="Texture2D" uid="uid://bxle67ltackk5" path="res://scenes/snake/skin.png" id="6_tc862"]
 [ext_resource type="Texture2D" uid="uid://cwxidawtnq6aq" path="res://scenes/snake/snake_skin.png" id="8_aovkx"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="snake" type="Node2D"]
 script = ExtResource("1_b6ll3")
@@ -85,6 +84,3 @@ visible = false
 position = Vector2(1007, 567)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("8_aovkx")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

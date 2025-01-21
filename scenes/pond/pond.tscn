@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=9 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/pond/pond.gd" id="1_am36h"]
 [ext_resource type="VideoStream" path="res://scenes/pond/trunk_final.ogv" id="2_jcmqd"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://dtc64g3qvyqri" path="res://scenes/pond/lilipad_original.png" id="7_wjg5u"]
 [ext_resource type="Texture2D" uid="uid://dxgr026bh81kh" path="res://scenes/pond/swamp2.png" id="7_yu1v3"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="pond" type="Node2D"]
 script = ExtResource("1_am36h")
@@ -58,6 +57,3 @@ texture = ExtResource("7_yu1v3")
 position = Vector2(998, 554)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("7_wjg5u")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

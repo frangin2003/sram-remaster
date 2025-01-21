@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cq67osiqdqwlg"]
+[gd_scene load_steps=18 format=3 uid="uid://cq67osiqdqwlg"]
 
 [ext_resource type="Script" path="res://scenes/room/room.gd" id="1_kr60d"]
 [ext_resource type="VideoStream" path="res://scenes/room/room_messy.ogv" id="2_nc7nl"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="5_1188n"]
 [ext_resource type="Texture2D" uid="uid://kyu6mal8sv31" path="res://scenes/room/room_messy.png" id="6_oiekv"]
 [ext_resource type="Texture2D" uid="uid://b33fj5srwst3k" path="res://scenes/room/music-note-icon-34253.png" id="7_8e7qu"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="7_hp7yw"]
 
 [sub_resource type="GDScript" id="GDScript_uginn"]
 
@@ -118,6 +117,3 @@ visible = false
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_oiekv")
-
-[node name="xx_settings" parent="." instance=ExtResource("7_hp7yw")]
-visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=11 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/werewolf/werewolf.gd" id="1_tpu1s"]
 [ext_resource type="VideoStream" path="res://scenes/werewolf/werewolf.ogv" id="2_nfm3f"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://cm0wsufqp8aju" path="res://scenes/werewolf/werewolf.png" id="7_mh0wq"]
 [ext_resource type="Texture2D" uid="uid://b6sd7ev5kabsu" path="res://scenes/werewolf/ear_original.png" id="8_injll"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="werewolf" type="Node2D"]
 script = ExtResource("1_tpu1s")
@@ -78,6 +77,3 @@ visible = false
 position = Vector2(1138.5, 664)
 scale = Vector2(2.50001, 2.7)
 texture = ExtResource("8_injll")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=44 format=3 uid="uid://cdoq6xtniibw8"]
 
 [ext_resource type="Script" path="res://scenes/gui_remaster/gui_remaster.gd" id="1_4rsng"]
 [ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://scenes/gui_remaster/left column.png" id="1_fy52j"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cnvy2smlx2fgb" path="res://scenes/gui_remaster/South.png" id="12_iwsi4"]
 [ext_resource type="Texture2D" uid="uid://dv8gb5rsx58wj" path="res://scenes/gui_remaster/West.png" id="13_xx5ac"]
 [ext_resource type="Texture2D" uid="uid://3gqygstl7qiu" path="res://scenes/nest/knife.png" id="14_misqv"]
+[ext_resource type="Texture2D" uid="uid://qb21lhipw2l8" path="res://scenes/druids/cane.png" id="16_j882f"]
 [ext_resource type="Texture2D" uid="uid://de1bul7fvgoww" path="res://scenes/mountain/bow.png" id="16_q8amh"]
 [ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="17_k1jdh"]
 [ext_resource type="Texture2D" uid="uid://bhdrlhehuuwgd" path="res://scenes/arrow/arrow.png" id="18_nn4ks"]
@@ -22,7 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://diq0dwxs1btu8" path="res://scenes/werewolf/ear.png" id="19_i7kdq"]
 [ext_resource type="Texture2D" uid="uid://d0dmmo50nssn6" path="res://scenes/hermit/potion.png" id="20_p5oo5"]
 [ext_resource type="Script" path="res://scenes/xx_gui/HeroTextEdit.gd" id="22_eem6q"]
-[ext_resource type="Texture2D" uid="uid://ngwdeps11ne1" path="res://scenes/gui_remaster/cane.png" id="23_c77n8"]
 [ext_resource type="Texture2D" uid="uid://kw1x2niopmol" path="res://scenes/door/key.png" id="23_k2mrl"]
 [ext_resource type="Texture2D" uid="uid://ckydg7d3enasx" path="res://scenes/door/heart.png" id="24_2qbur"]
 [ext_resource type="Script" path="res://scenes/xx_gui/RecordVoiceButton.gd" id="24_h18mj"]
@@ -34,6 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://duirc4r6xiu4f" path="res://scenes/centaur/hoof.png" id="26_yu6ij"]
 [ext_resource type="Texture2D" uid="uid://ck1livc1ifx2l" path="res://scenes/hermit/flute.png" id="27_hetx2"]
 [ext_resource type="Texture2D" uid="uid://b0emtdxuq4wht" path="res://scenes/chest/money.png" id="28_q0bps"]
+[ext_resource type="Texture2D" uid="uid://qdegnrnm264w" path="res://scenes/gui_remaster/cog.png" id="35_l0ndu"]
+[ext_resource type="Script" path="res://scenes/gui_remaster/CogTextureButton.gd" id="36_t4wya"]
+[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="37_ojgeg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0ddl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -149,7 +152,7 @@ fit_content = true
 visible = false
 position = Vector2(63, 396)
 scale = Vector2(0.383333, 0.383333)
-texture = ExtResource("23_c77n8")
+texture = ExtResource("16_j882f")
 
 [node name="Arrow" type="Sprite2D" parent="Inventory"]
 visible = false
@@ -275,10 +278,10 @@ script = ExtResource("22_eem6q")
 
 [node name="RecordVoiceButton" type="Button" parent="."]
 z_index = 1
-offset_left = 1760.0
-offset_top = 824.0
-offset_right = 1889.0
-offset_bottom = 952.0
+offset_left = 1729.0
+offset_top = 817.0
+offset_right = 1858.0
+offset_bottom = 945.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_v0ddl")
 theme_override_styles/hover = SubResource("StyleBoxFlat_lgh6u")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_i3alo")
@@ -293,6 +296,25 @@ stream = SubResource("AudioStreamMicrophone_o7xl2")
 autoplay = true
 bus = &"Record"
 script = ExtResource("25_jt3sf")
+
+[node name="CogTextureButton" type="TextureButton" parent="."]
+offset_left = 1859.0
+offset_top = 816.0
+offset_right = 1920.0
+offset_bottom = 876.0
+texture_normal = ExtResource("35_l0ndu")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("36_t4wya")
+
+[node name="SmallCog" type="Sprite2D" parent="."]
+position = Vector2(1909, 882)
+scale = Vector2(0.0278839, 0.027884)
+texture = ExtResource("35_l0ndu")
+
+[node name="xx_settings" parent="." instance=ExtResource("37_ojgeg")]
+z_index = 1000
+z_as_relative = false
 
 [connection signal="audio_recording_started" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_started"]
 [connection signal="audio_recording_stopped" from="RecordVoiceButton" to="AudioInput" method="_on_record_voice_button_audio_recording_stopped"]

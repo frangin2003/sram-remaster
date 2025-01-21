@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=7 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/cactus/cactus.gd" id="1_vuixa"]
 [ext_resource type="VideoStream" uid="uid://bnn75pow863y" path="res://scenes/cactus/desert_door.ogv" id="2_tdwnx"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://bb8frbrbawjdx" path="res://scenes/cactus/cactus.png" id="6_skkxs"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="cactus" type="Node2D"]
 script = ExtResource("1_vuixa")
@@ -46,6 +45,3 @@ autoplay = true
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_skkxs")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

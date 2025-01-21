@@ -41,6 +41,9 @@ var SCENE_DESCRIPTION = ""
 var ACTIONS = ""
 var NPCS = ""
 
+var SOUND = true
+var SOUND_ORIGINAL = true
+
 var ConfigManager = preload("res://llm_server/ConfigManager.gd").new()
 
 func _ready():
@@ -62,6 +65,8 @@ func load_user_state():
 		if direction in saved_compass:
 			COMPASS[direction] = saved_compass[direction]
 	SCENE_STATE = ConfigManager.load_config("Game", "SCENE_STATE", {})
+	SOUND = ConfigManager.load_config("Game", "SOUND", true)
+	SOUND_ORIGINAL = ConfigManager.load_config("Game", "SOUND_ORIGINAL", true)
 	print("Loaded Scene: %s" % SCENE)
 	print("Loaded Inventory: %s" % INVENTORY)
 	print("Loaded Compass: %s" % COMPASS)
@@ -126,6 +131,14 @@ func get_current_scene_name():
 func update_mode(new_mode):
 	MODE = new_mode
 	ConfigManager.save_config("MODE", MODE)
+
+func update_sound(new_sound):
+	SOUND = new_sound
+	ConfigManager.save_config("SOUND", SOUND)
+
+func update_sound_original(new_sound_original):
+	SOUND_ORIGINAL = new_sound_original
+	ConfigManager.save_config("SOUND_ORIGINAL", SOUND_ORIGINAL)
 
 func set_compass(new_compass):
 	for direction in COMPASS.keys():

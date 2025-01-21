@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=9 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/bird/bird.gd" id="1_aetvx"]
 [ext_resource type="VideoStream" path="res://scenes/mountain/mountain.ogv" id="2_unrr2"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://cexs2ivlt3042" path="res://scenes/mountain/mountain.png" id="7_wqef3"]
 [ext_resource type="Texture2D" uid="uid://ctfselehuswth" path="res://scenes/mountain/bow_original.png" id="7_xn47p"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="mountain" type="Node2D"]
 script = ExtResource("1_aetvx")
@@ -58,6 +57,3 @@ texture = ExtResource("7_wqef3")
 position = Vector2(1010, 748)
 scale = Vector2(2.36092, 2.65259)
 texture = ExtResource("7_xn47p")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmu6skwo0flr4"]
+[gd_scene load_steps=8 format=3 uid="uid://dmu6skwo0flr4"]
 
 [ext_resource type="Script" path="res://scenes/bird/bird.gd" id="1_edi5t"]
 [ext_resource type="VideoStream" uid="uid://ctxu1h61p4k7m" path="res://scenes/bird/bird.ogv" id="2_ietjx"]
@@ -7,7 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="4_ipnuw"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="5_bdp0j"]
 [ext_resource type="Texture2D" uid="uid://giphjsnh7epw" path="res://scenes/bird/bird.png" id="6_sr1xu"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="7_0e1w0"]
 
 [node name="bird" type="Node2D"]
 script = ExtResource("1_edi5t")
@@ -55,6 +54,3 @@ autoplay = true
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_sr1xu")
-
-[node name="xx_settings" parent="." instance=ExtResource("7_0e1w0")]
-visible = false

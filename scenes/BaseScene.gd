@@ -26,9 +26,10 @@ func _ready():
 
 func connect_hero_text_edit_signal_for_speak_seconds():
 	var hero_text_edit = get_node("/root/%s/Remaster/gui_remaster/HeroTextEdit" % Global.SCENE)
-	if hero_text_edit and hero_text_edit.is_connected("speak_seconds", speak_seconds):
-		hero_text_edit.disconnect("speak_seconds", speak_seconds)
-	hero_text_edit.connect("speak_seconds", speak_seconds)
+	if hero_text_edit:
+		if hero_text_edit.is_connected("speak_seconds", speak_seconds):
+			hero_text_edit.disconnect("speak_seconds", speak_seconds)
+		hero_text_edit.connect("speak_seconds", speak_seconds)
 
 func init_scene():
 	pass

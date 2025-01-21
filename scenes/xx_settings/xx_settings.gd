@@ -5,7 +5,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	popup.hide()
+	pass
+	#popup.hide()
+	
 
 func _input(event):
 	if event.is_action_pressed("show_settings"):

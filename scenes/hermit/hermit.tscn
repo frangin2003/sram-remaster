@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=13 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/hermit/hermit.gd" id="1_easek"]
 [ext_resource type="VideoStream" path="res://scenes/hermit/hermit.ogv" id="2_0mb44"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://ov5aoiwy3wem" path="res://scenes/hermit/ermit.png" id="6_iuw22"]
 [ext_resource type="AudioStream" uid="uid://chswmxfvy68nd" path="res://scenes/hermit/semi-desert-insects-ravens-birds-quiet-with-bad-mic-noise-badlands-ab-190818-7028.mp3" id="6_yxncm"]
 [ext_resource type="Texture2D" uid="uid://cj3txy2tshg2k" path="res://scenes/hermit/flute_original.png" id="7_bexar"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oxech"]
 shader = ExtResource("3_nu1d6")
@@ -93,6 +92,3 @@ texture = ExtResource("6_iuw22")
 position = Vector2(1357, 667)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("7_bexar")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

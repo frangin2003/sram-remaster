@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dqjasnltu4pni"]
+[gd_scene load_steps=13 format=3 uid="uid://dqjasnltu4pni"]
 
 [ext_resource type="Script" path="res://scenes/cavern/cavern.gd" id="1_vgb7p"]
 [ext_resource type="Texture2D" uid="uid://cdhcyywpthckc" path="res://scenes/cavern/cavern.webp" id="2_21jhl"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cuvnv0f4w8msq" path="res://scenes/cavern/flask_asec.png" id="9_455xk"]
 [ext_resource type="Texture2D" uid="uid://da7cs405d4xe7" path="res://scenes/cavern/shovel.png" id="9_m8ryh"]
 [ext_resource type="Texture2D" uid="uid://c8rwa0jyq025j" path="res://scenes/cavern/cavern_original_background.png" id="11_jsp5c"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="12_q5e8f"]
 
 [node name="cavern" type="Node2D"]
 script = ExtResource("1_vgb7p")
@@ -88,6 +87,3 @@ visible = false
 position = Vector2(250, 758.5)
 scale = Vector2(2.50001, 2.50001)
 texture = ExtResource("9_455xk")
-
-[node name="xx_settings" parent="." instance=ExtResource("12_q5e8f")]
-visible = false

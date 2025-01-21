@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ih6v6g868em2"]
+[gd_scene load_steps=10 format=3 uid="uid://ih6v6g868em2"]
 
 [ext_resource type="Script" path="res://scenes/menhir/menhir.gd" id="1_0ilvn"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="1_tsktu"]
@@ -8,7 +8,6 @@
 [ext_resource type="FontFile" uid="uid://dgs4lfs5cjexu" path="res://scenes/menhir/Stone_Head.ttf" id="4_bvgea"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="5_50fr4"]
 [ext_resource type="Texture2D" uid="uid://b5clcky03l7ef" path="res://scenes/menhir/menhir.png" id="6_itahl"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="7_agfnx"]
 [ext_resource type="FontFile" uid="uid://4q87slg2yxdu" path="res://scenes/gui_original/PressStart2P.ttf" id="9_8abhc"]
 
 [node name="menhir" type="Node2D"]
@@ -99,6 +98,3 @@ Go see Edualc the witch. She will grant you 5 lives if you have earned them...
 Go if you are brave.
 
    a friend who wishes you well..."
-
-[node name="xx_settings" parent="." instance=ExtResource("7_agfnx")]
-visible = false

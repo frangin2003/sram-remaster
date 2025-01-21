@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=9 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/arrow/arrow.gd" id="1_dfuoe"]
 [ext_resource type="VideoStream" path="res://scenes/arrow/arrow_island.ogv" id="2_s7fuq"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://dpkrt1o4d8xg4" path="res://scenes/arrow/island.png" id="7_xaq0q"]
 [ext_resource type="Texture2D" uid="uid://tyikd5kkbxak" path="res://scenes/arrow/arrow_original.png" id="8_o5ui6"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="arrow" type="Node2D"]
 script = ExtResource("1_dfuoe")
@@ -59,6 +58,3 @@ texture = ExtResource("7_xaq0q")
 position = Vector2(855, 666)
 scale = Vector2(2.36092, 2.65259)
 texture = ExtResource("8_o5ui6")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

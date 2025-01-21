@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=9 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/edualc/edualc.gd" id="1_ydp6c"]
 [ext_resource type="VideoStream" path="res://scenes/edualc/edualc.ogv" id="2_hgs4q"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="FontFile" uid="uid://4q87slg2yxdu" path="res://scenes/gui_original/PressStart2P.ttf" id="7_g10f7"]
 [ext_resource type="Texture2D" uid="uid://08qnvvo33hau" path="res://scenes/edualc/edualc.png" id="7_w2ja8"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 
 [node name="edualc" type="Node2D"]
 script = ExtResource("1_ydp6c")
@@ -72,12 +71,12 @@ texture = ExtResource("5_2pddo")
 [node name="Original" type="Node2D" parent="."]
 visible = false
 
-[node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
-
 [node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("7_w2ja8")
+
+[node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 
 [node name="Hearts" type="Control" parent="Original"]
 visible = false
@@ -151,6 +150,3 @@ theme_override_font_sizes/normal_font_size = 39
 text = " ♥
 VIE"
 fit_content = true
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false

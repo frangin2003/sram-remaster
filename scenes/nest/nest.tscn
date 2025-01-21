@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bukcyvau00ttw"]
+[gd_scene load_steps=9 format=3 uid="uid://bukcyvau00ttw"]
 
 [ext_resource type="Script" path="res://scenes/nest/nest.gd" id="1_tv3xq"]
 [ext_resource type="Texture2D" uid="uid://boeh7hkadfqbb" path="res://scenes/nest/nest.webp" id="2_b7ehq"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_3bvos"]
 [ext_resource type="Texture2D" uid="uid://c0283isgi0uvl" path="res://scenes/nest/nest.png" id="7_f1f7l"]
 [ext_resource type="Texture2D" uid="uid://day513fxjcgko" path="res://scenes/nest/knife_original.png" id="8_8if2w"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_2wnsf"]
 
 [node name="nest" type="Node2D"]
 script = ExtResource("1_tv3xq")
@@ -56,6 +55,3 @@ visible = false
 position = Vector2(1284, 480)
 scale = Vector2(2.49, 2.53)
 texture = ExtResource("8_8if2w")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_2wnsf")]
-visible = false

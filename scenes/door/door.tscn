@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=12 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/door/door.gd" id="1_43ovt"]
 [ext_resource type="Texture2D" uid="uid://df3dumgsel4k6" path="res://scenes/door/door_closed.webp" id="2_wwl25"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://rohjxavlknp8" path="res://scenes/door/carpet.png" id="6_6em48"]
 [ext_resource type="Texture2D" uid="uid://cxbkin8hkha27" path="res://scenes/door/door_closed.png" id="7_3injl"]
 [ext_resource type="Texture2D" uid="uid://bl0v277qatxq7" path="res://scenes/door/carpet_folded.png" id="7_pq3td"]
-[ext_resource type="PackedScene" uid="uid://7hysib3wulxp" path="res://scenes/xx_settings/xx_settings.tscn" id="9_tff3y"]
 [ext_resource type="Texture2D" uid="uid://cwtpkrcgfuwbv" path="res://scenes/door/key_original.png" id="10_64qtu"]
 
 [node name="door" type="Node2D"]
@@ -81,6 +80,3 @@ visible = false
 position = Vector2(888, 765)
 scale = Vector2(2.5, 2.6)
 texture = ExtResource("10_64qtu")
-
-[node name="xx_settings" parent="." instance=ExtResource("9_tff3y")]
-visible = false
