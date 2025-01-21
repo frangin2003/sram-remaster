@@ -3,7 +3,7 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	button_pressed = Global.SOUND
 	toggled.connect(_on_button_toggled)
 
 # Called when the button is toggled
