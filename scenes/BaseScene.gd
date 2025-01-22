@@ -23,6 +23,7 @@ func _ready():
 	init_scene()
 	load_scene_config()
 	call_deferred("connect_hero_text_edit_signal_for_speak_seconds")
+	call_deferred("turn_sound_on_or_off")
 
 func connect_hero_text_edit_signal_for_speak_seconds():
 	var hero_text_edit = get_node("/root/%s/Remaster/gui_remaster/HeroTextEdit" % Global.SCENE)
@@ -30,6 +31,12 @@ func connect_hero_text_edit_signal_for_speak_seconds():
 		if hero_text_edit.is_connected("speak_seconds", speak_seconds):
 			hero_text_edit.disconnect("speak_seconds", speak_seconds)
 		hero_text_edit.connect("speak_seconds", speak_seconds)
+
+func turn_sound_on_or_off():
+	if Global.MODE == "Remaster":
+		Global.turn_sound_on(Global.SOUND_REMASTER)
+	else:
+		Global.turn_sound_on(Global.SOUND_ORIGINAL)
 
 func init_scene():
 	pass

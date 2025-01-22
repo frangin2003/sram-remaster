@@ -6,4 +6,4 @@ func _ready():
 
 # Called when the button is toggled
 func _on_button_toggled(pressed_state: bool):
-	Global.update_sound(pressed_state)
+	Global.update_sound_remaster(pressed_state)

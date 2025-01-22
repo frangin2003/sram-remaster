@@ -18,17 +18,17 @@ func _on_exit_texture_button_button_down():
 
 func _on_popup_visibility_changed():
 	if popup.visible:
-		var checkbox_overall = $MarginContainer/Panel/MusicOverallCheckBox
+		var checkbox_remaster = $MarginContainer/Panel/MusicRemasterCheckBox
 		var checkbox_original = $MarginContainer/Panel/MusicOriginalCheckBox
 		
 		# Block signals before setting button state
-		checkbox_overall.set_block_signals(true)
+		checkbox_remaster.set_block_signals(true)
 		checkbox_original.set_block_signals(true)
 		
 		# Set button states
-		checkbox_overall.button_pressed = Global.SOUND
+		checkbox_remaster.button_pressed = Global.SOUND_REMASTER
 		checkbox_original.button_pressed = Global.SOUND_ORIGINAL
 		
 		# Unblock signals after setting button state
-		checkbox_overall.set_block_signals(false)
+		checkbox_remaster.set_block_signals(false)
 		checkbox_original.set_block_signals(false)
