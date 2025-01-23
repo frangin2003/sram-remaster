@@ -1,11 +1,13 @@
 extends "res://scenes/BaseScene.gd"
 
+func init_scene():
+	Global.show_hide_item("Shovel")
+
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 	var scene_suffix = "_skeleton_buried" if Global.has_state("skeleton buried") else ""
 	get_node("/root/cavern/Remaster/Background").texture = load("res://scenes/cavern/cavern%s.webp" % scene_suffix)
 	get_node("/root/cavern/Original/Background").texture = load("res://scenes/cavern/cavern%s_original_background.png" % scene_suffix)
-	Global.show_hide_item("Shovel")
 
 	var description = "The hero stands in the cavern."
 	var actions = ""

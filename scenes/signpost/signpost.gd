@@ -23,9 +23,9 @@ func _get_scene_config() -> Dictionary:
 
 	return {
 		"compass": {
-			"EAST": "werewolf",
+			"EAST": "hermit",
 			"SOUTH": "cactus",
-			"WEST": "hermit"
+			"WEST": "werewolf"
 		},
 		"description": description,
 		"actions": actions

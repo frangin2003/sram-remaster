@@ -20,14 +20,25 @@ func _process(_delta):
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	var description = """The scene unfolds with an eerie, otherworldly aura as you stand on the edge of the murky swamps, 
+ gazing at a sinister island in the distance. 
+ The island is shrouded in thick mist, and the only sounds are the unsettling hisses and the faint rustling of scales against foliage. 
+ This is Snake Island—a dangerous haven teeming with slithering serpents of all shapes and sizes. 
+ The trees on the island twist unnaturally, their branches serving as resting places for venomous vipers, 
+ while the ground is covered in a writhing carpet of snakes.
+ The swamp waters separating you from the island churn ominously, and you spot the glint of crocodile eyes lurking just beneath the surface, 
+ making swimming to the island impossible. A sturdy liane dangles invitingly from a nearby tree, swaying gently in the humid breeze, 
+ offering a precarious hope of swinging over the treacherous waters to the island. 
+ The air is thick with tension, and every step forward feels like a gamble with danger."""
 	var actions = ""
-	if Global.has_state("snake killed"):
+	if Global.has_state("killed"):
 		self.stop_and_hide_video(get_node("/root/snake/Remaster/Control/VideoStreamPlayer"))
 		self.start_loop_and_show_video(get_node("/root/snake/Remaster/Control/VideoStreamPlayerDeadSnake"))
 		get_node("/root/snake/Original/Background").texture = load("res://scenes/snake/snake.png")
 
 		if not Global.has_item("skin"):
 			if Global.has_item("knife"):
+				description += """ You can now skin the snake and take its skin as a trophy."""
 				actions = """- If the hero takes the snake skin:
 	{"_speaker":"001", "_text":"Another trophy for your collection.", "_action":"SKIN"}"""
 			else:
@@ -45,16 +56,7 @@ func _get_scene_config() -> Dictionary:
 		"compass": {
 			"WEST": "bridge"
 		},
-		"description": """The scene unfolds with an eerie, otherworldly aura as you stand on the edge of the murky swamps, 
- gazing at a sinister island in the distance. 
- The island is shrouded in thick mist, and the only sounds are the unsettling hisses and the faint rustling of scales against foliage. 
- This is Snake Island—a dangerous haven teeming with slithering serpents of all shapes and sizes. 
- The trees on the island twist unnaturally, their branches serving as resting places for venomous vipers, 
- while the ground is covered in a writhing carpet of snakes.
- The swamp waters separating you from the island churn ominously, and you spot the glint of crocodile eyes lurking just beneath the surface, 
- making swimming to the island impossible. A sturdy liane dangles invitingly from a nearby tree, swaying gently in the humid breeze, 
- offering a precarious hope of swinging over the treacherous waters to the island. 
- The air is thick with tension, and every step forward feels like a gamble with danger.""",
+		"description": description,
 		"actions": actions
 	}
 
@@ -64,7 +66,7 @@ func execute_action(action):
 		"KILL":
 			if Global.MODE == "Remaster":
 				await self.start_show_then_hide_video(get_node("/root/snake/Remaster/Control/VideoStreamPlayerSnakeAttack"))
-			Global.update_scene_state("snake killed")
+			Global.update_scene_state("killed")
 			load_scene_config()
 
 		"SKIN":

@@ -35,8 +35,8 @@ expand = true
 [node name="VideoStreamPlayerWerewolfDying" type="VideoStreamPlayer" parent="Remaster/Control"]
 visible = false
 layout_mode = 0
-offset_left = -128.0
-offset_right = 1512.0
+offset_left = -66.0
+offset_right = 1574.0
 offset_bottom = 816.0
 stream = ExtResource("3_cf67n")
 expand = true
@@ -44,8 +44,8 @@ expand = true
 [node name="VideoStreamPlayerWerewolf_dead" type="VideoStreamPlayer" parent="Remaster/Control"]
 visible = false
 layout_mode = 0
-offset_left = -128.0
-offset_right = 1512.0
+offset_left = -65.0
+offset_right = 1575.0
 offset_bottom = 816.0
 stream = ExtResource("4_bph8b")
 expand = true
@@ -59,7 +59,7 @@ autoplay = true
 
 [node name="Ear" type="Sprite2D" parent="Remaster"]
 visible = false
-position = Vector2(1461, 424)
+position = Vector2(1526, 424)
 texture = ExtResource("5_5n4pn")
 
 [node name="Original" type="Node2D" parent="."]
