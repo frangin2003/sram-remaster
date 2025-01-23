@@ -86,6 +86,7 @@ text = "L. HAUDUC"
 fit_content = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Remaster"]
+visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 
@@ -257,21 +258,35 @@ offset_bottom = 1080.0
 [node name="Panel" type="Panel" parent="Original/MarginContainer"]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Original/MarginContainer/Panel"]
-position = Vector2(960, 539.875)
-scale = Vector2(1, 4.07642)
-texture = ExtResource("6_41wop")
+[node name="TheRemasterRichTextLabel" type="RichTextLabel" parent="Original/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 195.0
+offset_top = 616.0
+offset_right = -185.0
+offset_bottom = 23.88
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 25
+text = "Start the game by pressing \"1\". You can toggle between the remastered or original version pressing \"F1\"
+
+Interact with the Game Master, the scene and the NPCs by typing what you want to do (e.g., \"talk to the wizard,\" \"pick up the sword,\") and navigate between scenes using NORTH / EAST / SOUTH / WEST.
+Listen to the game master: The game responds with a humorous, guiding tone to help you on your journey.
+Your progress is automatically saved, so you can pick up where you left off anytime.
+
+Have fun and let your imagination take the lead! :)"
 
 [node name="HowToPlayRichTextLabel" type="RichTextLabel" parent="Original/MarginContainer/Panel"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 0.989
-offset_left = 827.0
-offset_top = 38.0
-offset_right = -746.0
-offset_bottom = -884.12
-theme_override_fonts/normal_font = ExtResource("4_tunr2")
-theme_override_font_sizes/normal_font_size = 80
+offset_left = 704.0
+offset_top = 550.0
+offset_right = -637.0
+offset_bottom = -372.12
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 51
 text = "How to play"
 
 [node name="RememberRichTextLabel" type="RichTextLabel" parent="Original/MarginContainer/Panel"]
@@ -279,34 +294,17 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.989
-offset_left = 240.0
-offset_top = 433.0
-offset_right = -120.0
-offset_bottom = -159.256
-theme_override_fonts/normal_font = ExtResource("4_tunr2")
-theme_override_font_sizes/normal_font_size = 33
-text = "At any time, press  F1  to switch between Remaster and Original game.
-Press the below button to quit the game, your progress is automatically saved..."
+offset_left = 195.0
+offset_top = 37.0
+offset_right = -186.0
+offset_bottom = -499.12
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 25
+text = "Hi, I’m Charles-Philippe, and last year I began remastering SRAM, a 1987 French text-based adventure game that shaped my youth. Created by Serge and Ludovic Hauduc with Jacques Hemonic and published by ERE Informatique, it was groundbreaking, featuring a text parser that let players explore a medieval-fantastic world, interact with NPCs, and receive witty, game-master-like responses—a magical precursor to today’s AI.
 
-[node name="F1" type="Sprite2D" parent="Original/MarginContainer/Panel"]
-position = Vector2(484.292, 445.156)
-scale = Vector2(0.270554, 0.270554)
-texture = ExtResource("7_jea1l")
+In my remaster, the text parser is replaced with a local LLM Llama 3.1, enabling richer, dynamic interactions and reasoning for next actions. The original 4-color graphics are now 1080p animated visuals, created with DALL·E 3 and RunwayML, with added cutscenes, ambient sounds, and music.
 
-[node name="F1RichTextLabel" type="RichTextLabel" parent="Original/MarginContainer/Panel"]
-z_index = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.989
-offset_left = 472.422
-offset_top = 433.0
-offset_right = -767.578
-offset_bottom = -223.256
-theme_override_colors/default_color = Color(0.255659, 0.255659, 0.255659, 1)
-theme_override_fonts/normal_font = ExtResource("4_tunr2")
-theme_override_font_sizes/normal_font_size = 33
-text = "F1"
+This project is my tribute to the original creators, and I hope you’ll enjoy rediscovering this classic as much as I did bringing it back to life!"
 
 [node name="1" type="RichTextLabel" parent="Original"]
 offset_left = 491.0

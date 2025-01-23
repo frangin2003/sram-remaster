@@ -14,6 +14,6 @@ func _get_scene_config() -> Dictionary:
 
 func _input(event):
 	if event is InputEventKey:
-		if event.pressed and event.keycode != KEY_F1 and event.keycode != KEY_ESCAPE:
+		if event.pressed and event.keycode != KEY_F1:
 			Global.reset_scene_state()
 			Global.set_scene("menhir")

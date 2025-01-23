@@ -5,5 +5,5 @@ func _ready():
 
 func _input(event):
 	if event is InputEventKey:
-		if event.pressed and event.keycode != KEY_F1 and event.keycode != KEY_ESCAPE:
+		if event.pressed and event.keycode != KEY_F1:
 			Global.set_scene(Global.SCENE)
