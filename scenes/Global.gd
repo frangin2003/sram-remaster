@@ -33,7 +33,6 @@ var INVENTORY = {
 	"key": false,
 }
 var LOADED_USER_STATE = false
-var SRAM_INTRO_DONE = false
 var MODE = null
 var PREVIOUS_SCENE = null
 var SCENE = null
@@ -68,7 +67,6 @@ func load_user_state():
 	SCENE_STATE = ConfigManager.load_config("Game", "SCENE_STATE", {})
 	SOUND_REMASTER = ConfigManager.load_config("Game", "SOUND_REMASTER", true)
 	SOUND_ORIGINAL = ConfigManager.load_config("Game", "SOUND_ORIGINAL", true)
-	SRAM_INTRO_DONE = ConfigManager.load_config("Game", "SRAM_INTRO_DONE", false)
 	print("Loaded Scene: %s" % SCENE)
 	print("Loaded Inventory: %s" % INVENTORY)
 	print("Loaded Compass: %s" % COMPASS)
