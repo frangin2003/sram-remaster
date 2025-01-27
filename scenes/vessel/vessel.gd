@@ -21,7 +21,7 @@ func _get_scene_config() -> Dictionary:
 
 func execute_action(action):
 	match action:
-		"ENTER":
+		"ENTER", "ENTERSHIP", "ENTEREDSHIP", "INSIDESHIP":
 			Global.set_scene("chest")
 		_:
 			print("Action not recognized in this scene")

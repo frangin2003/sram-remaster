@@ -1,5 +1,11 @@
 extends "res://scenes/BaseScene.gd"
 
+func init_scene():
+	if not Global.has_item("Ear") and not Global.has_state("ear given"):
+		Global.show_item("Ear")
+	else:
+		Global.hide_item("Ear")
+
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 	var scene_suffix = "_dead" if Global.has_state("werewolf dead") else ""
@@ -15,8 +21,7 @@ The creature's posture is steady, exuding a quiet power that feels both controll
   {"_speaker":"001", "_text":"It killed it.", "_action":"KILLEDWEREWOLF"}"""
 	else:
 		description += "The now dead werewolf lies on the ground, its body starting to be covered in snow."
-		if not Global.has_item("ear"):
-			Global.show_hide_item("Ear")
+		if not Global.has_item("ear") and not Global.has_state("ear given"):
 			if Global.has_item("knife"):
 				actions = """- If the hero wants to take the ear, he cuts it with the knife and takes it:
   {"_speaker":"001", "_text":"Congratulations, you have a new disgusting trophy", "_action":"EAR"}"""

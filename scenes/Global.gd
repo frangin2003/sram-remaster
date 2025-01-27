@@ -22,7 +22,7 @@ var INVENTORY = {
 	"fur": false,
 	"hoof": false,
 	"leaf": false,
-	"lily": false,
+	"lilypad": false,
 	"skin": false,
 	"potion": false,
 	"heart0": false,
@@ -48,6 +48,46 @@ var ConfigManager = preload("res://llm_server/ConfigManager.gd").new()
 
 func _ready():
 	call_deferred("load_user_state")
+
+func reset_state():
+	COMPASS = {
+		"NORTH": null,
+		"EAST": null,
+		"SOUTH": null,
+		"WEST": null
+	}
+	INVENTORY = {
+		"knife": false,
+		"shovel": false,
+		"arrow": false,
+		"bow": false,
+		"cane": false,
+		"flaskeau": false,
+		"flasksec": false,
+		"flute": false,
+		"money": false,
+		"ear": false,
+		"eggs": false,
+		"fur": false,
+		"hoof": false,
+		"leaf": false,
+		"lilypad": false,
+		"skin": false,
+		"potion": false,
+		"heart0": false,
+		"heart1": false,
+		"heart2": false,
+		"heart3": false,
+		"heart4": false,
+		"key": false,
+	}
+	SCENE_STATE = {}
+	SCENE_DESCRIPTION = ""
+	ACTIONS = ""
+	NPCS = ""
+	ConfigManager.save_config("INVENTORY", INVENTORY)
+	ConfigManager.save_config("COMPASS", COMPASS)
+	ConfigManager.save_config("SCENE_STATE", SCENE_STATE)
 
 func load_user_state():
 	if PREVIOUS_SCENE == null:
@@ -148,9 +188,11 @@ func turn_sound_on(sound_on: bool):
 	var music_node = get_node("/root/%s/Remaster/AudioStreamPlayer" % SCENE)
 	if music_node:
 		if sound_on:
-			music_node.play()
+			if (not music_node.is_playing()):
+				music_node.play()
 		else:
-			music_node.stop()
+			if (music_node.is_playing()):
+				music_node.stop()
 
 
 func set_compass(new_compass):
@@ -197,11 +239,11 @@ func update_inventory(item_name, value):
 	INVENTORY[item_name.to_lower()] = value
 	ConfigManager.save_config("INVENTORY", INVENTORY)
 
-func update_scene_state(state: String):
-	if not SCENE in SCENE_STATE:
-		SCENE_STATE[SCENE] = []
-	if not state in SCENE_STATE[SCENE]:
-		SCENE_STATE[SCENE].append(state)
+func update_scene_state(state: String, scene_name: String = SCENE):
+	if not scene_name in SCENE_STATE:
+		SCENE_STATE[scene_name] = []
+	if not state in SCENE_STATE[scene_name]:
+		SCENE_STATE[scene_name].append(state)
 	ConfigManager.save_config("SCENE_STATE", SCENE_STATE)
 
 func get_scene_state(scene_name: String = SCENE) -> String:

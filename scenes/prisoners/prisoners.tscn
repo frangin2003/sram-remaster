@@ -11,7 +11,6 @@
 script = ExtResource("1_6nfnk")
 
 [node name="Remaster" type="Node2D" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
@@ -24,8 +23,9 @@ offset_bottom = 824.0
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Remaster/Control"]
 layout_mode = 0
 offset_left = -64.0
+offset_top = -48.0
 offset_right = 1576.0
-offset_bottom = 816.0
+offset_bottom = 858.0
 stream = ExtResource("2_cnr36")
 autoplay = true
 expand = true
@@ -38,6 +38,7 @@ stream = ExtResource("4_a885p")
 autoplay = true
 
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="gui_original" parent="Original" instance=ExtResource("6_0ppwl")]
 

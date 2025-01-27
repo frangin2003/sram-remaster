@@ -36,7 +36,7 @@ func _get_scene_config() -> Dictionary:
 	- Input: "Hey, Rick, what’s your deal?" → {"_speaker":"007", "_text":"Wandering through the forest, feeling empty handed right now!"}
 	- Input: "Rick, have you lost something?" → {"_speaker":"007", "_text":"I am one bow and one arrow down!"}
   - Default Behavior: Rick responds humorously to casual inputs, but never misses the opportunity to complain about how much he misses his bow and arrow."""
-		if not Global.has_item("hoof"):
+		if not Global.has_item("hoof") and not Global.has_state("hoof given"):
 			if Global.has_item("bow"):
 				actions += """
 - If the hero is giving the bow:
@@ -66,8 +66,8 @@ func execute_action(action):
 			Global.update_scene_state("centaur")
 			load_scene_config()
 		"GIVEBOW":
-			Global.update_inventory("Bow", false)
-			Global.update_scene_state("bow given")
+			Global.remove_from_inventory("Bow")
+			Global.update_scene_state("bow given", "mountain")
 			if Global.has_state("arrow given"):
 				get_node("/root/centaur/Remaster/Hoof").show()
 				get_node("/root/centaur/Original/Hoof").show()
@@ -76,8 +76,8 @@ func execute_action(action):
 				await Global.take_item_and_animate("Original", "Hoof", 1666, 741)
 			Global.set_scene("centaur")
 		"GIVEARROW":
-			Global.update_inventory("Arrow", false)
-			Global.update_scene_state("arrow given")
+			Global.remove_from_inventory("Arrow")
+			Global.update_scene_state("arrow given", "arrow")
 			if Global.has_state("bow given"):
 				get_node("/root/centaur/Remaster/Hoof").show()
 				get_node("/root/centaur/Original/Hoof").show()

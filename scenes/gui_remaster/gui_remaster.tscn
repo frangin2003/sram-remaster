@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cdoq6xtniibw8"]
+[gd_scene load_steps=45 format=3 uid="uid://cdoq6xtniibw8"]
 
 [ext_resource type="Script" path="res://scenes/gui_remaster/gui_remaster.gd" id="1_4rsng"]
 [ext_resource type="Texture2D" uid="uid://ddoejeqbnxshx" path="res://scenes/gui_remaster/left column.png" id="1_fy52j"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bxle67ltackk5" path="res://scenes/snake/skin.png" id="25_o7kre"]
 [ext_resource type="Texture2D" uid="uid://c21ta74gob2q7" path="res://scenes/hogg/leaf.png" id="25_p4hys"]
 [ext_resource type="Texture2D" uid="uid://b2xc75kqifp75" path="res://scenes/hogg/fur.png" id="26_jj46e"]
+[ext_resource type="Texture2D" uid="uid://4aaphjicjqjs" path="res://scenes/turtle/eggs.png" id="26_q77ub"]
 [ext_resource type="Texture2D" uid="uid://duirc4r6xiu4f" path="res://scenes/centaur/hoof.png" id="26_yu6ij"]
 [ext_resource type="Texture2D" uid="uid://ck1livc1ifx2l" path="res://scenes/hermit/flute.png" id="27_hetx2"]
 [ext_resource type="Texture2D" uid="uid://b0emtdxuq4wht" path="res://scenes/chest/money.png" id="28_q0bps"]
@@ -195,7 +196,7 @@ visible = false
 position = Vector2(1824, 392)
 texture = ExtResource("26_jj46e")
 
-[node name="Lilipad" type="Sprite2D" parent="Inventory"]
+[node name="Lilypad" type="Sprite2D" parent="Inventory"]
 visible = false
 position = Vector2(1815, 325)
 scale = Vector2(0.181287, 0.181287)
@@ -206,6 +207,12 @@ visible = false
 position = Vector2(1807, 526)
 scale = Vector2(0.0963476, 0.0963476)
 texture = ExtResource("25_o7kre")
+
+[node name="Eggs" type="Sprite2D" parent="Inventory"]
+visible = false
+position = Vector2(1828, 247)
+scale = Vector2(0.58547, 0.58547)
+texture = ExtResource("26_q77ub")
 
 [node name="Potion" type="Sprite2D" parent="Inventory"]
 visible = false

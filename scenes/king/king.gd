@@ -21,6 +21,7 @@ func _process(_delta):
 
 func _input(event):
 	if can_skip and event is InputEventKey and event.pressed:
+		Global.reset_state()
 		Global.set_scene("title_screen")
 
 func _get_scene_config() -> Dictionary:

@@ -35,8 +35,8 @@ loop = true
 
 [node name="VideoStreamPlayerKnight" type="VideoStreamPlayer" parent="Remaster/Control"]
 layout_mode = 0
-offset_left = -64.0
-offset_right = 1576.0
+offset_left = -83.0
+offset_right = 1645.0
 offset_bottom = 816.0
 stream = SubResource("VideoStreamTheora_jux55")
 autoplay = true

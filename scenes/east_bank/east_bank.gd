@@ -12,9 +12,8 @@ func _get_scene_config() -> Dictionary:
  The sky is a brilliant blue, dotted with fluffy white clouds that drift lazily, framing the island like a serene painting. 
  The faint cry of seagulls echoes in the air, and a soft breeze carries the salty scent of the ocean, 
  beckoning the hero toward the mysterious island.""",
-		"actions": """
-- If the hero is swimming to the island:
-  {"_speaker":"001", "_text":"You looked like a fish.", "_action":"SWIM"}"""
+		"actions": """- If the hero swims to the island:
+  {"_speaker":"001", "_text":"You swam like a fish.", "_action":"SWIM"}"""
 	}
 
 func execute_action(action):
