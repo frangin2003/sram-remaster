@@ -67,11 +67,6 @@ func init_scene():
 	else:
 		Global.show_item("Leaf")
 
-	if Global.has_item("Fur") or Global.has_state("fur given"):
-		Global.hide_item("Fur")
-	else:
-		Global.show_item("Fur")
-
 func _get_scene_config() -> Dictionary:
 	var description = """The hero stands amidst a tranquil forest, where sunlight streams through the tall, ancient trees, 
  casting golden patterns on the moss-covered ground. 

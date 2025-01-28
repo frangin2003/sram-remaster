@@ -1,11 +1,5 @@
 extends "res://scenes/BaseScene.gd"
 
-func init_scene():
-	if not Global.has_item("Ear") and not Global.has_state("ear given"):
-		Global.show_item("Ear")
-	else:
-		Global.hide_item("Ear")
-
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 	var scene_suffix = "_dead" if Global.has_state("werewolf dead") else ""
@@ -52,5 +46,6 @@ func execute_action(action):
 			get_node("/root/werewolf/Original/Ear").visible = true
 			self.start_loop_and_show_video(get_node("/root/werewolf/Remaster/Control/VideoStreamPlayerWerewolf_dead"))
 			Global.update_scene_state("werewolf dead")
+			load_scene_config()
 		_:
 			print("Action not recognized in this scene")

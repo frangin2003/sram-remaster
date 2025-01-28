@@ -1,5 +1,10 @@
 extends "res://scenes/BaseScene.gd"
 
+func init_scene():
+	if Global.has_item("Flute"):
+		get_node("/root/hermit/Remaster/ErmitFlute").visible = false
+		get_node("/root/hermit/Original/Flute").visible = false
+
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 	var description = """The scene shows the Ermit, a large, jovial man with a bushy white beard and a warm smile, standing confidently in front of his rustic wooden house. 
@@ -27,9 +32,6 @@ func _get_scene_config() -> Dictionary:
   {"_speaker":"004", "_text":"I'll give it to you if you solve this riddle: What walks on four legs in the morning, two legs at noon, and three legs in the evening?", "_action":"RIDDLE"}
 - If the hero correctly answers the riddle (e.g., "man" or similar):
   {"_speaker":"004", "_text":"The flute is yours now, play it in the centaur forest.", "_action":"FLUTE"}"""
-	else:
-		get_node("/root/hermit/Remaster/ErmitFlute").visible = false
-		get_node("/root/hermit/Original/Flute").visible = false
 
 	if not Global.has_state("talked once to hermit"):
 		actions += """- If the hero talks to the hermit:

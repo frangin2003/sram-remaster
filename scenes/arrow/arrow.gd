@@ -18,7 +18,7 @@ At the center of the island, a wooden target stands proudly"""
 - If the hero uses the liana: 
   {"_speaker":"001", "_text":"You balance back on the shore with a liana like Tarzan.", "_action":"BACK"}"""
 
-	if not Global.has_item("arrow") or not Global.has_state("arrow given"):
+	if not Global.has_item("Arrow") or not Global.has_state("arrow given"):
 		description += " with an arrow lodged perfectly in its bullseye."
 		actions += """- If the hero is taking the arrow:
   {"_speaker":"001", "_text":"Beware not to prick yourself.", "_action":"ARROW"}"""

@@ -67,6 +67,7 @@ func execute_action(action):
 			load_scene_config()
 		"GIVEBOW":
 			Global.remove_from_inventory("Bow")
+			Global.update_scene_state("bow given")
 			Global.update_scene_state("bow given", "mountain")
 			if Global.has_state("arrow given"):
 				get_node("/root/centaur/Remaster/Hoof").show()
@@ -77,6 +78,7 @@ func execute_action(action):
 			Global.set_scene("centaur")
 		"GIVEARROW":
 			Global.remove_from_inventory("Arrow")
+			Global.update_scene_state("arrow given")
 			Global.update_scene_state("arrow given", "arrow")
 			if Global.has_state("bow given"):
 				get_node("/root/centaur/Remaster/Hoof").show()

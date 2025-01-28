@@ -27,3 +27,8 @@ func save_config(key: String, value):
 	config.load(CONFIG_FILE_PATH)
 	config.set_value("Game", key, value)
 	config.save(CONFIG_FILE_PATH)
+
+func reset_config():
+	var config = ConfigFile.new()
+	config.save(CONFIG_FILE_PATH)  # Save an empty config file
+	print("Config content cleared at: " + CONFIG_FILE_PATH)

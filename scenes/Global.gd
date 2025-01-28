@@ -113,6 +113,15 @@ func load_user_state():
 	print("Loaded Scene State: %s" % SCENE_STATE)
 	LOADED_USER_STATE = true
 
+func load_scene(scene):
+	var fade_rect = await fade_out_and_get_rect()
+	
+	print("Changing scene to %s" % scene)
+	print("res://scenes/" + scene + "/" + scene + ".tscn")
+	get_tree().change_scene_to_file("res://scenes/" + scene + "/" + scene + ".tscn")
+	
+	await fade_in(fade_rect)
+
 func set_scene(new_scene):
 	SYSTEM_OVERRIDE = null
 	BLOCK_MOVEMENTS = false
@@ -185,14 +194,15 @@ func update_sound_original(new_sound_original):
 	ConfigManager.save_config("SOUND_ORIGINAL", SOUND_ORIGINAL)
 
 func turn_sound_on(sound_on: bool):
-	var music_node = get_node("/root/%s/Remaster/AudioStreamPlayer" % SCENE)
-	if music_node:
-		if sound_on:
-			if (not music_node.is_playing()):
-				music_node.play()
-		else:
-			if (music_node.is_playing()):
-				music_node.stop()
+	if has_node("/root/%s/Remaster/AudioStreamPlayer" % SCENE):
+		var music_node = get_node("/root/%s/Remaster/AudioStreamPlayer" % SCENE)
+		if music_node:
+			if sound_on:
+				if (not music_node.is_playing()):
+					music_node.play()
+			else:
+				if (music_node.is_playing()):
+					music_node.stop()
 
 
 func set_compass(new_compass):
@@ -426,7 +436,7 @@ func get_system_instructions():
 		SYSTEM += """
 
 ## Actions
-- Use scene state to decide possible actions. If an action has already been completed, it should not be possible to repeat it.
+- Use scene state to decide possible actions.
 %s""" % ACTIONS
 
 	if NPCS:
