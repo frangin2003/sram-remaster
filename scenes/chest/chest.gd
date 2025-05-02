@@ -2,6 +2,7 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE IN THE HOLD"
 
 	var description = """The hero finds themselves in the dimly lit hold of a wooden ship, 
  where beams of sunlight stream through cracks in the deck above, illuminating the space with a warm glow.

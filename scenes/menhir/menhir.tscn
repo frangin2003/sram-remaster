@@ -54,15 +54,14 @@ theme_override_colors/font_outline_color = Color(0.791999, 0.791999, 0.791999, 1
 theme_override_constants/outline_size = 8
 theme_override_fonts/normal_font = ExtResource("4_bvgea")
 theme_override_font_sizes/normal_font_size = 60
-text = "Cinomeh, the high priest, has taken power. He overthrew Egres 4 and imprisoned him along with his family in the temple's dungeons.
+text = "The high priest Cinomeh has usurped the thrown of Egres IV whom he has emprisoned with his family in the temple cellars.
 
-You must go and save them.
-Go see Edualc the witch. She will grant you 5 lives if you have earned them...
-         The Hermit can help you.
+    You must rescue them.
+Go to the witch Edualc.
+    5 lives will she give to one who merits them...
 
-Go if you are brave.
-
-                            a friend who wishes you well..."
+Go if you be brave.
+                            one who wishes you well..."
 
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("1_tsktu")]
 
@@ -89,12 +88,11 @@ offset_bottom = 681.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("9_8abhc")
 theme_override_font_sizes/normal_font_size = 30
-text = "Cinomeh, the high priest, has taken power. He overthrew Egres 4 and imprisoned him along with his family in the temple's dungeons.
+text = "THE HIGH PRIEST CINOMEH HAS USURPED THE THROWN OF EGRES IV WHOM HE HAS EMPRISONED WITH HIS FAMILY IN THE TEMPLE CELLARS.
 
-You must go and save them.
-Go see Edualc the witch. She will grant you 5 lives if you have earned them...
-         The Hermit can help you.
+ YOU MUST RESCUE THEM.
+GO TO THE WITCH EDUALC.
+ 5 LIVES WILL SHE GIVE TO ONE WHO MERITS THEM...
 
-Go if you are brave.
-
-   a friend who wishes you well..."
+GO IF YOU BE BRAVE.
+        one who wishes you well..."

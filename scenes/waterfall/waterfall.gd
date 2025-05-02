@@ -2,6 +2,8 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE BEFORE THE WATERFALL OF THE LOST CAVE"
+
 	var actions = """- If the hero attempts to go through the waterfall:
   {"_speaker":"001", "_text":"You found the lost cavern. It probably needs a new name.", "_action":"CAVERN"}"""
 

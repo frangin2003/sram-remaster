@@ -2,6 +2,8 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE AT LONELY HEARTS CORNER"
+
 	var description = """The scene showcases a serene crossroads amidst a picturesque landscape.
  The place is known as the crossroads of the lonelies.
  A wooden signpost stands at the center, its weathered planks pointing in different directions, inviting travelers to choose their path. 

@@ -5,6 +5,8 @@ func init_scene():
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE IN A CAVE"
+
 	var scene_suffix = "_skeleton_buried" if Global.has_state("skeleton buried") else ""
 	get_node("/root/cavern/Remaster/Background").texture = load("res://scenes/cavern/cavern%s.webp" % scene_suffix)
 	get_node("/root/cavern/Original/Background").texture = load("res://scenes/cavern/cavern%s_original_background.png" % scene_suffix)
