@@ -21,7 +21,7 @@ func _get_scene_config() -> Dictionary:
 	if Global.has_item("flute"):
 		actions = """
 - If the hero attempts to play the flute:
-  {"_speaker":"001", "_text":"", "_action":"PLAYFLUTE"}"""
+  {"_speaker":"NONE", "_text":"", "_action":"PLAYFLUTE"}"""
 	if Global.has_state("centaur"):
 		description += """A proud centaur is facing you, his muscular frame glistening in the sunlight. With a confident smirk, he proclaims,
 “I’ll never let you down!”."""
