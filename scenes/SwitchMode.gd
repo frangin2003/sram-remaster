@@ -31,12 +31,13 @@ func update_mode_visibility():
 		original_node.visible = Global.MODE == "Original"
 	var heroTextEdit = null
 	if Global.MODE == "Remaster":
-		Global.turn_sound_on(Global.SOUND)
-		heroTextEdit = remaster_node.get_node("gui_remaster/HeroTextEdit")
+		Global.turn_sound_on(Global.SOUND_REMASTER)
+		if remaster_node.has_node("gui_remaster/HeroTextEdit"):
+			heroTextEdit = remaster_node.get_node("gui_remaster/HeroTextEdit")
 	else:
 		Global.turn_sound_on(Global.SOUND_ORIGINAL)
-
-		heroTextEdit = original_node.get_node("gui_original/HeroTextEdit")
+		if original_node.has_node("gui_original/HeroTextEdit"):
+			heroTextEdit = original_node.get_node("gui_original/HeroTextEdit")
 	if heroTextEdit != null:
 		heroTextEdit.grab_focus()
 

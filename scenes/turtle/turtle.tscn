@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=9 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/turtle/turtle.gd" id="1_ly6u3"]
 [ext_resource type="VideoStream" path="res://scenes/turtle/turtle.ogv" id="2_0i4ix"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://cyfcqsgurhvyl" path="res://scenes/turtle/turtle.png" id="6_25bef"]
+[ext_resource type="Texture2D" uid="uid://4aaphjicjqjs" path="res://scenes/turtle/eggs.png" id="7_bwh2b"]
+[ext_resource type="Texture2D" uid="uid://boej3vt1bkjfu" path="res://scenes/turtle/eggs_original.png" id="8_kk6ty"]
 
 [node name="turtle" type="Node2D"]
 script = ExtResource("1_ly6u3")
@@ -34,7 +36,14 @@ loop = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
 stream = ExtResource("4_nk51t")
+volume_db = -15.0
 autoplay = true
+
+[node name="Eggs" type="Sprite2D" parent="Remaster"]
+visible = false
+position = Vector2(834, 620)
+scale = Vector2(0.58547, 0.58547)
+texture = ExtResource("7_bwh2b")
 
 [node name="Original" type="Node2D" parent="."]
 visible = false
@@ -45,3 +54,9 @@ visible = false
 position = Vector2(943, 475)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("6_25bef")
+
+[node name="Eggs" type="Sprite2D" parent="Original"]
+visible = false
+position = Vector2(698, 741)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("8_kk6ty")

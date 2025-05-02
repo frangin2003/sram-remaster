@@ -6,7 +6,7 @@ func _get_scene_config() -> Dictionary:
 	var actions = ""
 	var npcs = ""
 	if not Global.has_item("Heart0"):
-		actions += """- When the hero is talking to Edualc the witch:
+		actions += """- If the hero talks to Edualc the witch:
   {"_speaker":"002", "_text":"Here you are at last, noble hero. Here are the 5 lives and the strength that will allow you to complete your mission. When you are ready, go north. Good luck...", "_action":"HEART"}"""
 	else:
 		npcs = """
@@ -44,7 +44,7 @@ func _get_scene_config() -> Dictionary:
 
 func execute_action(action):
 	match action:
-		"HEART":
+		"HEART", "SPEAK", "TALK", "SAY", "TALKTOEDUALC", "TALKTOWITCH", "TALKTOWITCHEDUALC":
 			get_node("/root/edualc/Original/Hearts").visible = true
 			Global.add_to_inventory("Heart0")
 			if Global.MODE == "Remaster":

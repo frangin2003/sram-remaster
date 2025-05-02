@@ -1,5 +1,10 @@
 extends "res://scenes/BaseScene.gd"
 
+func init_scene():
+	if Global.has_item("Flute"):
+		get_node("/root/hermit/Remaster/ErmitFlute").visible = false
+		get_node("/root/hermit/Original/Flute").visible = false
+
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 	get_node("Original/gui_original/SceneDescription").text = "YOU ARE BEFORE THE HERMIT"
@@ -29,15 +34,12 @@ func _get_scene_config() -> Dictionary:
   {"_speaker":"004", "_text":"I'll give it to you if you solve this riddle: What walks on four legs in the morning, two legs at noon, and three legs in the evening?", "_action":"RIDDLE"}
 - If the hero correctly answers the riddle (e.g., "man" or similar):
   {"_speaker":"004", "_text":"The flute is yours now, play it in the centaur forest.", "_action":"FLUTE"}"""
-	else:
-		get_node("/root/hermit/Remaster/ErmitFlute").visible = false
-		get_node("/root/hermit/Original/Flute").visible = false
 
 	if not Global.has_state("talked once to hermit"):
 		actions += """- If the hero talks to the hermit:
   {"_speaker":"004", "_text":"Hello there my friend. I am the hermit and I do very good potions that delights Leprechaun. For it, you’ll need boar fur, oak leaf, water lily, snake scale, werewolf ear, turtle egg, and centaur hoof. Remember, no shortcuts in magic!", "_action":"TALK"}"""
 
-	if Global.has_item("Fur") and Global.has_item("Leaf") and Global.has_item("Lilipad") and Global.has_item("Skin") and Global.has_item("Ear") and Global.has_item("Eggs") and Global.has_item("Hoof"):
+	if Global.has_item("Fur") and Global.has_item("Leaf") and Global.has_item("Lilypad") and Global.has_item("Skin") and Global.has_item("Ear") and Global.has_item("Eggs") and Global.has_item("Hoof"):
 		actions += """- If the hero gives the ingredients to the hermit:
   {"_speaker":"004", "_text":"Here is the potion for you. Give it to the Leprechaun. Good luck my friend.", "_action":"POTION"}"""
 		npcs += """  - Now that the hero has the ingredients, give him the potion when he gives the ingredients."""
@@ -66,29 +68,36 @@ func execute_action(action):
 			load_scene_config()
 		"HOUSE":
 			Global.set_scene("room")
-		"POTION":
+		"POTION", "INGREDIENTS", "GIVEITEMS", "GIVEINGREDIENTS":
 			Global.remove_from_inventory("Fur")
+			Global.update_scene_state("fur given", "hogg")
 			get_node("/root/hermit/Remaster/gui_remaster/Inventory/Fur").visible = false
 			get_node("/root/hermit/Original/gui_original/Inventory/Fur").visible = false
 			Global.remove_from_inventory("Leaf")
+			Global.update_scene_state("leaf given", "hogg")
 			get_node("/root/hermit/Remaster/gui_remaster/Inventory/Leaf").visible = false
 			get_node("/root/hermit/Original/gui_original/Inventory/Leaf").visible = false
-			Global.remove_from_inventory("Lilipad")
-			get_node("/root/hermit/Remaster/gui_remaster/Inventory/Lilipad").visible = false
-			get_node("/root/hermit/Original/gui_original/Inventory/Lilipad").visible = false
+			Global.remove_from_inventory("Lilypad")
+			Global.update_scene_state("lilypad given", "pond")
+			get_node("/root/hermit/Remaster/gui_remaster/Inventory/Lilypad").visible = false
+			get_node("/root/hermit/Original/gui_original/Inventory/Lilypad").visible = false
 			Global.remove_from_inventory("Skin")
+			Global.update_scene_state("skin given", "snake")
 			get_node("/root/hermit/Remaster/gui_remaster/Inventory/Skin").visible = false
 			get_node("/root/hermit/Original/gui_original/Inventory/Skin").visible = false
 			Global.remove_from_inventory("Ear")
+			Global.update_scene_state("ear given", "werewolf")
 			get_node("/root/hermit/Remaster/gui_remaster/Inventory/Ear").visible = false
 			get_node("/root/hermit/Original/gui_original/Inventory/Ear").visible = false
 			Global.remove_from_inventory("Eggs")
+			Global.update_scene_state("eggs given", "turtle")
 			get_node("/root/hermit/Remaster/gui_remaster/Inventory/Eggs").visible = false
 			get_node("/root/hermit/Original/gui_original/Inventory/Eggs").visible = false
 			Global.remove_from_inventory("Hoof")
+			Global.update_scene_state("hoof given", "centaur")
 			get_node("/root/hermit/Remaster/gui_remaster/Inventory/Hoof").visible = false
 			get_node("/root/hermit/Original/gui_original/Inventory/Hoof").visible = false
-			Global.remove_from_inventory("Potion")
+			Global.update_inventory("Potion", true)
 			get_node("/root/hermit/Remaster/gui_remaster/Inventory/Potion").visible = true
 			get_node("/root/hermit/Original/gui_original/Inventory/Potion").visible = true
 			load_scene_config()

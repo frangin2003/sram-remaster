@@ -6,8 +6,8 @@ func _get_scene_config() -> Dictionary:
 	return {
 		"compass": {
 			"NORTH": "druids",
-			"EAST": "west_bank",
-			"WEST": "pond"
+			"EAST": "pond",
+			"WEST": "east_bank"
 		},
 		"description": """This mystical swamp is bathed in the golden glow of a setting sun, 
  with an ancient tree towering on a mysterious island in the distance. Its sprawling roots and hanging vines exude an aura of timeless majesty. 
@@ -16,12 +16,14 @@ func _get_scene_config() -> Dictionary:
  Logs and lush vegetation frame the scene, while the misty backdrop hints at secrets hidden deep within the swamp. 
  The island beckons, yet remains tantalizingly out of reach.""",
 		"actions": """- If the hero wants to get to the island with the liana: 
+  {"_speaker":"001", "_text":"You balance on the island shore with a liana like Tarzan.", "_action":"LIANA"}
+- If the hero uses the liana: 
   {"_speaker":"001", "_text":"You balance on the island shore with a liana like Tarzan.", "_action":"LIANA"}"""
 	}
 
 func execute_action(action):
 	match action:
-		"LIANA":
+		"LIANA", "GRABBEDLIANA", "USELIANA", "SWING":
 			Global.set_scene("arrow")
 		_:
 			print("Action not recognized in this scene")

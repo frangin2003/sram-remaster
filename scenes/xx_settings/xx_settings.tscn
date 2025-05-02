@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bc1qw0yniqdji" path="res://scenes/xx_settings/checked_s.png" id="2_dmi8f"]
 [ext_resource type="Texture2D" uid="uid://cmdrkpmcwot3x" path="res://scenes/xx_settings/unchecked_s.png" id="3_orn34"]
 [ext_resource type="Texture2D" uid="uid://58v55br4xjps" path="res://scenes/xx_settings/close.png" id="5_i6t0g"]
-[ext_resource type="Script" path="res://scenes/xx_settings/MusicOverallCheckBox.gd" id="7_7f0hj"]
+[ext_resource type="Script" path="res://scenes/xx_settings/MusicRemasterCheckBox.gd" id="7_aegwo"]
 [ext_resource type="Texture2D" uid="uid://d3lr0aqu6disu" path="res://scenes/xx_settings/unchecked.png" id="7_gylgn"]
 [ext_resource type="Texture2D" uid="uid://bvlq52ehovcel" path="res://scenes/xx_settings/exit.png" id="7_rfk8y"]
 [ext_resource type="Script" path="res://scenes/xx_settings/MusicOriginalCheckBox.gd" id="8_tgd16"]
@@ -57,7 +57,7 @@ theme_override_fonts/normal_font = ExtResource("1_cre3q")
 theme_override_font_sizes/normal_font_size = 80
 text = "Settings"
 
-[node name="MusicOverallCheckBox" type="CheckBox" parent="MarginContainer/Panel"]
+[node name="MusicRemasterCheckBox" type="CheckBox" parent="MarginContainer/Panel"]
 layout_mode = 0
 offset_left = 144.0
 offset_top = 124.0
@@ -67,8 +67,8 @@ theme_override_fonts/font = ExtResource("1_cre3q")
 theme_override_font_sizes/font_size = 60
 theme_override_icons/checked = ExtResource("2_dmi8f")
 theme_override_icons/unchecked = ExtResource("3_orn34")
-text = "Music and sound effects in Game"
-script = ExtResource("7_7f0hj")
+text = "Music and sound effects in Remaster"
+script = ExtResource("7_aegwo")
 
 [node name="MusicOriginalCheckBox" type="CheckBox" parent="MarginContainer/Panel"]
 layout_mode = 0
@@ -80,7 +80,7 @@ theme_override_fonts/font = ExtResource("1_cre3q")
 theme_override_font_sizes/font_size = 60
 theme_override_icons/checked = ExtResource("2_dmi8f")
 theme_override_icons/unchecked = ExtResource("3_orn34")
-text = "Music and sound effects in Original Game"
+text = "Music and sound effects in Original"
 script = ExtResource("8_tgd16")
 
 [node name="RememberRichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel"]

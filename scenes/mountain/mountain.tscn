@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bflxqrjtbsynx"]
 
-[ext_resource type="Script" path="res://scenes/bird/bird.gd" id="1_aetvx"]
+[ext_resource type="Script" path="res://scenes/mountain/mountain.gd" id="1_qxlvs"]
 [ext_resource type="VideoStream" path="res://scenes/mountain/mountain.ogv" id="2_unrr2"]
 [ext_resource type="AudioStream" uid="uid://c0n8ijguhl74m" path="res://scenes/menhir/wind-outside-sound-ambient-141989.mp3" id="3_tt656"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ctfselehuswth" path="res://scenes/mountain/bow_original.png" id="7_xn47p"]
 
 [node name="mountain" type="Node2D"]
-script = ExtResource("1_aetvx")
+script = ExtResource("1_qxlvs")
 
 [node name="Remaster" type="Node2D" parent="."]
 visible = false

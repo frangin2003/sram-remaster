@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/arrow/arrow.gd" id="1_dfuoe"]
 [ext_resource type="VideoStream" path="res://scenes/arrow/arrow_island.ogv" id="2_s7fuq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
 [ext_resource type="Texture2D" uid="uid://bhdrlhehuuwgd" path="res://scenes/arrow/arrow.png" id="5_3eacf"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
+[ext_resource type="Texture2D" uid="uid://bfq0wghr5bwiv" path="res://scenes/swamps/liana.png" id="6_8rawb"]
 [ext_resource type="Texture2D" uid="uid://dpkrt1o4d8xg4" path="res://scenes/arrow/island.png" id="7_xaq0q"]
 [ext_resource type="Texture2D" uid="uid://tyikd5kkbxak" path="res://scenes/arrow/arrow_original.png" id="8_o5ui6"]
 
@@ -43,6 +44,11 @@ position = Vector2(597, 524)
 rotation = -0.442487
 scale = Vector2(0.555172, 0.555172)
 texture = ExtResource("5_3eacf")
+
+[node name="Liana" type="Sprite2D" parent="Remaster"]
+position = Vector2(1344, 280)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_8rawb")
 
 [node name="Original" type="Node2D" parent="."]
 visible = false

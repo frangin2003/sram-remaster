@@ -62,7 +62,10 @@ func animate_leaf(leaf: Node2D):
 
 func init_scene():
 	ActionHandler.CURRENT_HANDLER = self
-	Global.show_hide_item("Leaf")
+	if Global.has_item("Leaf") or Global.has_state("leaf given"):
+		Global.hide_item("Leaf")
+	else:
+		Global.show_item("Leaf")
 
 func _get_scene_config() -> Dictionary:
 	var description = """The hero stands amidst a tranquil forest, where sunlight streams through the tall, ancient trees, 
@@ -73,14 +76,15 @@ func _get_scene_config() -> Dictionary:
  Like all boars, this one has a particular fondness for acorns, a delicacy of the forest."""
 	var actions = """- If the hero is attacking the boar:
 {"_speaker":"001", "_text":"", "_action":"ATTACK"}"""
-	if not Global.has_item("Leaf"):
+	if not Global.has_item("Leaf") and not Global.has_state("leaf given"):
 		description += " Nearby, a beautiful oak leaf, vibrant and perfect, hangs delicately from a low branch, swaying gently in the soft breeze."
 		actions += """- If the hero is taking the leaf:
 	{"_speaker":"001", "_text":"Well, a beautiful leaf, keep it.", "_action":"LEAF"}"""
+
 	if not Global.has_item("Fur"):
 		actions += """- If the hero is giving an acorn to the boar:
 	{"_speaker":"001", "_text":"To thank you, it gives you some fur.", "_action":"FUR"}"""
-	else:
+	elif not Global.has_state("fur given"):
 		get_node("/root/hogg/Remaster/Fur").visible = true
 		get_node("/root/hogg/Original/Fur").visible = true
 

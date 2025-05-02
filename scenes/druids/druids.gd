@@ -30,7 +30,7 @@ func _get_scene_config() -> Dictionary:
 
 func execute_action(action):
 	match action:
-		"CANE":
+		"CANE", "CANETAKEN":
 			Global.take_item_and_animate("Remaster", "Cane", 63, 396)
 			Global.take_item_and_animate("Original", "Cane", 217, 378)
 		_:

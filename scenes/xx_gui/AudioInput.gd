@@ -32,4 +32,5 @@ func _on_record_voice_button_audio_recording_stopped():
 
 		get_node("../RecordVoiceButton").visible = true
 		gameMasterOutput.text = ""
-		LlmServer.send_to_llm_server(LlmServer.SYSTEM, "", true)
+		var system_message = Global.get_system_instructions()
+		LlmServer.send_to_llm_server(system_message, "", true)

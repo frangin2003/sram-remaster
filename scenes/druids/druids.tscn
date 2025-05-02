@@ -4,12 +4,10 @@
 [ext_resource type="VideoStream" path="res://scenes/druids/druids.ogv" id="2_u0t6l"]
 [ext_resource type="AudioStream" uid="uid://18gwaw4p1xfn" path="res://scenes/tree/forest-bird-sounds-73690.mp3" id="4_t7j8f"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_xhtv6"]
+[ext_resource type="Texture2D" uid="uid://qb21lhipw2l8" path="res://scenes/druids/cane.png" id="5_vkrch"]
 [ext_resource type="PackedScene" uid="uid://cwr2ewdghvrdv" path="res://scenes/gui_original/gui_original.tscn" id="6_0ppwl"]
 [ext_resource type="Texture2D" uid="uid://dji8cun8kitr6" path="res://scenes/druids/druids.png" id="7_425ba"]
 [ext_resource type="Texture2D" uid="uid://bnqd4yghwwnfk" path="res://scenes/druids/cane_original.png" id="8_wk80o"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xcs4o"]
-load_path = "res://.godot/imported/cane.png-90654a2e9ca1601cfc9b94ed3ea5764a.ctex"
 
 [node name="druids" type="Node2D"]
 script = ExtResource("1_by4ha")
@@ -43,7 +41,7 @@ autoplay = true
 [node name="Cane" type="Sprite2D" parent="Remaster"]
 position = Vector2(1076, 562)
 scale = Vector2(0.383333, 0.383333)
-texture = SubResource("CompressedTexture2D_xcs4o")
+texture = ExtResource("5_vkrch")
 
 [node name="Original" type="Node2D" parent="."]
 visible = false

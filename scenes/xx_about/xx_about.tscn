@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=16 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/xx_about/xx_about.gd" id="1_ke2k2"]
 [ext_resource type="VideoStream" path="res://scenes/xx_about/the_team.ogv" id="2_20ess"]
@@ -6,7 +6,13 @@
 [ext_resource type="AudioStream" uid="uid://ce3jwefmytcmw" path="res://scenes/xx_about/serenity-waves-zen-meditation-247329.mp3" id="3_jlwnh"]
 [ext_resource type="FontFile" uid="uid://6ml201s124x3" path="res://scenes/title_screen/jancient.ttf" id="4_tunr2"]
 [ext_resource type="Texture2D" uid="uid://csbor6cmbma2y" path="res://scenes/xx_about/about.png" id="4_wa7bf"]
+[ext_resource type="Texture2D" uid="uid://c58jr33yu1mca" path="res://scenes/xx_settings/marble bottom.png" id="6_41wop"]
 [ext_resource type="FontFile" uid="uid://4q87slg2yxdu" path="res://scenes/gui_original/PressStart2P.ttf" id="7_dit31"]
+[ext_resource type="Texture2D" uid="uid://d3lr0aqu6disu" path="res://scenes/xx_settings/unchecked.png" id="7_jea1l"]
+[ext_resource type="Texture2D" uid="uid://b76nq0hei7hus" path="res://scenes/xx_about/warning.png" id="9_vrqdd"]
+[ext_resource type="Texture2D" uid="uid://qdegnrnm264w" path="res://scenes/gui_remaster/cog.png" id="10_va0vb"]
+[ext_resource type="Texture2D" uid="uid://ctu26i6j8aqsb" path="res://scenes/gui_original/cog.png" id="12_b10pk"]
+[ext_resource type="Texture2D" uid="uid://bvskkuskcb0lj" path="res://scenes/gui_original/llm_on.png" id="13_8401t"]
 
 [sub_resource type="GDScript" id="GDScript_5hww1"]
 
@@ -18,6 +24,7 @@ script = SubResource("GDScript_5hww1")
 script = ExtResource("1_ke2k2")
 
 [node name="Remaster" type="Node2D" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
@@ -83,13 +90,321 @@ theme_override_font_sizes/normal_font_size = 45
 text = "L. HAUDUC"
 fit_content = true
 
-[node name="Original" type="Node2D" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="Remaster"]
 visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Panel" type="Panel" parent="Remaster/MarginContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Remaster/MarginContainer/Panel"]
+position = Vector2(960, 539.875)
+scale = Vector2(1, 4.07642)
+texture = ExtResource("6_41wop")
+
+[node name="RememberRichTextLabel" type="RichTextLabel" parent="Remaster/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 39.0
+offset_top = 37.0
+offset_right = -30.0
+offset_bottom = -760.12
+theme_override_constants/line_separation = -4
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 33
+text = "Hi, I’m Charles-Philippe, and last year I began remastering SRAM, a 1987 French text-based adventure game that shaped my youth. Created by Serge and Ludovic Hauduc with Jacques Hemonic and published by ERE Informatique, it was groundbreaking, featuring a text parser that let players explore a medieval-fantastic world, interact with NPCs, and receive witty, game-master-like responses—a magical precursor to today’s AI.
+
+In my remaster, the text parser is replaced with a local LLM with Ollama using Llama 3.1, enabling richer, dynamic interactions and reasoning for next actions. The original 4-color graphics are now 1080p animated visuals, created with DALL·E 3 and RunwayML, with added cutscenes, ambient sounds, and music.
+
+This project is my tribute to the original creators, and I hope you’ll enjoy rediscovering this classic as much as I did bringing it back to life!"
+
+[node name="IssueRichTextLabel" type="RichTextLabel" parent="Remaster/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 528.0
+offset_top = 332.0
+offset_right = -375.0
+offset_bottom = -671.12
+theme_override_colors/default_color = Color(0, 0.901961, 0, 1)
+theme_override_constants/line_separation = -4
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 33
+text = "** If you run into an issue, don't hesitate to DM me on X @charlyouki **"
+
+[node name="HowToPlayRichTextLabel" type="RichTextLabel" parent="Remaster/MarginContainer/Panel"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 796.0
+offset_top = 402.0
+offset_right = -777.0
+offset_bottom = -520.12
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 69
+text = "How to play"
+
+[node name="TheRemasterRichTextLabel" type="RichTextLabel" parent="Remaster/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 51.0
+offset_top = 408.0
+offset_right = -27.0
+offset_bottom = -142.12
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 33
+text = "
+
+Start the game by pressing        You can toggle between the remastered or original version pressing
+
+First, check the LLM active indicator, if it's          it's ready to go, but if it's           then Ollama is not running and you won't be able to play.
+
+At any time, click on the bottom right cog          and you'll be able to change few options and quit the game.
+
+Use the text input at the bottom of the screen and start interacting with the Game Master, the scene and the NPCs by typing what you want to do (e.g., \"talk to the wizard,\" \"pick up the sword,\") and navigate between scenes using NORTH / EAST / SOUTH / WEST.
+
+Listen to the game master: The game responds with a humorous, guiding tone to help you on your journey.
+Your progress is automatically saved, so you can pick up where you left off anytime.
+
+Have fun and let your imagination take the lead! 😊"
+
+[node name="WarningRichTextLabel" type="RichTextLabel" parent="Remaster/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 174.0
+offset_top = 937.0
+offset_right = -195.0
+offset_bottom = -66.12
+theme_override_colors/default_color = Color(0.928147, 0.53572, 0, 1)
+theme_override_constants/line_separation = -4
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 33
+text = "The Game Master is quite silly and sometimes refuses an action or a movement, even though he should. Don't hesitate to insist if you think you are doing the right thing"
+
+[node name="F1" type="Sprite2D" parent="Remaster/MarginContainer/Panel"]
+position = Vector2(1216.29, 491.156)
+scale = Vector2(0.270554, 0.270554)
+texture = ExtResource("7_jea1l")
+
+[node name="F1RichTextLabel" type="RichTextLabel" parent="Remaster/MarginContainer/Panel"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 1205.0
+offset_top = 479.0
+offset_right = -649.999
+offset_bottom = -520.12
+theme_override_colors/default_color = Color(0.255659, 0.255659, 0.255659, 1)
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 33
+text = "F1"
+
+[node name="1" type="Sprite2D" parent="Remaster/MarginContainer/Panel"]
+position = Vector2(382.292, 495.156)
+scale = Vector2(0.270554, 0.270554)
+texture = ExtResource("7_jea1l")
+
+[node name="1RichTextLabel" type="RichTextLabel" parent="Remaster/MarginContainer/Panel"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 373.0
+offset_top = 462.0
+offset_right = -1479.0
+offset_bottom = -531.12
+theme_override_colors/default_color = Color(0.255659, 0.255659, 0.255659, 1)
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 70
+text = "1"
+
+[node name="Cog" type="Sprite2D" parent="Remaster/MarginContainer/Panel"]
+position = Vector2(571, 629)
+scale = Vector2(0.0735294, 0.0735294)
+texture = ExtResource("10_va0vb")
+
+[node name="Warning" type="Sprite2D" parent="Remaster/MarginContainer/Panel"]
+position = Vector2(127, 960)
+scale = Vector2(0.0654384, 0.0654384)
+texture = ExtResource("9_vrqdd")
+
+[node name="Warning2" type="Sprite2D" parent="Remaster/MarginContainer/Panel"]
+position = Vector2(1740, 959)
+scale = Vector2(0.0654384, 0.0654384)
+texture = ExtResource("9_vrqdd")
+
+[node name="1" type="RichTextLabel" parent="Remaster"]
+offset_left = 497.0
+offset_top = 1019.0
+offset_right = 559.0
+offset_bottom = 1090.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 70
+text = "1"
+fit_content = true
+
+[node name="play" type="RichTextLabel" parent="Remaster"]
+offset_left = 524.0
+offset_top = 1017.0
+offset_right = 783.0
+offset_bottom = 1107.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(0.666667, 0, 0.666667, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 70
+text = "- play"
+fit_content = true
+
+[node name="2" type="RichTextLabel" parent="Remaster"]
+offset_left = 1172.0
+offset_top = 1023.0
+offset_right = 1254.0
+offset_bottom = 1094.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 70
+text = "2"
+fit_content = true
+
+[node name="instructions" type="RichTextLabel" parent="Remaster"]
+offset_left = 1207.0
+offset_top = 1019.0
+offset_right = 1766.0
+offset_bottom = 1090.0
+scale = Vector2(1, 0.837566)
+theme_override_colors/default_color = Color(0.666667, 0, 0.666667, 1)
+theme_override_colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("4_tunr2")
+theme_override_font_sizes/normal_font_size = 70
+text = "- instructions"
+fit_content = true
+
+[node name="Original" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(956, 539)
 scale = Vector2(2.475, 2.698)
 texture = ExtResource("4_wa7bf")
+
+[node name="MarginContainer" type="MarginContainer" parent="Original"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Panel" type="Panel" parent="Original/MarginContainer"]
+layout_mode = 2
+
+[node name="RememberRichTextLabel" type="RichTextLabel" parent="Original/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 195.0
+offset_top = 10.0
+offset_right = -186.0
+offset_bottom = -675.12
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 22
+text = "Hi, I’m Charles-Philippe, and last year I began remastering SRAM, a 1987 French text-based adventure game that shaped my youth. Created by Serge and Ludovic Hauduc with Jacques Hemonic and published by ERE Informatique, it was groundbreaking, featuring a text parser that let players explore a medieval-fantastic world, interact with NPCs, and receive witty, game-master-like responses—a magical precursor to today’s AI.
+
+In my remaster, the text parser is replaced with a local LLM with Ollama using Llama 3.1, enabling richer, dynamic interactions and reasoning for next actions. The original 4-color graphics are now 1080p animated visuals, created with DALL·E 3 and RunwayML, with added cutscenes, ambient sounds, and music.
+
+This project is my tribute to the original creators, and I hope you’ll enjoy rediscovering this classic as much as I did bringing it back to life!"
+
+[node name="IssueRichTextLabel" type="RichTextLabel" parent="Original/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 205.0
+offset_top = 392.0
+offset_right = -186.0
+offset_bottom = -605.12
+theme_override_colors/default_color = Color(0.180118, 0.664962, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 21
+text = "** If you run into an issue, don't hesitate to DM me on X @charlyouki **"
+
+[node name="HowToPlayRichTextLabel" type="RichTextLabel" parent="Original/MarginContainer/Panel"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 740.0
+offset_top = 419.0
+offset_right = -601.0
+offset_bottom = -503.12
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 36
+text = "How to play"
+
+[node name="TheRemasterRichTextLabel" type="RichTextLabel" parent="Original/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 195.0
+offset_top = 460.0
+offset_right = -185.0
+offset_bottom = -118.12
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 22
+text = "Start the game by pressing \"1\". You can toggle between the remastered or original version pressing \"F1\".
+
+First, check the LLM active indicator, if it's on you see     and it's ready to go, but if it's not there then Ollama is not running and you won't be able to play.
+
+At any time, click on the bottom right cog    and you'll be able to change few options and quit the game.
+
+Use the text input at the bottom of the screen and start interacting with the Game Master, the scene and the NPCs by typing what you want to do (e.g., \"talk to the wizard,\" \"pick up the sword,\") and navigate between scenes using NORTH / EAST / SOUTH / WEST.
+
+Listen to the game master: The game responds with a humorous, guiding tone to help you on your journey.
+Your progress is automatically saved, so you can pick up where you left off anytime.
+
+Have fun and let your imagination take the lead! :)"
+
+[node name="WarningRichTextLabel" type="RichTextLabel" parent="Original/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.989
+offset_left = 199.0
+offset_top = 944.0
+offset_right = -169.0
+offset_bottom = -53.12
+theme_override_colors/default_color = Color(0.180118, 0.664962, 1, 1)
+theme_override_fonts/normal_font = ExtResource("7_dit31")
+theme_override_font_sizes/normal_font_size = 22
+text = "The Game Master is quite silly and sometimes refuses an action or a movement, even though he should. Don't hesitate to insist if you think you are doing the right thing"
+
+[node name="Cog" type="Sprite2D" parent="Original/MarginContainer/Panel"]
+position = Vector2(1162.75, 623.75)
+scale = Vector2(0.728916, 0.728916)
+texture = ExtResource("12_b10pk")
+
+[node name="LlmOn" type="Sprite2D" parent="Original/MarginContainer/Panel"]
+position = Vector2(1494, 518)
+scale = Vector2(4.7, 4.7)
+texture = ExtResource("13_8401t")
 
 [node name="1" type="RichTextLabel" parent="Original"]
 offset_left = 491.0

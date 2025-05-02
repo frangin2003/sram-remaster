@@ -6,7 +6,7 @@ func _get_scene_config() -> Dictionary:
   {"_speaker":"001", "_text":"You are now on snake island.", "_action":"BRIDGE"}"""
 
 	if Global.has_item("flasksec"):
-		actions = """- If the hero refills the flask:
+		actions += """- If the hero refills the flask:
 	{"_speaker":"001", "_text":"You have now a flask full of fresh water.", "_action":"REFILL"}"""
 
 	return {

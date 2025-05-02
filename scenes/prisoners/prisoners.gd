@@ -16,7 +16,7 @@ func _get_scene_config() -> Dictionary:
 
 func execute_action(action):
 	match action:
-		"FORCE":
+		"FORCE", "LIFE", "HEAL":
 			Global.set_scene("king")
 		_:
 			print("Action not recognized in this scene")

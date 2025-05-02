@@ -8,7 +8,7 @@ var can_skip = false
 
 func _process(_delta):
 	var current_time = Time.get_ticks_msec() / 1000.0
-	if not can_skip and (current_time - start_time >= 20.0):
+	if not can_skip and (current_time - start_time >= 10.0):
 		set_text("** PRESS ANY KEY TO GO BACK TO THE TITLE SCREEN. **")
 		can_skip = true
 	
@@ -21,7 +21,11 @@ func _process(_delta):
 
 func _input(event):
 	if can_skip and event is InputEventKey and event.pressed:
-		Global.set_scene("title_screen")
+		Global.SCENE = "menhir"
+		Global.PREVIOUS_SCENE = "menhir"
+		ConfigManager.reset_config()
+		Global.load_user_state()
+		Global.load_scene("title_screen")
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self

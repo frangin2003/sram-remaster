@@ -19,7 +19,7 @@ func _get_scene_config() -> Dictionary:
 
 func execute_action(action):
 	match action:
-		"LIANA":
+		"LIANA", "GRABBEDLIANA", "USELIANA":
 			if Global.MODE == "Remaster":
 				await self.start_show_then_hide_video(get_node("/root/quicksands/Remaster/Control/VideoStreamPlayerLiane"))
 
