@@ -55,7 +55,7 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("6_c45xd")
 theme_override_font_sizes/normal_font_size = 31
 theme_override_font_sizes/bold_font_size = 2
-text = "R.   WOLF"
+text = "K9"
 fit_content = true
 
 [node name="Herrmit" type="RichTextLabel" parent="Remaster"]
@@ -93,7 +93,7 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("9_fa2r1")
 theme_override_font_sizes/normal_font_size = 44
 theme_override_font_sizes/bold_font_size = 2
-text = "R. WOLF"
+text = "K9"
 fit_content = true
 
 [node name="Herrmit" type="RichTextLabel" parent="Original"]

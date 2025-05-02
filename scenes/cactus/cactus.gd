@@ -1,6 +1,8 @@
 extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE AT THE EDGE OF THE DESERT, VULTURE COUNTRY"
+
 	return {
 		"compass": {
 			"NORTH": "signpost",

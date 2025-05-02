@@ -2,6 +2,8 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE BEFORE THE HERMIT"
+
 	var description = """The scene shows the Ermit, a large, jovial man with a bushy white beard and a warm smile, standing confidently in front of his rustic wooden house. 
  His simple clothing, complete with suspenders, adds to his humble and approachable demeanor. 
  The house behind him is weathered but sturdy, with planks leaning against it and a bucket nearby, giving the impression of a peaceful, self-sufficient life in the countryside. 

@@ -2,6 +2,8 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE INSIDE"
+
 	var description = ""
 	var actions = """- If the hero exits the room: 
   {"_speaker":"002", "_text":"Back to the hermit", "_action":"EXIT"}"""
