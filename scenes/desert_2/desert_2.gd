@@ -5,6 +5,9 @@ var actions_before_dying = 8
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = """YOU ARE DEEP IN THE DESERT,
+PARCHED"""
+
 	Global.BLOCK_MOVEMENTS = true
 	var actions = ""
 	if hero_has_drunk_water:

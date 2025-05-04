@@ -2,6 +2,8 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE IN THE DOMAIN OF THE WEREWOLF"
+
 	var scene_suffix = "_dead" if Global.has_state("werewolf dead") else ""
 	self.start_loop_and_show_video(get_node("/root/werewolf/Remaster/Control/VideoStreamPlayerWerewolf%s" % scene_suffix))
 	get_node("/root/werewolf/Original/Background").texture = load("res://scenes/werewolf/werewolf%s.png" % scene_suffix)

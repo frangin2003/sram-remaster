@@ -2,6 +2,8 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE BEFORE A BRIDGE"
+
 	var actions = """- If the hero crosses the bridge:
   {"_speaker":"001", "_text":"You are now on snake island.", "_action":"BRIDGE"}"""
 

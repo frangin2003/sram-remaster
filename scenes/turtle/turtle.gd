@@ -4,6 +4,8 @@ var eggs_unearthed = false
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE ON TURTLE ISLAND"
+
 	var description = """The hero finds himself on Turtle Island, a serene paradise where golden sands stretch under a radiant blue sky.
  The gentle waves lap softly against the shore, their rhythmic melody harmonizing with the distant calls of seabirds.
  A majestic sea turtle rests nearby, its patterned shell gleaming under the warm sunlight, as if standing guard over the island's secrets.

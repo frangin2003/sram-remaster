@@ -2,6 +2,8 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE AT THE DRUID'S CROSSING"
+
 	Global.show_hide_item("Cane")
 	var description = """The hero steps into the heart of an ancient forest, a sacred place where druids once gathered.
  The air is thick with the scent of moss and earth, and beams of light filter through the dense canopy above, casting an ethereal glow. 

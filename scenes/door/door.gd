@@ -2,6 +2,8 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = """YOU ARE BEFORE
+A WELL-GUARDED DOOR"""
 
 	var description = """The hero stands before the imposing door of the secret prison where King Egres IV is held captive.
  The massive wooden door, reinforced with iron bands, looms beneath a grand stone archway, 

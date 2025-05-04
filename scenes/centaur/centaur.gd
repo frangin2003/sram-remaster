@@ -3,10 +3,15 @@ extends "res://scenes/BaseScene.gd"
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
 	if Global.has_state("centaur"):
+		get_node("Original/gui_original/SceneDescription").text = "YOU ARE NEAR THE CENTAUR"
+		
 		self.stop_and_hide_video(get_node("/root/centaur/Remaster/Control/VideoStreamPlayer"))
 		self.start_loop_and_show_video(get_node("/root/centaur/Remaster/Control/VideoStreamPlayerCentaur"))
 		get_node("/root/centaur/Original/Background").texture = load("res://scenes/centaur/centaure.png")
 	else:
+		get_node("Original/gui_original/SceneDescription").text = """YOU ARE IN A FOREST.
+THERE ARE TRACKS"""
+
 		self.stop_and_hide_video(get_node("/root/centaur/Remaster/Control/VideoStreamPlayerCentaur"))
 		self.start_loop_and_show_video(get_node("/root/centaur/Remaster/Control/VideoStreamPlayer"))
 		get_node("/root/centaur/Original/Background").texture = load("res://scenes/centaur/centaure_pasla.png")

@@ -2,6 +2,8 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE IN KING EGRES'CELL"
+
 	return {
 		"description": """The hero finds himself in a dimly lit, grimy cell where King Egres IV and his two sons sit slumped on a cold, 
  straw-covered floor. The stone walls are cracked and damp, etched with the signs of long-forgotten sorrow. 

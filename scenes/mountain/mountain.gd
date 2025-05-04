@@ -2,6 +2,7 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE ON A PLAIN"
 
 	var description = """The hero stands in a wide valley, perched atop a grassy hill.
 In the distance, a towering mountain looms under a clear sky. Nearby, a large rock sits firmly atop the hill"""

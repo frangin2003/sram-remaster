@@ -20,6 +20,9 @@ func _process(_delta):
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = """YOU ARE ON THE ISLE OF
+SNAKES"""
+
 	var description = """The scene unfolds with an eerie, otherworldly aura as you stand on the edge of the murky swamps, 
  gazing at a sinister island in the distance. 
  The island is shrouded in thick mist, and the only sounds are the unsettling hisses and the faint rustling of scales against foliage. 

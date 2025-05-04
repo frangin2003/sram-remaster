@@ -2,6 +2,9 @@ extends "res://scenes/BaseScene.gd"
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = """YOU ARE BEFORE THE RIVER AND
+THE LEPRECHAUN"""
+
 	var actions = """- If the hero attempts to kill the leprechaun:
   {"_speaker":"001", "_text":"By killing him, you killed yourself, genius. He was key for your adventure to continue.", "_action":"DEATH"}"""
 	if Global.has_item("Potion"):

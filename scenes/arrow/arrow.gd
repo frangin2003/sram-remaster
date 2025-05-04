@@ -8,6 +8,8 @@ func init_scene():
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE ON THE ISLAND"
+
 	var description = """The hero finds themselves on a small, serene island in the middle of a glistening lake.
 The soft glow of the golden sunlight filters through the lush canopy of vines and trees,
 casting dancing reflections on the water. The air is still, save for the occasional ripple across the lake, 

@@ -29,6 +29,8 @@ func _input(event):
 
 func _get_scene_config() -> Dictionary:
 	ActionHandler.CURRENT_HANDLER = self
+	get_node("Original/gui_original/SceneDescription").text = "YOU ARE IN THE THRONE ROOM"
+
 	get_node("/root/king/Remaster/gui_original/HeroTextEdit")
 	intro_video = get_node("/root/king/Remaster/Control/VideoStreamPlayerKing")
 	start_time = Time.get_ticks_msec() / 1000.0

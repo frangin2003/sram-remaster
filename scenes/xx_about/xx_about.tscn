@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bflxqrjtbsynx"]
+[gd_scene load_steps=17 format=3 uid="uid://bflxqrjtbsynx"]
 
 [ext_resource type="Script" path="res://scenes/xx_about/xx_about.gd" id="1_ke2k2"]
 [ext_resource type="VideoStream" path="res://scenes/xx_about/the_team.ogv" id="2_20ess"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://4q87slg2yxdu" path="res://scenes/gui_original/PressStart2P.ttf" id="7_dit31"]
 [ext_resource type="Texture2D" uid="uid://d3lr0aqu6disu" path="res://scenes/xx_settings/unchecked.png" id="7_jea1l"]
 [ext_resource type="Texture2D" uid="uid://b76nq0hei7hus" path="res://scenes/xx_about/warning.png" id="9_vrqdd"]
+[ext_resource type="Texture2D" uid="uid://dwytxvusmevby" path="res://scenes/xx_about/llm_off.png" id="10_npftu"]
 [ext_resource type="Texture2D" uid="uid://qdegnrnm264w" path="res://scenes/gui_remaster/cog.png" id="10_va0vb"]
 [ext_resource type="Texture2D" uid="uid://ctu26i6j8aqsb" path="res://scenes/gui_original/cog.png" id="12_b10pk"]
 [ext_resource type="Texture2D" uid="uid://bvskkuskcb0lj" path="res://scenes/gui_original/llm_on.png" id="13_8401t"]
@@ -24,7 +25,6 @@ script = SubResource("GDScript_5hww1")
 script = ExtResource("1_ke2k2")
 
 [node name="Remaster" type="Node2D" parent="."]
-visible = false
 
 [node name="Control" type="Control" parent="Remaster"]
 clip_contents = true
@@ -163,7 +163,7 @@ text = "
 
 Start the game by pressing        You can toggle between the remastered or original version pressing
 
-First, check the LLM active indicator, if it's          it's ready to go, but if it's           then Ollama is not running and you won't be able to play.
+First, check the LLM active indicator, if it's BLUE it's ready to go, but if it's           then Ollama is not running and you won't be able to play.
 
 At any time, click on the bottom right cog          and you'll be able to change few options and quit the game.
 
@@ -244,6 +244,11 @@ position = Vector2(1740, 959)
 scale = Vector2(0.0654384, 0.0654384)
 texture = ExtResource("9_vrqdd")
 
+[node name="LlmOff" type="Sprite2D" parent="Remaster/MarginContainer/Panel"]
+position = Vector2(986, 558)
+scale = Vector2(0.62037, 0.62037)
+texture = ExtResource("10_npftu")
+
 [node name="1" type="RichTextLabel" parent="Remaster"]
 offset_left = 497.0
 offset_top = 1019.0
@@ -301,6 +306,7 @@ text = "- instructions"
 fit_content = true
 
 [node name="Original" type="Node2D" parent="."]
+visible = false
 
 [node name="Background" type="Sprite2D" parent="Original"]
 position = Vector2(956, 539)

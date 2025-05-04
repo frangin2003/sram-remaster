@@ -9,6 +9,9 @@ func init_scene():
 
 
 func _get_scene_config() -> Dictionary:
+	get_node("Original/gui_original/SceneDescription").text = """YOU ARE BESIDE A POND.
+THERE ARE WATER-LILIES"""
+
 	var description = """The hero stands near the Pond of Frogs,
  a tranquil sanctuary surrounded by lush greenery and the calm reflections of nature on its still waters.
  The pond stretches ahead to the south, but pathways lead NORTH, EAST, and WEST through the surrounding greenery.

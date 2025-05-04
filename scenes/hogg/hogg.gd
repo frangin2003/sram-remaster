@@ -68,6 +68,9 @@ func init_scene():
 		Global.show_item("Leaf")
 
 func _get_scene_config() -> Dictionary:
+	get_node("Original/gui_original/SceneDescription").text = """YOU ARE IN THE GREAT
+OAK FOREST"""
+
 	var description = """The hero stands amidst a tranquil forest, where sunlight streams through the tall, ancient trees, 
  casting golden patterns on the moss-covered ground. 
  The air is thick with serenity, broken only by the rustle of leaves and distant bird calls. 
