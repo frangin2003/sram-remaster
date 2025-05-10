@@ -51,7 +51,7 @@ func execute_action(action):
 	match action:
 		"ENTER":
 			Global.set_scene("prisoners")
-		"OPEN":
+		"OPEN", "OPENED", "DOOR_OPEN", "DOOR_OPENED":
 			if Global.MODE == "Remaster":
 				await self.start_show_then_hide_video(get_node("/root/door/Remaster/Control/VideoStreamPlayerOpenDoor"))
 			Global.update_scene_state("door opened")

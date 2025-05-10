@@ -38,22 +38,6 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="VideoStreamPlayerFeedBoar" type="VideoStreamPlayer" parent="Remaster/Control"]
-layout_mode = 0
-offset_left = -128.0
-offset_right = 1512.0
-offset_bottom = 816.0
-stream = ExtResource("3_8xjuu")
-expand = true
-
-[node name="VideoStreamPlayerBoarAttack" type="VideoStreamPlayer" parent="Remaster/Control"]
-layout_mode = 0
-offset_left = -256.0
-offset_right = 1384.0
-offset_bottom = 816.0
-stream = ExtResource("4_12r8e")
-expand = true
-
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
@@ -80,6 +64,30 @@ position = Vector2(386, 22)
 rotation = -0.810865
 scale = Vector2(0.0664336, 0.0664336)
 texture = ExtResource("12_tif0x")
+
+[node name="Control2" type="Control" parent="Remaster"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 1744.0
+offset_bottom = 824.0
+
+[node name="VideoStreamPlayerFeedBoar" type="VideoStreamPlayer" parent="Remaster/Control2"]
+layout_mode = 0
+offset_left = -128.0
+offset_right = 1512.0
+offset_bottom = 816.0
+stream = ExtResource("3_8xjuu")
+expand = true
+
+[node name="VideoStreamPlayerBoarAttack" type="VideoStreamPlayer" parent="Remaster/Control2"]
+layout_mode = 0
+offset_left = -256.0
+offset_right = 1384.0
+offset_bottom = 816.0
+stream = ExtResource("4_12r8e")
+expand = true
 
 [node name="Original" type="Node2D" parent="."]
 visible = false

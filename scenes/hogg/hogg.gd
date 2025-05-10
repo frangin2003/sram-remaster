@@ -115,13 +115,13 @@ func execute_action(action):
 		"FUR":
 			if Global.MODE == "Remaster":
 				get_node("/root/hogg/Remaster/Acorn").visible = false
-				await self.start_show_then_hide_video(get_node("/root/hogg/Remaster/Control/VideoStreamPlayerFeedBoar"))
+				await self.start_show_then_hide_video(get_node("/root/hogg/Remaster/Control2/VideoStreamPlayerFeedBoar"))
 				get_node("/root/hogg/Remaster/Acorn").visible = true
 			Global.add_to_inventory("Fur")
 			load_scene_config()
 		"ATTACK":
 			if Global.MODE == "Remaster":
-				await self.start_show_then_hide_video(get_node("/root/hogg/Remaster/Control/VideoStreamPlayerBoarAttack"))
+				await self.start_show_then_hide_video(get_node("/root/hogg/Remaster/Control2/VideoStreamPlayerBoarAttack"))
 			Global.set_scene("xx_death")
 		_:
 			print("Action not recognized in this scene")

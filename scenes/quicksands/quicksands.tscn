@@ -32,14 +32,6 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="VideoStreamPlayerLiane" type="VideoStreamPlayer" parent="Remaster/Control"]
-layout_mode = 0
-offset_left = -64.0
-offset_right = 1576.0
-offset_bottom = 816.0
-stream = ExtResource("3_rkhd6")
-expand = true
-
 [node name="gui_remaster" parent="Remaster" instance=ExtResource("4_xhtv6")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
@@ -50,6 +42,22 @@ autoplay = true
 position = Vector2(911, 57)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_a5msg")
+
+[node name="Control2" type="Control" parent="Remaster"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 1744.0
+offset_bottom = 824.0
+
+[node name="VideoStreamPlayerLiane" type="VideoStreamPlayer" parent="Remaster/Control2"]
+layout_mode = 0
+offset_left = -64.0
+offset_right = 1576.0
+offset_bottom = 816.0
+stream = ExtResource("3_rkhd6")
+expand = true
 
 [node name="Original" type="Node2D" parent="."]
 visible = false

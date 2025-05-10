@@ -35,6 +35,7 @@ loop = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Remaster"]
 stream = ExtResource("4_28bk1")
+volume_db = -10.0
 autoplay = true
 
 [node name="Original" type="Node2D" parent="."]

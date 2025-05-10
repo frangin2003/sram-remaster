@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/cavern/cavern.gd" id="1_vgb7p"]
 [ext_resource type="Texture2D" uid="uid://cdhcyywpthckc" path="res://scenes/cavern/cavern.webp" id="2_21jhl"]
 [ext_resource type="AudioStream" uid="uid://dd26150a48a17" path="res://scenes/cavern/cave-wind-10-76283.mp3" id="3_wr3q8"]
-[ext_resource type="VideoStream" uid="uid://b5x4oi1pq7o4g" path="res://scenes/cavern/burry.ogv" id="3_xe6jw"]
+[ext_resource type="VideoStream" path="res://scenes/cavern/burry.ogv" id="3_xe6jw"]
 [ext_resource type="PackedScene" uid="uid://cdoq6xtniibw8" path="res://scenes/gui_remaster/gui_remaster.tscn" id="4_eldt8"]
 [ext_resource type="Texture2D" uid="uid://c220dfh0ncdmo" path="res://scenes/cavern/shovel.webp" id="5_2ee62"]
 [ext_resource type="Texture2D" uid="uid://dw3yu3iig4cj1" path="res://scenes/cavern/flask.webp" id="6_vx34v"]
