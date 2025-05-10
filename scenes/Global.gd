@@ -93,7 +93,7 @@ func load_user_state():
 	if PREVIOUS_SCENE == null:
 		PREVIOUS_SCENE = ConfigManager.load_config("Game", "PREVIOUS_SCENE", null)
 	if SCENE == null:
-		SCENE = ConfigManager.load_config("Game", "SCENE", "xx_about")
+		SCENE = ConfigManager.load_config("Game", "SCENE", "menhir")
 	if MODE == null:
 		MODE = ConfigManager.load_config("Game", "MODE", "Remaster")
 	var saved_inventory = ConfigManager.load_config("Game", "INVENTORY", {})
