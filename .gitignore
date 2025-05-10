@@ -4,3 +4,4 @@ trash/
 *.tmp
 # Godot export presets
 export_presets.cfg
+.vscode/settings.json
